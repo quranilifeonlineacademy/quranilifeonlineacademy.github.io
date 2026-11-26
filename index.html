@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qurani Life Online Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Hind+Siliguri:wght@400;500;600;700&family=Lora:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a calm, trusted madrasa that is also modern and international
+   IDEA: an illuminated Mushaf page: deep green field, gold rules, eight-point stars
+   PICTURE: arch-framed child with the Qur'an in the hero; live world clocks for families abroad
+   COLOUR and TYPE: logo green and gold on warm white; Lora / Noto Serif Bengali headings, Manrope / Hind Siliguri body
+   LAYOUT: ticker, hero, overlapping benefit cards, carousel, course grid, class-time clocks, forms, footer */
+:root{color-scheme:light dark;
+--bg:light-dark(#FAFAF5,#0A1712);--alt:light-dark(#EEF5EF,#0F201A);--paper:light-dark(#FFFFFF,#13261E);--ink:light-dark(#13241C,#ECF2EE);--muted:light-dark(#56675E,#A6B8AE);
+--green:light-dark(#008A44,#3CCB7F);--deep:#00703A;--deep2:#00552C;--gold:#E0B415;--goldD:light-dark(#8A6D05,#F0CB45);--goldS:light-dark(#FBF2D0,#2A2610);--mint:light-dark(#E4F4EA,#163828);
+--line:light-dark(rgba(11,59,42,.12),rgba(255,255,255,.1));--sh:0 20px 44px -26px rgba(11,59,42,.45),0 3px 10px rgba(11,59,42,.06);--r:18px;
+--body:"Manrope","Hind Siliguri",system-ui,sans-serif;--head:"Lora","Noto Serif Bengali",serif}
+:root:lang(bn){--body:"Hind Siliguri","Manrope",system-ui,sans-serif;--head:"Noto Serif Bengali","Lora",serif}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+html[data-ql=dark]{color-scheme:dark!important}html[data-ql=light]{color-scheme:light!important}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 var(--body);overflow-x:clip;letter-spacing:0}
+h1,h2,h3{font-family:var(--head);line-height:1.22;margin:0;text-wrap:balance;letter-spacing:0}
+h2{font-size:clamp(28px,3.4vw,40px);color:light-dark(var(--deep),#fff);font-weight:700}
+h3{font-size:19px;font-weight:700}
+p{margin:0}a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto}
+.band{padding:clamp(52px,6vw,88px) max(5vw,16px)}
+.alt{background:var(--alt)}
+.sh{text-align:center;margin-bottom:34px}
+.sh .rule{display:flex;justify-content:center;align-items:center;gap:8px;color:var(--gold);margin:12px 0}
+.sh .rule::before,.sh .rule::after{content:"";width:30px;height:2px;background:currentColor;border-radius:2px}
+.sh .rule svg{width:14px;height:14px;fill:currentColor;stroke:none}
+.sh p{color:var(--muted);max-width:62ch;margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:999px;border:0;font:700 15.5px var(--body);cursor:pointer;text-decoration:none;transition:transform .2s;text-align:center}
+.btn:hover{transform:translateY(-2px)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.b-gold{background:var(--gold);color:#1d1600}
+.b-deep{background:var(--deep);color:#fff}
+.b-line{border:1.5px solid currentColor;background:transparent;color:inherit}
+.b-sm{min-height:38px;padding:0 16px;font-size:14px}
+svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--mint);color:var(--green);border:1px solid var(--line)}
+.ic svg{width:22px;height:22px}
+
+/* header */
+header.top{position:sticky;top:0;z-index:40}
+.bar{background:var(--deep);color:#E7F0EA}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding:8px max(4vw,14px)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 15px Manrope,sans-serif;letter-spacing:.3px}
+.brand img{height:54px;width:62px;object-fit:contain;background:#FFFDF6;border-radius:12px;padding:3px 4px;box-shadow:0 4px 12px -4px rgba(0,0,0,.35)}
+footer .brand img{height:72px;width:82px}
+.nav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
+.nav a{text-decoration:none;padding:7px 9px;border-radius:8px;font-size:14px;font-weight:600}
+.nav a:hover{background:rgba(255,255,255,.1)}
+.tool{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer;font:800 12px Manrope;flex:none}
+.tool svg{width:18px;height:18px}
+.menu{display:none}
+@media(max-width:1100px){.nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--deep);flex-direction:column;padding:8px 16px 14px}.nav.open{display:flex}.menu{display:grid}.bar .b-gold{display:none}.lang{margin-left:auto}}
+.ticker{background:var(--gold);color:#2a2000;overflow:hidden;white-space:nowrap;font-weight:700;font-size:14px}
+.ticker .track{display:inline-flex;gap:40px;padding:6px 0;animation:tick 40s linear infinite}
+.ticker span{display:inline-flex;align-items:center;gap:40px}
+.ticker span::after{content:"✦";opacity:.6}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* hero */
+.hero{background:radial-gradient(800px 420px at 85% 15%,rgba(224,180,21,.16),transparent 60%),linear-gradient(160deg,var(--deep2),var(--deep) 50%,#008A44);color:#F2F7F3;position:relative;overflow:hidden;padding-bottom:clamp(110px,10vw,150px)}
+.hero::before{content:"";position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1'%3E%3Cpath d='M48 8l11 29 29 11-29 11-11 29-11-29L8 48l29-11z'/%3E%3Crect x='30' y='30' width='36' height='36' transform='rotate(45 48 48)'/%3E%3Crect x='30' y='30' width='36' height='36'/%3E%3C/g%3E%3C/svg%3E");background-size:96px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,56px);align-items:center;position:relative}
+.kick{font:700 18px "Noto Serif Bengali",serif;color:var(--gold)}
+.hero h1{font:700 clamp(36px,5vw,60px)/1.08 Lora,serif;margin-top:8px;letter-spacing:.5px}
+.hero .tag{font:600 clamp(20px,2.2vw,26px)/1.4 var(--head);margin-top:14px}
+.hero .desc{color:#C7DCCD;margin-top:10px;max-width:56ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{font:600 14px var(--body);color:inherit;cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s,background .25s;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border-radius:12px;border:1px solid rgba(224,180,21,.45);background:rgba(255,255,255,.05);font-size:14px;font-weight:600}
+.chip i{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:rgba(255,255,255,.92);color:var(--deep);font-style:normal}
+.chip i svg{width:16px;height:16px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.trial{margin-top:14px;font-size:14px;color:#BFD5C6}
+.trial a{color:var(--gold);font-weight:700}
+.arch{position:relative;aspect-ratio:4/4.7;max-width:430px;width:100%;justify-self:center}
+.arch .fr{position:absolute;inset:0;border-radius:50% 50% 22px 22px/36% 36% 22px 22px;overflow:hidden;border:6px solid var(--gold);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.arch .moon{position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:54px}
+.lan{position:absolute;top:0;transform-origin:50% 0;animation:sw 4.5s ease-in-out infinite;z-index:1}
+@keyframes sw{0%,100%{transform:rotate(3deg)}50%{transform:rotate(-3deg)}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.arch{max-width:330px}.lan{display:none}}
+.benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px;margin-top:clamp(-96px,-8vw,-70px);position:relative;z-index:2}
+.bcard{background:var(--paper);border-radius:14px;padding:14px 16px;box-shadow:var(--sh);border:1px solid var(--line);border-top:3px solid var(--gold);display:flex;gap:10px;align-items:flex-start;font-weight:700;font-size:15px}
+.bcard{align-items:center}
+.bic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:light-dark(#E3F4EA,rgba(0,138,68,.22));color:light-dark(var(--green),#7CE0A8);transition:transform .35s cubic-bezier(.3,1.6,.5,1),background .3s}
+.bic svg{width:20px;height:20px}
+.bcard{position:relative}
+.bcard::after{content:"";position:absolute;inset:-5px;border-radius:18px;padding:2.5px;background:linear-gradient(180deg,#F2C832 0 var(--split,0px),light-dark(#00703A,#F2C832) var(--split,0px) 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .25s;pointer-events:none}
+@media(hover:hover){.bcard:hover::after{opacity:1}}
+.benefits .bcard:hover{outline-color:transparent!important;box-shadow:0 26px 40px -22px rgba(0,60,30,.55),0 10px 0 -4px rgba(0,112,58,.10)!important}
+.bcard:hover .bic{transform:rotate(-8deg) scale(1.12);background:var(--gold);color:#1b1400}
+
+/* carousel */
+.car{position:relative;max-width:900px;margin:0 auto}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:22px;border:1.5px solid var(--gold);background:var(--paper);box-shadow:var(--sh)}
+.slides::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);height:clamp(300px,34vw,400px)}
+.slide img{min-height:0}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide div{padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;justify-content:center;gap:10px}
+.slide .num{font:800 14px Manrope;color:var(--goldD)}
+.slide h3{font-size:clamp(22px,2.4vw,28px);color:light-dark(var(--deep),#fff)}
+.slide p{color:var(--muted)}
+@media(max-width:700px){.slide{grid-template-columns:1fr;height:auto}.slide img{aspect-ratio:16/9;height:auto}}
+.carbtn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:var(--deep);color:#fff;display:grid;place-items:center;cursor:pointer;z-index:2}
+.carbtn.p{left:-14px}.carbtn.n{right:-14px}
+@media(max-width:700px){.carbtn{top:30%}.carbtn.p{left:6px}.carbtn.n{right:6px}}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:14px}
+.dots button{width:10px;height:10px;border-radius:999px;border:0;background:var(--line);cursor:pointer;padding:0;transition:width .3s}
+.dots button[aria-current=true]{width:26px;background:var(--gold)}
+
+/* courses */
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:18px}
+.course{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:var(--r);padding:20px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:8px;transition:transform .3s}
+.course:hover{transform:translateY(-5px)}
+.course .ph{height:150px;margin:-20px -20px 6px;border-radius:15px 15px 0 0;overflow:hidden;position:relative}
+.course .ph img{width:100%;height:100%;object-fit:cover}
+.course .st{position:absolute;left:12px;top:12px;width:48px;height:48px;display:grid;place-items:center;background:var(--deep);color:var(--gold);font:800 18px Manrope;clip-path:polygon(50.0% 0.0%,64.5% 14.9%,85.4% 14.6%,85.1% 35.5%,100.0% 50.0%,85.1% 64.5%,85.4% 85.4%,64.5% 85.1%,50.0% 100.0%,35.5% 85.1%,14.6% 85.4%,14.9% 64.5%,0.0% 50.0%,14.9% 35.5%,14.6% 14.6%,35.5% 14.9%)}
+.course h3{color:light-dark(var(--deep),#fff)}
+.course p{color:var(--muted);font-size:15px}
+.course ul{margin:2px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
+.course .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
+.course.week{background:var(--goldS);border-style:dashed;border-color:var(--gold)}
+.more{display:none;font-size:14.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.course.open .more{display:block}
+.note{font-size:14px;color:var(--muted);margin-top:16px;text-align:center}
+
+/* services */
+.svc{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px;font:700 16px var(--head);color:light-dark(var(--deep),#fff);transition:transform .3s,box-shadow .3s}
+.svc:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.svc small{font:500 14px var(--body);color:var(--muted)}
+
+/* who */
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px}
+.who div{display:flex;gap:12px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px;font-weight:700}
+
+/* time */
+.clocks{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:14px;max-width:1000px;margin:0 auto}
+.clk{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center;position:relative}
+.clk.bd{border-color:var(--gold);background:var(--goldS)}
+.clk small{display:block;color:var(--muted);font-size:13px;font-weight:600}
+.clk b{display:block;font:800 30px Manrope,sans-serif;color:light-dark(var(--deep),#fff);margin:4px 0;white-space:nowrap}
+.clk em{font-style:normal;font-size:12.5px;color:var(--muted)}
+.clk .rm{position:absolute;right:6px;top:6px;width:30px;height:30px;border:0;background:none;color:var(--muted);cursor:pointer;border-radius:8px}
+.addc{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.addc select{max-width:280px}
+.slots{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:24px}
+.slot{min-height:42px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:inherit;font:600 14px var(--body);cursor:pointer}
+.slot[aria-pressed=true]{background:var(--deep);color:#fff;border-color:var(--deep)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative;text-align:center;display:grid;justify-items:center;gap:8px;font:700 16px var(--head)}
+.step .n{position:absolute;right:14px;top:8px;font:800 30px Lora,serif;color:var(--gold);opacity:.8}
+.rules{max-width:560px;margin:0 auto 26px;padding:0;list-style:none;counter-reset:r;display:grid;gap:10px}
+.rules li{display:flex;gap:12px;align-items:center;font-weight:600}
+.rules li::before{counter-increment:r;content:counter(r);flex:none;width:30px;height:30px;border-radius:50%;background:var(--deep);color:var(--gold);display:grid;place-items:center;font:800 13px Manrope;border:2px solid var(--gold)}
+
+/* forms */
+.formbox{max-width:780px;margin:0 auto;background:var(--paper);border-radius:22px;box-shadow:var(--sh);border:1px solid var(--line);overflow:hidden}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:var(--mint)}
+.tab{min-height:54px;border:0;background:transparent;font:700 15px var(--body);color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;padding:6px}
+.tab[aria-selected=true]{background:var(--paper);color:var(--green);border-bottom-color:var(--gold)}
+form{padding:clamp(20px,4vw,34px);display:grid;gap:16px}
+form[hidden],.done[hidden]{display:none}
+.intro{color:var(--muted)}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:600px){.row{grid-template-columns:1fr}.tab{font-size:13.5px}}
+label,.lbl{display:block;font-weight:700;font-size:14.5px}
+label>input,label>select,label>textarea{display:block;margin-top:6px}
+.req{color:#C0392B}.hint{display:block;font-weight:400;font-size:12.5px;color:var(--muted)}
+input,select,textarea{font:16px var(--body);min-height:46px;padding:10px 13px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:90px;resize:vertical}
+fieldset{border:0;padding:0;margin:0}
+.radios{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.radios.col{flex-direction:column}
+.radios label{display:flex;align-items:center;gap:10px;font-weight:500;padding:8px 13px;min-height:44px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer}
+.radios input,.agree input{min-height:0;width:19px;height:19px;margin:0;flex:none;accent-color:var(--green)}
+.bdtime{font-size:14.5px;font-weight:700;color:var(--green);background:var(--mint);border-radius:10px;padding:8px 12px}
+.guide{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14.5px}
+.guide.warn{background:var(--goldS);border-color:var(--gold)}
+.guide ul{margin:8px 0 0;padding-left:18px}
+.agree{display:flex;gap:10px;align-items:flex-start}.agree input{margin-top:3px}
+.err{color:#C0392B;font-size:14px;font-weight:600}
+.done{padding:clamp(24px,4vw,40px);text-align:center;display:grid;gap:12px;justify-items:center}
+.done .ok{width:70px;height:70px;border-radius:50%;background:var(--mint);color:var(--green);display:grid;place-items:center}
+.done pre{white-space:pre-wrap;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px;font:14.5px/1.6 var(--body);width:100%;margin:0}
+
+/* dark cta */
+.dcta{max-width:980px;margin:0 auto;background:linear-gradient(150deg,var(--deep2),var(--deep));color:#EAF2EC;border-radius:24px;padding:clamp(28px,4vw,48px);text-align:center;position:relative;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.dcta h2{color:#fff}.dcta p{color:#B9CFC1;max-width:60ch;margin:10px auto 0}
+.dcta .cta{justify-content:center}
+
+/* pay */
+.pay{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:18px}
+.pbox{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--sh)}
+.pbox b.h{display:flex;gap:8px;align-items:center;font-size:16px}
+.brands{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.brands span{font-weight:800;font-size:13px;padding:3px 12px;border-radius:999px;color:#fff}
+.num{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px;font:800 clamp(24px,3vw,32px) Manrope;white-space:nowrap}
+.cp{min-height:36px;padding:0 13px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:inherit;font:700 13px var(--body);cursor:pointer;white-space:nowrap}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14.5px}
+td{padding:8px 0;border-bottom:1px solid var(--line)}
+td:first-child{color:var(--muted);width:38%;padding-right:10px}td:nth-child(2){font-weight:700;overflow-wrap:anywhere}td:last-child{text-align:right;width:1%}
+.shot{margin-top:16px;display:flex;gap:10px;background:var(--goldS);border-radius:14px;padding:12px 16px;font-weight:600}
+@media(max-width:820px){.pay{grid-template-columns:1fr}}
+
+/* about */
+.about p.lead{max-width:820px;margin:0 auto 12px;text-align:center;color:var(--muted)}
+.a3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin-top:24px}
+.a3 div{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px}
+.a3 h3{display:flex;gap:10px;align-items:center;color:light-dark(var(--deep),#fff)}
+.a3 p{color:var(--muted);margin-top:8px;font-size:15px}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:10px;margin-top:28px;padding:0;list-style:none}
+.checks li{display:flex;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px}
+.checks svg{color:var(--green);margin-top:2px}
+
+/* team & reviews */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px}
+.tm{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px;text-align:center;box-shadow:var(--sh)}
+.av{width:96px;height:96px;margin:0 auto 12px;clip-path:polygon(50.0% 0.0%,64.5% 14.9%,85.4% 14.6%,85.1% 35.5%,100.0% 50.0%,85.1% 64.5%,85.4% 85.4%,64.5% 85.1%,50.0% 100.0%,35.5% 85.1%,14.6% 85.4%,14.9% 64.5%,0.0% 50.0%,14.9% 35.5%,14.6% 14.6%,35.5% 14.9%);background:linear-gradient(150deg,var(--deep),var(--green));display:grid;place-items:center;color:var(--gold)}
+.av svg{width:40px;height:40px}
+.tm h3{font-size:18px}.tm p{color:var(--muted);font-size:14px}
+.tm .tg{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--mint);color:var(--green)}
+.empty{max-width:720px;margin:0 auto;text-align:center;background:var(--paper);border:1.5px dashed var(--gold);border-radius:20px;padding:30px}
+.empty svg.q{width:40px;height:40px;color:var(--gold)}
+.empty p{color:var(--muted);margin:10px 0 16px}
+.hadith{background:var(--deep);color:#EAF2EC;text-align:center}
+.hadith .ar{font:700 clamp(26px,3.4vw,42px)/1.6 Amiri,serif;color:var(--gold);direction:rtl}
+.hadith .tr{font-size:clamp(17px,2vw,21px);font-weight:600;max-width:46ch;margin:8px auto 0}
+.hadith small{display:block;color:#9FB8A8;margin-top:6px}
+
+/* faq contact footer */
+.faq{max-width:820px;margin:0 auto;display:grid;gap:10px}
+details{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:2px 18px}
+summary{cursor:pointer;font-weight:700;min-height:52px;display:flex;align-items:center;list-style:none;gap:12px}
+summary::after{content:"+";margin-left:auto;font-size:22px;color:var(--green)}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);padding-bottom:14px}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px;max-width:1000px;margin:0 auto}
+.cc{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:10px;justify-items:start}
+.cc b{font-size:17px}.cc p{color:var(--muted);font-size:14.5px}
+footer{background:var(--deep2);color:#B9CBBF;padding:48px max(5vw,16px) 90px}
+footer .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:28px}
+footer h4{color:#fff;margin:0 0 10px;font:700 16px var(--head)}
+footer a{display:block;text-decoration:none;padding:3px 0;font-size:14.5px}
+footer a:hover{color:var(--gold)}
+.copy{border-top:1px solid rgba(255,255,255,.1);margin-top:28px;padding-top:16px;font-size:13.5px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:800px){footer .wrap{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){footer .wrap{grid-template-columns:1fr}}
+.wa{position:fixed;right:16px;bottom:78px;z-index:45;width:54px;height:54px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 26px -8px rgba(0,0,0,.45)}
+.wa svg{width:28px;height:28px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:44;background:var(--deep);color:#fff;display:flex;gap:10px;align-items:center;justify-content:center;padding:10px 46px 10px 12px;box-shadow:0 -10px 30px -12px rgba(0,0,0,.4)}
+.sticky[hidden]{display:none}
+@media(min-width:821px){.sticky{display:none}.wa{bottom:16px!important}}
+.sticky .x{position:absolute;right:8px;width:34px;height:34px;border:0;background:none;color:#fff;cursor:pointer}
+.modal{position:fixed;inset:0;z-index:60;background:rgba(5,20,14,.55);display:grid;place-items:center;padding:16px}
+.modal[hidden]{display:none}
+.mbox{background:var(--paper);border-radius:20px;padding:24px;max-width:420px;width:100%;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);position:relative;display:grid;gap:12px}
+.mbox .x{position:absolute;right:10px;top:10px;width:36px;height:36px;border:0;background:none;color:var(--muted);cursor:pointer}
+html.js .rv{opacity:0;transform:translateY(30px) scale(.98);transition:opacity .5s ease var(--d,0s),transform .6s cubic-bezier(.2,.75,.2,1) var(--d,0s)}
+html.js .rv .ln{opacity:0;transform:translateY(14px);transition:opacity .4s ease var(--ld,0s),transform .5s cubic-bezier(.2,.75,.2,1) var(--ld,0s)}
+html.js .rv.in .ln{opacity:1;transform:none}
+html.js .rv.fl{transform:translateX(-46px)}
+html.js .rv.fr{transform:translateX(46px)}
+@media(prefers-reduced-motion:reduce){html.js .rv{opacity:1;transform:none;transition:none}}
+html.js .rv.in{opacity:1;transform:none}
+
+.dcta.withimg{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:0;padding:0;text-align:left;align-items:stretch}
+.dcta.withimg .dimg{width:100%;height:100%;min-height:280px;object-fit:cover}
+.dcta.withimg>div{padding:clamp(26px,4vw,46px);display:flex;flex-direction:column;justify-content:center}
+.dcta.withimg p{margin:10px 0 0}.dcta.withimg .cta{justify-content:flex-start}
+@media(max-width:700px){.dcta.withimg{grid-template-columns:1fr}.dcta.withimg .dimg{min-height:0;aspect-ratio:16/10}}
+.aimg{display:block;width:100%;max-width:900px;height:260px;object-fit:cover;border-radius:20px;margin:6px auto 0;box-shadow:var(--sh)}
+
+.cc2{padding-top:18px}
+.chead{display:flex;justify-content:space-between;align-items:center}
+.cn{width:38px;height:38px;display:grid;place-items:center;background:var(--deep);color:var(--gold);font:800 14px Manrope;clip-path:polygon(50.0% 0.0%,64.5% 14.9%,85.4% 14.6%,85.1% 35.5%,100.0% 50.0%,85.1% 64.5%,85.4% 85.4%,64.5% 85.1%,50.0% 100.0%,35.5% 85.1%,14.6% 85.4%,14.9% 64.5%,0.0% 50.0%,14.9% 35.5%,14.6% 14.6%,35.5% 14.9%)}
+.ctag{font-size:12.5px;font-weight:800;color:var(--goldD)}
+.course,.svc,.who>div,.step,.tm,.cc,.clk,.a3>div,.bcard,.soc{cursor:pointer;transition:transform .3s,box-shadow .3s,outline-color .2s;outline:2px solid transparent;outline-offset:3px}
+.sel{outline-color:var(--gold)!important;box-shadow:0 0 0 5px rgba(224,180,21,.22),var(--sh)!important;transform:translateY(-4px)}
+.cbox{max-width:560px;gap:10px}
+.cbox{animation:mzi .22s cubic-bezier(.2,.8,.2,1) both}
+@keyframes mzi{from{opacity:0;transform:translateY(-14px) scale(.97)}to{opacity:1;transform:none}}
+.fu2{opacity:0;animation:fd .28s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes fd{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+.cbox li::marker{color:var(--gold)}
+@media(prefers-reduced-motion:reduce){.cbox,.fu2{animation:none;opacity:1;transform:none}}
+
+.cbox h3{font-size:24px;color:light-dark(var(--deep),#fff);padding-right:40px}
+.cbox .ctag{display:block}
+.cbox .ld{color:var(--muted)}
+.cbox h4{margin:8px 0 0;font:700 15px var(--head);color:light-dark(var(--deep),#fff)}
+.cbox ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 18px;margin:4px 0 0;padding-left:18px;color:var(--ink);font-size:15px}
+@media(max-width:480px){.cbox ul{grid-template-columns:1fr}}
+.cbox .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.ytband{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;max-width:1060px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--sh)}
+.ytband img{width:100%;height:100%;min-height:260px;object-fit:cover}
+.ytband>div{padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;justify-content:center;gap:12px}
+.ytband .pill{align-self:flex-start;display:inline-flex;gap:6px;align-items:center;background:#FDECEC;color:#B3261E;font-weight:800;font-size:13px;padding:4px 12px;border-radius:999px}
+.ytband h2{font-size:clamp(24px,2.8vw,32px)}
+.ytband p{color:var(--muted)}
+.b-yt{background:#D93025;color:#fff}
+@media(max-width:760px){.ytband{grid-template-columns:1fr}.ytband img{min-height:0;aspect-ratio:16/9}}
+.socs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px;max-width:1060px;margin:0 auto}
+.soc{display:flex;gap:12px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px;text-decoration:none}
+.soc .si{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;color:#fff;flex:none}
+.soc .si svg{width:24px;height:24px}
+.soc b{display:block;font-size:15.5px}.soc small{color:var(--muted);font-size:12.5px;white-space:nowrap}
+.fstack{position:fixed;right:22px;bottom:140px;z-index:45;display:grid;gap:10px}
+.fstack a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 10px 20px -8px rgba(0,0,0,.45);transition:transform .2s}
+.fstack a:hover{transform:scale(1.08)}
+.fstack svg{width:20px;height:20px}
+@media(min-width:821px){.fstack{bottom:82px}}
+
+/* hover depth */
+.course,.svc,.who>div,.step,.tm,.soc,.clk,.a3>div,.bcard,.pbox,.checks li,details,.cc,.slot,.post{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,outline-color .25s,border-color .25s;outline:2px solid transparent;outline-offset:3px}
+@media(hover:hover){
+.course:hover,.svc:hover,.who>div:hover,.step:hover,.tm:hover,.soc:hover,.clk:hover,.a3>div:hover,.bcard:hover,.pbox:hover,.checks li:hover,details:hover{transform:translateY(-7px);outline-color:light-dark(#00703A,#E0B415);box-shadow:0 0 0 6px light-dark(rgba(0,112,58,.13),rgba(224,180,21,.16)),0 28px 42px -22px rgba(0,80,40,.55),0 10px 0 -4px light-dark(rgba(0,112,58,.10),rgba(0,0,0,.35))}
+.slot:hover:not([aria-pressed=true]){transform:translateY(-3px);outline-color:light-dark(#00703A,#E0B415);box-shadow:0 0 0 5px light-dark(rgba(0,112,58,.13),rgba(224,180,21,.16)),0 14px 22px -12px rgba(0,80,40,.45)}
+.chip:hover{transform:translateY(-3px);border-color:var(--gold);background:rgba(255,255,255,.14);box-shadow:0 0 0 4px rgba(224,180,21,.18),0 14px 24px -12px rgba(0,0,0,.5)}
+.btn:hover{box-shadow:0 12px 22px -10px rgba(0,0,0,.35)}
+.nav a:hover{background:rgba(255,255,255,.14)}
+}
+.clk.bd{outline-color:light-dark(#00703A,#E0B415)}
+.fstack a,.wa{position:fixed}
+.fstack a{position:relative}
+[data-tip]::before{content:attr(data-tip);position:absolute;right:calc(100% + 12px);top:50%;transform:translate(10px,-50%);background:var(--paper);color:var(--ink);font:700 13.5px var(--body);white-space:nowrap;padding:8px 14px;border-radius:999px;box-shadow:0 12px 26px -10px rgba(0,0,0,.4);border:1px solid var(--line);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+[data-tip]:hover::before,[data-tip]:focus-visible::before{opacity:1;transform:translate(0,-50%)}
+.soc:hover .si{transform:scale(1.08) rotate(-4deg)}.soc .si{transition:transform .3s}
+
+.dir{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);align-items:center;max-width:1100px;margin:0 auto}
+.dphoto{position:relative;max-width:420px;width:100%;justify-self:center}
+.dphoto img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:50% 50% 22px 22px/32% 32% 22px 22px;border:6px solid var(--gold);box-shadow:0 30px 60px -30px rgba(0,60,30,.6);display:block}
+.dbadge{position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);background:var(--deep);color:#fff;font-weight:800;font-size:14px;padding:8px 18px;border-radius:999px;white-space:nowrap;box-shadow:0 10px 20px -10px rgba(0,0,0,.4);border:2px solid var(--gold)}
+.dname{font:700 clamp(24px,2.8vw,32px)/1.25 var(--head);color:light-dark(var(--deep),#fff)}
+.drole{color:var(--goldD);font-weight:800;margin-top:4px}
+.dbio{color:var(--muted);margin-top:12px;max-width:62ch}
+.dgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px}
+.dgrid h4{display:flex;gap:8px;align-items:center;margin:0 0 8px;font:700 16px var(--head);color:light-dark(var(--deep),#fff)}
+.dgrid h4 svg{color:var(--green)}
+.tl{list-style:none;margin:0;padding:0 0 0 14px;border-left:2px solid var(--gold);display:grid;gap:12px}
+.tl li{position:relative;display:grid;gap:1px}
+.tl li::before{content:"";position:absolute;left:-21px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--paper);border:2px solid var(--green)}
+.tl b{font-size:15px}.tl span{color:var(--muted);font-size:14px}.tl em{font-style:normal;font-size:12.5px;font-weight:800;color:var(--goldD)}
+.langs{display:flex;gap:8px;align-items:center;margin-top:14px;font-weight:600;font-size:14.5px}
+@media(max-width:860px){.dir{grid-template-columns:1fr}.dgrid{grid-template-columns:1fr}}
+.soc .av2{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center;border:2px solid var(--gold);flex:none}
+
+.who{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.who>div{align-items:flex-start;padding:18px}
+.who .wt{display:grid;gap:2px}
+.who .wt b{font:700 17px var(--head);color:light-dark(var(--deep),#fff)}
+.who .wt small{color:var(--muted);font-weight:500;font-size:14px}
+.who .wt em{font-style:normal;font-size:13.5px;font-weight:800;color:var(--green);margin-top:4px}
+
+.ga{background:linear-gradient(90deg,#F6D365,#E0B415 45%,#FCE38A);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.shn{-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;background-size:300% 100%;background-repeat:no-repeat;background-position:100% 0;animation:shine 4.5s ease-in-out infinite;display:inline-block}
+.shn.gw{background-image:linear-gradient(105deg,#fff 0 41%,#FCE38A 46%,#FFF7D6 50%,#FCE38A 54%,#fff 59% 100%)}
+.shn.ga{background-image:linear-gradient(105deg,#F6D365 0 38%,#E0B415 43%,#FFFBE6 48%,#fff 50%,#FCE38A 53%,#E0B415 58%,#F6D365 63% 100%);animation-delay:.25s}
+@keyframes shine{0%{background-position:100% 0}45%,100%{background-position:0% 0}}
+@media(prefers-reduced-motion:reduce){.shn{animation:none;background-position:100% 0}}
+.bsub{display:block;font-weight:700;color:var(--gold);letter-spacing:.6px}
+.nav a,.tool{border:1px solid transparent;transition:background .25s,border-color .25s,box-shadow .25s,transform .25s}
+.tool{border-color:rgba(255,255,255,.3)}
+@media(hover:hover){
+.nav a:hover{background:rgba(255,255,255,.12);border-color:rgba(224,180,21,.9);box-shadow:0 0 0 3px rgba(224,180,21,.18);transform:translateY(-1px)}
+.tool:hover{background:rgba(255,255,255,.14);border-color:var(--gold);box-shadow:0 0 0 3px rgba(224,180,21,.22);transform:translateY(-1px)}
+.bar .b-gold:hover{box-shadow:0 0 0 3px rgba(255,255,255,.35),0 10px 20px -8px rgba(0,0,0,.4)}
+}
+.chip{background:#fff;color:#00552C;border:1px solid rgba(255,255,255,.9);box-shadow:0 6px 16px -10px rgba(0,0,0,.5);font-weight:700}
+.chip i{background:linear-gradient(145deg,#008A44,#00552C);color:#fff}
+@media(hover:hover){.chip:hover{background:#fff;border-color:#00703A;box-shadow:inset 0 0 0 1.5px #00703A,0 0 0 3px #F2C832,0 16px 26px -12px rgba(0,0,0,.6)}}
+.dphoto img{aspect-ratio:1/1;border-radius:28px;object-position:center}
+.pcard{grid-column:span 2;display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;align-items:center;cursor:default;background:linear-gradient(135deg,var(--paper),light-dark(#F2FAF5,#13261E))}
+.pcard img{width:130px;height:173px;object-fit:cover;object-position:center;border-radius:16px;border:3px solid var(--gold)}
+.pcard .pc{display:grid;gap:4px;justify-items:start}
+.pcard b{font:700 18px var(--head);color:light-dark(var(--deep),#fff)}
+.pwa{display:inline-flex;gap:8px;align-items:center;background:#25D366;color:#fff;font-weight:800;font-size:14.5px;padding:9px 16px;border-radius:999px;text-decoration:none;margin-top:6px;animation:pulse 2.4s ease-in-out infinite}
+.pwa svg{width:18px;height:18px}
+.pacts{display:flex;gap:8px;flex-wrap:wrap}
+.pcall{display:inline-flex;gap:8px;align-items:center;background:light-dark(var(--deep),#0B7A3E);color:#fff;font-weight:800;font-size:14.5px;padding:9px 16px;border-radius:999px;text-decoration:none;margin-top:6px;transition:transform .2s,box-shadow .2s}
+.pcall:hover{transform:translateY(-2px);box-shadow:0 10px 20px -8px rgba(0,80,40,.6)}
+.pcall svg{width:17px;height:17px;animation:ring 2.2s ease-in-out infinite;transform-origin:50% 50%}
+@keyframes ring{0%,60%,100%{transform:rotate(0)}65%,75%,85%{transform:rotate(-14deg)}70%,80%,90%{transform:rotate(14deg)}}
+.pnum{display:inline-flex;gap:6px;align-items:center;color:var(--muted);font-size:13.5px;font-weight:700;text-decoration:none;margin-top:2px}
+.pnum svg{width:15px;height:15px}
+
+
+.tool.lang{width:auto;height:38px;padding:0 6px 0 9px;gap:6px;display:inline-flex;align-items:center;border:1.5px solid var(--gold)!important;border-radius:999px;background:rgba(224,180,21,.12);position:relative;isolation:isolate}
+.tool.lang>svg{width:17px;height:17px;color:var(--gold)}
+.lgo{padding:4px 8px;border-radius:999px;font:800 12.5px Manrope,'Hind Siliguri',sans-serif;color:rgba(255,255,255,.8);transition:background .3s,color .3s}
+.lgo.on{background:var(--gold);color:#1b1400}
+.lgsep{display:none}
+.brand span,.bsub,.bar .b-gold{white-space:nowrap}
+@media(min-width:1101px){.nav{flex-wrap:nowrap}}@media(min-width:1101px) and (max-width:1680px){.tool.lang>svg{display:none}.nav a{padding:7px 6px;font-size:13.5px}}
+@media(min-width:1101px) and (max-width:1200px){.bar .b-gold{display:none}}
+.tool.lang::after{content:"";position:absolute;inset:-1.5px;border-radius:inherit;border:2px solid rgba(224,180,21,.75);z-index:-1;animation:lring 2.6s cubic-bezier(.2,.6,.3,1) infinite;pointer-events:none}
+@keyframes lring{0%{transform:scale(1);opacity:.9}70%,100%{transform:scale(1.18,1.45);opacity:0}}
+@media(max-width:420px){.tool.lang>svg{display:none}.tool.lang{padding:0 4px}}
+@media(max-width:480px){.brand{font-size:12.5px;gap:7px}.bsub{letter-spacing:.2px}.brand img{height:46px;width:52px}.lgo{padding:4px 7px}}
+@media(prefers-reduced-motion:reduce){.tool.lang::after{animation:none}}
+#contact.contactbg{position:relative;background:
+ radial-gradient(60% 70% at 15% 0%,light-dark(rgba(0,138,68,.10),rgba(0,138,68,.22)),transparent 70%),
+ radial-gradient(50% 60% at 95% 100%,light-dark(rgba(224,180,21,.16),rgba(224,180,21,.10)),transparent 70%),
+ light-dark(#F3F8F4,#0E1A14);overflow:hidden}
+#contact.contactbg::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 6l7.4 10.6L52 14l-2.6 12.6L60 32l-10.6 7.4L52 52l-12.6-2.6L32 60l-7.4-10.6L12 52l2.6-12.6L4 32l10.6-7.4L12 14l12.6 2.6z' fill='none' stroke='%23008A44' stroke-opacity='.09' stroke-width='1.2'/%3E%3C/svg%3E");background-size:64px 64px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%);pointer-events:none}
+#contact.contactbg>.wrap{position:relative}
+#contact .soc{background:light-dark(rgba(255,255,255,.92),rgba(20,34,27,.9))}
+.totop{justify-self:start;width:max-content;display:inline-flex;gap:8px;align-items:center;background:var(--gold);color:#1b1400!important;font-weight:800;font-size:14px;padding:9px 18px;border-radius:999px;text-decoration:none;box-shadow:0 10px 22px -8px rgba(224,180,21,.75),0 2px 0 rgba(0,0,0,.15);transition:transform .25s,box-shadow .25s}
+.totop svg{width:17px;height:17px;animation:upb 1.8s ease-in-out infinite}
+.totop:hover{transform:translateY(-3px);box-shadow:0 16px 28px -10px rgba(224,180,21,.9)}
+@keyframes upb{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+#board .ph img{object-position:center}
+.tm,.rv2{position:relative}
+.smp{position:absolute;top:10px;right:10px;font:800 10.5px var(--body);letter-spacing:.4px;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:light-dark(#FFF6D6,rgba(224,180,21,.18));color:light-dark(#8A6A00,#F2C832);border:1px solid rgba(224,180,21,.5)}
+.ini{font:700 30px Lora,'Hind Siliguri',serif;color:var(--gold)}
+.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px;max-width:1100px;margin:0 auto}
+.rv2{margin:0;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:18px;padding:24px 22px 20px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:10px}
+.rv2 .q{width:30px;height:30px;color:light-dark(rgba(0,112,58,.25),rgba(224,180,21,.35))}
+.rv2 .stars{display:flex;gap:2px;color:#E0B415}.rv2 .stars svg{width:16px;height:16px;fill:currentColor}
+.rv2 blockquote{margin:0;color:var(--ink);font-size:15px;line-height:1.7;flex:1}
+.rv2 figcaption{display:flex;gap:10px;align-items:center;border-top:1px solid var(--line);padding-top:12px}
+.rv2 figcaption b{display:block;font-size:14.5px}.rv2 figcaption small{color:var(--muted);font-size:12.5px}
+.rav{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(150deg,var(--deep),var(--green));color:var(--gold);font:700 17px Lora,serif;flex:none}
+
+/* family reel */
+.fam{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;max-width:1080px}
+.phonev{position:relative;border-radius:34px;padding:10px;background:#0d1712;box-shadow:0 30px 60px -28px rgba(0,50,25,.6),0 0 0 2px rgba(224,180,21,.6);justify-self:center;width:100%;max-width:330px}
+.phonev video{display:block;width:100%;aspect-ratio:9/16;border-radius:26px;background:#000;object-fit:cover}
+.phonev.sm{max-width:270px}
+.kick{display:inline-block;font:800 12.5px var(--body);letter-spacing:.6px;text-transform:uppercase;color:light-dark(var(--goldD),#F2C832);background:light-dark(#FFF6D6,rgba(224,180,21,.14));border:1px solid rgba(224,180,21,.5);padding:4px 12px;border-radius:999px}
+.kick.gold{color:#1b1400;background:var(--gold);border-color:var(--gold)}
+.famt h2{font:700 clamp(26px,3.2vw,38px)/1.25 Lora,'Noto Serif Bengali',serif;color:light-dark(var(--deep),#fff);margin:12px 0 10px}
+.famt>p{color:var(--muted);font-size:16.5px;line-height:1.75}
+.famlist{list-style:none;padding:0;margin:18px 0 22px;display:grid;gap:12px}
+.famlist li{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.famlist .fi{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:light-dark(#E3F4EA,rgba(0,138,68,.22));color:light-dark(var(--green),#7CE0A8)}
+.famlist .fi svg{width:20px;height:20px}
+.famlist b{display:block;font-size:15.5px;color:light-dark(var(--deep),#fff)}.famlist em{font-style:normal;color:var(--muted);font-size:14.5px}
+@media(max-width:820px){.fam{grid-template-columns:1fr}.phonev{max-width:300px}}
+/* quran virtue */
+.qlight{background:radial-gradient(60% 50% at 50% 0%,rgba(224,180,21,.10),transparent 70%),light-dark(#FFFDF7,#101a15);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.qlight .ar{font:700 clamp(21px,2.2vw,27px)/1.9 Amiri,serif;color:light-dark(#111,#fff);direction:rtl;text-align:right;margin:0}
+.qlight .qm{color:light-dark(#111,#F4F8F5);font-size:15.5px;font-weight:500;line-height:1.8;margin:0}
+.qlight small{display:block;color:light-dark(#8A6A00,#E9CF6A);font-weight:700;font-size:13px}
+.qlight .qi{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:light-dark(#E3F4EA,rgba(0,138,68,.22));color:light-dark(var(--green),#7CE0A8);flex:none}
+.qlight .qi svg{width:22px;height:22px}
+.qlight .qt{font-weight:800;color:light-dark(var(--deep),#fff);font-size:16px}
+.ayah{max-width:860px;margin:0 auto 26px;padding:24px 22px;border-radius:22px;background:var(--paper);border:1px solid rgba(224,180,21,.55);box-shadow:var(--sh);text-align:center}
+.ayah .ar{text-align:center;font-size:clamp(26px,3.2vw,38px)}
+.ayah .tr{color:light-dark(#111,#fff);font-weight:600;font-size:clamp(16px,1.8vw,19px);margin:6px auto 4px;max-width:52ch}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.qv{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:9px;box-shadow:var(--sh)}
+.qv .qm{flex:1}
+.baq{margin:20px auto 0;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,3vw,28px);box-shadow:var(--sh);border-left:5px solid var(--green)}
+.baqh{display:flex;gap:12px;align-items:center;margin-bottom:12px}.baqh b{display:block;font:700 clamp(18px,2vw,22px)/1.3 Lora,'Noto Serif Bengali',serif;color:light-dark(var(--deep),#fff)}
+.baqh .qt{font-size:12.5px;text-transform:uppercase;letter-spacing:.5px;color:light-dark(var(--goldD),#F2C832)}
+.baqm{display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:16px;background:light-dark(#F6FBF7,rgba(255,255,255,.04));border:1px solid var(--line)}
+.expl{margin-top:6px;padding:14px 16px;border-radius:16px;background:light-dark(#fff,rgba(255,255,255,.04));border:2px solid light-dark(#00703A,#2FA66A);display:flex;flex-direction:column;gap:5px;font-size:15px;line-height:1.75;color:light-dark(#00552C,#9BE3BB);font-weight:500}
+.expl b{color:light-dark(#8A6A00,#F2C832);font-size:16px}
+.baqg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:14px}
+.baqg>div{display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:16px;border:1px solid var(--line)}
+.tenh{display:flex;gap:8px;align-items:center;color:light-dark(var(--green),#7CE0A8)}.tenh svg{width:20px;height:20px}.tenh b{color:light-dark(var(--deep),#fff);font-size:16px}
+.warn{margin:20px auto 0;padding:clamp(18px,3vw,26px);border-radius:22px;background:light-dark(#FFF4F2,rgba(198,40,40,.08));border:1px solid light-dark(#F3C9C2,rgba(198,40,40,.35))}
+.warn .qi{background:light-dark(#FDE3DF,rgba(198,40,40,.2));color:light-dark(#B23A2E,#FF9D92)}
+.warn .wh{display:flex;gap:12px;align-items:center}.warn .wh b{color:light-dark(#8E2A20,#FFB3A9);font:700 clamp(18px,2vw,22px) Lora,'Noto Serif Bengali',serif}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin:14px 0}
+.wgrid>div{display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:16px;background:var(--paper);border:1px solid var(--line)}
+.wl{color:light-dark(var(--deep),#fff);font-weight:700;font-size:16.5px;line-height:1.8;text-align:center;max-width:70ch;margin:6px auto 14px}
+.ayah,.qv,.baqm,.baqg>div,.wgrid>div,.expl{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,outline-color .25s;outline:2px solid transparent;outline-offset:3px}
+@media(hover:hover){.ayah:hover,.qv:hover,.baqm:hover,.baqg>div:hover,.wgrid>div:hover,.expl:hover{transform:translateY(-4px);outline-color:light-dark(#00703A,#E0B415);box-shadow:0 0 0 5px light-dark(rgba(0,112,58,.12),rgba(224,180,21,.15)),0 22px 36px -20px rgba(0,80,40,.5)}}
+.warn .row{display:flex;justify-content:center}.warn .row .btn{width:auto;flex:none}
+/* video review */
+.vrev{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,44px);align-items:center;max-width:900px;margin:0 auto 26px;background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:22px;padding:clamp(16px,3vw,28px);box-shadow:var(--sh)}
+.vrev h3{font:700 clamp(20px,2.4vw,26px)/1.3 Lora,'Noto Serif Bengali',serif;color:light-dark(var(--deep),#fff);margin:10px 0 8px}
+.vrev p{color:var(--muted);font-size:15.5px;line-height:1.7}
+.live{display:inline-flex;gap:7px;align-items:center;font:800 12.5px var(--body);color:#C62828;background:#FDECEC;border-radius:999px;padding:4px 11px}
+.live:before{content:"";width:8px;height:8px;border-radius:50%;background:#E53935;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+@media(max-width:700px){.vrev{grid-template-columns:1fr;text-align:center}}
+/* live social icons */
+[style*="#25D366"],.wa{--c:37 211 102}[style*="#128C7E"]{--c:18 140 126}[style*="#1877F2"]{--c:24 119 242}[style*="#0A66C2"]{--c:10 102 194}[style*="#D93025"]{--c:217 48 37}
+.soc .si,.fstack a,.wa{position:relative;isolation:isolate;box-shadow:0 10px 22px -8px rgb(var(--c,0 0 0)/.6),0 0 0 0 rgb(var(--c,0 0 0)/0)}
+.fstack a,.wa{position:relative}
+.wa{position:fixed}
+.soc .si::after,.fstack a::after,.wa::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid rgb(var(--c)/.7);z-index:-1;animation:ripple 2.8s cubic-bezier(.2,.6,.3,1) infinite;animation-delay:var(--dl,0s);pointer-events:none}
+@keyframes ripple{0%{transform:scale(1);opacity:.85}70%,100%{transform:scale(1.4);opacity:0}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-2px) rotate(-6deg)}50%{transform:translateY(0) rotate(0)}75%{transform:translateY(-1px) rotate(5deg)}}
+.fstack a:nth-child(1){--dl:.0s}.fstack a:nth-child(2){--dl:.7s}.fstack a:nth-child(3){--dl:1.4s}.wa{--dl:2.1s}
+.socs>.soc:nth-child(2n) .si{--dl:.9s}.socs>.soc:nth-child(3n) .si{--dl:1.8s}
+.wa{animation:waglow 2.8s ease-in-out infinite}
+@keyframes waglow{0%,100%{box-shadow:0 12px 26px -8px rgba(0,0,0,.45),0 0 0 0 rgba(37,211,102,.45)}50%{box-shadow:0 14px 30px -8px rgba(0,0,0,.4),0 0 0 12px rgba(37,211,102,0)}}
+.soc:hover .si::after{animation-duration:1.4s}
+@media(prefers-reduced-motion:reduce){.soc .si::after,.fstack a::after,.wa::after,.wa{animation:none}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 0 0 10px rgba(37,211,102,0)}}
+@media(max-width:560px){.pcard{grid-column:auto;grid-template-columns:100px minmax(0,1fr)}.pcard img{width:100px;height:130px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+<symbol id="video" viewBox="0 0 24 24"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" />
+  <rect x="2" y="6" width="14" height="12" rx="2" /></symbol>
+<symbol id="users-round" viewBox="0 0 24 24"><path d="M18 21a8 8 0 0 0-16 0" />
+  <circle cx="10" cy="8" r="5" />
+  <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" /></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" /></symbol>
+<symbol id="house-heart" viewBox="0 0 24 24"><path d="M8.62 13.8A2.25 2.25 0 1 1 12 10.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a.998.998 0 0 1-1.507 0z" />
+  <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol>
+<symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" />
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+  <path d="M2 12h20" /></symbol>
+<symbol id="arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></symbol>
+<symbol id="image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+  <circle cx="9" cy="9" r="2" />
+  <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /></symbol>
+<symbol id="menu" viewBox="0 0 24 24"><path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" /></symbol>
+<symbol id="book-open-check" viewBox="0 0 24 24"><path d="M12 5v16" />
+  <path d="m16 12 2 2 4-4" />
+  <path d="M22 6V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2h4.001A2 2 0 0022 17v-1.344" /></symbol>
+<symbol id="user-round-check" viewBox="0 0 24 24"><path d="M2 21a8 8 0 0 1 13.292-6" />
+  <circle cx="10" cy="8" r="5" />
+  <path d="m16 19 2 2 4-4" /></symbol>
+<symbol id="shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+  <path d="m9 12 2 2 4-4" /></symbol>
+<symbol id="heart-handshake" viewBox="0 0 24 24"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762" /></symbol>
+<symbol id="moon-star" viewBox="0 0 24 24"><path d="M18 5h4" />
+  <path d="M20 3v4" />
+  <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" /></symbol>
+<symbol id="graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+  <path d="M22 10v6" />
+  <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></symbol>
+<symbol id="calendar-check" viewBox="0 0 24 24"><path d="M8 2v3" />
+  <path d="M16 2v3" />
+  <rect x="3" y="3" width="18" height="18" rx="2" />
+  <path d="M3 9h18" />
+  <path d="m9 15 2 2 4-4" /></symbol>
+<symbol id="message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></symbol>
+<symbol id="languages_old" viewBox="0 0 24 24"><path d="m5 8 6 6" />
+  <path d="m4 14 6-6 2-3" />
+  <path d="M2 5h12" />
+  <path d="M7 2h1" />
+  <path d="m22 22-5-10-5 10" />
+  <path d="M14 18h6" /></symbol>
+<symbol id="wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" />
+  <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /></symbol>
+<symbol id="smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+  <path d="M12 18h.01" /></symbol>
+<symbol id="landmark" viewBox="0 0 24 24"><path d="M10 18v-7" />
+  <path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" />
+  <path d="M14 18v-7" />
+  <path d="M18 18v-7" />
+  <path d="M3 22h18" />
+  <path d="M6 18v-7" /></symbol>
+<symbol id="scroll-text" viewBox="0 0 24 24"><path d="M15 12h-5" />
+  <path d="M15 8h-5" />
+  <path d="M19 17V5a2 2 0 0 0-2-2H4" />
+  <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" /></symbol>
+<symbol id="book-heart" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
+  <path d="M8.62 9.8A2.25 2.25 0 1 1 12 6.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a.998.998 0 0 1-1.507 0z" /></symbol>
+<symbol id="sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" />
+  <path d="M20 2v4" />
+  <path d="M22 4h-4" />
+  <circle cx="4" cy="20" r="2" /></symbol>
+<symbol id="badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+  <path d="m16 9-5.5 5.5L8 12" /></symbol>
+<symbol id="send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
+  <path d="m21.854 2.147-10.94 10.939" /></symbol>
+<symbol id="book-open" viewBox="0 0 24 24"><path d="M12 5v16" />
+  <path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></symbol>
+<symbol id="hand-heart" viewBox="0 0 24 24"><path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
+  <path d="m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95" />
+  <path d="m2 15 6 6" />
+  <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a1 1 0 0 0-2.75-2.91" /></symbol>
+<symbol id="monitor-play" viewBox="0 0 24 24"><path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z" />
+  <path d="M12 17v4" />
+  <path d="M8 21h8" />
+  <rect x="2" y="3" width="20" height="14" rx="2" /></symbol>
+<symbol id="mic-vocal" viewBox="0 0 24 24"><path d="m11 7.601-5.994 8.19a1 1 0 0 0 .1 1.298l.817.818a1 1 0 0 0 1.314.087L15.09 12" />
+  <path d="M16.5 21.174C15.5 20.5 14.372 20 13 20c-2.058 0-3.928 2.356-6 2-2.072-.356-2.775-3.369-1.5-4.5" />
+  <circle cx="16" cy="7" r="5" /></symbol>
+<symbol id="chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+<symbol id="chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+  <rect x="2" y="4" width="20" height="16" rx="2" /></symbol>
+<symbol id="moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" /></symbol>
+<symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" /></symbol>
+<symbol id="plus" viewBox="0 0 24 24"><path d="M5 12h14" />
+  <path d="M12 5v14" /></symbol>
+<symbol id="user-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5" />
+  <path d="M20 21a8 8 0 0 0-16 0" /></symbol>
+<symbol id="baby" viewBox="0 0 24 24"><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" />
+  <path d="M15 12h.01" />
+  <path d="M19.38 6.813A9 9 0 0 1 20.8 10.2a2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" />
+  <path d="M9 12h.01" /></symbol>
+<symbol id="plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" /></symbol>
+<symbol id="target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" />
+  <circle cx="12" cy="12" r="6" />
+  <circle cx="12" cy="12" r="2" /></symbol>
+<symbol id="compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" />
+  <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></symbol>
+<symbol id="star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol>
+<symbol id="file-pen-line" viewBox="0 0 24 24"><path d="M14.364 13.634a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506l4.013-4.009a1 1 0 0 0-3.004-3.004z" />
+  <path d="M14.487 7.858A1 1 0 0 1 14 7V2" />
+  <path d="M20 19.645V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l2.516 2.516" />
+  <path d="M8 18h1" /></symbol>
+<symbol id="circle-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" />
+  <path d="M9 9.5a3 2.5 0 016 0c0 2-2 2-3 3.5" />
+  <path d="M12 17h.01" /></symbol>
+<symbol id="arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7" />
+  <path d="M12 19V5" /></symbol>
+<symbol id="map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></symbol>
+<symbol id="user-check" viewBox="0 0 24 24"><path d="m16 11 2 2 4-4" />
+  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <circle cx="9" cy="7" r="4" /></symbol>
+<symbol id="list-checks" viewBox="0 0 24 24"><path d="M13 5h8" />
+  <path d="M13 12h8" />
+  <path d="M13 19h8" />
+  <path d="m3 17 2 2 4-4" />
+  <path d="m3 7 2 2 4-4" /></symbol>
+<symbol id="quote" viewBox="0 0 24 24"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+  <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></symbol>
+<symbol id="star8" viewBox="0 0 24 24"><polygon points="12.00,1.00 14.10,6.92 19.78,4.22 17.08,9.90 23.00,12.00 17.08,14.10 19.78,19.78 14.10,17.08 12.00,23.00 9.90,17.08 4.22,19.78 6.92,14.10 1.00,12.00 6.92,9.90 4.22,4.22 9.90,6.92"/></symbol>
+<symbol id="wa" viewBox="0 0 24 24"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.1z"/><path d="M9 8.5c0 3.5 2.5 6.5 6.3 6.8l1.2-1.6-2-1-1 1c-1.3-.5-2.6-1.8-3-3l1-1-1-2z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="fb" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></symbol>
+<symbol id="book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
+  <path d="m8 13 4-7 4 7" />
+  <path d="M9.1 11h5.7" /></symbol>
+<symbol id="circle-play" viewBox="0 0 24 24"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" />
+  <circle cx="12" cy="12" r="10" /></symbol>
+<symbol id="list-video" viewBox="0 0 24 24"><path d="M21 5H3" />
+  <path d="M10 12H3" />
+  <path d="M10 19H3" />
+  <path d="M15 12.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997a1 1 0 0 1-1.517-.86z" /></symbol>
+<symbol id="mic" viewBox="0 0 24 24"><path d="M12 19v3" />
+  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+  <rect x="9" y="2" width="6" height="13" rx="3" /></symbol>
+<symbol id="repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4" />
+  <path d="M3 11v-1a4 4 0 0 1 4-4h14" />
+  <path d="m7 22-4-4 4-4" />
+  <path d="M21 13v1a4 4 0 0 1-4 4H3" /></symbol>
+<symbol id="languages" viewBox="0 0 24 24"><path d="m5 8 6 6" />
+  <path d="m4 14 6-6 2-3" />
+  <path d="M2 5h12" />
+  <path d="M7 2h1" />
+  <path d="m22 22-5-10-5 10" />
+  <path d="M14 18h6" /></symbol>
+<symbol id="heart" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></symbol>
+<symbol id="yt" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor"/></symbol></svg>
+<script>document.documentElement.classList.add('js')</script>
+<script src="config.js"></script>
+
+<header class="top">
+ <div class="bar"><div class="wrap">
+  <a class="brand" href="#home"><img src="logo.png" alt="Qurani Life Online Academy logo"><span>QURANI LIFE<br><small class="bsub">ONLINE ACADEMY</small></span></a>
+  <nav class="nav" id="nav">
+   <a href="#home" data-bn="হোম">Home</a><a href="#courses" data-bn="কোর্স">Courses</a><a href="#services" data-bn="সেবা">Services</a><a href="#admission" data-bn="ভর্তি">Admission</a><a href="#about" data-bn="আমাদের সম্পর্কে">About</a><a href="#principal" data-bn="পরিচালক">Principal</a><a href="#hadiya" data-bn="হাদিয়া">Hadiya</a><a href="#faq" data-bn="প্রশ্নোত্তর">FAQ</a><a href="#contact" data-bn="যোগাযোগ">Contact</a>
+  </nav>
+  <button class="tool lang" id="langBtn" type="button" aria-label="Switch language: English / বাংলা" title="English / বাংলা"><svg class="i"><use href="#languages"/></svg><span class="lgo" data-l="en">EN</span><span class="lgsep"></span><span class="lgo" data-l="bn">বাং</span></button>
+  <button class="tool" id="themeBtn" type="button" aria-label="Dark mode"><svg class="i"><use href="#moon"/></svg></button>
+  <a class="btn b-gold b-sm" href="#admission" data-bn="ভর্তি হোন">Apply now</a>
+  <button class="tool menu" id="menuBtn" aria-label="Menu" aria-expanded="false"><svg class="i"><use href="#menu"/></svg></button>
+ </div></div>
+ <div class="ticker" aria-hidden="true"><div class="track" id="ticker"></div></div>
+</header>
+
+<section class="hero band" id="home">
+ <svg class="lan" style="left:46%;width:30px;height:130px" viewBox="0 0 30 130" aria-hidden="true"><line x1="15" y1="0" x2="15" y2="72" stroke="#E0B415" opacity=".7"/><path d="M9 72h12l3 6H6z" fill="#E0B415"/><path d="M6 78h18l4 10-4 24H6L2 88z" fill="#E0B415" fill-opacity=".22" stroke="#E0B415" stroke-width="1.4"/><ellipse cx="15" cy="94" rx="5" ry="8" fill="#FCE38A" opacity=".85"/><path d="M6 112h18l-3 6H9z" fill="#E0B415"/></svg>
+ <div class="wrap">
+  <div>
+   <p class="kick">কুরআনী লাইফ অনলাইন একাডেমি</p>
+   <h1><span class="shn gw">QURANI LIFE</span><br><span class="shn ga">ONLINE ACADEMY</span></h1>
+   <p class="tag" data-bn="আপনার ঘরেই জ্বলে উঠুক কুরআনের আলো">Let the light of the Qur'an shine in your home</p>
+   <p class="desc" data-bn="সন্তানের কণ্ঠে শুদ্ধ তিলাওয়াত, এর চেয়ে বড় প্রশান্তি আর কী হতে পারে? অভিজ্ঞ শিক্ষকের তত্ত্বাবধানে one-to-one live class, বাংলাদেশ কিংবা প্রবাস থেকে।">What could bring more peace than pure recitation in your child's voice? One-to-one live classes with experienced teachers, from Bangladesh or abroad.</p>
+   <div class="chips" id="heroChips"></div>
+   <div class="cta"><a class="btn b-gold" href="#admission" data-bn="ভর্তি হতে চাই">Apply now</a><a class="btn b-line" href="#courses" data-bn="কোর্সগুলো দেখুন">View courses</a></div>
+   <p class="trial"><span data-bn="ফ্রি ট্রায়াল ক্লাস চালু আছে ·">Free trial class available ·</span> <a href="https://wa.me/8801889012156">+880 1889-012156</a></p>
+  </div>
+  <div class="arch">
+   <svg class="moon" viewBox="0 0 60 60" aria-hidden="true"><path d="M38 8a22 22 0 1 0 14 36A18 18 0 1 1 38 8z" fill="#E0B415"/></svg>
+   <div class="fr"><img src="hero.jpg" alt="A child reading the Qur'an"></div>
+  </div>
+ </div>
+</section>
+<div style="padding:0 max(5vw,16px)"><div class="wrap"><div class="benefits" id="benefits"></div></div></div>
+
+<section class="band" id="family"><div class="wrap fam">
+ <div class="phonev"><video src="reel.mp4" poster="reel.jpg" controls playsinline preload="metadata"></video></div>
+ <div class="famt">
+  <span class="kick" data-bn="পরিবার ও শিক্ষক">Family &amp; teacher</span>
+  <h2 data-bn="সন্তানের প্রথম মাদরাসা তার ঘর, প্রথম শিক্ষক তার বাবা-মা">A child's first madrasa is home, the first teachers are mother and father</h2>
+  <p data-bn="একটি শিশু যখন পৃথিবীতে আসে, তার প্রথম শিক্ষাপ্রতিষ্ঠান হয় তার পরিবার। কথা বলা, আদব, ভালো-মন্দের পার্থক্য সে আপনার কাছ থেকেই শেখে। কিন্তু ঢাকার মতো ব্যস্ত নগরীতে কর্মব্যস্ততা আর যানজটের ভিড়ে সন্তানের কুরআন শিক্ষা প্রায়ই পিছিয়ে পড়ে।">When a child comes into this world, the family is the first school. Speech, manners and knowing right from wrong are all learned from you. Yet in a busy city like Dhaka, between work and traffic, a child's Qur'an learning often falls behind.</p>
+  <ul class="famlist">
+   <li><span class="fi"><svg class="i"><use href="#house-heart"/></svg></span><span><b data-bn="ঘরেই শুরু">It starts at home</b><em data-bn="বাবা-মায়ের আগ্রহ দেখেই সন্তান কুরআনকে ভালোবাসতে শেখে।">Children learn to love the Qur'an by seeing their parents value it.</em></span></li>
+   <li><span class="fi"><svg class="i"><use href="#user-check"/></svg></span><span><b data-bn="শিক্ষকের যত্ন">The teacher's care</b><em data-bn="একজন দক্ষ শিক্ষক শুদ্ধ উচ্চারণ, তাজবিদ আর আদব হাতে ধরে শেখান।">A skilled teacher guides correct pronunciation, Tajweed and manners, one step at a time.</em></span></li>
+   <li><span class="fi"><svg class="i"><use href="#book-open-check"/></svg></span><span><b data-bn="একসাথে পথচলা">Walking together</b><em data-bn="পরিবার আর শিক্ষক পাশাপাশি থাকলে সন্তানের কুরআন শিক্ষা পূর্ণতা পায়।">When family and teacher walk side by side, a child's Qur'an learning is complete.</em></span></li>
+  </ul>
+  <div class="row"><a class="btn b-deep" href="#trial" data-bn="ফ্রি ট্রায়াল ক্লাস নিন">Book a free trial class</a><a class="btn b-line" href="https://www.youtube.com/@quranilifeonlineacademy" data-bn="আরও ভিডিও দেখুন">Watch more videos</a></div>
+ </div>
+</div></section>
+<section class="band" id="glance"><div class="wrap">
+ <div class="sh"><h2 data-bn="ঘরে ঘরে কুরআনের আলো">Light of the Qur'an, home by home</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="প্রতিটি ক্লাস, প্রতিটি তিলাওয়াত, একেকটি আলোর গল্প।">Every lesson, every recitation, a story of light.</p></div>
+ <div class="car rv"><button class="carbtn p" id="prev" aria-label="Previous"><svg class="i"><use href="#chevron-left"/></svg></button><div class="slides" id="slides"></div><button class="carbtn n" id="next" aria-label="Next"><svg class="i"><use href="#chevron-right"/></svg></button></div>
+ <div class="dots" id="dots"></div>
+</div></section>
+
+<section class="band alt" id="courses"><div class="wrap">
+ <div class="sh"><h2 data-bn="আলিফ থেকে তাফসীর, ধাপে ধাপে কুরআনের পথে">From Alif to Tafsir, one step at a time</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="যেখান থেকেই শুরু করুন, আমরা হাত ধরে এগিয়ে নেব। ফ্রি ট্রায়াল ক্লাসেই ঠিক হবে আপনার উপযুক্ত কোর্স।">Wherever you begin, we will walk beside you. The right course is chosen in your free trial class.</p></div>
+ <div class="grid4" id="courseGrid"></div>
+ <p class="note" data-bn="ফি ও সময়সূচি জানতে WhatsApp করুন।">Message us on WhatsApp for fees and schedule.</p>
+</div></section>
+
+<section class="band" id="services"><div class="wrap">
+ <div class="sh"><h2 data-bn="যত্ন দিয়ে গড়া প্রতিটি ক্লাস">Every class, built with care</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="আপনার সন্তান আমাদের কাছে আমানত।">Your child is an amanah in our hands.</p></div>
+ <div class="grid4" id="svcGrid"></div>
+ <h3 style="text-align:center;margin:44px 0 18px;font-size:22px;color:light-dark(var(--deep),#fff)" data-bn="কুরআন শেখার দরজা সবার জন্য খোলা">The door to the Qur'an is open for all</h3>
+ <div class="who" id="who"></div>
+</div></section>
+
+<section class="band" id="youtube" style="padding-top:0"><div class="ytband rv">
+ <img src="course1.jpg" alt="An open Qur'an on a carved wooden stand by a window at home">
+ <div><span class="pill"><svg class="i" style="width:16px;height:16px"><use href="#yt"/></svg><span data-bn="বিনামূল্যে ক্লাস">Free lessons</span></span>
+ <h2 data-bn="মা-বোনদের জন্য কুরআনের পাঠ, ঘরে বসেই">Qur'an lessons for mothers and sisters, at home</h2>
+ <p data-bn="যাঁরা বড় বয়সে কুরআন শিখতে চান, বিশেষ করে আমাদের মা ও বোনেরা, তাঁদের জন্য YouTube-এ সাজানো আছে ধাপে ধাপে ক্লাস। আগে দেখে নিন, ভালো লাগলে সরাসরি শিক্ষিকার কাছে ভর্তি হোন।">For adults who want to learn the Qur'an, especially our mothers and sisters, we have arranged step-by-step lessons on YouTube. Watch first, and when you are ready, join a female teacher in a live class.</p>
+ <div class="cta" style="margin-top:6px"><a class="btn b-yt" href="https://www.youtube.com/@quranilifeonlineacademy/playlists"><svg class="i"><use href="#list-video"/></svg><span data-bn="প্লেলিস্ট দেখুন">Watch the playlists</span></a><a class="btn b-line" href="https://www.youtube.com/@quranilifeonlineacademy" data-bn="চ্যানেল সাবস্ক্রাইব করুন">Subscribe to the channel</a></div></div>
+</div></section>
+
+<section class="band alt" id="time"><div class="wrap">
+ <div class="sh"><h2 data-bn="দূরত্ব যতই হোক, সময় মিলবেই">Miles apart, never out of time</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="প্রবাসে থেকেও আপনার সন্তানের ক্লাস হবে আপনার সুবিধামতো সময়ে।">Even far from home, your child's class fits your own clock.</p></div>
+ <div class="clocks" id="clocks" aria-live="polite"></div>
+ <div class="addc"><select id="addSel" aria-label="Add a country"></select><button class="btn b-line b-sm" id="addBtn" type="button"><svg class="i"><use href="#plus"/></svg><span data-bn="দেশ যোগ করুন">Add country</span></button></div>
+ <h3 style="text-align:center;margin-top:30px;color:light-dark(var(--deep),#fff)" data-bn="আপনার পরিবারের সুবিধামতো সময় বেছে নিন">Pick the hour that suits your family</h3>
+ <div class="slots" id="slots"></div>
+ <p class="note" data-bn="বেছে নেওয়া সময় ভর্তি ফরমে চলে যাবে। চূড়ান্ত সময় শিক্ষকের সাথে মিলিয়ে ঠিক করা হবে।">Your choice goes into the form. The final time is confirmed with the teacher.</p>
+</div></section>
+
+<section class="band" id="start"><div class="wrap">
+ <div class="sh"><h2 data-bn="চারটি ছোট পদক্ষেপ, একটি বড় যাত্রা">Four small steps, one beautiful journey</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="শুরুটা যতটা কঠিন ভাবছেন, আসলে ততটাই সহজ।">Beginning is easier than you think.</p></div>
+ <div class="steps" id="steps"></div>
+</div></section>
+
+<section class="band alt" id="admission"><div class="wrap">
+ <div class="sh"><h2 data-bn="আজই শুরু হোক আপনার সন্তানের কুরআন-যাত্রা">Begin your child's Qur'an journey today</h2><div class="rule"><svg><use href="#star8"/></svg></div></div>
+ <ol class="rules" id="rules"></ol>
+ <div class="formbox rv" id="forms">
+  <div class="tabs" role="tablist">
+   <button class="tab" role="tab" data-t="trial" aria-selected="true" data-bn="ফ্রি ট্রায়াল">Free trial</button>
+   <button class="tab" role="tab" data-t="admission" aria-selected="false" data-bn="ভর্তি ফরম">Admission</button>
+   <button class="tab" role="tab" data-t="teacher" aria-selected="false" data-bn="শিক্ষক আবেদন">Teacher</button>
+  </div>
+  <span id="trial"></span><span id="apply"></span><span id="teacher"></span>
+  <form data-form="trial" data-title="Free Trial Class Booking" novalidate>
+   <p class="intro" data-bn="একটি ফ্রি ডেমো ক্লাস বুক করুন। আমরা শীঘ্রই যোগাযোগ করব, ইংশা আল্লাহ।">Book a free demo class. We will contact you soon, in shaa Allah.</p>
+   <div class="row"><label><span data-bn="শিক্ষার্থীর নাম">Student's name</span> <span class="req">*</span><input name="Student name" required></label><label><span data-bn="বয়স">Age</span> <span class="req">*</span><input name="Age" inputmode="numeric" required></label></div>
+   <div class="row"><label><span data-bn="অভিভাবকের নাম">Guardian's name</span><input name="Guardian name"></label><label><span data-bn="বর্তমান দেশ">Country of residence</span> <span class="req">*</span><select name="Country" class="countrySel" required></select></label></div>
+   <label><span data-bn="WhatsApp নম্বর">WhatsApp number</span> <span class="req">*</span><span class="hint" data-bn="কান্ট্রি কোড সহ">With country code</span><input name="WhatsApp" type="tel" inputmode="tel" required pattern="\+?[0-9 \-]{10,18}" class="phone"></label>
+   <fieldset><span class="lbl"><span data-bn="শিক্ষার্থী">Student</span> <span class="req">*</span></span><div class="radios"><label><input type="radio" name="Student type" value="Boy" required><span data-bn="ছেলে">Boy</span></label><label><input type="radio" name="Student type" value="Girl"><span data-bn="মেয়ে">Girl</span></label><label><input type="radio" name="Student type" value="Adult (male)"><span data-bn="বড় (পুরুষ)">Adult (male)</span></label><label><input type="radio" name="Student type" value="Adult (female)"><span data-bn="বড় (মহিলা)">Adult (female)</span></label></div></fieldset>
+   <fieldset><span class="lbl"><span data-bn="কোর্স">Course</span> <span class="req">*</span></span><div class="radios col courseRadios"></div></fieldset>
+   <div class="timeblock"></div>
+   <p class="err" aria-live="polite"></p>
+   <button class="btn b-deep" type="submit" data-bn="ফ্রি ক্লাস বুক করুন">Book free class</button>
+  </form>
+  <form data-form="admission" data-title="Student Admission Form" novalidate hidden>
+   <p class="intro" data-bn="আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহ। ট্রায়াল ক্লাস ভালো লাগলে এই ফরমে চূড়ান্ত ভর্তির তথ্য দিন।">Assalamu Alaikum wa Rahmatullah. If you liked the trial class, complete your admission here.</p>
+   <label><span data-bn="শিক্ষার্থীর পূর্ণ নাম">Student's full name</span> <span class="req">*</span><span class="hint" data-bn="জন্ম সনদ অথবা জাতীয় পরিচয়পত্র অনুযায়ী।">As on the Birth Certificate or National ID Card.</span><input name="Student full name" required></label>
+   <label><span data-bn="পিতার নাম">Father's name</span> <span class="req">*</span><span class="hint" data-bn="পিতার জাতীয় পরিচয়পত্র অনুযায়ী।">As on official documents (NID/Passport).</span><input name="Father name" required></label>
+   <div class="row"><label><span data-bn="জন্ম তারিখ">Date of birth</span> <span class="req">*</span><span class="hint" data-bn="ক্যালেন্ডার থেকে বেছে নিন">Pick from the calendar</span><input name="Date of birth" type="date" required></label><label><span data-bn="বর্তমান বসবাসের দেশ">Current country of residence</span> <span class="req">*</span><span class="hint" data-bn="যে দেশে এখন থাকেন">The country you live in now</span><select name="Country" class="countrySel" required></select></label></div>
+   <label><span data-bn="শিক্ষার্থী/অভিভাবকের WhatsApp নম্বর">Student/Guardian WhatsApp number</span> <span class="req">*</span><span class="hint" data-bn="কান্ট্রি কোড সহ">With country code</span><input name="WhatsApp" type="tel" inputmode="tel" required pattern="\+?[0-9 \-]{10,18}" class="phone"></label>
+   <fieldset><span class="lbl"><span data-bn="কোর্স নির্বাচন">Course selection</span> <span class="req">*</span></span><div class="radios col courseRadios"></div></fieldset>
+   <div class="timeblock"></div>
+   <label><span data-bn="অতিরিক্ত তথ্য / পরামর্শ / মতামত">Additional information / suggestions</span><span class="hint" data-bn="(ঐচ্ছিক)">(Optional)</span><textarea name="Additional info"></textarea></label>
+   <div class="guide"><b data-bn="শিক্ষার্থীদের জন্য গুরুত্বপূর্ণ নির্দেশনা">Important guidelines for students</b><ul class="guideList"></ul></div>
+   <label class="agree"><input type="checkbox" name="Guidelines" value="Read and agreed" required><span><span data-bn="আমি উপরোক্ত তথ্য ও নির্দেশনাসমূহ পড়েছি এবং মেনে চলতে সম্মত।">I have read and agree to comply with the above guidelines.</span> <span class="req">*</span></span></label>
+   <div class="guide warn"><b data-bn="⚠ গুরুত্বপূর্ণ সতর্কবার্তা">⚠ Important notice</b><p style="margin-top:6px" data-bn="ভর্তি, ক্লাস, অনুপস্থিতি, অভিযোগ ও আর্থিক বিষয়সহ সকল যোগাযোগ শুধুমাত্র অফিসিয়াল WhatsApp (+8801889012156) ও অফিসিয়াল Facebook Page-এর মাধ্যমে করুন। অন্য কোনো ব্যক্তি বা নম্বরের মাধ্যমে লেনদেনের দায়ভার প্রতিষ্ঠান বহন করবে না।">All admissions, class matters, absences, complaints and payments go through our official WhatsApp (+8801889012156) and Facebook Page only. The academy is not responsible for dealings through any other person or number.</p></div>
+   <label class="agree"><input type="checkbox" name="Notice" value="Agreed, in shaa Allah" required><span><span data-bn="ঠিক আছে ইংশা আল্লাহ">Agreed, in shaa Allah</span> <span class="req">*</span></span></label>
+   <fieldset><span class="lbl"><span data-bn="আমাদের ট্রায়াল ক্লাস কেমন লেগেছে?">How did you find our trial class?</span> <span class="req">*</span></span><div class="radios"><label><input type="radio" name="Trial feedback" value="Excellent" required><span data-bn="অনেক ভালো লেগেছে">Excellent</span></label><label><input type="radio" name="Trial feedback" value="Good"><span data-bn="ভালো লেগেছে">Good</span></label><label><input type="radio" name="Trial feedback" value="Needs improvement"><span data-bn="আরও উন্নত করা দরকার">Needs improvement</span></label></div></fieldset>
+   <p class="err" aria-live="polite"></p>
+   <button class="btn b-deep" type="submit" data-bn="ভর্তি ফরম জমা দিন">Submit admission form</button>
+  </form>
+  <form data-form="teacher" data-title="Teacher Application" novalidate hidden>
+   <p class="intro" data-bn="যোগ্য ও আন্তরিক শিক্ষক/শিক্ষিকা আমাদের সাথে অনলাইনে পড়াতে আবেদন করুন।">Qualified and sincere teachers are welcome to apply.</p>
+   <div class="row"><label><span data-bn="পূর্ণ নাম">Full name</span> <span class="req">*</span><input name="Name" required></label><label><span data-bn="WhatsApp নম্বর">WhatsApp number</span> <span class="req">*</span><input name="WhatsApp" type="tel" inputmode="tel" required pattern="\+?[0-9 \-]{10,18}" value="+880 "></label></div>
+   <div class="row"><label><span data-bn="আপনি">You are</span> <span class="req">*</span><select name="Teacher type" required><option value="" data-bn="বেছে নিন">Choose</option><option value="Male teacher" data-bn="শিক্ষক (পুরুষ)">Male teacher</option><option value="Female teacher" data-bn="শিক্ষিকা (মহিলা)">Female teacher</option></select></label><label><span data-bn="শিক্ষাগত যোগ্যতা">Qualification</span> <span class="req">*</span><input name="Qualification" required></label></div>
+   <div class="row"><label><span data-bn="অভিজ্ঞতা (বছর)">Experience (years)</span><input name="Experience" inputmode="numeric"></label><label><span data-bn="কোন কোর্স পড়াতে পারবেন">Course you can teach</span><select name="Course" class="courseSel"></select></label></div>
+   <div class="row"><label><span data-bn="ফ্রি সময় (বাংলাদেশ সময়)">Free hours (Bangladesh time)</span><input name="Free hours"></label><label><span data-bn="ডিভাইস">Device</span><select name="Device"><option value="Laptop/PC">Laptop/PC</option><option value="Mobile">Mobile</option><option value="Both" data-bn="দুটোই">Both</option></select></label></div>
+   <label><span data-bn="তেলাওয়াতের অডিও/ভিডিও লিংক">Recitation audio/video link</span><input name="Recitation link" type="url" placeholder="https://"></label>
+   <label><span data-bn="নিজের সম্পর্কে সংক্ষেপে">About yourself</span><textarea name="About"></textarea></label>
+   <p class="err" aria-live="polite"></p>
+   <button class="btn b-deep" type="submit" data-bn="আবেদন জমা দিন">Submit application</button>
+  </form>
+  <div class="done" id="done" hidden></div>
+ </div>
+</div></section>
+
+<section class="band"><div class="dcta withimg rv"><img class="dimg" src="trial.jpg" alt="A student in a live online class with Mufti Asadul Islam on the laptop screen"><div>
+ <h2 data-bn="একটি ক্লাসই বলে দেবে সব">One class says it all</h2>
+ <p data-bn="বিনামূল্যে একবার দেখুন, তারপর সিদ্ধান্ত আপনার। ভালো লাগলে তবেই ভর্তি।">See it once, free of charge. Then the decision is yours.</p>
+ <div class="cta"><a class="btn b-gold" href="#trial" data-bn="ট্রায়াল ক্লাস নিন">Get a trial class</a><a class="btn b-line" href="https://wa.me/8801889012156"><svg class="i"><use href="#wa"/></svg>WhatsApp</a></div>
+</div></div></section>
+
+<section class="band alt" id="hadiya"><div class="wrap">
+ <div class="sh"><h2 data-bn="হাদিয়া প্রদান">Course hadiya (payment)</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="নিচের যেকোনো মাধ্যমে হাদিয়া প্রদান করতে পারেন।">Pay through any of the methods below.</p></div>
+ <div class="pay">
+  <div class="pbox"><b class="h"><svg class="i"><use href="#smartphone"/></svg><span data-bn="মোবাইল ব্যাংকিং (বাংলাদেশ)">Mobile banking (Bangladesh)</span></b><div class="brands"><span style="background:#E2136E">bKash</span><span style="background:#EC1C24">Nagad</span><span style="background:#8C3494">Rocket</span></div><div class="num">01889-012156 <button class="cp" type="button" data-copy="01889012156" data-bn="কপি">Copy</button></div><p class="note" style="text-align:left" data-bn="তিনটিতেই একই নম্বর।">Same number for all three.</p></div>
+  <div class="pbox"><b class="h"><svg class="i"><use href="#landmark"/></svg><span data-bn="ব্যাংক অ্যাকাউন্ট (দেশ ও বিদেশ থেকে)">Bank account (local and international)</span></b><table><tbody id="bankRows"></tbody></table></div>
+ </div>
+ <div class="shot"><svg class="i"><use href="#image"/></svg><span data-bn="হাদিয়া প্রদান করার পর পেমেন্টের একটি Screenshot WhatsApp-এ পাঠিয়ে নিশ্চিত করবেন, যাতে হিসাব সংরক্ষণ করতে সুবিধা হয়।">After paying, please send a screenshot on WhatsApp to confirm, so we can keep accurate records.</span></div>
+</div></section>
+
+<section class="band about" id="about"><div class="wrap">
+ <div class="sh"><h2 data-bn="আমাদের স্বপ্ন ও অঙ্গীকার">Our dream and our promise</h2><div class="rule"><svg><use href="#star8"/></svg></div></div>
+ <p class="lead" data-bn="Qurani Life Online Academy ঘরে বসেই সহীহ কুরআন শিক্ষা, তাজওয়িদ, তিলাওয়াত এবং কুরআনের আলোকে জীবন গঠনের লক্ষ্যে কাজ করছে। কর্মব্যস্ত জীবনে সন্তানের কোরআন শিক্ষা যেন পিছিয়ে না পড়ে, সেজন্যই আমাদের যাত্রা।">Qurani Life Online Academy provides authentic Qur'an education, including Tajweed and correct recitation, guiding students to build their lives according to the Holy Qur'an, all from home. We started so that busy families never have to let their children's Qur'an learning fall behind.</p>
+ <img class="aimg rv" src="about.jpg" alt="Lanterns glowing in the dark">
+ <div class="a3" id="a3"></div>
+ <h3 style="text-align:center;margin-top:40px;color:light-dark(var(--deep),#fff)" data-bn="শিক্ষার্থীদের জন্য নির্দেশনা">Guidelines for students</h3>
+ <ul class="checks guideList"></ul>
+</div></section>
+
+<section class="band qlight" id="virtue"><div class="wrap">
+ <div class="sh"><span class="kick" data-bn="কুরআনের আলো">Light of the Qur'an</span><h2 data-bn="কুরআন শেখা কেন এত জরুরি">Why learning the Qur'an matters so much</h2><div class="rule"><svg><use href="#star8"/></svg></div></div>
+ <div class="ayah">
+  <p class="ar" lang="ar">وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ</p>
+  <p class="tr" data-bn="“আমি কুরআনকে উপদেশ গ্রহণের জন্য সহজ করে দিয়েছি; অতএব কোনো উপদেশ গ্রহণকারী আছে কি?”">“And We have certainly made the Qur'an easy to remember. So is there anyone who will be mindful?”</p>
+  <small data-bn="সূরা আল-কামার, ৫৪:১৭">Surah Al-Qamar, 54:17</small>
+ </div>
+ <div class="qgrid">
+  <div class="qv"><span class="qi"><svg class="i"><use href="#graduation-cap"/></svg></span><span class="qt" data-bn="শ্রেষ্ঠ মানুষ">The best of people</span><p class="ar" lang="ar">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</p><p class="qm" data-bn="“তোমাদের মধ্যে সর্বোত্তম সে, যে কুরআন শেখে এবং অন্যকে শেখায়।”">“The best of you are those who learn the Qur'an and teach it.”</p><small data-bn="বর্ণনা: উসমান ইবনে আফফান (রা.) · সহীহ বুখারী, ৫০২৭">Narrated by Uthman ibn Affan (RA) · Sahih al-Bukhari 5027</small></div>
+  <div class="qv"><span class="qi"><svg class="i"><use href="#sparkles"/></svg></span><span class="qt" data-bn="প্রতি হরফে দশ নেকি">Ten rewards for every letter</span><p class="ar" lang="ar">مَنْ قَرَأَ حَرْفًا مِنْ كِتَابِ اللَّهِ فَلَهُ بِهِ حَسَنَةٌ وَالْحَسَنَةُ بِعَشْرِ أَمْثَالِهَا</p><p class="qm" data-bn="“যে আল্লাহর কিতাবের একটি হরফ পড়ে, সে একটি নেকি পায়, আর প্রতিটি নেকি দশগুণ করে দেওয়া হয়।”">“Whoever reads a letter from the Book of Allah earns a good deed, and each good deed is multiplied ten times.”</p><small data-bn="বর্ণনা: আব্দুল্লাহ ইবনে মাসউদ (রা.) · জামে তিরমিজি, ২৯১০">Narrated by Abdullah ibn Mas'ud (RA) · Jami at-Tirmidhi 2910</small></div>
+ </div>
+ <div class="baq">
+  <div class="baqh"><span class="qi"><svg class="i"><use href="#shield-check"/></svg></span><div><span class="qt" data-bn="সূরা বাকারার ফজিলত">The virtue of Surah Al-Baqarah</span><b data-bn="বরকত, সুপারিশ আর জাদু-টোনা থেকে হেফাজত">Blessing, intercession and protection from sorcery</b></div></div>
+  <div class="baqm">
+   <p class="ar" lang="ar">اقْرَءُوا الْقُرْآنَ فَإِنَّهُ يَأْتِي يَوْمَ الْقِيَامَةِ شَفِيعًا لِأَصْحَابِهِ ... اقْرَءُوا سُورَةَ الْبَقَرَةِ، فَإِنَّ أَخْذَهَا بَرَكَةٌ، وَتَرْكَهَا حَسْرَةٌ، وَلَا تَسْتَطِيعُهَا الْبَطَلَةُ</p>
+   <p class="qm" data-bn="রাসূলুল্লাহ ﷺ বলেছেন: “তোমরা কুরআন পড়ো, কারণ কিয়ামতের দিন কুরআন তার পাঠকারীদের জন্য সুপারিশকারী হয়ে আসবে। … তোমরা সূরা বাকারা পড়ো। একে আঁকড়ে ধরা বরকত, ছেড়ে দেওয়া আফসোস, আর বাতিলপন্থীরা (البطلة) এর উপর প্রভাব খাটাতে পারে না।”">The Messenger of Allah ﷺ said: “Recite the Qur'an, for it will come on the Day of Resurrection as an intercessor for its companions. … Recite Surah Al-Baqarah. Holding to it is a blessing, leaving it is a regret, and the people of falsehood (al-batalah) cannot overcome it.”</p>
+   <small data-bn="বর্ণনা: আবু উমামা আল-বাহিলি (রা.) · সহীহ মুসলিম, ৮০৪">Narrated by Abu Umamah al-Bahili (RA) · Sahih Muslim 804</small>
+   <div class="expl"><b data-bn="“বাতিল” মানে কী?">What does “al-batalah” mean?</b><span data-bn="এই হাদিসের বর্ণনাকারী মুআবিয়া ইবনে সাল্লাম (রহ.) বলেছেন: “আমার কাছে পৌঁছেছে যে, البطلة মানে জাদুকর।” অর্থাৎ যে সূরা বাকারা নিয়মিত পড়ে, জাদু, টোনা বা ব্ল্যাক ম্যাজিক তার উপর কার্যকর হতে পারে না, ইনশাআল্লাহ।">Mu'awiyah ibn Sallam, a narrator of this hadith, said: “It has reached me that al-batalah means the sorcerers.” In other words, sorcery and black magic cannot overpower the one who keeps reciting Surah Al-Baqarah, in shaa Allah.</span></div>
+  </div>
+  <div class="baqg">
+   <div><p class="ar" lang="ar">لَا تَجْعَلُوا بُيُوتَكُمْ مَقَابِرَ، إِنَّ الشَّيْطَانَ يَنْفِرُ مِنَ الْبَيْتِ الَّذِي تُقْرَأُ فِيهِ سُورَةُ الْبَقَرَةِ</p><p class="qm" data-bn="“তোমাদের ঘরগুলোকে কবরে পরিণত কোরো না। যে ঘরে সূরা বাকারা পড়া হয়, শয়তান সে ঘর থেকে পালিয়ে যায়।”">“Do not turn your homes into graves. Shaytan flees from the house in which Surah Al-Baqarah is recited.”</p><small data-bn="বর্ণনা: আবু হুরায়রা (রা.) · সহীহ মুসলিম, ৭৮০">Narrated by Abu Hurayrah (RA) · Sahih Muslim 780</small></div>
+   <div><span class="tenh"><svg class="i"><use href="#moon-star"/></svg><b data-bn="দশ আয়াতের আমল">The ten verses</b></span><p class="qm" data-bn="সাহাবী আব্দুল্লাহ ইবনে মাসউদ (রা.) বলেছেন: যে রাতে সূরা বাকারার দশটি আয়াত পড়া হয়, সে রাতে শয়তান সেই ঘরে প্রবেশ করে না। আয়াতগুলো হলো শুরুর ৪টি, আয়াতুল কুরসি ও তার পরের ২টি, এবং শেষের ৩টি।">The Companion Abdullah ibn Mas'ud (RA) said that on the night these ten verses of Surah Al-Baqarah are recited, Shaytan does not enter that home: the first four, Ayat al-Kursi with the two after it, and the last three.</p><small data-bn="সুনানে দারেমি, ৩৪২৫ (সাহাবীর উক্তি)">Sunan ad-Darimi 3425 (saying of a Companion)</small></div>
+  </div>
+ </div>
+ <div class="warn">
+  <div class="wh"><span class="qi"><svg class="i"><use href="#circle-help"/></svg></span><b data-bn="কুরআন থেকে দূরে থাকার পরিণতি">The cost of staying away from the Qur'an</b></div>
+  <div class="wgrid">
+   <div><p class="ar" lang="ar">وَقَالَ الرَّسُولُ يَا رَبِّ إِنَّ قَوْمِي اتَّخَذُوا هَٰذَا الْقُرْآنَ مَهْجُورًا</p><p class="qm" data-bn="“রাসূল বলবেন: হে আমার রব, আমার জাতি এই কুরআনকে পরিত্যক্ত করে রেখেছিল।”">“And the Messenger will say: O my Lord, my people took this Qur'an as something abandoned.”</p><small data-bn="সূরা আল-ফুরকান, ২৫:৩০">Surah Al-Furqan, 25:30</small></div>
+   <div><p class="ar" lang="ar">وَمَنْ أَعْرَضَ عَن ذِكْرِي فَإِنَّ لَهُ مَعِيشَةً ضَنكًا</p><p class="qm" data-bn="“যে আমার স্মরণ থেকে মুখ ফিরিয়ে নেবে, তার জীবন হবে সংকীর্ণ।”">“Whoever turns away from My remembrance will have a life of hardship.”</p><small data-bn="সূরা ত্ব-হা, ২০:১২৪">Surah Ta-Ha, 20:124</small></div>
+  </div>
+  <p class="wl" data-bn="সূরা বাকারা, আয়াতুল কুরসি আর শেষের আয়াতগুলো যদি শুদ্ধভাবে পড়তেই না জানি, তাহলে এই হেফাজত আর বরকত আমরা কীভাবে পাব? তাই নিজে ও সন্তানকে শুদ্ধভাবে কুরআন শেখানো আমাদের প্রত্যেকের দায়িত্ব।">If we cannot read Surah Al-Baqarah, Ayat al-Kursi and its closing verses correctly, how will we receive this protection and blessing? Learning the Qur'an correctly, for ourselves and our children, is a duty on each of us.</p>
+  <div class="row"><a class="btn b-deep" href="#trial" data-bn="আজই কুরআন শেখা শুরু করুন">Start learning the Qur'an today</a></div>
+ </div>
+</div></section>
+
+<section class="band alt" id="principal"><div class="wrap">
+ <div class="sh"><h2 data-bn="যাঁর হাত ধরে কুরআনী লাইফের পথচলা">The heart behind Qurani Life</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="প্রতিষ্ঠাতা ও প্রধান শিক্ষকের পরিচিতি">Meet our founder and principal teacher</p></div>
+ <div class="dir">
+  <div class="dphoto"><img src="director.jpg" alt="Hafez Maulana Mufti Asadul Islam"><span class="dbadge" data-bn="প্রতিষ্ঠাতা ও প্রধান শিক্ষক">Founder &amp; Principal Teacher</span></div>
+  <div class="dinfo">
+   <p class="dname" data-bn="হাফেজ মাওলানা মুফতি আসাদুল ইসলাম">Hafez Maulana Mufti Asadul Islam</p>
+   <p class="drole" data-bn="প্রতিষ্ঠাতা ও প্রধান শিক্ষক, কুরআনী লাইফ অনলাইন একাডেমি">Founder &amp; Principal Teacher, Qurani Life Online Academy</p>
+   <p class="dbio" data-bn="হিফজ, দাওরায়ে হাদিস ও ইফতা সম্পন্ন করা একজন আলেম, যিনি মসজিদের মিম্বর থেকে অনলাইন ক্লাসরুম পর্যন্ত কুরআনের শিক্ষা পৌঁছে দেওয়ার কাজ করছেন। তাঁর স্বপ্ন, দেশ-বিদেশের প্রতিটি ঘরে শুদ্ধ তিলাওয়াত আর কুরআনের আলো পৌঁছে যাক।">A Hafez and scholar who completed Dawrah-e-Hadith and Ifta, he has carried the teaching of the Qur'an from the mosque pulpit to the online classroom. His dream: pure recitation and the light of the Qur'an in every home, in Bangladesh and abroad.</p>
+   <div class="dgrid">
+    <div><h4><svg class="i"><use href="#graduation-cap"/></svg><span data-bn="শিক্ষাগত যোগ্যতা">Education</span></h4>
+     <ul class="tl">
+      <li><b data-bn="ইফতা (মুফতি)">Ifta (Mufti)</b><span data-bn="মারকাযুশ শরইয়্যাহ আল ইসলামিয়া, ঢাকা">Markazush Shariah Al-Islamiah, Dhaka</span><em>2023</em></li>
+      <li><b data-bn="দাওরায়ে হাদিস (মাস্টার্স)">Dawrah-e-Hadith (Masters)</b><span data-bn="জামিয়া আরাবিয়া ইমদাদুল উলুম ফরিদাবাদ, ঢাকা">Jamia Arabia Imdadul Uloom Faridabad, Dhaka</span><em>2022</em></li>
+      <li><b data-bn="হিফজুল কুরআন">Hifzul Qur'an</b><span data-bn="জামিয়া আরাবিয়া আনোয়ারুল উলুম হাজী সাইজউদ্দীন, ঢাকা">Jamia Arabia Anwarul Uloom Haji Saijuddin, Dhaka</span><em>2014</em></li>
+     </ul></div>
+    <div><h4><svg class="i"><use href="#landmark"/></svg><span data-bn="অভিজ্ঞতা">Experience</span></h4>
+     <ul class="tl">
+      <li><b data-bn="প্রতিষ্ঠাতা ও প্রধান শিক্ষক">Founder &amp; Principal Teacher</b><span>Qurani Life Online Academy</span><em data-bn="চলমান">Present</em></li>
+      <li><b data-bn="অনলাইন কুরআন শিক্ষক">Online Qur'an teacher</b><span data-bn="অনলাইন মাদ্রাসায় শিক্ষকতা">Teaching at an online madrasa</span><em data-bn="চলমান">Present</em></li>
+      <li><b data-bn="ইমাম ও খতিব">Imam &amp; Khatib</b><span data-bn="বাইতুল মাক্বদিস জামে মসজিদ, কাপাসিয়া, গাজীপুর">Baitul Maqdis Jame Masjid, Kapasia, Gazipur</span><em data-bn="২ বছর">2 years</em></li>
+     </ul>
+     <p class="langs"><svg class="i"><use href="#languages"/></svg><span data-bn="ভাষা: বাংলা, আরবি, উর্দু">Languages: Bangla, Arabic, Urdu</span></p></div>
+   </div>
+   <div class="cta" style="margin-top:18px"><a class="btn b-deep" href="https://wa.me/8801568065523?text=Assalamu%20Alaikum%2C%20Mufti%20Asadul%20Islam."><svg class="i"><use href="#wa"/></svg><span data-bn="পরিচালকের সাথে কথা বলুন">Talk to the principal</span></a><a class="btn b-line" href="https://www.facebook.com/asadshojib51540"><svg class="i"><use href="#fb"/></svg>Facebook</a></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="band" id="team"><div class="wrap">
+ <div class="sh"><h2 data-bn="যাঁদের হাতে আপনার সন্তানের কুরআন শিক্ষা">The hands that guide your child to the Qur'an</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="অভিজ্ঞ ও আন্তরিক শিক্ষক-শিক্ষিকাদের তত্ত্বাবধানে পাঠদান।">Classes are led by experienced and sincere teachers.</p></div>
+ <div class="team" id="teamGrid"></div>
+ <p class="note" data-bn="নমুনা কার্ড: শিক্ষকদের আসল নাম, ছবি ও পরিচয় শীঘ্রই বসানো হবে।">Sample cards: our teachers' real names, photos and details will be added soon.</p>
+</div></section>
+
+<section class="band alt" id="reviews"><div class="wrap">
+ <div class="sh"><h2 data-bn="শিক্ষার্থী ও অভিভাবকদের হৃদয়ের কথা">From the hearts of our students and parents</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="ছোটদের অভিভাবক আর নিজেরা কুরআন শিখছেন এমন বড় শিক্ষার্থী, সবার অভিজ্ঞতা এখানে।">Parents of our young learners and adults who are learning the Qur'an themselves share their experience here.</p></div>
+ <div class="vrev"><div class="phonev sm"><video src="review1.mp4" poster="review1.jpg" controls playsinline preload="metadata"></video></div><div><span class="live" data-bn="শিক্ষার্থীর নিজের কণ্ঠে">In a student's own voice</span><h3 data-bn="আমাদের একজন প্রিয় বোনের অভিমত">A word from one of our dear sisters</h3><p data-bn="আমাদের একজন প্রিয় বোন, যিনি নিজেই Qurani Life-এ কুরআন শরীফ পড়ছেন, নিজের কণ্ঠে তাঁর অভিজ্ঞতা জানিয়েছেন। আলহামদুলিল্লাহ, আমাদের কাছে কুরআন শিখে তিনি সন্তুষ্ট। ভিডিওটি চালু করে শুনুন।">One of our dear sisters, who is herself learning the Qur'an at Qurani Life, shares her experience in her own voice. Alhamdulillah, she is happy with her Qur'an learning with us. Press play to listen.</p></div></div>
+ <div class="revs" id="revGrid"></div>
+ <p class="note" data-bn="নমুনা মতামত: শিক্ষার্থী ও অভিভাবকদের আসল মতামত পাওয়া মাত্র এখানে বসানো হবে।">Sample reviews: real feedback from our students and parents will replace these soon.</p>
+ <div style="text-align:center;margin-top:14px"><a class="btn b-deep" href="https://wa.me/8801889012156?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20share%20my%20feedback%20about%20Qurani%20Life." data-bn="আপনার মতামত জানান">Share your feedback</a></div>
+</div></section>
+
+<section class="band" id="updates"><div class="wrap">
+ <div class="sh"><h2 data-bn="আমাদের আঙিনার খবর">News from our courtyard</h2><div class="rule"><svg><use href="#star8"/></svg></div></div>
+ <div class="grid4" id="board"></div>
+</div></section>
+
+<section class="band alt" id="faq"><div class="wrap">
+ <div class="sh"><h2 data-bn="আপনার মনে যা প্রশ্ন জাগে">Questions you may have</h2><div class="rule"><svg><use href="#star8"/></svg></div></div>
+ <div class="faq" id="faqList"></div>
+</div></section>
+
+<section class="band"><div class="dcta rv">
+ <h2 data-bn="আজকের একটি সিদ্ধান্ত, আজীবনের নূর">One decision today, a lifetime of light</h2>
+ <p data-bn="আপনার ঘরেই শুরু হোক কোরআনের আলোয় আলোকিত হওয়ার পথচলা।">Let a life lit by the Qur'an begin right in your home.</p>
+ <div class="cta"><a class="btn b-gold" href="#admission" data-bn="ভর্তি হোন">Apply now</a><a class="btn b-line" href="https://wa.me/8801889012156"><svg class="i"><use href="#wa"/></svg>WhatsApp</a></div>
+</div></section>
+
+<section class="band contactbg" id="contact"><div class="wrap">
+ <div class="sh"><h2 data-bn="আমরা আছি আপনার পাশে">We are here for you</h2><div class="rule"><svg><use href="#star8"/></svg></div></div>
+ <div class="socs">
+  <a class="soc" href="https://wa.me/8801889012156"><span class="si" style="background:#25D366"><svg class="i"><use href="#wa"/></svg></span><span><b data-bn="অফিসিয়াল WhatsApp">Official WhatsApp</b><small>+880 1889-012156</small></span></a>
+  <div class="soc pcard"><img src="director_card.jpg" alt="Mufti Asadul Islam"><div class="pc"><span class="ctag" data-bn="পরিচালকের সাথে সরাসরি কথা">Speak directly with the principal</span><b data-bn="মুফতি আসাদুল ইসলাম">Mufti Asadul Islam</b><small data-bn="প্রতিষ্ঠাতা ও প্রধান শিক্ষক">Founder &amp; Principal Teacher</small><div class="pacts"><a class="pwa" href="https://wa.me/8801568065523?text=Assalamu%20Alaikum%2C%20Mufti%20Asadul%20Islam."><svg class="i"><use href="#wa"/></svg><span data-bn="WhatsApp-এ কথা বলুন">Chat on WhatsApp</span></a><a class="pcall" href="tel:+8801568065523"><svg class="i"><use href="#phone"/></svg><span data-bn="এখনই কল করুন">Call now</span></a></div><a class="pnum" href="tel:+8801568065523">+880 1568-065523</a></div></div>
+  <a class="soc" href="https://www.facebook.com/quranilifeofficial"><span class="si" style="background:#1877F2"><svg class="i"><use href="#fb"/></svg></span><span><b data-bn="অফিসিয়াল Facebook পেজ">Official Facebook Page</b><small>Qurani Life Official</small></span></a>
+  <a class="soc" href="https://www.facebook.com/groups/2049154968444967"><span class="si" style="background:#0A66C2"><svg class="i"><use href="#users-round"/></svg></span><span><b data-bn="Facebook গ্রুপ">Facebook Group</b><small data-bn="আলোচনা ও আপডেটে যুক্ত হন">Join the conversation</small></span></a>
+  <a class="soc" href="https://www.youtube.com/@quranilifeonlineacademy"><span class="si" style="background:#D93025"><svg class="i"><use href="#yt"/></svg></span><span><b data-bn="YouTube চ্যানেল">YouTube Channel</b><small data-bn="ফ্রি ক্লাস ও ভিডিও">Free lessons &amp; videos</small></span></a>
+  <a class="soc" href="https://chat.whatsapp.com/ECaWYG0Zju3HZyeu3s70U7"><span class="si" style="background:#128C7E"><svg class="i"><use href="#message-circle"/></svg></span><span><b data-bn="অফিসিয়াল WhatsApp গ্রুপ">Official WhatsApp Group</b><small data-bn="পড়াশোনার সব আপডেট">All study updates</small></span></a>
+  <a class="soc" href="https://www.facebook.com/asadshojib51540"><img class="av2" src="fb_profile.jpg" alt=""><span><b data-bn="মুফতি আসাদুল ইসলাম">Mufti Asadul Islam</b><small data-bn="প্রতিষ্ঠাতার Facebook প্রোফাইল">Founder's Facebook profile</small></span></a>
+ </div>
+</div></section>
+
+<footer><div class="wrap">
+ <div><a class="brand" href="#home" style="color:#fff"><img src="logo.png" alt="Qurani Life Online Academy logo"><span>QURANI LIFE<br><small class="bsub">ONLINE ACADEMY</small></span></a><p style="margin-top:12px;max-width:36ch">Qur'an at Home, Imaan in Heart.<br>শুদ্ধ কোরআন, সুন্দর আদব, আলোকিত জীবন।</p></div>
+ <div><h4 data-bn="দ্রুত লিংক">Quick links</h4><a href="#courses" data-bn="কোর্স">Courses</a><a href="#services" data-bn="সেবা">Services</a><a href="#admission" data-bn="ভর্তি">Admission</a><a href="#about" data-bn="আমাদের সম্পর্কে">About</a><a href="#faq" data-bn="প্রশ্নোত্তর">FAQ</a></div>
+ <div><h4 data-bn="যোগাযোগ">Contact</h4><a href="https://wa.me/8801889012156">WhatsApp: +880 1889-012156</a><a href="https://wa.me/8801568065523" data-bn="পরিচালক: +880 1568-065523">Principal: +880 1568-065523</a><a href="#hadiya" data-bn="হাদিয়া প্রদান">Hadiya payment</a><a href="#teacher" data-bn="শিক্ষক নিয়োগ">Teach with us</a></div>
+ <div><h4 data-bn="আমাদের সাথে থাকুন">Stay connected</h4><a href="https://www.facebook.com/quranilifeofficial">Facebook Page</a><a href="https://www.facebook.com/groups/2049154968444967">Facebook Group</a><a href="https://www.youtube.com/@quranilifeonlineacademy">YouTube</a><a href="https://www.youtube.com/@quranilifeonlineacademy/playlists" data-bn="ফ্রি ক্লাস প্লেলিস্ট">Free class playlists</a><a href="https://chat.whatsapp.com/ECaWYG0Zju3HZyeu3s70U7">WhatsApp Group</a></div>
+</div><div class="wrap copy"><span>© 2026 Qurani Life Online Academy</span><a href="#home" class="totop"><svg class="i"><use href="#arrow-up"/></svg><span data-bn="উপরে যান">Back to top</span></a></div></footer>
+
+<div class="fstack" aria-label="Social links"><a href="https://www.youtube.com/@quranilifeonlineacademy" style="background:#D93025" aria-label="YouTube" data-tip="YouTube · Qurani Life Online Academy"><svg class="i"><use href="#yt"/></svg></a><a href="https://www.facebook.com/groups/2049154968444967" style="background:#0A66C2" aria-label="Facebook group" data-tip="Facebook Group · Qurani Life"><svg class="i"><use href="#users-round"/></svg></a><a href="https://www.facebook.com/quranilifeofficial" style="background:#1877F2" aria-label="Facebook page" data-tip="Official Facebook Page"><svg class="i"><use href="#fb"/></svg></a></div>
+<a class="wa" href="https://wa.me/8801889012156" aria-label="WhatsApp" data-tip="WhatsApp · +880 1889-012156"><svg class="i"><use href="#wa"/></svg></a>
+<div class="sticky" id="sticky"><a class="btn b-gold b-sm" href="#admission" data-bn="ভর্তি হোন">Apply now</a><a class="btn b-line b-sm" href="https://wa.me/8801889012156" data-bn="WhatsApp-এ জানুন">Ask on WhatsApp</a><button class="x" id="stickyX" aria-label="Close"><svg class="i"><use href="#x"/></svg></button></div>
+<div class="modal" id="cmodal" hidden><div class="mbox cbox" role="dialog" aria-labelledby="cmT"><button class="x" id="cmX" aria-label="Close"><svg class="i"><use href="#x"/></svg></button><div id="cmBody"></div></div></div>
+<div class="modal" id="modal" hidden><div class="mbox" role="dialog" aria-labelledby="mT"><button class="x" id="modalX" aria-label="Close"><svg class="i"><use href="#x"/></svg></button><h3 id="mT" data-bn="আপনি কোন দেশ থেকে দেখছেন?">Where are you watching from?</h3><p class="intro" data-bn="দেশ বেছে নিলে ক্লাসের সময় আপনার দেশের সময়ে দেখাবে।">Pick your country and class times will show in your local time.</p><select id="modalSel" class="countrySel" aria-label="Country"></select><button class="btn b-deep" id="modalOk" type="button">OK</button></div></div>
+
+<script>
+{
+const WA='8801889012156';
+const API=((window.QL_CONFIG||{}).API_URL||'').trim();
+let LANG='en';
+const L=o=>typeof o==='string'?o:(o[LANG]||o.en);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const ic=(n,c='i')=>`<svg class="${c}"><use href="#${n}"/></svg>`;
+const imgSrc=n=>/^https?:\/\//.test(n||'')?n:''+(n||'slide1.jpg');
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+const TICK=[{en:'Free trial class available',bn:'ফ্রি ট্রায়াল ক্লাস চালু আছে'},{en:'Students can join from any country',bn:'যেকোনো দেশ থেকে ক্লাস করা যায়'},{en:'Weekly Adab & Akhlaq class and Islamic seminar',bn:'সাপ্তাহিক আদব-আখলাক ক্লাস ও ইসলামিক সেমিনার'},{en:'Separate teachers for boys and girls',bn:'ছেলে ও মেয়েদের জন্য পৃথক শিক্ষক'},{en:'Admission open, apply today',bn:'ভর্তি চলছে, আজই আবেদন করুন'}];
+const BEN=[{i:'user-check',en:'Experienced teachers',bn:'অভিজ্ঞ শিক্ষক'},{i:'video',en:'Live online classes',bn:'লাইভ অনলাইন ক্লাস'},{i:'clock',en:'Flexible schedule',bn:'সুবিধাজনক সময়'},{i:'users-round',en:'Kids & adults',bn:'শিশু ও বড়দের জন্য'},{i:'user-round-check',en:'One-to-one learning',bn:'One-to-one শিক্ষা'},{i:'shield-check',en:'Separate male & female teachers',bn:'পৃথক শিক্ষক-শিক্ষিকা'}];
+let COURSES=[
+ {n:'1',val:'Noorani Qaida',icon:'book-a',t:{en:'Noorani Qaida',bn:'নূরানী কায়দা'},tag:{en:'The very first step',bn:'একদম প্রথম ধাপ'},d:{en:'From the first Arabic letter to the first lines of recitation, built on the right pronunciation from day one.',bn:'প্রথম আরবি হরফ থেকে প্রথম তিলাওয়াত পর্যন্ত, শুরু থেকেই সঠিক উচ্চারণের ভিত্তিতে।'},l:[{en:'Knowing every Arabic letter',bn:'আরবি হরফ চেনা ও সঠিক উচ্চারণ'},{en:'Makhraj practice',bn:'মাখরাজের অনুশীলন'},{en:'Harakat, Jazm and Tanween',bn:'হরকত, জযম ও তানভীন'},{en:'Madd and Tashdeed',bn:'মাদ ও তাশদীদ'},{en:'Joining letters into words',bn:'হরফ মিলিয়ে শব্দ পড়া'},{en:'Getting ready to read the Qur\'an',bn:'কুরআন পড়ার প্রস্তুতি'}]},
+ {n:'2',val:'Ampara',icon:'book-open',t:{en:'Ampara',bn:'আমপারা'},tag:{en:'Short surahs, read right',bn:'ছোট সূরা, শুদ্ধ করে'},d:{en:'The short surahs of the 30th juz, read beautifully with the essential rules of Tajweed.',bn:'ত্রিশতম পারার ছোট সূরাগুলো তাজবিদের প্রয়োজনীয় নিয়ম মেনে সুন্দর করে পড়া।'},l:[{en:'Reading the surahs of Ampara',bn:'আমপারার সূরা দেখে শুদ্ধভাবে পড়া'},{en:'Essential Tajweed in practice',bn:'প্রয়োজনীয় তাজবিদের প্রয়োগ'},{en:'Short surahs for salah',bn:'নামাজের জন্য ছোট সূরা'},{en:'A daily recitation habit',bn:'প্রতিদিনের তিলাওয়াতের অভ্যাস'}]},
+ {n:'3',val:'Nazera Quran',icon:'book-open-check',t:{en:'Nazera Qur\'an',bn:'নাজেরা কুরআন'},tag:{en:'Reading the whole Qur\'an',bn:'পুরো কুরআন দেখে পড়া'},d:{en:'Reading the full Mushaf fluently, with mistakes gently corrected along the way.',bn:'পুরো কুরআন দেখে সাবলীলভাবে পড়া, পথে পথে ভুলগুলো যত্নে শুধরে নেওয়া।'},l:[{en:'Fluent reading of the Mushaf',bn:'কুরআন দেখে সাবলীল পড়া'},{en:'Correcting pronunciation',bn:'উচ্চারণের ভুল সংশোধন'},{en:'Rhythm and steady pace',bn:'তিলাওয়াতের গতি ও ছন্দ'},{en:'Working towards a full khatm',bn:'খতমের লক্ষ্যে ধারাবাহিক পাঠ'}]},
+ {n:'4',val:'Tajweed',icon:'mic',t:{en:'Tajweed',bn:'তাজবিদ'},tag:{en:'The beauty of recitation',bn:'তিলাওয়াতের সৌন্দর্য'},d:{en:'The rules of Tajweed, learned hands-on, so every letter gets its due.',bn:'হাতে-কলমে তাজবিদের নিয়ম শেখা, যেন প্রতিটি হরফ তার পূর্ণ হক পায়।'},l:[{en:'Makhraj and Sifat',bn:'মাখরাজ ও সিফাত'},{en:'Ghunnah and Madd',bn:'গুন্নাহ ও মাদ'},{en:'Izhar and Idgham',bn:'ইযহার ও ইদগাম'},{en:'Iqlab and Ikhfa',bn:'ইকলাব ও ইখফা'},{en:'Rules of pausing (Waqf)',bn:'ওয়াকফের নিয়ম'},{en:'Guided practice',bn:'শিক্ষকের সাথে অনুশীলন'}]},
+ {n:'5',val:'Hifzul Quran',icon:'repeat',t:{en:'Hifzul Qur\'an',bn:'হিফজুল কুরআন'},tag:{en:'The Qur\'an in the heart',bn:'বুকে ধারণ করা কুরআন'},d:{en:'Memorising the Qur\'an step by step, with a teacher listening to every lesson.',bn:'শিক্ষকের তত্ত্বাবধানে ধাপে ধাপে কুরআন মুখস্থ, প্রতিটি সবক শুনে শুনে।'},l:[{en:'New lesson (sabaq) every day',bn:'প্রতিদিন নতুন সবক'},{en:'Regular revision',bn:'নিয়মিত পুনরাবৃত্তি'},{en:'Memorising with correct recitation',bn:'শুদ্ধ তিলাওয়াতসহ মুখস্থ'}]},
+ {n:'6',val:'Quran Recitation Correction',icon:'circle-play',t:{en:'Recitation correction',bn:'তিলাওয়াত সংশোধন'},tag:{en:'For those who already read',bn:'যারা পড়তে পারেন তাদের জন্য'},d:{en:'You can read, but want it right. We listen, correct and polish your recitation.',bn:'পড়তে পারেন, কিন্তু শুদ্ধ করতে চান? আমরা শুনব, শুধরে দেব, তিলাওয়াত আরও সুন্দর হবে।'},l:[{en:'Finding common mistakes',bn:'সাধারণ ভুলগুলো ধরা'},{en:'Correcting pronunciation',bn:'উচ্চারণ সংশোধন'},{en:'Tajweed in your reading',bn:'পড়ায় তাজবিদের প্রয়োগ'},{en:'Regular practice',bn:'নিয়মিত অনুশীলন'}]},
+ {n:'7',val:'Tafsirul Quran Class',icon:'scroll-text',t:{en:'Tafsirul Qur\'an',bn:'তাফসীরুল কুরআন'},tag:{en:'Understanding the message',bn:'কুরআনের বার্তা বোঝা'},d:{en:'Easy translation and Tafsir, so the words you recite start to speak to your life.',bn:'সহজ-সাবলীল তরজমা ও তাফসীর, যেন তিলাওয়াতের শব্দগুলো জীবনের সাথে কথা বলে।'},l:[{en:'Easy translation',bn:'সহজ-সাবলীল তরজমা'},{en:'Tafsir of the verses',bn:'আয়াতের তাফসীর'},{en:'Islamic guidance for daily life',bn:'জীবনের জন্য ইসলামিক দিকনির্দেশনা'}]},
+ {n:'8',val:'Quran for Children',icon:'baby',t:{en:'Qur\'an for children',bn:'শিশুদের কুরআন শিক্ষা'},tag:{en:'Gentle and joyful',bn:'আদরে, আনন্দে'},d:{en:'Lessons shaped to each child\'s age and pace, taught with patience and love.',bn:'প্রতিটি শিশুর বয়স ও শেখার গতি বুঝে, ধৈর্য আর ভালোবাসা দিয়ে পাঠদান।'},l:[{en:'Lessons by age and level',bn:'বয়স ও স্তর অনুযায়ী পাঠ'},{en:'Patient, caring teachers',bn:'ধৈর্যশীল ও যত্নশীল শিক্ষক'},{en:'Short surahs and daily duas',bn:'ছোট সূরা ও দৈনন্দিন দোয়া'},{en:'Good manners alongside',bn:'সাথে আদব-আখলাক'}]},
+ {n:'9',val:'Quran for Adults (Mothers & Sisters)',icon:'heart',t:{en:'Qur\'an for adults',bn:'বড়দের কুরআন শিক্ষা'},tag:{en:'Especially for mothers & sisters',bn:'বিশেষ করে মা-বোনদের জন্য'},d:{en:'Never had the chance as a child? It is never too late. Begin privately, with female teachers for women.',bn:'ছোটবেলায় সুযোগ হয়নি? এখনো দেরি হয়নি। নিরিবিলি, একান্তে শুরু করুন, মহিলাদের জন্য শিক্ষিকা।'},l:[{en:'Starting from the very beginning',bn:'একদম শুরু থেকে শেখা'},{en:'Female teachers for women',bn:'মহিলাদের জন্য শিক্ষিকা'},{en:'Your own time, your own pace',bn:'নিজের সময়ে, নিজের গতিতে'},{en:'Free sample lessons on YouTube',bn:'YouTube-এ বিনামূল্যে নমুনা ক্লাস'}],yt:1},
+ {n:'10',val:'Online Quran for Expatriates',icon:'plane',t:{en:'For families abroad',bn:'প্রবাসীদের অনলাইন কুরআন'},tag:{en:'Any country, any language',bn:'যেকোনো দেশ, যেকোনো ভাষা'},d:{en:'For families living abroad, for your children and for yourselves. Classes run on your own time, in the language you are most comfortable with.',bn:'প্রবাসে থাকা পরিবারের জন্য, শুধু সন্তানদের নয়, চাইলে আপনি নিজেও শিখতে পারবেন। ক্লাস হবে আপনার দেশের সময়ে, আর যে ভাষায় আপনি স্বাচ্ছন্দ্য বোধ করেন সেই ভাষায়।'},l:[{en:'Class time in your time zone',bn:'আপনার দেশের সময়ে ক্লাস'},{en:'Taught in Bangla, English or the language you prefer',bn:'বাংলা, ইংরেজি বা আপনার পছন্দের ভাষায় পাঠদান'},{en:'For children and for adults',bn:'সন্তান ও নিজের, দুজনের জন্যই'},{en:'Special care for expatriate families',bn:'প্রবাসী পরিবারের প্রতি বিশেষ খেয়াল'},{en:'Contact on WhatsApp',bn:'WhatsApp-এ যোগাযোগ'},{en:'Any course above',bn:'ওপরের যেকোনো কোর্স'}]}
+];
+const WEEK={t:{en:'Adab & Akhlaq class and Islamic seminar',bn:'আদব-আখলাক ক্লাস ও ইসলামিক নলেজ সেমিনার'},d:{en:'Once a week for all students: manners, character and an Islamic knowledge seminar.',bn:'সব শিক্ষার্থীর জন্য সপ্তাহে একদিন: আদব-আখলাকের ক্লাস ও ইসলামিক নলেজ সেমিনার।'}};
+const SLIDES=[
+ {img:'slide1.jpg',t:{en:'One-to-one live classes',bn:'One-to-one লাইভ ক্লাস'},p:{en:'A teacher\'s full attention, only for your child, in every live class.',bn:'প্রতিটি লাইভ ক্লাসে শিক্ষকের পূর্ণ মনোযোগ, শুধু আপনার সন্তানের জন্য।'}},
+ {img:'slide2.jpg',t:{en:'In your home, before your eyes',bn:'আপনার ঘরে, আপনার চোখের সামনে'},p:{en:'No roads, no traffic, no worry. Just your child, the Qur\'an and you nearby.',bn:'রাস্তা নেই, যানজট নেই, দুশ্চিন্তা নেই। শুধু আপনার সন্তান, কুরআন আর পাশে আপনি।'}},
+ {img:'slide3.jpg',t:{en:'Weekly Adab & Akhlaq',bn:'সাপ্তাহিক আদব-আখলাক'},p:{en:'Every week, a class on manners and character, and a seminar on Islamic knowledge.',bn:'প্রতি সপ্তাহে আদব-আখলাকের ক্লাস আর ইসলামিক জ্ঞানের সেমিনার, সুন্দর চরিত্র গড়ার জন্য।'}},
+ {img:'slide4.jpg',t:{en:'From any corner of the world',bn:'বিশ্বের যেকোনো প্রান্ত থেকে'},p:{en:'Wherever you live, your child\'s class follows your own clock.',bn:'যে দেশেই থাকুন, সন্তানের ক্লাস চলবে আপনার নিজের সময়ে।'}}
+];
+const SVC=[['user-check',{en:'Experienced teachers',bn:'অভিজ্ঞ শিক্ষকের তত্ত্বাবধান'}],['video',{en:'Live online class',bn:'লাইভ অনলাইন ক্লাস'}],['user-round-check',{en:'One-to-one learning',bn:'One-to-one শিক্ষা'}],['users-round',{en:'Separate male & female teachers',bn:'ছেলে ও মেয়েদের পৃথক শিক্ষক'}],['clock',{en:'Flexible class schedule',bn:'সুবিধাজনক ক্লাসের সময়'}],['heart-handshake',{en:'Weekly Adab & Akhlaq class',bn:'সাপ্তাহিক আদব-আখলাক ক্লাস'}],['graduation-cap',{en:'Islamic knowledge seminar',bn:'ইসলামিক নলেজ সেমিনার'}],['globe',{en:'International students support',bn:'প্রবাসী শিক্ষার্থীদের সাপোর্ট'}]];
+const WHO=[
+ {i:'baby',t:{en:'Little learners',bn:'ছোট্ট শিক্ষার্থী (শিশু)'},s:{en:'Ages around 5 and up',bn:'৫ বছর বা তার বেশি বয়সী শিশু'},d:{en:'A gentle start for children, paced to their age, with patience and a smile.',bn:'শিশুর বয়স আর মন বুঝে, ধৈর্য ও আদর দিয়ে কুরআনের সাথে প্রথম পরিচয়।'},c:[{en:'Noorani Qaida: letters and sounds',bn:'নূরানী কায়দা: হরফ ও উচ্চারণ'},{en:'Ampara: short surahs',bn:'আমপারা: ছোট সূরা'},{en:'Short surahs and daily duas',bn:'ছোট সূরা ও দৈনন্দিন দোয়া'}],h:[{en:'One-to-one attention',bn:'One-to-one মনোযোগ'},{en:'Learning at home, in front of parents',bn:'ঘরে বসে, অভিভাবকের চোখের সামনে'},{en:'Weekly Adab & Akhlaq class',bn:'সাপ্তাহিক আদব-আখলাক ক্লাস'}]},
+ {i:'graduation-cap',t:{en:'Teenagers',bn:'কিশোর-কিশোরী'},s:{en:'Building strong foundations',bn:'ভিত্তি মজবুত করার সময়'},d:{en:'For teens who want fluent, correct recitation and a firm grip on Tajweed.',bn:'যারা সাবলীল ও শুদ্ধ তিলাওয়াত আর তাজবিদের মজবুত ভিত্তি গড়তে চায়।'},c:[{en:'Nazera Qur\'an',bn:'নাজেরা কুরআন'},{en:'Tajweed',bn:'তাজবিদ'},{en:'Hifzul Qur\'an (if interested)',bn:'হিফজুল কুরআন (আগ্রহী হলে)'}],h:[{en:'Lessons matched to level',bn:'স্তর অনুযায়ী পাঠ'},{en:'Boys with male teachers, girls with female teachers',bn:'ছেলেরা শিক্ষকের কাছে, মেয়েরা শিক্ষিকার কাছে'},{en:'Regular practice and revision',bn:'নিয়মিত অনুশীলন ও পুনরাবৃত্তি'}]},
+ {i:'hand-heart',t:{en:'Mothers, sisters & women',bn:'মা-বোন ও মহিলা শিক্ষার্থী'},s:{en:'Taught only by female teachers',bn:'পড়াবেন শুধু শিক্ষিকা'},d:{en:'A private, respectful space for women of any age, taught entirely by female teachers.',bn:'যেকোনো বয়সের মহিলাদের জন্য একান্ত ও সম্মানজনক পরিবেশ, যেখানে পড়াবেন শুধু শিক্ষিকারা।'},c:[{en:'Noorani Qaida from the start',bn:'শুরু থেকে নূরানী কায়দা'},{en:'Recitation correction',bn:'তিলাওয়াত সংশোধন'},{en:'Tajweed and Tafsir',bn:'তাজবিদ ও তাফসীর'}],h:[{en:'Female teachers only',bn:'শুধু শিক্ষিকার মাধ্যমে পাঠদান'},{en:'Class time that fits home duties',bn:'সংসারের কাজের ফাঁকে সুবিধামতো সময়'},{en:'Free sample lessons on YouTube',bn:'YouTube-এ বিনামূল্যে নমুনা ক্লাস'}]},
+ {i:'user-round',t:{en:'Adults of any age',bn:'যেকোনো বয়সের বড়রা'},s:{en:'It is never too late',bn:'শেখার কোনো বয়স নেই'},d:{en:'Missed the chance as a child? Forty, fifty or sixty, begin now without hesitation.',bn:'ছোটবেলায় সুযোগ হয়নি? চল্লিশ, পঞ্চাশ কিংবা ষাট, সংকোচ ছাড়াই শুরু করুন এখনই।'},c:[{en:'Noorani Qaida',bn:'নূরানী কায়দা'},{en:'Recitation correction',bn:'তিলাওয়াত সংশোধন'},{en:'Tafsirul Qur\'an',bn:'তাফসীরুল কুরআন'}],h:[{en:'One-to-one, no embarrassment',bn:'One-to-one, কোনো সংকোচ নেই'},{en:'Your own time, your own pace',bn:'নিজের সময়ে, নিজের গতিতে'},{en:'Male teachers for men, female for women',bn:'পুরুষদের শিক্ষক, মহিলাদের শিক্ষিকা'}]},
+ {i:'plane',t:{en:'Families abroad',bn:'প্রবাসী পরিবার'},s:{en:'Any country, any language',bn:'যেকোনো দেশ, যেকোনো ভাষা'},d:{en:'For families living abroad. Not only your sons and daughters: you can learn the Qur\'an yourself too. We do not teach only in Bangla; we teach each student in the language they are most comfortable with, in shaa Allah.',bn:'প্রবাসে থাকা পরিবারের জন্য। শুধু ছেলে-মেয়েরা নয়, চাইলে আপনি নিজেও কুরআন শিখতে পারবেন। আমরা শুধু বাংলায় শেখাই না; যে যে ভাষায় শিখতে স্বাচ্ছন্দ্য বোধ করেন, আমাদের শিক্ষকরা তাঁকে সেই ভাষায় শেখান, ইনশাআল্লাহ।'},c:[{en:'Any of our courses',bn:'আমাদের যেকোনো কোর্স'},{en:'Noorani Qaida to Hifz',bn:'নূরানী কায়দা থেকে হিফজ'},{en:'Qur\'an and Tafsir for adults',bn:'বড়দের কুরআন ও তাফসীর'}],h:[{en:'Class time set to your country',bn:'আপনার দেশের সময়ে ক্লাস'},{en:'Bangla, English or your preferred language',bn:'বাংলা, ইংরেজি বা আপনার পছন্দের ভাষায় পাঠদান'},{en:'Lessons for parents as well as children',bn:'সন্তানের পাশাপাশি অভিভাবকের জন্যও ক্লাস'},{en:'Special care and follow-up for expatriate families',bn:'প্রবাসী পরিবারের প্রতি বিশেষ খেয়াল ও নিয়মিত খোঁজখবর'},{en:'Easy hadiya by bank transfer',bn:'ব্যাংক ট্রান্সফারে সহজ হাদিয়া'}]},
+ {i:'book-a',t:{en:'Complete beginners',bn:'যাঁরা একদম শুরু থেকে'},s:{en:'Can\'t read yet? Perfect.',bn:'পড়তে জানেন না? কোনো সমস্যা নেই'},d:{en:'No prior knowledge needed. We start from the very first letter, step by step.',bn:'আগে থেকে কিছু জানা লাগবে না। প্রথম হরফ থেকে ধাপে ধাপে শুরু।'},c:[{en:'Noorani Qaida: letters, harakat, makhraj',bn:'নূরানী কায়দা: হরফ, হরকত, মাখরাজ'},{en:'Then Ampara',bn:'তারপর আমপারা'},{en:'Then Nazera Qur\'an',bn:'তারপর নাজেরা কুরআন'}],h:[{en:'Level checked in a free trial class',bn:'ফ্রি ট্রায়াল ক্লাসে স্তর যাচাই'},{en:'The right teacher and time for you',bn:'আপনার জন্য উপযুক্ত শিক্ষক ও সময়'},{en:'Patient, step-by-step teaching',bn:'ধৈর্য নিয়ে ধাপে ধাপে পাঠ'}]}
+];
+const SLOTS=[{en:'Morning (6–11)',bn:'সকাল (৬–১১টা)'},{en:'Noon (11–3)',bn:'দুপুর (১১–৩টা)'},{en:'Afternoon (3–6)',bn:'বিকাল (৩–৬টা)'},{en:'Evening (6–8)',bn:'সন্ধ্যা (৬–৮টা)'},{en:'Night (8–11)',bn:'রাত (৮–১১টা)'},{en:'Any time',bn:'যেকোনো সময়'}];
+const STEPS=[['file-pen-line',{en:'Apply for admission',bn:'ভর্তি আবেদন করুন'}],['monitor-play',{en:'Free trial class',bn:'ফ্রি ট্রায়াল ক্লাস'}],['calendar-check',{en:'Teacher & time fixed',bn:'শিক্ষক ও সময় নির্ধারণ'}],['book-heart',{en:'Regular classes begin',bn:'নিয়মিত ক্লাস শুরু'}]];
+const RULES=[{en:'Fill in the online form',bn:'অনলাইন ফরম পূরণ করুন'},{en:'Our team contacts you on WhatsApp',bn:'আমাদের টিম WhatsApp-এ যোগাযোগ করবে'},{en:'A free trial class is arranged',bn:'একটি ফ্রি ট্রায়াল ক্লাস নির্ধারণ করা হবে'},{en:'The right course, teacher and time are chosen',bn:'উপযুক্ত কোর্স, শিক্ষক ও সময় ঠিক করা হবে'},{en:'Pay the hadiya and send a screenshot',bn:'হাদিয়া প্রদান করে স্ক্রিনশট পাঠান'},{en:'Regular online Qur\'an classes start',bn:'নিয়মিত অনলাইন কুরআন ক্লাস শুরু'}];
+const GUIDE=[{en:'Please try to attend classes on time.',bn:'নির্ধারিত সময়ে ক্লাসে উপস্থিত থাকার চেষ্টা করলে ভালো হয়।'},{en:'Sincerity and regular practice will benefit you.',bn:'কুরআন শিক্ষার প্রতি আন্তরিকতা ও নিয়মিত অনুশীলন আপনার জন্যই কল্যাণকর।'},{en:'Discipline and good manners in class bring barakah.',bn:'ক্লাস চলাকালীন শৃঙ্খলা ও ভদ্রতা রক্ষা করলে বারাকাহ আসে।'},{en:'Parental support is expected for students under 10.',bn:'১০ বছরের কম বয়সী শিক্ষার্থীদের ক্ষেত্রে অভিভাবকের সহযোগিতা কাম্য।'},{en:'Keep a stable internet connection and device ready.',bn:'ইন্টারনেট সংযোগ ও প্রয়োজনীয় ডিভাইস প্রস্তুত রাখুন।'},{en:'Inform us at least one day before any absence.',bn:'অনুপস্থিতির প্রয়োজন হলে ন্যূনতম একদিন আগে জানান।'}];
+const ABOUT=[['target',{en:'Our goal',bn:'আমাদের লক্ষ্য'},{en:'Not only to teach the Qur\'an, but to help students build beautiful character in its light.',bn:'শুধু কুরআন পড়ানো নয়, কুরআনের আলোকে সুন্দর চরিত্র ও জীবন গঠনে সহায়তা করা।'}],['compass',{en:'Our purpose',bn:'আমাদের উদ্দেশ্য'},{en:'Authentic Qur\'an education with Tajweed and correct recitation, from the comfort of home.',bn:'ঘরে বসেই সহীহ কুরআন শিক্ষা, তাজওয়িদ ও শুদ্ধ তিলাওয়াত।'}],['star',{en:'Our specialty',bn:'আমাদের বিশেষত্ব'},{en:'One-to-one live classes, separate teachers for boys and girls, and classes matched to any time zone.',bn:'One-to-one লাইভ ক্লাস, ছেলে ও মেয়েদের পৃথক শিক্ষক, আর যেকোনো দেশের সময়ের সাথে মিলিয়ে ক্লাস।'}]];
+const TEAM=[
+ {i:{en:'AM',bn:'আ'},n:{en:'Hafez Mawlana Abdullah Al Mamun',bn:'হাফেজ মাওলানা আবদুল্লাহ আল মামুন'},r:{en:'Noorani Qaida & Nazera',bn:'নূরানী কায়দা ও নাজেরা'},g:{en:'For boys',bn:'ছেলেদের জন্য'}},
+ {i:{en:'MH',bn:'মা'},n:{en:'Hafez Qari Mahmudul Hasan',bn:'হাফেজ ক্বারী মাহমুদুল হাসান'},r:{en:'Hifz & Tajweed',bn:'হিফজ ও তাজওয়িদ'},g:{en:'Hifz department',bn:'হিফজ বিভাগ'}},
+ {i:{en:'YA',bn:'ই'},n:{en:'Mawlana Yusuf Ahmad',bn:'মাওলানা ইউসুফ আহমাদ'},r:{en:'Tafsir & Arabic',bn:'তাফসীর ও আরবি'},g:{en:'Adults',bn:'বড়দের জন্য'}},
+ {i:{en:'UH',bn:'উ'},n:{en:'Ustazah Umme Habiba',bn:'উস্তাযা উম্মে হাবিবা'},r:{en:'Qur\'an for girls & women',bn:'মেয়ে ও মহিলাদের কুরআন শিক্ষা'},g:{en:'For girls & women',bn:'মেয়ে ও মহিলাদের জন্য'}}];
+const REVIEWS=[
+ {i:'R',n:{en:'Parent of a Nazera student',bn:'নাজেরা শিক্ষার্থীর অভিভাবক'},p:{en:'Dhaka',bn:'ঢাকা'},t:{en:'My son used to struggle with the letters. In a few months he began reading the Qur\'an with correct pronunciation, and he looks forward to every class.',bn:'আমার ছেলে হরফ চিনতে হিমশিম খেত। কয়েক মাসের মধ্যেই সে শুদ্ধ উচ্চারণে কুরআন পড়তে শুরু করেছে, আর প্রতিটি ক্লাসের অপেক্ষায় থাকে।'}},
+ {i:'S',n:{en:'Expatriate parent',bn:'প্রবাসী অভিভাবক'},p:{en:'Riyadh',bn:'রিয়াদ'},t:{en:'Living abroad, I worried about my children\'s Qur\'an learning. The class runs on our local time and the teacher is very caring.',bn:'বিদেশে থেকে সন্তানদের কুরআন শিক্ষা নিয়ে চিন্তায় ছিলাম। আমাদের নিজের সময়ে ক্লাস হয়, আর শিক্ষক খুবই যত্নশীল।'}},
+ {i:'K',n:{en:'Adult Tajweed student',bn:'তাজওয়িদ শিক্ষার্থী'},p:{en:'Chattogram',bn:'চট্টগ্রাম'},t:{en:'I had wanted to correct my recitation for years. One-to-one classes made it easy, and I learn at a pace that suits my work.',bn:'বহুদিন ধরে নিজের তিলাওয়াত শুদ্ধ করতে চাইছিলাম। One-to-one ক্লাসে খুব সহজ হয়েছে, কাজের ফাঁকে নিজের মতো করে শিখতে পারছি।'}}];
+const BANK=[[{en:'Bank name',bn:'ব্যাংকের নাম'},'Islami Bank Bangladesh PLC.'],[{en:'Account name',bn:'অ্যাকাউন্টের নাম'},'Md Asadul Islam'],[{en:'Account number',bn:'অ্যাকাউন্ট নম্বর'},'20503450202363014',1],[{en:'Branch',bn:'শাখা'},'Trishal Branch, Mymensingh-2220'],[{en:'Routing number',bn:'রাউটিং নম্বর'},'125612357',1],[{en:'District',bn:'জেলা'},'Mymensingh'],[{en:'SWIFT/BIC (from abroad)',bn:'SWIFT/BIC (বিদেশ থেকে)'},'IBBLBDDH',1]];
+let UPDATES=[{d:{en:'Sample',bn:'নমুনা'},t:{en:'Free trial class bookings are open',bn:'ফ্রি ট্রায়াল ক্লাস বুকিং চলছে'},p:{en:'Book a free trial class today.',bn:'আজই একটি ফ্রি ট্রায়াল ক্লাস বুক করুন।'},img:'update1.jpg'},{d:{en:'Sample',bn:'নমুনা'},t:{en:'Weekly Adab & Akhlaq class and seminar',bn:'সাপ্তাহিক আদব-আখলাক ক্লাস ও সেমিনার'},p:{en:'Once a week, for all students.',bn:'সপ্তাহে একদিন, সব শিক্ষার্থীর জন্য।'},img:'update2.jpg'},{d:{en:'Sample',bn:'নমুনা'},t:{en:'Admissions open for Tafsirul Qur\'an',bn:'তাফসীরুল কুরআন ক্লাসে ভর্তি চলছে'},p:{en:'Easy translation, Tafsir and life guidance.',bn:'সহজ তরজমা, তাফসীর ও জীবন নির্দেশনা।'},img:'update3.jpg'}];
+let FAQ=[[{en:'Can we take classes from abroad?',bn:'বিদেশ থেকে কি ক্লাস করা যাবে?'},{en:'Yes. Students join from any country; class time is matched to Bangladesh time.',bn:'হ্যাঁ। যেকোনো দেশ থেকে ক্লাস করা যায়, সময় বাংলাদেশ সময়ের সাথে মিলিয়ে নেওয়া হয়।'}],[{en:'How can I pay the hadiya from abroad?',bn:'বিদেশ থেকে হাদিয়া কীভাবে দেব?'},{en:'By bank transfer using SWIFT code IBBLBDDH, or through someone in Bangladesh by bKash, Nagad or Rocket. Then send a screenshot on WhatsApp.',bn:'SWIFT কোড IBBLBDDH দিয়ে ব্যাংক ট্রান্সফার করে, অথবা বাংলাদেশে থাকা কারো মাধ্যমে বিকাশ, নগদ বা রকেটে। তারপর WhatsApp-এ স্ক্রিনশট পাঠান।'}],[{en:'Is there a female teacher for girls?',bn:'মেয়েদের জন্য কি শিক্ষিকা আছেন?'},{en:'Yes. Boys and girls have separate teachers.',bn:'হ্যাঁ। ছেলে ও মেয়েদের জন্য পৃথক শিক্ষক রয়েছেন।'}],[{en:'Are the classes in groups?',bn:'ক্লাস কি দলে হয়?'},{en:'No. Every student gets a one-to-one live class.',bn:'না। প্রতিটি শিক্ষার্থীর জন্য one-to-one লাইভ ক্লাস।'}],[{en:'Can adults enroll?',bn:'বড়রা কি ভর্তি হতে পারবেন?'},{en:'Of course. Age is never a barrier to learning the Qur\'an.',bn:'অবশ্যই। কোরআন শেখার জন্য বয়স কোনো বাধা নয়।'}],[{en:'Are there any free lessons I can watch?',bn:'বিনামূল্যে দেখার মতো কোনো ক্লাস আছে কি?'},{en:'Yes. Our YouTube channel has step-by-step lessons, especially for adult learners and mothers and sisters.',bn:'হ্যাঁ। আমাদের YouTube চ্যানেলে ধাপে ধাপে ক্লাস আছে, বিশেষ করে বড়দের এবং মা-বোনদের জন্য।'}],[{en:'What is the fee?',bn:'ফি কত?'},{en:'Message us on WhatsApp for the fee details.',bn:'ফি জানতে WhatsApp করুন।'}]];
+const COUNTRIES=[['Bangladesh','বাংলাদেশ','+880','Asia/Dhaka','BD'],['Saudi Arabia','সৌদি আরব','+966','Asia/Riyadh','SA'],['United Arab Emirates','সংযুক্ত আরব আমিরাত','+971','Asia/Dubai','AE'],['Qatar','কাতার','+974','Asia/Qatar','QA'],['Kuwait','কুয়েত','+965','Asia/Kuwait','KW'],['Oman','ওমান','+968','Asia/Muscat','OM'],['Bahrain','বাহরাইন','+973','Asia/Bahrain','BH'],['Malaysia','মালয়েশিয়া','+60','Asia/Kuala_Lumpur','MY'],['Singapore','সিঙ্গাপুর','+65','Asia/Singapore','SG'],['Maldives','মালদ্বীপ','+960','Indian/Maldives','MV'],['Jordan','জর্ডান','+962','Asia/Amman','JO'],['Japan','জাপান','+81','Asia/Tokyo','JP'],['South Korea','দক্ষিণ কোরিয়া','+82','Asia/Seoul','KR'],['United Kingdom','যুক্তরাজ্য','+44','Europe/London','GB'],['Ireland','আয়ারল্যান্ড','+353','Europe/Dublin','IE'],['Italy','ইতালি','+39','Europe/Rome','IT'],['France','ফ্রান্স','+33','Europe/Paris','FR'],['Spain','স্পেন','+34','Europe/Madrid','ES'],['Portugal','পর্তুগাল','+351','Europe/Lisbon','PT'],['Germany','জার্মানি','+49','Europe/Berlin','DE'],['Greece','গ্রিস','+30','Europe/Athens','GR'],['Sweden','সুইডেন','+46','Europe/Stockholm','SE'],['United States (East)','যুক্তরাষ্ট্র (পূর্ব)','+1','America/New_York','US'],['United States (West)','যুক্তরাষ্ট্র (পশ্চিম)','+1','America/Los_Angeles','US'],['Canada (Toronto)','কানাডা (টরন্টো)','+1','America/Toronto','CA'],['Australia (Sydney)','অস্ট্রেলিয়া (সিডনি)','+61','Australia/Sydney','AU'],['New Zealand','নিউজিল্যান্ড','+64','Pacific/Auckland','NZ'],['South Africa','দক্ষিণ আফ্রিকা','+27','Africa/Johannesburg','ZA'],['Other','অন্য দেশ','+','','']];
+const cByName=n=>COUNTRIES.find(c=>c[0]===n);
+let detected='Asia/Dhaka';try{detected=Intl.DateTimeFormat().resolvedOptions().timeZone||detected}catch(e){}
+const offMin=tz=>{try{const d=new Date(),p=k=>new Date(d.toLocaleString('en-US',{timeZone:k}));return Math.round((p(tz)-p('UTC'))/60000)}catch(e){return 360}};
+const fmt=(h,m)=>`${h%12||12}:${String(m).padStart(2,'0')} ${h<12?'AM':'PM'}`;
+const toBd=(t,tz)=>{if(!t)return '';const [h,m]=t.split(':').map(Number);let x=h*60+m+(360-offMin(tz)),day='';if(x<0){x+=1440;day=LANG==='bn'?' (আগের দিন)':' (previous day)'}else if(x>=1440){x-=1440;day=LANG==='bn'?' (পরের দিন)':' (next day)'}return fmt(Math.floor(x/60),x%60)+day};
+const savedClocks=store.get('ql-clocks');let clockList=savedClocks===null?['Asia/Riyadh','Asia/Dubai','Europe/London','America/New_York']:savedClocks.split('|').filter(Boolean);
+const tzLabel=tz=>{const c=COUNTRIES.find(x=>x[3]===tz);return c?(LANG==='bn'?c[1]:c[0]):tz.replace(/_/g,' ')};
+let SLOT='';
+
+const tzOpts=sel=>{const list=[...new Set([detected,...COUNTRIES.map(c=>c[3]).filter(Boolean)])];return list.map(z=>`<option value="${esc(z)}"${z===sel?' selected':''}>${esc(tzLabel(z))}</option>`).join('')};
+const timeHTML=()=>`<div class="row"><label><span>${LANG==='bn'?'পছন্দের ক্লাসের সময় (আপনার স্থানীয় সময়)':'Preferred class time (your local time)'}</span> <span class="req">*</span><input type="time" class="ltime" required></label><label><span>${LANG==='bn'?'আপনার টাইম জোন':'Your time zone'}</span><select class="ftz">${tzOpts(detected)}</select></label></div><p class="bdtime" hidden></p><input type="hidden" name="Preferred time (Bangladesh)"><input type="hidden" name="Preferred time (local)"><input type="hidden" name="Preferred slot">`;
+const updTime=f=>{const t=f.querySelector('.ltime'),z=f.querySelector('.ftz'),o=f.querySelector('.bdtime');if(!t)return;const bd=toBd(t.value,z.value);o.hidden=!bd;o.textContent=(LANG==='bn'?'বাংলাদেশ সময়: ':'Bangladesh time: ')+bd;f.querySelector('[name="Preferred time (Bangladesh)"]').value=bd;f.querySelector('[name="Preferred time (local)"]').value=t.value?`${fmt(...t.value.split(':').map(Number))} (${z.value})`:'';f.querySelector('[name="Preferred slot"]').value=SLOT};
+
+const renderClocks=()=>{const zones=['Asia/Dhaka',...(detected!=='Asia/Dhaka'?[detected]:[]),...clockList.filter(z=>z!=='Asia/Dhaka'&&z!==detected)];const now=new Date(),bdOff=360;
+ $('#clocks').innerHTML=zones.map(z=>{let t='--:--',day='';try{t=now.toLocaleTimeString('en-US',{timeZone:z,hour:'numeric',minute:'2-digit'});day=now.toLocaleDateString(LANG==='bn'?'bn-BD':'en-GB',{timeZone:z,weekday:'long'})}catch(e){}const diff=(offMin(z)-bdOff)/60;const rel=z==='Asia/Dhaka'?(LANG==='bn'?'বাংলাদেশের সময়':'Bangladesh time'):diff===0?(LANG==='bn'?'বাংলাদেশের সমান':'Same as Bangladesh'):(LANG==='bn'?`বাংলাদেশের চেয়ে ${Math.abs(diff)} ঘণ্টা ${diff<0?'পিছিয়ে':'এগিয়ে'}`:`${Math.abs(diff)} h ${diff<0?'behind':'ahead of'} Bangladesh`);const rm=clockList.includes(z)?`<button class="rm" data-rm="${esc(z)}" aria-label="Remove">${ic('x')}</button>`:'';return `<div class="clk${z==='Asia/Dhaka'?' bd':''}">${rm}<small>${esc(tzLabel(z))}${z===detected&&z!=='Asia/Dhaka'?(LANG==='bn'?' · আপনি':' · you'):''}</small><b>${esc(t)}</b><em>${esc(day)} · ${esc(rel)}</em></div>`}).join('')};
+
+const render=()=>{
+ const tk=TICK.map(t=>`<span>${esc(L(t))}</span>`).join('');$('#ticker').innerHTML=tk+tk;
+ $('#heroChips').innerHTML=COURSES.slice(0,7).map((c,k)=>`<button class="chip" type="button" data-detail="${k}"><i>${ic(c.icon)}</i>${esc(L(c.t))}</button>`).join('');
+ $('#benefits').innerHTML=BEN.map(b=>`<div class="bcard"><span class="bic">${ic(b.i)}</span><span>${esc(L(b))}</span></div>`).join('');
+ $('#slides').innerHTML=SLIDES.map((s,k)=>`<div class="slide"><img src="${imgSrc(s.img)}" alt="" loading="lazy" style="object-position:${s.pos||'center'}"><div><span class="num">0${k+1} / 0${SLIDES.length}</span><h3>${esc(L(s.t))}</h3><p>${esc(L(s.p))}</p></div></div>`).join('');
+ $('#dots').innerHTML=SLIDES.map((s,k)=>`<button aria-label="Slide ${k+1}" data-k="${k}"${k?'':' aria-current="true"'}></button>`).join('');
+ const bn=LANG==='bn';
+ $('#courseGrid').innerHTML=COURSES.map((c,i)=>`<article class="course cc2 rv" tabindex="0" data-i="${i}"><div class="chead"><span class="ic">${ic(c.icon||'book-open')}</span><span class="cn">${esc(c.n)}</span></div><span class="ctag">${esc(L(c.tag||{en:'',bn:''}))}</span><h3>${esc(L(c.t))}</h3><p>${esc(L(c.d))}</p><ul>${c.l.slice(0,3).map(x=>`<li>${esc(L(x))}</li>`).join('')}</ul><div class="acts"><button class="btn b-line b-sm" type="button" data-detail="${i}">${bn?'বিস্তারিত দেখুন':'View details'}</button><a class="btn b-deep b-sm" href="#apply" data-c="${esc(c.val)}">${bn?'ভর্তি হোন':'Enroll'}</a></div></article>`).join('')+`<article class="course week rv" tabindex="0"><div class="ph"><img src="weekly.jpg" alt="" loading="lazy"></div><span class="ic">${ic('heart-handshake')}</span><span class="ctag">${bn?'সব শিক্ষার্থীর জন্য · সপ্তাহে একদিন':'For all students · weekly'}</span><h3>${esc(L(WEEK.t))}</h3><p>${esc(L(WEEK.d))}</p><div class="acts"><a class="btn b-deep b-sm" href="#trial">${bn?'ফ্রি ট্রায়াল নিন':'Free trial'}</a></div></article>`;
+ $('#svcGrid').innerHTML=SVC.map(([i,t])=>`<div class="svc"><span class="ic">${ic(i)}</span>${esc(L(t))}</div>`).join('');
+ $('#who').innerHTML=WHO.map((w,k)=>`<div tabindex="0" data-who="${k}"><span class="ic">${ic(w.i)}</span><span class="wt"><b>${esc(L(w.t))}</b><small>${esc(L(w.s))}</small><em>${bn?'বিস্তারিত দেখুন ›':'View details ›'}</em></span></div>`).join('');
+ $('#slots').innerHTML=SLOTS.map(s=>`<button class="slot" type="button" data-slot="${esc(s.en)}" aria-pressed="${SLOT===s.en}">${esc(L(s))}</button>`).join('');
+ $('#steps').innerHTML=STEPS.map(([i,t],k)=>`<div class="step rv"><span class="n">${k+1}</span><span class="ic">${ic(i)}</span>${esc(L(t))}</div>`).join('');
+ $('#rules').innerHTML=RULES.map(r=>`<li>${esc(L(r))}</li>`).join('');
+ $$('.guideList').forEach(u=>u.innerHTML=GUIDE.map(g=>u.classList.contains('checks')?`<li>${ic('check')}<span>${esc(L(g))}</span></li>`:`<li>${esc(L(g))}</li>`).join(''));
+ $('#a3').innerHTML=ABOUT.map(([i,h,p])=>`<div><h3><span class="ic">${ic(i)}</span>${esc(L(h))}</h3><p>${esc(L(p))}</p></div>`).join('');
+ $('#teamGrid').innerHTML=TEAM.map(m=>`<div class="tm"><span class="smp">${LANG==='bn'?'নমুনা':'Sample'}</span><div class="av"><span class="ini">${esc(L(m.i))}</span></div><h3>${esc(L(m.n))}</h3><p>${esc(L(m.r))}</p><span class="tg">${esc(L(m.g))}</span></div>`).join('');
+ $('#revGrid').innerHTML=REVIEWS.map(r=>`<figure class="rv2"><span class="smp">${LANG==='bn'?'নমুনা':'Sample'}</span><svg class="i q"><use href="#quote"/></svg><div class="stars">${ic('star').repeat(5)}</div><blockquote>${esc(L(r.t))}</blockquote><figcaption><span class="rav">${esc(r.i)}</span><span><b>${esc(L(r.n))}</b><small>${esc(L(r.p))}</small></span></figcaption></figure>`).join('');
+ $('#bankRows').innerHTML=BANK.map(([k,v,c])=>`<tr><td>${esc(L(k))}</td><td>${esc(v)}</td><td>${c?`<button class="cp" type="button" data-copy="${esc(v)}">${bn?'কপি':'Copy'}</button>`:''}</td></tr>`).join('');
+ $('#board').innerHTML=UPDATES.map(u=>`<article class="course"><div class="ph"><img src="${esc(imgSrc(u.img))}" alt="" loading="lazy"></div><span style="font-size:13px;font-weight:800;color:var(--goldD)">${esc(L(u.d))}</span><h3>${esc(L(u.t))}</h3><p>${esc(L(u.p))}</p></article>`).join('');
+ $('#faqList').innerHTML=FAQ.map(([q,a])=>`<details><summary>${esc(L(q))}</summary><p>${esc(L(a))}</p></details>`).join('');
+ $$('.courseRadios').forEach(r=>{const cur=(r.querySelector('input:checked')||{}).value;r.innerHTML=COURSES.map((c,k)=>`<label><input type="radio" name="Course" value="${esc(c.val)}"${k?'':' required'}${cur===c.val?' checked':''}><span>${esc(L(c.t))}</span></label>`).join('')});
+ $$('.courseSel').forEach(s=>{const v=s.value;s.innerHTML=`<option value="">${bn?'বেছে নিন':'Choose'}</option>`+COURSES.map(c=>`<option value="${esc(c.val)}">${esc(L(c.t))}</option>`).join('');s.value=v});
+ $$('.countrySel').forEach(s=>{const v=s.value;s.innerHTML=`<option value="">${bn?'দেশ বেছে নিন':'Choose country'}</option>`+COUNTRIES.map(c=>`<option value="${esc(c[0])}">${esc(bn?c[1]:c[0])} (${c[2]})</option>`).join('');s.value=v});
+ $('#addSel').innerHTML=`<option value="">${bn?'দেশ বেছে নিন':'Choose a country'}</option>`+COUNTRIES.filter(c=>c[3]).map(c=>`<option value="${c[3]}">${esc(bn?c[1]:c[0])}</option>`).join('');
+ $$('.timeblock').forEach(b=>{const old=b.querySelector('.ltime')?.value||'',oz=b.querySelector('.ftz')?.value;b.innerHTML=timeHTML();if(old)b.querySelector('.ltime').value=old;if(oz)b.querySelector('.ftz').value=oz});
+ $$('form[data-form]').forEach(updTime);renderClocks();
+};
+
+const setLang=l=>{LANG=l;document.documentElement.lang=l;$$('[data-bn]').forEach(el=>{if(el.dataset.en===undefined)el.dataset.en=el.innerHTML;el.innerHTML=l==='bn'?el.dataset.bn:el.dataset.en});$$('#langBtn .lgo').forEach(o=>o.classList.toggle('on',o.dataset.l===l));store.set('ql-lang',l);render();io()};
+$('#langBtn').addEventListener('click',()=>setLang(LANG==='en'?'bn':'en'));
+const setTheme=t=>{document.documentElement.dataset.ql=t;document.documentElement.dataset.theme=t;$('#themeBtn').innerHTML=ic(t==='dark'?'sun':'moon');store.set('ql-theme',t)};
+$('#themeBtn').addEventListener('click',()=>setTheme((document.documentElement.dataset.ql||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))==='dark'?'light':'dark'));
+
+/* carousel */
+const sl=$('#slides');let cur=0,auto;
+const go=k=>{cur=(k+SLIDES.length)%SLIDES.length;sl.scrollTo({left:sl.clientWidth*cur,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})};
+sl.addEventListener('scroll',()=>{const k=Math.round(sl.scrollLeft/sl.clientWidth);if(k!==cur)cur=k;$$('#dots button').forEach((b,i)=>b.setAttribute('aria-current',i===cur))},{passive:true});
+$('#prev').addEventListener('click',()=>go(cur-1));$('#next').addEventListener('click',()=>go(cur+1));
+$('#dots').addEventListener('click',e=>{const b=e.target.closest('button');if(b)go(+b.dataset.k)});
+$('.car').addEventListener('keydown',e=>{if(e.key==='ArrowLeft')go(cur-1);if(e.key==='ArrowRight')go(cur+1)});
+const startAuto=()=>{clearInterval(auto);if(!matchMedia('(prefers-reduced-motion:reduce)').matches)auto=setInterval(()=>go(cur+1),5500)};
+$('.car').addEventListener('pointerenter',()=>clearInterval(auto));$('.car').addEventListener('pointerleave',startAuto);
+
+/* events */
+document.addEventListener('click',async e=>{
+ const t=e.target;
+ const more=t.closest('[data-more]');if(more){const c=more.closest('.course');c.classList.toggle('open');more.textContent=c.classList.contains('open')?(LANG==='bn'?'কম দেখুন':'Less'):(LANG==='bn'?'বিস্তারিত দেখুন':'Details')}
+ const enr=t.closest('a[data-c]');if(enr){setTimeout(()=>{const rd=[...document.querySelectorAll('form[data-form="admission"] .courseRadios input')].find(x=>x.value===enr.dataset.c);if(rd)rd.checked=true},80)}
+ const s=t.closest('.slot');if(s){SLOT=SLOT===s.dataset.slot?'':s.dataset.slot;$$('.slot').forEach(b=>b.setAttribute('aria-pressed',b.dataset.slot===SLOT));$$('form[data-form]').forEach(updTime)}
+ const rm=t.closest('[data-rm]');if(rm){clockList=clockList.filter(z=>z!==rm.dataset.rm);store.set('ql-clocks',clockList.join('|'));renderClocks()}
+ const cp=t.closest('.cp');if(cp){const old=cp.textContent;try{await navigator.clipboard.writeText(cp.dataset.copy);cp.textContent=LANG==='bn'?'কপি হয়েছে':'Copied'}catch(err){cp.textContent=cp.dataset.copy}setTimeout(()=>cp.textContent=old,1800)}
+});
+$('#addBtn').addEventListener('click',()=>{const z=$('#addSel').value;if(z&&!clockList.includes(z)&&z!=='Asia/Dhaka'&&z!==detected){clockList.push(z);store.set('ql-clocks',clockList.join('|'));renderClocks()}});
+const applyCountry=(f,name)=>{const c=cByName(name);if(!c)return;const ph=f.querySelector('.phone');if(ph&&c[2]!=='+'&&(!ph.value.trim()||/^\+\d{0,4}\s*$/.test(ph.value.trim())))ph.value=c[2]+' ';const z=f.querySelector('.ftz');if(z&&c[3]){if(![...z.options].some(o=>o.value===c[3]))z.insertAdjacentHTML('beforeend',`<option value="${c[3]}">${c[3]}</option>`);z.value=c[3]}updTime(f)};
+document.addEventListener('change',e=>{const t=e.target;if(t.classList.contains('countrySel')&&t.form)applyCountry(t.form,t.value);if((t.classList.contains('ltime')||t.classList.contains('ftz'))&&t.form)updTime(t.form)});
+document.addEventListener('input',e=>{if(e.target.classList.contains('ltime'))updTime(e.target.form)});
+
+/* course details modal */
+const cm=$('#cmodal');let lastFocus=null;
+const writeIn=root=>{let i=0;const add=el=>{el.classList.add('fu2');el.style.animationDelay=(Math.min(i++,10)*.03+.05).toFixed(2)+'s'};[...root.children].forEach(el=>{if(el.matches('ul'))[...el.children].forEach(add);else add(el)})};
+const showCm=()=>{const b=cm.querySelector('.cbox');b.style.animation='none';b.offsetWidth;b.style.animation='';writeIn($('#cmBody'));cm.hidden=false;$('#cmX').focus()};
+const openC=i=>{const c=COURSES[i];const bn=LANG==='bn';lastFocus=document.activeElement;
+ $('#cmBody').innerHTML=`<span class="ctag">${esc(L(c.tag||{en:'',bn:''}))}</span><h3 id="cmT">${esc(L(c.t))}</h3><p class="ld">${esc(L(c.d))}</p><h4>${bn?'যা যা শিখবেন':'What you will learn'}</h4><ul>${c.l.map(x=>`<li>${esc(L(x))}</li>`).join('')}</ul>${c.yt?`<p class="ld" style="margin-top:6px">${bn?'আগে দেখে নিতে চাইলে:':'Want to see first?'} <a href="https://www.youtube.com/@quranilifeonlineacademy/playlists">${bn?'YouTube প্লেলিস্ট':'YouTube playlists'}</a></p>`:''}<div class="acts"><a class="btn b-deep" href="#apply" data-c="${esc(c.val)}" data-closem>${bn?'ভর্তি হোন':'Enroll now'}</a><a class="btn b-line" href="https://wa.me/${WA}?text=${encodeURIComponent((bn?'আসসালামু আলাইকুম, আমি এই কোর্স সম্পর্কে জানতে চাই: ':'Assalamu Alaikum, I would like to know about this course: ')+L(c.t))}">${ic('wa')}${bn?'WhatsApp-এ জানুন':'Ask on WhatsApp'}</a></div>`;
+ showCm()};
+const openW=k=>{const w=WHO[k];const bn=LANG==='bn';lastFocus=document.activeElement;
+ $('#cmBody').innerHTML=`<span class="ctag">${esc(L(w.s))}</span><h3 id="cmT">${esc(L(w.t))}</h3><p class="ld">${esc(L(w.d))}</p><h4>${bn?'যে কোর্সগুলো উপযোগী':'Courses that fit'}</h4><ul>${w.c.map(x=>`<li>${esc(L(x))}</li>`).join('')}</ul><h4>${bn?'আমরা যেভাবে পাশে থাকি':'How we walk with you'}</h4><ul>${w.h.map(x=>`<li>${esc(L(x))}</li>`).join('')}</ul><div class="acts"><a class="btn b-deep" href="#trial" data-closem>${bn?'ফ্রি ট্রায়াল নিন':'Book a free trial'}</a><a class="btn b-line" href="https://wa.me/${WA}?text=${encodeURIComponent((bn?'আসসালামু আলাইকুম, জানতে চাই: ':'Assalamu Alaikum, I would like to know about: ')+L(w.t))}">${ic('wa')}${bn?'WhatsApp-এ জানুন':'Ask on WhatsApp'}</a></div>`;
+ showCm()};
+const closeC=()=>{cm.hidden=true;if(lastFocus)lastFocus.focus()};
+$('#cmX').addEventListener('click',closeC);cm.addEventListener('click',e=>{if(e.target===cm||e.target.closest('[data-closem]'))closeC()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!cm.hidden)closeC()});
+/* card selection ring */
+const SELQ='.course,.svc,.who>div,.step,.tm,.cc,.clk,.a3>div,.bcard,.soc';
+document.addEventListener('click',e=>{const d=e.target.closest('[data-detail]');if(d){openC(+d.dataset.detail);return}const wh=e.target.closest('[data-who]');if(wh){openW(+wh.dataset.who);return}});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches&&e.target.matches('.cc2')){openC(+e.target.dataset.i)}if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.who){openW(+e.target.dataset.who)}});
+/* tabs + routing */
+const done=$('#done');
+const showTab=t=>{$$('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));$$('form[data-form]').forEach(f=>f.hidden=f.dataset.form!==t);done.hidden=true};
+$$('.tab').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.t)));
+const route=()=>{const h=location.hash.slice(1);const m={trial:'trial',apply:'admission',teacher:'teacher'}[h];if(m){showTab(m);$('#forms').scrollIntoView({behavior:'smooth',block:'start'})}};
+addEventListener('hashchange',route);
+
+/* submit */
+$$('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{
+ e.preventDefault();updTime(f);const err=f.querySelector('.err');const bn=LANG==='bn';
+ const bad=[...f.elements].find(el=>el.willValidate&&!el.checkValidity());
+ if(bad){err.textContent=bad.type==='tel'?(bn?'কান্ট্রি কোডসহ সঠিক WhatsApp নম্বর দিন।':'Please enter a valid WhatsApp number with country code.'):(bn?'তারকা (*) চিহ্নিত সব ঘর পূরণ করুন।':'Please fill in all fields marked *.');bad.focus();return}
+ err.textContent='';
+ const lines=[...new FormData(f)].filter(([,v])=>String(v).trim()).map(([k,v])=>`${k}: ${v}`);
+ const msg=`${f.dataset.title}\n\n${lines.join('\n')}`;const btn=f.querySelector('button[type=submit]');
+ const show=sent=>{f.hidden=true;done.hidden=false;done.innerHTML=`<div class="ok">${ic('check')}</div><h3>${bn?'জাযাকাল্লাহু খাইরান!':'Jazakallahu khairan!'}</h3><p class="intro">${sent?(bn?'আপনার ফরম জমা হয়েছে। আমাদের প্রতিনিধি শীঘ্রই যোগাযোগ করবেন, ইংশা আল্লাহ।':'Your form has been submitted. Our representative will contact you soon, in shaa Allah.'):(bn?'নিচের বাটনে চাপ দিয়ে তথ্যটা WhatsApp-এ পাঠিয়ে দিন।':'Tap the button below to send your details on WhatsApp.')}</p><pre></pre><a class="btn b-deep" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}">${ic('wa')}${bn?'WhatsApp-এ পাঠান':'Send on WhatsApp'}</a><a class="btn b-line" href="https://chat.whatsapp.com/ECaWYG0Zju3HZyeu3s70U7">${bn?'WhatsApp Group-এ যুক্ত হন':'Join our WhatsApp Group'}</a><button class="btn b-line" type="button" id="again">${bn?'আবার পূরণ করুন':'Fill again'}</button>`;done.querySelector('pre').textContent=msg;done.querySelector('#again').addEventListener('click',()=>{f.reset();btn.disabled=false;showTab(f.dataset.form);updTime(f)})};
+ if(!API){show(false);return}
+ btn.disabled=true;err.textContent=bn?'জমা হচ্ছে...':'Submitting...';
+ const body=new URLSearchParams();for(const [k,v] of new FormData(f))body.append(k,v);body.append('form',f.dataset.form);body.append('Language',LANG);
+ fetch(API,{method:'POST',mode:'no-cors',body}).then(()=>{err.textContent='';show(true)}).catch(()=>{err.textContent='';show(false)});
+}));
+
+/* sheet content */
+const fromSheet=d=>{const two=(o,k)=>({en:o[k+' (English)']||'',bn:o[k+' (Bangla)']||o[k+' (English)']||''});
+ if(d.courses&&d.courses.length)COURSES=d.courses.map((o,i)=>{const pe=String(o['Points (English)']||'').split(',').map(x=>x.trim()).filter(Boolean),pb=String(o['Points (Bangla)']||'').split(',').map(x=>x.trim()).filter(Boolean);return{n:o.Step||String(i+1),val:o['Form value']||o['Title (English)'],icon:['book-open','book-open-check','scroll-text'][i%3],t:two(o,'Title'),d:two(o,'Description'),l:pe.map((x,j)=>({en:x,bn:pb[j]||x})),img:o.Image}});
+ if(d.updates&&d.updates.length)UPDATES=d.updates.map(o=>({d:{en:o.Date||'',bn:o.Date||''},t:two(o,'Title'),p:two(o,'Text'),img:o.Image}));
+ if(d.faq&&d.faq.length)FAQ=d.faq.map(o=>[two(o,'Question'),two(o,'Answer')]);render()};
+if(API)fetch(API).then(r=>r.json()).then(fromSheet).catch(()=>{});
+
+/* menu, sticky, modal, reveal */
+const mb=$('#menuBtn'),nv=$('#nav');mb.addEventListener('click',()=>{const o=nv.classList.toggle('open');mb.setAttribute('aria-expanded',o)});nv.addEventListener('click',e=>{if(e.target.tagName==='A'){nv.classList.remove('open');mb.setAttribute('aria-expanded',false)}});
+$('#stickyX').addEventListener('click',()=>{$('#sticky').hidden=true;$('.wa').style.bottom='16px';store.set('ql-sticky','0')});
+if(store.get('ql-sticky')==='0'){$('#sticky').hidden=true;$('.wa').style.bottom='16px'}
+const modal=$('#modal');const closeM=()=>{modal.hidden=true;store.set('ql-country','skip')};
+$('#modalX').addEventListener('click',closeM);modal.addEventListener('click',e=>{if(e.target===modal)closeM()});
+$('#modalOk').addEventListener('click',()=>{const n=$('#modalSel').value;if(n){store.set('ql-country',n);const c=cByName(n);if(c&&c[3]&&c[3]!==detected&&c[3]!=='Asia/Dhaka'&&!clockList.includes(c[3])){clockList.unshift(c[3]);store.set('ql-clocks',clockList.join('|'))}$$('form[data-form] .countrySel').forEach(s=>{s.value=n;applyCountry(s.form,n)});renderClocks()}modal.hidden=true});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)closeM()});
+let obs=null;const SKIP='header,nav,footer,form,.modal,#cmodal,.ticker,.fstack,.wa,#sticky,.hero';
+const LNQ='h3,h4,p,li,small,.ctag,.cn,.bic,.ic,.acts,.row,.btn,.pacts,.pnum,b,time,.tl>div,.badge';
+const lines=(c,d)=>{let k=0;c.querySelectorAll(LNQ).forEach(el=>{if(el.closest('.ln')||el.closest('form,.modal'))return;if(el.offsetHeight<4)return;el.classList.add('ln');el.style.setProperty('--ld',(d+.12+Math.min(k++,12)*.06).toFixed(2)+'s')})};
+const splitB=()=>{const h=document.querySelector('.hero');if(!h)return;const hb=h.getBoundingClientRect().bottom;const bt=$('#benefits').getBoundingClientRect().top;$$('#benefits .bcard').forEach(c=>{const top=bt+c.offsetTop;c.style.setProperty('--split',Math.max(0,Math.min(c.offsetHeight+10,hb-top+5)).toFixed(1)+'px')})};
+addEventListener('resize',splitB);addEventListener('load',splitB);document.addEventListener('mouseover',e=>{if(e.target.closest&&e.target.closest('#benefits'))splitB()});
+const autoTag=()=>{const bn=$('#benefits');if(bn){const ks=[...bn.children].filter(c=>!c.classList.contains('rv'));ks.forEach((c,i)=>{c.classList.add('rv');c.style.setProperty('--d',(i*.08).toFixed(2)+'s');lines(c,i*.08)})}
+ $$('main section, body > section, section').forEach(sec=>{if(sec.closest(SKIP))return;
+ sec.querySelectorAll('h2,.sh>p,.lead,.sub').forEach(el=>{if(!el.closest(SKIP)&&!el.closest('.rv')&&!el.classList.contains('rv'))el.classList.add('rv')});
+ [...sec.querySelectorAll('*')].forEach(g=>{if(g.closest(SKIP)||g.children.length<2)return;const cs=getComputedStyle(g);if(!(cs.display==='grid'||(cs.display==='flex'&&cs.flexWrap==='wrap')))return;if(g.closest('.rv'))return;
+  const kids=[...g.children].filter(c=>c.offsetHeight>30&&!c.classList.contains('rv'));kids.forEach((c,i)=>{c.classList.add('rv');const d=Math.min(i,7)*.07;c.style.setProperty('--d',d.toFixed(2)+'s');if(kids.length===2)c.classList.add(i?'fr':'fl');lines(c,d)})})})};
+const io=()=>{autoTag();if(!('IntersectionObserver' in window)){$$('.rv').forEach(el=>el.classList.add('in'));return}obs=obs||new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){const t=x.target;t.classList.add('in');obs.unobserve(t);setTimeout(()=>t.querySelectorAll('.ln').forEach(e=>{e.classList.remove('ln')}),2200)}}),{threshold:.08,rootMargin:'0px 0px -6% 0px'});$$('.rv:not(.in)').forEach(el=>obs.observe(el))};
+
+setLang('en');
+const th=store.get('ql-theme');if(th)setTheme(th);
+const savedC=store.get('ql-country');
+if(!savedC)setTimeout(()=>{modal.hidden=false},1200);else if(savedC!=='skip')$$('form[data-form] .countrySel').forEach(s=>{s.value=savedC;applyCountry(s.form,savedC)});
+setInterval(renderClocks,30000);startAuto();route();
+}
+</script>
+</body>
+</html>
