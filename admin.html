@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>অ্যাডমিন প্যানেল · Qurani Life</title>
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#00703A;--gd:#00552C;--gold:#E0B415;--gold2:#F2C832;--bg:#F6F3EA;--card:#fff;--ink:#14201A;--muted:#5E6B63;--line:#E4DFD0;--red:#B23A2E}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:500 15px/1.55 "Hind Siliguri",Manrope,sans-serif}
+button,input,select,textarea{font:inherit}a{color:var(--g)}
+.top{background:linear-gradient(120deg,var(--gd),var(--g));color:#fff;padding:14px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:5;box-shadow:0 8px 20px -12px rgba(0,0,0,.5)}
+.top img{width:44px;height:50px;object-fit:contain;background:#FFF8E6;border-radius:10px;padding:3px}
+.top h1{margin:0;font-size:19px;line-height:1.2}.top small{opacity:.8;font-weight:500}
+.top .sp{flex:1}.top a,.top button{color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:7px 12px;text-decoration:none;cursor:pointer;font-weight:600;font-size:14px}
+.top a.ed{background:var(--gold);color:#1b1400;border-color:var(--gold)}
+main{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
+.login{max-width:380px;margin:10vh auto;background:var(--card);border-radius:22px;padding:30px;box-shadow:0 30px 60px -30px rgba(0,60,30,.35);text-align:center;border-top:5px solid var(--gold)}
+.login img{width:86px}.login h2{margin:8px 0 4px}.login p{color:var(--muted);margin:0 0 16px}
+input,select,textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px rgba(0,112,58,.12)}
+.btn{background:var(--g);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-weight:700;cursor:pointer}.btn:hover{background:var(--gd)}
+.btn.gold{background:var(--gold);color:#1b1400}.btn.ghost{background:#fff;color:var(--g);border:1.5px solid var(--g)}.btn.red{background:#fff;color:var(--red);border:1.5px solid var(--red)}
+.btn:disabled{opacity:.6;cursor:wait}
+.err{color:var(--red);min-height:22px;margin:8px 0 0;font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:20px}
+.stat{background:var(--card);border-radius:18px;padding:16px 18px;box-shadow:0 14px 30px -22px rgba(0,60,30,.4);border:1px solid var(--line);cursor:pointer;transition:.2s}
+.stat:hover{transform:translateY(-2px);border-color:var(--gold)}
+.stat b{display:block;font:800 32px/1.1 Manrope,sans-serif;color:var(--gd)}.stat span{color:var(--muted);font-weight:600}
+.stat .nw{display:inline-block;margin-top:6px;background:#FFF4CC;color:#7a5c00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;border-bottom:2px solid var(--line)}
+.tabs button{border:0;background:none;padding:10px 14px;font-weight:700;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
+.tabs button[aria-selected=true]{color:var(--g);border-color:var(--gold)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.tools input{max-width:320px}.tools select{max-width:180px}
+.list{display:grid;gap:12px}
+.app{background:var(--card);border-radius:16px;padding:14px 16px;border:1px solid var(--line);border-left:5px solid var(--gold);box-shadow:0 10px 24px -20px rgba(0,60,30,.5)}
+.app.done{border-left-color:var(--g)}.app.cancel{border-left-color:#aaa;opacity:.8}
+.app .hd{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.app h3{margin:0;font-size:17px}.app .meta{color:var(--muted);font-size:13px}
+.app .sp{flex:1}
+.pill{background:#EAF4EE;color:var(--gd);border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700}
+.pill.wa{background:#E3F8EA;color:#128C4B}
+.app .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.app .acts a{text-decoration:none;font-weight:700;font-size:14px;border-radius:10px;padding:6px 12px}
+.a-wa{background:#25D366;color:#fff!important}.a-call{background:#EAF4EE;color:var(--gd)!important}
+.app select{width:auto;padding:6px 10px;font-weight:700}
+.app details{margin-top:8px}.app summary{cursor:pointer;color:var(--g);font-weight:700;font-size:14px}
+.kv{display:grid;grid-template-columns:minmax(120px,220px) 1fr;gap:4px 14px;margin-top:8px;font-size:14px}
+.kv dt{color:var(--muted)}.kv dd{margin:0;word-break:break-word}
+.empty{background:var(--card);border-radius:16px;padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line)}
+.panel{background:var(--card);border-radius:18px;padding:18px;border:1px solid var(--line);margin-bottom:16px}
+.panel h3{margin:0 0 10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid2 label,.panel label{display:block;font-weight:600;font-size:14px;color:var(--muted)}
+.grid2 .full{grid-column:1/-1}
+.upd{display:grid;grid-template-columns:110px 1fr auto;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px}
+.upd img{width:110px;height:70px;object-fit:cover;border-radius:10px;background:#eee}
+.upd h4{margin:0}.upd p{margin:2px 0 0;color:var(--muted);font-size:14px}.upd .off{color:var(--red);font-weight:700}
+.upd .b{display:flex;gap:6px;flex-wrap:wrap}.upd .btn{padding:6px 12px;font-size:14px}
+.note{background:#FFF8E1;border:1px solid #F2DB8A;border-radius:14px;padding:12px 14px;margin-bottom:14px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--gd);color:#fff;padding:10px 18px;border-radius:12px;font-weight:700;z-index:50;box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
+.toast.bad{background:var(--red)}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}.upd{grid-template-columns:80px 1fr}.upd img{width:80px;height:56px}.upd .b{grid-column:1/-1}.kv{grid-template-columns:1fr}.kv dt{font-weight:700;margin-top:4px}}
+</style>
+</head>
+<body>
+<div id="loginView">
+ <div class="login">
+  <img src="logo.png" alt="Qurani Life">
+  <h2>অ্যাডমিন প্যানেল</h2>
+  <p>Qurani Life Online Academy</p>
+  <form id="loginForm"><input type="password" id="pw" placeholder="পাসওয়ার্ড" autocomplete="current-password" required><p class="err" id="lerr"></p><button class="btn" style="width:100%">প্রবেশ করুন</button></form>
+ </div>
+</div>
+
+<div id="app" hidden>
+ <header class="top">
+  <img src="logo.png" alt="">
+  <div><h1>অ্যাডমিন প্যানেল</h1><small>Qurani Life Online Academy</small></div>
+  <span class="sp"></span>
+  <a class="ed" href="index.html#edit" target="_blank">✎ হোম পেজের লেখা এডিট</a>
+  <a href="index.html" target="_blank">ওয়েবসাইট</a>
+  <a id="sheetLink" href="#" target="_blank">Google Sheet</a>
+  <button id="refresh" type="button">↻ রিফ্রেশ</button>
+  <button id="logout" type="button">বের হন</button>
+ </header>
+ <main>
+  <div class="stats" id="stats"></div>
+  <nav class="tabs" id="tabs">
+   <button data-t="trial" aria-selected="true">ফ্রি ট্রায়াল</button>
+   <button data-t="admission">ভর্তি</button>
+   <button data-t="teacher">শিক্ষক আবেদন</button>
+   <button data-t="updates">নোটিশ / আপডেট</button>
+   <button data-t="content">ওয়েবসাইটের লেখা</button>
+   <button data-t="settings">পাসওয়ার্ড</button>
+  </nav>
+  <section id="view"></section>
+ </main>
+</div>
+
+<script src="config.js"></script>
+<script>
+const API=(window.QL_CONFIG&&QL_CONFIG.API_URL)||'';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let PASS='',DATA=null,TAB='trial',Q='',FS='';
+try{PASS=sessionStorage.getItem('qlAdminPass')||''}catch(e){}
+const TABN={trial:'ফ্রি ট্রায়াল',admission:'ভর্তি',teacher:'শিক্ষক আবেদন'};
+const STATUSES=['নতুন','যোগাযোগ করা হয়েছে','ক্লাস নির্ধারিত','ভর্তি হয়েছে','বাতিল'];
+
+function toast(m,bad){const t=document.createElement('div');t.className='toast'+(bad?' bad':'');t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200)}
+async function call(action,extra={}){
+ const b=new URLSearchParams({action,pass:PASS,...extra});
+ const r=await fetch(API,{method:'POST',body:b});return r.json();
+}
+async function login(p){
+ PASS=p;const r=await call('login');
+ if(!r.ok){PASS='';throw new Error(r.error)}
+ try{sessionStorage.setItem('qlAdminPass',p)}catch(e){}
+}
+async function load(){
+ $('#view').innerHTML='<div class="empty">লোড হচ্ছে...</div>';
+ const r=await call('list');
+ if(!r.ok){if(r.error==='wrong password')return logout();toast(r.error,1);return}
+ DATA=r;$('#sheetLink').href=r.sheet;stats();render();
+}
+function logout(){try{sessionStorage.removeItem('qlAdminPass')}catch(e){}location.reload()}
+
+const pick=(o,keys)=>{for(const k of Object.keys(o)){if(keys.some(x=>k.toLowerCase().includes(x))&&String(o[k]).trim())return o[k]}return ''};
+const nameOf=o=>pick(o,['student full name','student name','full name','name'])||'নাম নেই';
+const phoneOf=o=>pick(o,['whatsapp','phone','mobile']);
+const digits=s=>String(s).replace(/[^\d]/g,'');
+
+function stats(){
+ const c=k=>(DATA[k]||[]).length, n=k=>(DATA[k]||[]).filter(x=>!x.Status||x.Status==='নতুন').length;
+ $('#stats').innerHTML=['trial','admission','teacher'].map(k=>`<div class="stat" data-go="${k}"><span>${TABN[k]}</span><b>${c(k)}</b><span class="nw">নতুন: ${n(k)}</span></div>`).join('')+
+ `<div class="stat" data-go="updates"><span>নোটিশ</span><b>${(DATA.updates||[]).length}</b><span class="nw">ওয়েবসাইটে দেখাচ্ছে: ${(DATA.updates||[]).filter(u=>String(u.Show).toUpperCase()!=='NO').length}</span></div>`;
+}
+function setTab(t){TAB=t;Q='';FS='';document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));render()}
+
+function render(){
+ if(!DATA)return;
+ if(TAB in TABN)return renderApps();
+ if(TAB==='updates')return renderUpdates();
+ if(TAB==='content')return renderContent();
+ renderSettings();
+}
+function renderApps(){
+ let rows=(DATA[TAB]||[]).slice().reverse();
+ const v=$('#view');
+ v.innerHTML=`<div class="tools"><input id="q" placeholder="নাম, নম্বর বা দেশ দিয়ে খুঁজুন" value="${esc(Q)}"><select id="fs"><option value="">সব অবস্থা</option>${STATUSES.map(s=>`<option ${s===FS?'selected':''}>${s}</option>`).join('')}</select></div><div class="list" id="list"></div>`;
+ const draw=()=>{
+  const q=Q.toLowerCase();
+  const list=rows.filter(o=>(!FS||(o.Status||'নতুন')===FS)&&(!q||Object.values(o).join(' ').toLowerCase().includes(q)));
+  $('#list').innerHTML=list.length?list.map(o=>card(o)).join(''):'<div class="empty">এখনো কোনো আবেদন নেই।</div>';
+ };
+ $('#q').oninput=e=>{Q=e.target.value;draw()};$('#fs').onchange=e=>{FS=e.target.value;draw()};draw();
+}
+function card(o){
+ const st=o.Status||'নতুন',ph=phoneOf(o),d=digits(ph);
+ const cls=st==='বাতিল'?'cancel':(st==='নতুন'?'':'done');
+ const via=o['Sent via']||'Website';
+ const country=pick(o,['country']),course=pick(o,['course']);
+ const skip=['_row','Status','Sent via'];
+ const kv=Object.keys(o).filter(k=>!skip.includes(k)&&String(o[k]).trim()).map(k=>`<dt>${esc(k)}</dt><dd>${esc(o[k])}</dd>`).join('');
+ return `<article class="app ${cls}">
+  <div class="hd"><h3>${esc(nameOf(o))}</h3>${country?`<span class="pill">${esc(country)}</span>`:''}${course?`<span class="pill">${esc(course)}</span>`:''}<span class="pill ${via==='WhatsApp'?'wa':''}">${via==='WhatsApp'?'WhatsApp দিয়ে':'ওয়েবসাইট ফর্ম'}</span><span class="sp"></span><span class="meta">${esc(o.Timestamp||'')}</span></div>
+  <div class="acts">${d?`<a class="a-wa" target="_blank" href="https://wa.me/${d}">WhatsApp</a><a class="a-call" href="tel:+${d}">📞 কল</a><span class="meta">${esc(ph)}</span>`:''}<span class="sp"></span>
+  <label class="meta">অবস্থা: <select data-row="${o._row}">${STATUSES.map(s=>`<option ${s===st?'selected':''}>${s}</option>`).join('')}</select></label></div>
+  <details><summary>সব তথ্য দেখুন</summary><dl class="kv">${kv}</dl></details>
+ </article>`;
+}
+document.addEventListener('change',async e=>{
+ const s=e.target.closest('select[data-row]');if(!s)return;
+ s.disabled=true;const r=await call('status',{tab:TAB,row:s.dataset.row,value:s.value});s.disabled=false;
+ if(r.ok){const o=DATA[TAB].find(x=>String(x._row)===s.dataset.row);if(o)o.Status=s.value;stats();toast('অবস্থা সেভ হয়েছে');const a=s.closest('.app');a.className='app '+(s.value==='বাতিল'?'cancel':s.value==='নতুন'?'':'done')}else toast(r.error,1);
+});
+
+function renderUpdates(edit){
+ const u=edit||{};const ups=(DATA.updates||[]).slice().reverse();
+ $('#view').innerHTML=`<div class="panel"><h3>${edit?'নোটিশ এডিট করুন':'নতুন নোটিশ যোগ করুন'}</h3>
+  <form id="uf" class="grid2">
+   <label>শিরোনাম (বাংলা)<input name="titleBn" value="${esc(u['Title (Bangla)'])}" required></label>
+   <label>Title (English)<input name="titleEn" value="${esc(u['Title (English)'])}"></label>
+   <label class="full">বিস্তারিত (বাংলা)<textarea name="textBn" rows="3">${esc(u['Text (Bangla)'])}</textarea></label>
+   <label class="full">Details (English)<textarea name="textEn" rows="3">${esc(u['Text (English)'])}</textarea></label>
+   <label>তারিখ<input name="date" type="date" value="${esc(u.Date||new Date().toISOString().slice(0,10))}"></label>
+   <label>ছবি (ফাইলের নাম বা ছবির লিংক)<input name="image" value="${esc(u.Image)}" placeholder="update1.jpg অথবা https://..."></label>
+   <label>ওয়েবসাইটে দেখাবে?<select name="show"><option value="YES">হ্যাঁ</option><option value="NO" ${String(u.Show).toUpperCase()==='NO'?'selected':''}>না (লুকানো)</option></select></label>
+   <div class="full" style="display:flex;gap:10px;align-items:end"><button class="btn">${edit?'সেভ করুন':'যোগ করুন'}</button>${edit?'<button type="button" class="btn ghost" id="cancelE">বাতিল</button>':''}</div>
+  </form></div>
+  <div class="list">${ups.length?ups.map(x=>`<div class="upd"><img src="${esc(/^https?:/.test(x.Image)?x.Image:(x.Image||''))}" alt="" onerror="this.style.visibility='hidden'"><div><h4>${esc(x['Title (Bangla)']||x['Title (English)'])}</h4><p>${esc(x.Date)} ${String(x.Show).toUpperCase()==='NO'?'· <span class="off">লুকানো</span>':'· ওয়েবসাইটে দেখাচ্ছে'}</p></div><div class="b"><button class="btn ghost" data-ed="${x._row}">এডিট</button><button class="btn ghost" data-tg="${x._row}">${String(x.Show).toUpperCase()==='NO'?'দেখান':'লুকান'}</button><button class="btn red" data-del="${x._row}">মুছুন</button></div></div>`).join(''):'<div class="empty">কোনো নোটিশ নেই।</div>'}</div>`;
+ $('#uf').onsubmit=async e=>{e.preventDefault();const f=Object.fromEntries(new FormData(e.target));const b=e.target.querySelector('.btn');b.disabled=true;
+  const r=await call(edit?'editUpdate':'addUpdate',edit?{...f,row:edit._row}:f);b.disabled=false;
+  if(r.ok){toast(edit?'সেভ হয়েছে':'নোটিশ যোগ হয়েছে');load().then(()=>setTab('updates'))}else toast(r.error,1)};
+ const c=$('#cancelE');if(c)c.onclick=()=>renderUpdates();
+}
+function updFields(x,show){return{show:show||x.Show||'YES',date:x.Date,titleEn:x['Title (English)'],titleBn:x['Title (Bangla)'],textEn:x['Text (English)'],textBn:x['Text (Bangla)'],image:x.Image,row:x._row}}
+document.addEventListener('click',async e=>{
+ const g=e.target.closest('[data-go]');if(g)return setTab(g.dataset.go);
+ const t=e.target.closest('#tabs button');if(t)return setTab(t.dataset.t);
+ const ed=e.target.closest('[data-ed]');if(ed){renderUpdates(DATA.updates.find(x=>String(x._row)===ed.dataset.ed));scrollTo({top:0,behavior:'smooth'});return}
+ const tg=e.target.closest('[data-tg]');if(tg){const x=DATA.updates.find(y=>String(y._row)===tg.dataset.tg);const r=await call('editUpdate',updFields(x,String(x.Show).toUpperCase()==='NO'?'YES':'NO'));if(r.ok){toast('সেভ হয়েছে');load().then(()=>setTab('updates'))}else toast(r.error,1);return}
+ const del=e.target.closest('[data-del]');if(del){if(!confirm('এই নোটিশটি মুছে ফেলবেন? এটা আর ফেরত আসবে না।'))return;const r=await call('deleteUpdate',{row:del.dataset.del});if(r.ok){toast('মুছে ফেলা হয়েছে');load().then(()=>setTab('updates'))}else toast(r.error,1);return}
+ const rs=e.target.closest('[data-reset]');if(rs){if(!confirm('এই লেখাটি আগের মূল লেখায় ফিরিয়ে নেবেন?'))return;const r=await call('resetContent',{key:rs.dataset.reset});if(r.ok){toast('আগের লেখায় ফিরে গেছে');load().then(()=>setTab('content'))}else toast(r.error,1)}
+});
+
+function strip(h){const d=document.createElement('div');d.innerHTML=h;return d.textContent}
+function renderContent(){
+ const c=DATA.content||{},keys=Object.keys(c);
+ $('#view').innerHTML=`<div class="note"><b>কীভাবে লেখা বদলাবেন:</b> উপরের হলুদ <b>"✎ হোম পেজের লেখা এডিট"</b> বাটনে ক্লিক করুন। ওয়েবসাইট খুলবে, হলুদ দাগ দেওয়া যেকোনো লেখায় ক্লিক করে সরাসরি বদলান, তারপর নিচের <b>"সেভ করুন"</b> চাপুন। বাংলা ও English দুটো আলাদা করে বদলাতে নিচের বারে "বাংলা / English" বাটন আছে।</div>
+ <div class="panel"><h3>যেসব লেখা বদলানো হয়েছে (${keys.length})</h3>${keys.length?keys.map(k=>`<div class="upd" style="grid-template-columns:1fr auto;margin-bottom:8px"><div><h4>${esc(strip(c[k].bn).slice(0,120))}</h4><p>${esc(strip(c[k].en).slice(0,120))}</p></div><div class="b"><button class="btn red" data-reset="${esc(k)}">আগের লেখায় ফেরান</button></div></div>`).join(''):'<div class="empty">এখনো কোনো লেখা বদলানো হয়নি।</div>'}</div>`;
+}
+function renderSettings(){
+ $('#view').innerHTML=`<div class="panel" style="max-width:440px"><h3>পাসওয়ার্ড বদলান</h3><form id="pf"><label>নতুন পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)<input type="password" name="a" minlength="6" required autocomplete="new-password"></label><br><label>আবার লিখুন<input type="password" name="b" minlength="6" required autocomplete="new-password"></label><p class="err" id="perr"></p><button class="btn">পাসওয়ার্ড বদলান</button></form></div>`;
+ $('#pf').onsubmit=async e=>{e.preventDefault();const f=Object.fromEntries(new FormData(e.target));if(f.a!==f.b){$('#perr').textContent='দুটো পাসওয়ার্ড মেলেনি।';return}
+  const r=await call('pass',{newPass:f.a});if(r.ok){PASS=f.a;try{sessionStorage.setItem('qlAdminPass',f.a)}catch(x){}toast('পাসওয়ার্ড বদলানো হয়েছে');e.target.reset();$('#perr').textContent=''}else $('#perr').textContent=r.error};
+}
+
+$('#loginForm').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('button');b.disabled=true;$('#lerr').textContent='';
+ try{await login($('#pw').value);start()}catch(x){$('#lerr').textContent=x.message==='wrong password'?'পাসওয়ার্ড ভুল।':'সংযোগে সমস্যা, আবার চেষ্টা করুন।'}b.disabled=false};
+$('#logout').onclick=logout;$('#refresh').onclick=()=>load().then(()=>setTab(TAB));
+function start(){$('#loginView').hidden=true;$('#app').hidden=false;load()}
+if(PASS)call('login').then(r=>r.ok?start():(PASS='')).catch(()=>{});
+</script>
+</body>
+</html>
