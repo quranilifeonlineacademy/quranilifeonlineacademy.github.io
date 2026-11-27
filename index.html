@@ -192,7 +192,7 @@ fieldset{border:0;padding:0;margin:0}
 .agree{display:flex;gap:10px;align-items:flex-start}.agree input{margin-top:3px}
 .err{color:#C0392B;font-size:14px;font-weight:600}
 .done{padding:clamp(24px,4vw,40px);text-align:center;display:grid;gap:12px;justify-items:center}
-.done .ok{width:70px;height:70px;border-radius:50%;background:var(--mint);color:var(--green);display:grid;place-items:center}
+.done .ok,.bdone .ok{width:70px;height:70px;border-radius:50%;background:var(--mint);color:var(--green);display:grid;place-items:center}
 .done pre{white-space:pre-wrap;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px;font:14.5px/1.6 var(--body);width:100%;margin:0}
 
 /* dark cta */
@@ -544,6 +544,11 @@ a.tool.stu{text-decoration:none;color:inherit}
 .bitem .bt span.full{background:#FDE7E1;color:#B23A2E}
 .bitem .btn{white-space:nowrap}
 .batchpick select{width:100%}
+.bback{background:none;border:0;color:var(--deep);font-weight:700;cursor:pointer;padding:0;justify-self:start;font:inherit;font-size:14px}
+.bsel{border:1px solid var(--line);border-radius:14px;padding:10px 14px;background:var(--mint);display:grid;gap:2px}.bsel b{color:var(--deep)}.bsel span{font-size:13.5px;color:var(--muted)}
+.bform{display:grid;gap:12px;padding:0}.bform .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:560px){.bform .row{grid-template-columns:1fr}}
+.bdone{display:grid;gap:12px;text-align:center;justify-items:center}.bdone .btn{width:100%;max-width:380px;justify-content:center}
+.paynote{background:var(--goldS);border:1px solid var(--gold);border-radius:14px;padding:12px 16px;text-align:left;max-width:520px}.paynote p{margin:6px 0 0;font-size:14.5px}.paynote .sm{font-size:13px;color:var(--muted)}
 @media(max-width:520px){.bitem{grid-template-columns:1fr}.bitem .btn{justify-self:start}}
 </style>
 </head>
@@ -1174,8 +1179,38 @@ function openBatches(){const bn=LANG==='bn';const diff=localTz&&localTz!=='Asia/
   <div class="bacts"><button class="btn ${b.full?'b-line':'b-deep'}" type="button" data-jb="${esc(b.id)}">${b.full?(bn?'অপেক্ষমাণ তালিকায়':'Join waitlist'):(bn?'এই ব্যাচে ভর্তি':'Join this batch')}</button>${b.wa?`<a class="btn b-line" href="${esc(b.wa)}" target="_blank" rel="noopener">${ic('wa')}${bn?'ব্যাচের WhatsApp গ্রুপ':'Batch WhatsApp group'}</a>`:''}</div></div>`).join(''):`<p>${bn?'এই মুহূর্তে কোনো খোলা ব্যাচ নেই। আবেদন করে রাখুন, নতুন ব্যাচ শুরু হলে আমরা জানাব, ইনশাআল্লাহ।':'No batch is open right now. Apply and we will let you know when a new batch starts, in shaa Allah.'}</p>`}</div>
  <a class="btn b-gold" href="#admission" data-ct="Batch" data-go="1" style="justify-self:start">${bn?'ব্যাচ ছাড়াই আবেদন করুন':'Apply without choosing a batch'}</a>`;
  bm.hidden=false;$('#bmX').focus()}
-function joinBatch(id){const b=BATCHES.find(x=>x.id===id);closeB();location.hash='#admission';
- setTimeout(()=>{const f=document.querySelector('#admission form:not([hidden])')||document.querySelector('form[data-form="trial"]');if(!f)return;const r=f.querySelector('input[name="Class type"][value="Batch"]');if(r)r.checked=true;syncBatchPick(f);const sel=f.querySelector('select[name="Preferred batch"]');if(sel&&b)sel.value=b.id+' · '+b.name;const cr=b&&b.course?[...f.querySelectorAll('.courseRadios input,.admCourse input')].find(x=>x.value===b.course||(x.closest('.admCourse')&&x.value===admFor(b.course))):null;if(cr)cr.checked=true;f.scrollIntoView({behavior:'smooth',block:'start'})},350)}
+function joinBatch(id){const b=BATCHES.find(x=>x.id===id);if(!b)return;const bn=LANG==='bn';const sc=store.get('ql-country')||'';
+ const opts=COUNTRIES.map(c=>`<option value="${esc(c[0])}"${c[0]===sc?' selected':''}>${esc(bn?c[1]:c[0])} (${c[2]})</option>`).join('');
+ const rd=(n,o)=>`<div class="radios">${o.map((x,i)=>`<label><input type="radio" name="${n}" value="${x[0]}"${i?'':' required'}><span>${bn?x[2]:x[1]}</span></label>`).join('')}</div>`;
+ $('#bmBody').innerHTML=`<button class="bback" type="button" id="bBack">← ${bn?'সব ব্যাচ':'All batches'}</button><h3 id="bmT">${bn?'ব্যাচে ভর্তির আবেদন':'Apply to join this batch'}</h3>
+ <div class="bsel"><b>${esc(b.name)}</b><span>${[b.course,b.days?bDays(b):'',b.start?bTime(b,'Asia/Dhaka')+(bn?' (বাংলাদেশ সময়)':' (Bangladesh time)'):'',b.startDate?(bn?'শুরু ':'Starts ')+bDate(b.startDate):''].filter(Boolean).map(esc).join(' · ')}</span></div>
+ <form class="bform" novalidate>
+  <input type="hidden" name="Class type" value="Batch"><input type="hidden" name="Preferred batch" value="${esc(b.id+' · '+b.name)}"><input type="hidden" name="Course" value="${esc(b.course||'')}">
+  <div class="row"><label><span>${bn?'শিক্ষার্থীর নাম':'Student name'}</span> <span class="req">*</span><input name="Student full name" required></label><label><span>${bn?'বয়স':'Age'}</span> <span class="req">*</span><input name="Age" inputmode="numeric" required></label></div>
+  <div class="row"><label><span>${bn?'অভিভাবকের নাম':'Guardian name'}</span><input name="Guardian name"></label><label><span>${bn?'বর্তমান দেশ':'Country of residence'}</span> <span class="req">*</span><select name="Country" class="countrySel" required><option value="">${bn?'দেশ বেছে নিন':'Choose country'}</option>${opts}</select></label></div>
+  <label><span>${bn?'WhatsApp নম্বর':'WhatsApp number'}</span> <span class="req">*</span><span class="hint">${bn?'কান্ট্রি কোড সহ':'With country code'}</span><input name="WhatsApp" type="tel" inputmode="tel" required pattern="\+?[0-9 \-]{10,18}" class="phone"></label>
+  <fieldset><span class="lbl"><span>${bn?'শিক্ষার্থী':'Student'}</span> <span class="req">*</span></span>${rd('Student type',[['Boy','Boy','ছেলে'],['Girl','Girl','মেয়ে'],['Adult (male)','Adult (male)','বড় (পুরুষ)'],['Adult (female)','Adult (female)','বড় (মহিলা)']])}</fieldset>
+  <label><span>${bn?'কিছু জানাতে চাইলে':'Anything to tell us'}</span><span class="hint">${bn?'(ঐচ্ছিক)':'(Optional)'}</span><textarea name="Additional info" rows="2"></textarea></label>
+  <p class="err" aria-live="polite"></p>
+  <button class="btn b-deep" type="submit">${bn?'আবেদন জমা দিন':'Submit application'}</button>
+ </form>`;
+ const f=$('#bmBody form');$('#bBack').onclick=openBatches;
+ if(sc&&typeof applyCountry==='function')try{applyCountry(f,sc)}catch(e){}
+ f.addEventListener('submit',e=>{e.preventDefault();const err=f.querySelector('.err');const bad=formBad(f);
+  if(bad){err.textContent=bad.type==='tel'?(bn?'কান্ট্রি কোডসহ সঠিক WhatsApp নম্বর দিন।':'Please enter a valid WhatsApp number with country code.'):(bn?'তারকা (*) চিহ্নিত সব ঘর পূরণ করুন।':'Please fill in all fields marked *.');bad.focus();return}
+  const P=formPairs(f);const g=k=>(P.find(x=>x[0]===k)||[])[1]||'';
+  const pay=(bn?'আসসালামু আলাইকুম। আমি ব্যাচে ভর্তির আবেদন করেছি, এখন পেমেন্ট (হাদিয়া) করতে চাই।':'Assalamu Alaikum. I have applied to join a batch and would like to make the payment (hadiya).')+`\n\n${bn?'ব্যাচ':'Batch'}: ${b.name} (${b.id})\n${bn?'শিক্ষার্থী':'Student'}: ${g('Student full name')}\n${bn?'দেশ':'Country'}: ${g('Country')}\nWhatsApp: ${g('WhatsApp')}`;
+  const done=sent=>{$('#bmBody').innerHTML=`<div class="bdone"><div class="ok">${ic('check')}</div><h3 id="bmT">${bn?'জাযাকাল্লাহু খাইরান!':'Jazakallahu khairan!'}</h3>
+   <p>${sent?(bn?`<b>${esc(b.name)}</b> ব্যাচে আপনার আবেদন জমা হয়েছে।`:`Your application for <b>${esc(b.name)}</b> has been received.`):(bn?'নিচের বাটনে চাপ দিয়ে আবেদনটি WhatsApp-এ পাঠিয়ে দিন।':'Tap the button below to send your application on WhatsApp.')}</p>
+   <div class="paynote"><b>${bn?'ভর্তি নিশ্চিত করতে পেমেন্ট করুন':'Confirm your seat with the payment'}</b><p>${bn?'ব্যাচে আসন নিশ্চিত করতে হাদিয়া (কোর্স ফি) পরিশোধ করতে হবে। নিচের বাটনে চাপ দিয়ে আমাদের অফিসিয়াল WhatsApp-এ মেসেজ দিন। আমাদের প্রতিনিধি ফি ও পেমেন্টের নিয়ম জানিয়ে দেবেন। পেমেন্টের পর স্ক্রিনশট বা ট্রানজেকশন আইডি WhatsApp-এ পাঠাবেন।':'Your seat is confirmed once the hadiya (course fee) is paid. Tap the button below to message our official WhatsApp. Our representative will tell you the fee and how to pay. After paying, please send the screenshot or transaction ID on WhatsApp.'}</p><p class="sm">${bn?'পেমেন্ট শুধু অফিসিয়াল নম্বর +8801889012156-এর মাধ্যমে করুন।':'Pay only through our official number +8801889012156.'}</p></div>
+   <a class="btn b-deep" href="https://wa.me/${WA}?text=${encodeURIComponent(pay)}" target="_blank" rel="noopener">${ic('wa')}${bn?'পেমেন্টের জন্য WhatsApp-এ মেসেজ দিন':'Message on WhatsApp to pay'}</a>
+   ${b.wa?`<a class="btn b-line" href="${esc(b.wa)}" target="_blank" rel="noopener">${bn?'ব্যাচের WhatsApp গ্রুপে যুক্ত হন':'Join the batch WhatsApp group'}</a>`:''}
+   <a class="btn b-line" href="#hadiya" data-go="1">${bn?'হাদিয়া পরিশোধের মাধ্যম দেখুন':'See payment methods'}</a></div>`};
+  if(!API){done(false);return}
+  const btn=f.querySelector('button[type=submit]');btn.disabled=true;err.textContent=bn?'জমা হচ্ছে...':'Submitting...';
+  const body=new URLSearchParams();for(const [k,v] of P)body.append(k,v);body.append('form','admission');body.append('Language',LANG);body.append('Sent via','Website (batch)');
+  fetch(API,{method:'POST',mode:'no-cors',body}).then(()=>done(true)).catch(()=>done(false))});
+ setTimeout(()=>{const x=f.querySelector('input[name="Student full name"]');if(x)x.focus()},60)}
 $('#bmX').addEventListener('click',closeB);bm.addEventListener('click',e=>{if(e.target===bm)closeB()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!bm.hidden)closeB()});
 document.addEventListener('click',e=>{if(e.target.closest('a[data-go]'))closeB()});
