@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>স্টুডেন্ট পোর্টাল · Qurani Life</title>
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@500;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
+<style>
+[hidden]{display:none!important}
+:root{--g:#00703A;--gd:#00552C;--deep:#0B2A1B;--gold:#E0B415;--gold2:#F2C832;--bg:#F5F2E9;--card:#fff;--ink:#14201A;--muted:#5E6B63;--line:#E6E0CF;--red:#C2410C}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:500 15px/1.6 "Hind Siliguri",Inter,sans-serif}
+button,input{font:inherit}a{color:var(--g)}
+input{width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:12px;background:#fff;outline:none}
+input:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(0,112,58,.12)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:11px 18px;font-weight:700;cursor:pointer;background:var(--g);color:#fff;text-decoration:none}
+.btn:hover{background:var(--gd)}.btn:disabled{opacity:.6}.btn.ghost{background:#fff;color:var(--g);border:1.5px solid var(--g)}.btn.wa{background:#25D366}.btn.gold{background:var(--gold);color:#1d1600}
+.err{color:var(--red);font-weight:600;min-height:22px;margin:6px 0}
+.lwrap{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(900px 500px at 85% -10%,#14703F 0,transparent 60%),linear-gradient(160deg,#06180F,#0B2A1B 60%,#0F3A25)}
+.lbox{width:min(420px,100%);background:#fff;border-radius:24px;padding:30px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);border-top:5px solid var(--gold);text-align:center}
+.lbox img{width:84px}.lbox h1{margin:6px 0 2px;font-size:22px}.lbox p{color:var(--muted);margin:0 0 18px}
+.lbox label{display:block;text-align:left;margin-bottom:12px}.lbox label span{display:block;font-weight:600;font-size:13.5px;color:var(--muted);margin-bottom:5px}
+.lbox .ay{font-family:Amiri,serif;font-size:22px;color:var(--g);margin:4px 0 0;direction:rtl}
+header{background:linear-gradient(120deg,var(--deep),var(--g));color:#fff;padding:14px 20px}
+.hd{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.hd img{width:44px;height:50px;object-fit:contain;background:#FFF8E6;border-radius:10px;padding:3px}
+.hd b{display:block;line-height:1.2}.hd small{color:var(--gold2);font-weight:700;font-size:12px}
+.hd .sp{flex:1}.hd button,.hd a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:10px;padding:7px 12px;cursor:pointer;text-decoration:none;font-weight:600;font-size:14px}
+main{max-width:1080px;margin:0 auto;padding:22px 16px 60px}
+.hello{background:linear-gradient(135deg,#0B2A1B,#00703A);color:#fff;border-radius:22px;padding:24px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;box-shadow:0 30px 60px -30px rgba(0,60,30,.6);position:relative;overflow:hidden}
+.hello::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(242,200,50,.25),transparent 70%)}
+.hello h1{margin:0;font-size:24px}.hello p{margin:4px 0 0;color:#CFE6D8}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.chips span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 12px;font-size:13.5px}
+.ring{position:relative;width:130px;height:130px}.ring svg{transform:rotate(-90deg)}.ring b{position:absolute;inset:0;display:grid;place-items:center;font:800 28px Inter;color:#fff}
+.ring small{position:absolute;left:0;right:0;bottom:30px;text-align:center;font-size:12px;color:#CFE6D8}
+.card{background:var(--card);border-radius:20px;padding:20px;border:1px solid var(--line);box-shadow:0 20px 40px -30px rgba(0,60,30,.35);margin-top:18px}
+.card h2{margin:0 0 14px;font-size:19px}
+.path{display:grid;gap:12px}
+.stp{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;position:relative}
+.stp:not(:last-child)::before{content:"";position:absolute;left:25px;top:52px;bottom:-14px;width:3px;background:#E6E0CF;border-radius:3px}
+.stp.d:not(:last-child)::before{background:var(--g)}
+.stp .n{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font:800 18px Inter;background:#F1EEE3;color:#9A9384;border:3px solid #E6E0CF;position:relative;z-index:1}
+.stp.d .n{background:var(--g);border-color:var(--g);color:#fff}
+.stp.c .n{background:#FFF6D6;border-color:var(--gold);color:#7A5B00;box-shadow:0 0 0 6px rgba(224,180,21,.18)}
+.stp .b{background:#FBFAF5;border:1px solid var(--line);border-radius:16px;padding:12px 16px}
+.stp.c .b{background:#fff;border:2px solid var(--gold);box-shadow:0 14px 30px -20px rgba(160,120,0,.6)}
+.stp.u .b{opacity:.65}
+.stp h3{margin:0;font-size:17px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.stp h3 em{font-style:normal;font-size:12px;border-radius:999px;padding:1px 10px;font-weight:700}
+.stp.d h3 em{background:#E3F4EA;color:var(--g)}.stp.c h3 em{background:#FFF1BF;color:#7A5B00}.stp.u h3 em{background:#EEE;color:#888}
+.stp p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.bar{height:10px;background:#EEEADD;border-radius:9px;overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--g),#2FB36B);border-radius:9px}
+.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.tl{border-left:3px solid #E6E0CF;margin-left:8px;padding-left:16px}
+.tl .it{position:relative;margin-bottom:14px}.tl .it::before{content:"";position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--g);box-shadow:0 0 0 4px #fff}
+.tl small{display:block;color:var(--muted);font-size:12.5px}
+.kv{display:grid;grid-template-columns:130px 1fr;gap:6px 12px}.kv dt{color:var(--muted)}.kv dd{margin:0}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--deep);color:#fff;padding:10px 18px;border-radius:12px;font-weight:700;z-index:50}
+.toast.bad{background:var(--red)}
+@media(max-width:760px){.hello{grid-template-columns:1fr}.ring{margin:0 auto}.grid{grid-template-columns:1fr}.kv{grid-template-columns:1fr}.kv dt{font-weight:700}}
+</style>
+</head>
+<body>
+<div class="lwrap" id="lv">
+ <form class="lbox" id="lf">
+  <img src="logo.png" alt="Qurani Life">
+  <p class="ay">رَبِّ زِدْنِي عِلْمًا</p>
+  <h1>স্টুডেন্ট পোর্টাল</h1>
+  <p>আপনার শেখার যাত্রা কতদূর এগোলো, এখানে দেখুন</p>
+  <label><span>Student ID বা WhatsApp নম্বর</span><input id="sid" required placeholder="যেমন: QL-0001" autocomplete="username"></label>
+  <label><span>পাসওয়ার্ড</span><input id="spw" type="password" required autocomplete="current-password"></label>
+  <p class="err" id="lerr"></p>
+  <button class="btn" style="width:100%">প্রবেশ করুন</button>
+  <p style="font-size:13px;color:var(--muted);margin:14px 0 0">পাসওয়ার্ড ভুলে গেছেন? <a href="https://wa.me/8801889012156"  target="_blank">WhatsApp করুন</a><br><a href="index.html">← ওয়েবসাইটে ফিরুন</a></p>
+ </form>
+</div>
+
+<div id="app" hidden>
+ <header><div class="hd"><img src="logo.png" alt=""><div><b>Qurani Life Online Academy</b><small>স্টুডেন্ট পোর্টাল</small></div><span class="sp"></span><a href="index.html">ওয়েবসাইট</a><button id="out" type="button">বের হন</button></div></header>
+ <main id="view"></main>
+</div>
+
+<script src="config.js"></script>
+<script>
+const API=(window.QL_CONFIG&&QL_CONFIG.API_URL)||'';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let TOK='';try{TOK=localStorage.getItem('qlStuTok')||''}catch(e){}
+const toast=(m,b)=>{const t=document.createElement('div');t.className='toast'+(b?' bad':'');t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200)};
+const post=d=>fetch(API,{method:'POST',body:new URLSearchParams(d)}).then(r=>r.json());
+const bnNum=n=>String(n).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]);
+function parseTs(s){if(!s)return null;let d=new Date(s);if(!isNaN(d))return d;const m=String(s).match(/(\d{1,4})[\/.-](\d{1,2})[\/.-](\d{2,4})(?:[ ,T]+(\d{1,2}):(\d{2}))?/);if(!m)return null;let a=+m[1],b=+m[2],c=+m[3],y,mo,da;if(a>31){y=a;mo=b;da=c}else{y=c<100?2000+c:c;if(a>12){da=a;mo=b}else{mo=a;da=b}}return new Date(y,mo-1,da,+(m[4]||0),+(m[5]||0))}
+const fmtD=d=>d?d.toLocaleDateString('bn-BD',{day:'numeric',month:'long',year:'numeric'}):'';
+const ERR={'wrong login':'Student ID বা পাসওয়ার্ড ভুল।',locked:'অনেকবার ভুল হয়েছে, ১৫ মিনিট পর চেষ্টা করুন।','wrong old password':'বর্তমান পাসওয়ার্ড ভুল।','too short':'পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের দিন।'};
+
+$('#lf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;$('#lerr').textContent='';
+ try{const r=await post({action:'studentLogin',id:$('#sid').value.trim(),password:$('#spw').value});
+  if(r.ok){TOK=r.token;try{localStorage.setItem('qlStuTok',TOK)}catch(x){}show(r.student)}else $('#lerr').textContent=ERR[r.error]||'সমস্যা হয়েছে, আবার চেষ্টা করুন।'}
+ catch(x){$('#lerr').textContent='ইন্টারনেট সংযোগে সমস্যা।'}b.disabled=false};
+$('#out').onclick=()=>{post({action:'logout',token:TOK}).catch(()=>{});try{localStorage.removeItem('qlStuTok')}catch(e){}location.reload()};
+
+function show(S){
+ if(!S){toast('প্রোফাইল পাওয়া যায়নি',1);return}
+ $('#lv').hidden=true;$('#app').hidden=false;
+ const p=S.profile,st=S.stages||[],cur=Math.max(1,+p.Stage||1),pct=+p['Stage progress']||0,n=st.length||1;
+ const done=p.Status==='Completed';
+ const overall=done?100:Math.round(((cur-1)+pct/100)/n*100);
+ const C=2*Math.PI*54;
+ const path=st.map((s,i)=>{const k=i+1,c=done||k<cur?'d':k===cur?'c':'u';
+  return `<div class="stp ${c}"><div class="n">${c==='d'?'✓':bnNum(k)}</div><div class="b"><h3>${esc(s.bn)} <em>${c==='d'?'সম্পন্ন':c==='c'?'এখন চলছে':'সামনে'}</em></h3><p>${esc(s.dbn||s.den||'')}</p>
+  ${c==='c'?`<div class="bar"><i style="width:${pct}%"></i></div><p style="margin-top:6px"><b>${bnNum(pct)}%</b> সম্পন্ন${p['Current lesson']?` · বর্তমান পাঠ: <b>${esc(p['Current lesson'])}</b>`:''}</p>`:''}</div></div>`}).join('');
+ const hist=(S.history||[]).slice(0,20).map(h=>{const s=st[(+h.stage||1)-1];return `<div class="it"><b>${esc(s?s.bn:'')}</b> · ${bnNum(h.pct||0)}%${h.lesson?' · '+esc(h.lesson):''}${h.note?`<div>${esc(h.note)}</div>`:''}<small>${esc(h.by||'')} · ${fmtD(parseTs(h.time))}</small></div>`}).join('');
+ const name=String(p.Name||'').trim();
+ $('#view').innerHTML=`<section class="hello"><div><p>আসসালামু আলাইকুম,</p><h1>${esc(name)}</h1><div class="chips"><span>ID: ${esc(p.ID)}</span>${p.Course?`<span>${esc(p.Course)}</span>`:''}${p.Teacher?`<span>শিক্ষক: ${esc(p.Teacher)}</span>`:''}${p['Class time']?`<span>ক্লাস: ${esc(p['Class time'])}</span>`:''}</div>
+  <p style="margin-top:14px">${done?'আলহামদুলিল্লাহ! আপনি পুরো পথ সম্পন্ন করেছেন।':`আপনি এখন <b style="color:#F2C832">${bnNum(cur)} নম্বর স্টেজে: ${esc((st[cur-1]||{}).bn||'')}</b>। ${n>cur?`সামনে আর ${bnNum(n-cur)}টি স্টেজ।`:'এটাই শেষ স্টেজ।'}`}</p></div>
+  <div class="ring"><svg width="130" height="130"><circle cx="65" cy="65" r="54" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="12"/><circle cx="65" cy="65" r="54" fill="none" stroke="#F2C832" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-overall/100)}"/></svg><b>${bnNum(overall)}%</b><small>পুরো পথ</small></div></section>
+ <div class="grid"><section class="card"><h2>আমার শেখার পথ</h2><div class="path">${path||'<p>স্টেজের তালিকা এখনো ঠিক হয়নি।</p>'}</div></section>
+ <div><section class="card"><h2>শিক্ষকের আপডেট</h2><div class="tl">${hist||'<p style="color:var(--muted)">এখনো কোনো আপডেট নেই। শিক্ষক অগ্রগতি দিলে এখানে দেখাবে।</p>'}</div></section>
+ <section class="card"><h2>আমার তথ্য</h2><dl class="kv"><dt>Student ID</dt><dd>${esc(p.ID)}</dd>${p.Guardian?`<dt>অভিভাবক</dt><dd>${esc(p.Guardian)}</dd>`:''}<dt>দেশ</dt><dd>${esc(p.Country||'-')}</dd><dt>যোগ দিয়েছেন</dt><dd>${fmtD(parseTs(p.Joined))}</dd></dl>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><a class="btn wa" target="_blank" href="https://wa.me/8801889012156">WhatsApp-এ যোগাযোগ</a><button class="btn ghost" id="cpb" type="button">পাসওয়ার্ড বদলান</button></div>
+  <form id="cpf" hidden style="margin-top:14px"><input type="password" name="oldPass" placeholder="বর্তমান পাসওয়ার্ড" required style="margin-bottom:8px"><input type="password" name="newPass" placeholder="নতুন পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)" minlength="6" required style="margin-bottom:8px"><p class="err" id="cperr"></p><button class="btn">সেভ করুন</button></form></section></div></div>`;
+ $('#cpb').onclick=()=>$('#cpf').hidden=!$('#cpf').hidden;
+ $('#cpf').onsubmit=async e=>{e.preventDefault();const f=Object.fromEntries(new FormData(e.target));const r=await post({action:'changePass',token:TOK,...f});if(r.ok){toast('পাসওয়ার্ড বদলানো হয়েছে');e.target.reset();e.target.hidden=true}else if(r.error==='login required'){location.reload()}else $('#cperr').textContent=ERR[r.error]||r.error};
+}
+if(TOK)post({action:'me',token:TOK}).then(r=>{if(r.ok)show(r.student);else{try{localStorage.removeItem('qlStuTok')}catch(e){}}}).catch(()=>{});
+</script>
+</body>
+</html>
