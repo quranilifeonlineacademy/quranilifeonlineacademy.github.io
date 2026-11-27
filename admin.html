@@ -339,6 +339,22 @@ const DICT=[
 ['নতুন শিক্ষার্থী','New student'],
 ['নতুন অ্যাকাউন্ট','New account'],
 ['নতুন ব্যাচ','New batch'],
+['ব্যাচে কী কী থাকবে (প্রতি লাইনে একটি)','What the batch includes (one per line)'],
+['ছোট বর্ণনা (ওয়েবসাইটে দেখাবে)','Short description (shown on website)'],
+['এই ব্যাচের WhatsApp গ্রুপ লিংক','WhatsApp group link for this batch'],
+['WhatsApp গ্রুপ লিংক https://chat.whatsapp.com/ দিয়ে শুরু হতে হবে','WhatsApp group link must start with https://chat.whatsapp.com/'],
+['WhatsApp গ্রুপ লিংক নেই','No WhatsApp group link'],
+['WhatsApp গ্রুপ আছে','WhatsApp group added'],
+['ওয়েবসাইটে দেখাবে?','Show on website?'],
+['হ্যাঁ, দেখাবে','Yes, show'],
+['না, লুকানো','No, hidden'],
+['ওয়েবসাইটে লুকানো','Hidden on website'],
+['নোট (শুধু অফিসের জন্য)','Note (office only)'],
+['প্রতি ক্লাসের দৈর্ঘ্য','Length of each class'],
+['ব্যাচ শুরুর তারিখ','Batch start date'],
+['কতদিন চলবে','How long it runs'],
+['যেমন: ৩ মাস','e.g. 3 months'],
+['শুরু:','Starts:'],
 ['নতুন লাইন','New line'],
 ['নতুন নোটিশ','New notice'],
 ['নতুন লেনদেন','New transaction'],
@@ -869,7 +885,7 @@ function credBtns(id,pw,s){const msg=credMsg(id,pw,s),d=digits(s.WhatsApp);windo
 function credBox(id,pw,s){return `<div class="cred">Student ID: <b>${esc(id)}</b><br>পাসওয়ার্ড: <b>${esc(pw)}</b></div><p class="sm" style="color:var(--muted)">শিক্ষার্থীর প্রোফাইলে (শুধু Super Admin) এই তথ্য সবসময় দেখা যাবে।</p>${credBtns(id,pw,s)}<div style="margin-top:10px"><button class="btn ghost sm" data-close type="button">বন্ধ</button></div>`}
 function passModal(name,cb){openModal(`<h3>🔑 ${esc(name)}-এর নতুন পাসওয়ার্ড</h3><form id="pmf"><label class="fld"><span>নতুন পাসওয়ার্ড (খালি রাখলে নিজে থেকে তৈরি হবে)</span><input name="np" minlength="6" placeholder="কমপক্ষে ৬ অক্ষর"></label><p class="sm" style="color:var(--muted)">পুরনো পাসওয়ার্ড আর কাজ করবে না।</p><div style="display:flex;gap:8px"><button class="btn">সেট করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
  $('#pmf').onsubmit=e=>{e.preventDefault();cb(e.target.np.value.trim())}}
-function convertModal(l){const s={Name:l._name,WhatsApp:l._phone,Country:l._country,Course:l._course,Guardian:pick(l,['guardian','father','parent']),Email:pick(l,['email']),Age:pick(l,['age']),Gender:pick(l,['gender']),Notes:[pick(l,['preferred time','preferred slot'])].filter(Boolean).map(x=>'পছন্দের সময়: '+x).join('')};
+function convertModal(l){const s={Name:l._name,WhatsApp:l._phone,Country:l._country,Course:l._course,Guardian:pick(l,['guardian','father','parent']),Email:pick(l,['email']),Age:pick(l,['age']),Gender:pick(l,['gender']),'Class type':pick(l,['class type'])==='Batch'?'Batch':'One-to-one','Batch ID':String(pick(l,['preferred batch'])||'').split(' · ')[0],Notes:[pick(l,['preferred time','preferred slot'])].filter(Boolean).map(x=>'পছন্দের সময়: '+x).join('')};
  openModal(`<h3>🎓 শিক্ষার্থী অ্যাকাউন্ট তৈরি</h3><form id="cf">${stuForm(s)}<p class="err" id="cerr"></p><div style="display:flex;gap:8px"><button class="btn">অ্যাকাউন্ট তৈরি করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
  $('#cf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;const f=stuObj(e.target);const r=await api('convert',{tab:l._tab,row:l._row,fields:f});b.disabled=false;
   if(r.ok){$('#modal').innerHTML=`<h3>✅ অ্যাকাউন্ট তৈরি হয়েছে</h3>${credBox(r.id,r.password,f)}`;load()}else $('#cerr').textContent=em(r.error)}}
@@ -1038,26 +1054,33 @@ document.addEventListener('click',e=>{const r=e.target.closest('[data-txn]');if(
 function batches(){const B=D.batches||[],S=D.students||[];
  $('#view').innerHTML=`<div class="tools"><span class="sm" style="color:var(--muted)">ব্যাচে কয়েকজন শিক্ষার্থী একই শিক্ষকের সাথে একই সময়ে ক্লাস করে। ব্যাচের সময় বা শিক্ষক বদলালে সব সদস্যের প্রোফাইলেও বদলে যাবে।</span><span style="flex:1"></span><button class="btn gold sm" id="badd" type="button">+ নতুন ব্যাচ</button></div>
  <div class="grid c3">${B.map(b=>{const m=S.filter(x=>x['Batch ID']===b.ID);const cap=+b.Capacity||0;return `<div class="card" style="cursor:pointer" data-batch="${esc(b.ID)}"><div style="display:flex;justify-content:space-between;gap:8px"><div><b style="font-size:16px">${esc(b.Name)}</b><div class="sm" style="color:var(--muted)">${esc(b.ID)} · ${esc(b.Course||'')}</div></div><span class="pill" style="color:${b.Status==='Closed'?'#9CA3AF':'#00703A'}">${b.Status==='Closed'?'বন্ধ':'চলমান'}</span></div>
-  <div class="sm" style="margin-top:10px">👤 শিক্ষক: <b>${esc(b.Teacher||'ঠিক হয়নি')}</b></div><div class="sm" style="margin-top:4px">🗓 ${esc(schedText(b)||'সময় ঠিক হয়নি')}</div>
+  <div class="sm" style="margin-top:10px">👤 শিক্ষক: <b>${esc(b.Teacher||'ঠিক হয়নি')}</b></div><div class="sm" style="margin-top:4px">🗓 ${esc(schedText(b)||'সময় ঠিক হয়নি')}</div>${b['Start date']?`<div class="sm" style="margin-top:4px">🚀 শুরু: <b>${esc(String(b['Start date']).slice(0,10))}</b>${b.Length?' · '+esc(b.Length):''}</div>`:''}<div class="sm" style="margin-top:4px">${b['WhatsApp group']?'💬 WhatsApp গ্রুপ আছে':'<span style="color:#D97706">💬 WhatsApp গ্রুপ লিংক নেই</span>'}${b['Show on website']==='NO'?' · <span style="color:#9CA3AF">ওয়েবসাইটে লুকানো</span>':''}</div>
   <div style="margin-top:10px;display:flex;justify-content:space-between" class="sm"><span>${m.length}${cap?' / '+cap:''} জন শিক্ষার্থী</span>${cap?`<span>${Math.max(0,cap-m.length)} আসন খালি</span>`:''}</div>${cap?`<div class="bar" style="margin-top:4px"><i style="width:${Math.min(100,m.length/cap*100)}%"></i></div>`:''}
   <div style="margin-top:10px;display:flex;gap:5px;flex-wrap:wrap">${m.slice(0,8).map(x=>`<span class="tag">${esc(x.Name)}</span>`).join('')}${m.length>8?`<span class="tag">+${m.length-8}</span>`:''}</div></div>`}).join('')||'<div class="empty">এখনো কোনো ব্যাচ নেই। "+ নতুন ব্যাচ" দিয়ে শুরু করুন।</div>'}</div>`;
  $('#badd').onclick=()=>batchModal()}
 function batchModal(b){b=b||{Duration:45,Status:'Open'};const ds=String(b['Class days']||'').split(',');const S=D.students||[];const mem=S.filter(x=>x['Batch ID']===b.ID).map(x=>x.ID);
  openModal(`<h3>${b.ID?'ব্যাচ এডিট · '+esc(b.ID):'নতুন ব্যাচ'}</h3><form id="bf"><div class="f2">
   <label class="fld"><span>ব্যাচের নাম *</span><input name="Name" required value="${esc(b.Name)}" placeholder="যেমন: নূরানী সন্ধ্যা ব্যাচ (ছেলে)"></label>
-  <label class="fld"><span>কোর্স</span><input name="Course" value="${esc(b.Course)}"></label>
+  <label class="fld"><span>কোর্স</span><input name="Course" list="bcl" value="${esc(b.Course)}"><datalist id="bcl"><option value="Special Quran Learning Course – From Basic Level"><option value="Special Quran Learning Course – For Students with Basic Knowledge"><option value="Tafsirul Quran Class"></datalist></label>
   <label class="fld"><span>শিক্ষক</span><select name="Teacher ID"><option value="">এখনো ঠিক হয়নি</option>${teachers().map(t=>`<option value="${esc(t.ID)}" ${b['Teacher ID']===t.ID?'selected':''}>${esc(t.Name)}</option>`).join('')}</select></label>
   <label class="fld"><span>সর্বোচ্চ শিক্ষার্থী</span><input name="Capacity" inputmode="numeric" value="${esc(b.Capacity)}" placeholder="যেমন: 6"></label>
   <div class="fld full"><span>ক্লাসের দিন</span><div class="chk">${DAYS.map(d=>`<label><input type="checkbox" name="cd" value="${d[0]}" ${ds.includes(d[0])?'checked':''}> ${d[1]}</label>`).join('')}</div></div>
   <label class="fld"><span>শুরুর সময় (বাংলাদেশ সময়)</span><input type="time" name="Class start" value="${esc(b['Class start'])}"></label>
-  <label class="fld"><span>দৈর্ঘ্য</span><select name="Duration">${[30,40,45,60,75,90].map(m=>`<option value="${m}" ${String(b.Duration)==String(m)?'selected':''}>${m} মিনিট</option>`).join('')}</select></label>
+  <label class="fld"><span>প্রতি ক্লাসের দৈর্ঘ্য</span><select name="Duration">${[30,40,45,60,75,90].map(m=>`<option value="${m}" ${String(b.Duration)==String(m)?'selected':''}>${m} মিনিট</option>`).join('')}</select></label>
   <label class="fld"><span>অবস্থা</span><select name="Status"><option value="Open">চলমান</option><option value="Closed" ${b.Status==='Closed'?'selected':''}>বন্ধ</option></select></label>
-  <label class="fld full"><span>নোট</span><input name="Notes" value="${esc(b.Notes)}"></label></div>
+  <label class="fld"><span>ব্যাচ শুরুর তারিখ</span><input type="date" name="Start date" value="${esc(String(b['Start date']||'').slice(0,10))}"></label>
+  <label class="fld"><span>কতদিন চলবে</span><input name="Length" value="${esc(b.Length)}" placeholder="যেমন: ৩ মাস"></label>
+  <label class="fld full"><span>ব্যাচে কী কী থাকবে (প্রতি লাইনে একটি)</span><textarea name="Includes" rows="4" placeholder="যেমন:&#10;সহীহ তিলাওয়াত ও তাজবীদ&#10;প্রতিদিনের মাসআলা">${esc(b.Includes)}</textarea></label>
+  <label class="fld full"><span>ছোট বর্ণনা (ওয়েবসাইটে দেখাবে)</span><textarea name="Description" rows="2">${esc(b.Description)}</textarea></label>
+  <label class="fld full"><span>এই ব্যাচের WhatsApp গ্রুপ লিংক</span><input name="WhatsApp group" value="${esc(b['WhatsApp group'])}" placeholder="https://chat.whatsapp.com/..."></label>
+  <label class="fld"><span>ওয়েবসাইটে দেখাবে?</span><select name="Show on website"><option value="YES">হ্যাঁ, দেখাবে</option><option value="NO" ${b['Show on website']==='NO'?'selected':''}>না, লুকানো</option></select></label>
+  <label class="fld"><span>নোট (শুধু অফিসের জন্য)</span><input name="Notes" value="${esc(b.Notes)}"></label></div>
   <div class="fld"><span style="font-size:12.5px;font-weight:600;color:var(--muted)">সদস্য শিক্ষার্থী</span><input id="bq" placeholder="নাম বা ID দিয়ে খুঁজুন" style="margin:6px 0"><div id="bml" style="max-height:200px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:6px 10px">${S.filter(x=>(x.Status||'Active')!=='Left').map(x=>`<label style="display:flex;gap:8px;align-items:center;padding:4px 0" data-n="${esc((x.Name+' '+x.ID).toLowerCase())}"><input type="checkbox" name="mem" value="${esc(x.ID)}" style="width:auto" ${mem.includes(x.ID)?'checked':''}> ${esc(x.Name)} <span class="sm" style="color:var(--muted)">${esc(x.ID)} ${x['Batch ID']&&x['Batch ID']!==b.ID?'· এখন '+esc(x['Batch ID'])+'-এ':''}</span></label>`).join('')||'<span class="sm">কোনো শিক্ষার্থী নেই</span>'}</div></div>
   <p class="err" id="berr"></p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn">সেভ করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button>${b.ID&&isSA()?'<button class="btn red" type="button" id="bdel" style="margin-left:auto">ব্যাচ মুছুন</button>':''}</div></form>`);
  $('#bq').oninput=e=>{const q=e.target.value.toLowerCase();$$('#bml label').forEach(l=>l.style.display=l.dataset.n.includes(q)?'':'none')};
  $('#bf').onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.target);const f=Object.fromEntries(fd);f['Class days']=fd.getAll('cd').join(',');delete f.cd;const members=fd.getAll('mem');delete f.mem;
-  const btn=e.target.querySelector('.btn');btn.disabled=true;const r=await api('batchSave',b.ID?{id:b.ID,fields:f,members}:{fields:f,members});btn.disabled=false;
+  f['WhatsApp group']=(f['WhatsApp group']||'').trim();if(f['WhatsApp group']&&!/^https:\/\/chat\.whatsapp\.com\//.test(f['WhatsApp group'])){$('#berr').textContent='WhatsApp গ্রুপ লিংক https://chat.whatsapp.com/ দিয়ে শুরু হতে হবে';return}
+    const btn=e.target.querySelector('.btn');btn.disabled=true;const r=await api('batchSave',b.ID?{id:b.ID,fields:f,members}:{fields:f,members});btn.disabled=false;
   if(r.ok){toast('ব্যাচ সেভ হয়েছে');closeAll();await load();location.hash='#batches'}else $('#berr').textContent=em(r.error)};
  const d=$('#bdel');if(d)d.onclick=async()=>{if(!confirm('ব্যাচটি মুছে যাবে। সদস্যরা One-to-one হিসেবে থেকে যাবে। মুছবেন?'))return;const r=await api('batchDelete',{id:b.ID});if(r.ok){toast('মুছে ফেলা হয়েছে');closeAll();load()}else toast(em(r.error),1)}}
 document.addEventListener('click',e=>{const r=e.target.closest('[data-batch]');if(r)batchModal((D.batches||[]).find(b=>b.ID===r.dataset.batch))});
