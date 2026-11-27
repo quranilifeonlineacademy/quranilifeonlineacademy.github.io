@@ -104,15 +104,15 @@
     wrap.appendChild(or); wrap.appendChild(wa);
     wa.addEventListener('click', function () {
       try { if (typeof updTime === 'function') updTime(f); } catch (e) {}
-      var bad = Array.prototype.slice.call(f.elements).find(function (el) { return el.willValidate && !el.checkValidity(); });
+      var bad = window.formBad ? window.formBad(f) : Array.prototype.slice.call(f.elements).find(function (el) { return el.willValidate && !el.checkValidity(); });
       var err = f.querySelector('.err');
       if (bad) {
         if (err) err.textContent = bad.type === 'tel' ? (bn() ? 'কান্ট্রি কোডসহ সঠিক WhatsApp নম্বর দিন।' : 'Please enter a valid WhatsApp number with country code.') : (bn() ? 'তারকা (*) চিহ্নিত সব ঘর পূরণ করুন।' : 'Please fill in all fields marked *.');
         bad.focus(); return;
       }
       if (err) err.textContent = '';
-      var fd = new FormData(f), lines = [], data = { form: f.dataset.form, Language: curLang(), 'Sent via': 'WhatsApp' };
-      fd.forEach(function (v, k) { if (String(v).trim()) { lines.push(k + ': ' + v); data[k] = v; } });
+      var fd = window.formPairs ? window.formPairs(f) : Array.from(new FormData(f)), lines = [], data = { form: f.dataset.form, Language: curLang(), 'Sent via': 'WhatsApp' };
+      fd.forEach(function (p) { var k = p[0], v = p[1]; if (String(v).trim()) { lines.push(k + ': ' + v); data[k] = v; } });
       var msg = (f.dataset.title || 'Qurani Life') + '\n\n' + lines.join('\n');
       window.open('https://wa.me/' + WA_NO + '?text=' + encodeURIComponent(msg), '_blank');
       if (API) post(data).catch(function () {});
