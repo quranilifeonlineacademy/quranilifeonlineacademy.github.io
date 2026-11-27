@@ -122,8 +122,9 @@
 
   /* ---------- home page edit mode (admin only) ---------- */
   var editing = false, bar = null, dirty = {};
-  function getPass() { try { return sessionStorage.getItem('qlAdminPass') || ''; } catch (e) { return ''; } }
-  function setPass(p) { try { sessionStorage.setItem('qlAdminPass', p); } catch (e) {} }
+  function getTok() { try { return localStorage.getItem('qlTok') || ''; } catch (e) { return ''; } }
+  function setTok(t) { try { if (t) localStorage.setItem('qlTok', t); else localStorage.removeItem('qlTok'); } catch (e) {} }
+  function canEdit(u) { return u && (u.role === 'superadmin' || (u.perms || []).indexOf('content') >= 0); }
 
   function capture() {
     var L = curLang();
@@ -161,10 +162,10 @@
     var items = Object.keys(dirty).map(function (k) { var el = dirty[k]; return { key: k, en: el.dataset.en, bn: el.dataset.bn }; });
     if (!items.length) { toast('কোনো বদল নেই।'); return; }
     var b = bar.querySelector('.sv'); b.disabled = true; b.textContent = 'সেভ হচ্ছে...';
-    post({ action: 'saveContent', pass: getPass(), items: JSON.stringify(items) }).then(function (r) {
+    post({ action: 'saveContent', token: getTok(), items: JSON.stringify(items) }).then(function (r) {
       b.disabled = false; b.textContent = 'সেভ করুন';
       if (r.ok) { dirty = {}; editable.forEach(function (el) { el.classList.remove('dirty'); }); count(); toast('সেভ হয়েছে! এখন থেকে সবাই নতুন লেখা দেখবে।'); }
-      else toast('সেভ হয়নি: ' + (r.error === 'wrong password' ? 'পাসওয়ার্ড ভুল' : r.error), false);
+      else toast('সেভ হয়নি: ' + (r.error === 'login required' ? 'আবার লগইন করুন' : r.error === 'not allowed' ? 'এই কাজের অনুমতি নেই' : r.error), false);
     }).catch(function () { b.disabled = false; b.textContent = 'সেভ করুন'; toast('ইন্টারনেট সমস্যা, আবার চেষ্টা করুন।', false); });
   }
   document.addEventListener('click', function (e) {
@@ -175,18 +176,31 @@
 
   function tryEdit() {
     if (!API) { toast('Sheet-এর সংযোগ নেই।', false); return; }
-    var p = getPass() || prompt('অ্যাডমিন পাসওয়ার্ড দিন');
-    if (!p) return;
-    post({ action: 'login', pass: p }).then(function (r) {
-      if (r.ok) { setPass(p); startEdit(); }
-      else { setPass(''); toast('পাসওয়ার্ড ভুল।', false); }
+    var t = getTok();
+    var ask = function () {
+      var u = prompt('Dashboard-এর username দিন'); if (!u) return;
+      var p = prompt('পাসওয়ার্ড দিন'); if (!p) return;
+      post({ action: 'login', username: u.trim(), password: p }).then(function (r) {
+        if (!r.ok) { toast(r.error === 'locked' ? 'অনেকবার ভুল হয়েছে, পরে চেষ্টা করুন।' : 'Username বা পাসওয়ার্ড ভুল।', false); return; }
+        setTok(r.token);
+        if (canEdit(r.user)) startEdit(); else toast('লেখা বদলানোর অনুমতি আপনার নেই।', false);
+      }).catch(function () { toast('ইন্টারনেট সমস্যা, আবার চেষ্টা করুন।', false); });
+    };
+    if (!t) return ask();
+    post({ action: 'me', token: t }).then(function (r) {
+      if (r.ok && canEdit(r.user)) startEdit();
+      else if (r.ok) toast('লেখা বদলানোর অনুমতি আপনার নেই।', false);
+      else { setTok(''); ask(); }
     }).catch(function () { toast('ইন্টারনেট সমস্যা, আবার চেষ্টা করুন।', false); });
   }
   if (location.hash === '#edit') setTimeout(tryEdit, 600);
-  else if (getPass()) {
-    var eb = document.createElement('button');
-    eb.className = 'ql-editbtn'; eb.type = 'button'; eb.textContent = '✎ পেজ এডিট করুন';
-    eb.onclick = function () { eb.remove(); tryEdit(); };
-    document.body.appendChild(eb);
+  else if (getTok() && API) {
+    post({ action: 'me', token: getTok() }).then(function (r) {
+      if (!r.ok || !canEdit(r.user)) return;
+      var eb = document.createElement('button');
+      eb.className = 'ql-editbtn'; eb.type = 'button'; eb.textContent = '✎ পেজ এডিট করুন';
+      eb.onclick = function () { eb.remove(); tryEdit(); };
+      document.body.appendChild(eb);
+    }).catch(function () {});
   }
 })();
