@@ -4,225 +4,547 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>অ্যাডমিন প্যানেল · Qurani Life</title>
+<title>Dashboard · Qurani Life</title>
 <link rel="icon" href="logo.png">
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--g:#00703A;--gd:#00552C;--gold:#E0B415;--gold2:#F2C832;--bg:#F6F3EA;--card:#fff;--ink:#14201A;--muted:#5E6B63;--line:#E4DFD0;--red:#B23A2E}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:500 15px/1.55 "Hind Siliguri",Manrope,sans-serif}
-button,input,select,textarea{font:inherit}a{color:var(--g)}
-.top{background:linear-gradient(120deg,var(--gd),var(--g));color:#fff;padding:14px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:5;box-shadow:0 8px 20px -12px rgba(0,0,0,.5)}
-.top img{width:44px;height:50px;object-fit:contain;background:#FFF8E6;border-radius:10px;padding:3px}
-.top h1{margin:0;font-size:19px;line-height:1.2}.top small{opacity:.8;font-weight:500}
-.top .sp{flex:1}.top a,.top button{color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:7px 12px;text-decoration:none;cursor:pointer;font-weight:600;font-size:14px}
-.top a.ed{background:var(--gold);color:#1b1400;border-color:var(--gold)}
-main{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
-.login{max-width:380px;margin:10vh auto;background:var(--card);border-radius:22px;padding:30px;box-shadow:0 30px 60px -30px rgba(0,60,30,.35);text-align:center;border-top:5px solid var(--gold)}
-.login img{width:86px}.login h2{margin:8px 0 4px}.login p{color:var(--muted);margin:0 0 16px}
-input,select,textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px rgba(0,112,58,.12)}
-.btn{background:var(--g);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-weight:700;cursor:pointer}.btn:hover{background:var(--gd)}
-.btn.gold{background:var(--gold);color:#1b1400}.btn.ghost{background:#fff;color:var(--g);border:1.5px solid var(--g)}.btn.red{background:#fff;color:var(--red);border:1.5px solid var(--red)}
-.btn:disabled{opacity:.6;cursor:wait}
-.err{color:var(--red);min-height:22px;margin:8px 0 0;font-weight:600}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:20px}
-.stat{background:var(--card);border-radius:18px;padding:16px 18px;box-shadow:0 14px 30px -22px rgba(0,60,30,.4);border:1px solid var(--line);cursor:pointer;transition:.2s}
-.stat:hover{transform:translateY(-2px);border-color:var(--gold)}
-.stat b{display:block;font:800 32px/1.1 Manrope,sans-serif;color:var(--gd)}.stat span{color:var(--muted);font-weight:600}
-.stat .nw{display:inline-block;margin-top:6px;background:#FFF4CC;color:#7a5c00;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;border-bottom:2px solid var(--line)}
-.tabs button{border:0;background:none;padding:10px 14px;font-weight:700;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
-.tabs button[aria-selected=true]{color:var(--g);border-color:var(--gold)}
-.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.tools input{max-width:320px}.tools select{max-width:180px}
-.list{display:grid;gap:12px}
-.app{background:var(--card);border-radius:16px;padding:14px 16px;border:1px solid var(--line);border-left:5px solid var(--gold);box-shadow:0 10px 24px -20px rgba(0,60,30,.5)}
-.app.done{border-left-color:var(--g)}.app.cancel{border-left-color:#aaa;opacity:.8}
-.app .hd{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.app h3{margin:0;font-size:17px}.app .meta{color:var(--muted);font-size:13px}
-.app .sp{flex:1}
-.pill{background:#EAF4EE;color:var(--gd);border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700}
-.pill.wa{background:#E3F8EA;color:#128C4B}
-.app .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
-.app .acts a{text-decoration:none;font-weight:700;font-size:14px;border-radius:10px;padding:6px 12px}
-.a-wa{background:#25D366;color:#fff!important}.a-call{background:#EAF4EE;color:var(--gd)!important}
-.app select{width:auto;padding:6px 10px;font-weight:700}
-.app details{margin-top:8px}.app summary{cursor:pointer;color:var(--g);font-weight:700;font-size:14px}
-.kv{display:grid;grid-template-columns:minmax(120px,220px) 1fr;gap:4px 14px;margin-top:8px;font-size:14px}
-.kv dt{color:var(--muted)}.kv dd{margin:0;word-break:break-word}
-.empty{background:var(--card);border-radius:16px;padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line)}
-.panel{background:var(--card);border-radius:18px;padding:18px;border:1px solid var(--line);margin-bottom:16px}
-.panel h3{margin:0 0 10px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid2 label,.panel label{display:block;font-weight:600;font-size:14px;color:var(--muted)}
-.grid2 .full{grid-column:1/-1}
-.upd{display:grid;grid-template-columns:110px 1fr auto;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px}
-.upd img{width:110px;height:70px;object-fit:cover;border-radius:10px;background:#eee}
-.upd h4{margin:0}.upd p{margin:2px 0 0;color:var(--muted);font-size:14px}.upd .off{color:var(--red);font-weight:700}
-.upd .b{display:flex;gap:6px;flex-wrap:wrap}.upd .btn{padding:6px 12px;font-size:14px}
-.note{background:#FFF8E1;border:1px solid #F2DB8A;border-radius:14px;padding:12px 14px;margin-bottom:14px}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--gd);color:#fff;padding:10px 18px;border-radius:12px;font-weight:700;z-index:50;box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
+[hidden]{display:none!important}
+:root{--g:#00703A;--gd:#00552C;--side:#0B2418;--side2:#123524;--gold:#E0B415;--gold2:#F2C832;--bg:#F3F5F2;--card:#fff;--ink:#16211B;--muted:#647069;--line:#E3E8E3;--red:#C2410C;--blue:#2563EB;--violet:#7C3AED;--teal:#0D9488;--amber:#D97706;--r:14px;--sh:0 1px 2px rgba(16,40,28,.06),0 8px 24px -16px rgba(16,40,28,.25)}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 14px/1.5 Inter,"Hind Siliguri",sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}a{color:var(--g)}
+.bn{font-family:"Hind Siliguri",Inter,sans-serif}
+/* login */
+.login{min-height:100%;display:grid;place-items:center;padding:24px;background:radial-gradient(1200px 600px at 80% -10%,#0E5A35 0,transparent 60%),linear-gradient(160deg,#06180F,#0B2A1B 55%,#0F3A25)}
+.lbox{width:min(400px,100%);background:#fff;border-radius:22px;padding:30px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);border-top:5px solid var(--gold)}
+.lbox .lg{display:flex;gap:12px;align-items:center;margin-bottom:18px}.lbox img{width:52px;height:58px;object-fit:contain}
+.lbox h1{font-size:20px;margin:0}.lbox small{color:var(--muted)}
+.fld{display:block;margin-bottom:12px}.fld span{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:5px}
+input,select,textarea{width:100%;padding:9px 11px;border:1.5px solid var(--line);border-radius:10px;background:#fff;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(0,112,58,.12)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:0;border-radius:10px;padding:9px 15px;font-weight:700;cursor:pointer;background:var(--g);color:#fff;text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--gd)}.btn:disabled{opacity:.55;cursor:wait}
+.btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}.btn.ghost:hover{border-color:var(--g);color:var(--g)}
+.btn.gold{background:var(--gold);color:#1d1600}.btn.red{background:#fff;color:var(--red);border:1.5px solid #F3C7B4}
+.btn.wa{background:#25D366}.btn.sm{padding:6px 10px;font-size:12.5px;border-radius:8px}
+.err{color:var(--red);font-weight:600;min-height:20px;font-size:13px}
+/* shell */
+.app{display:grid;grid-template-columns:248px 1fr;min-height:100%}
+.side{background:linear-gradient(180deg,var(--side),#0A1F15);color:#CFE1D6;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:16px 12px;overflow:auto}
+.brand{display:flex;gap:10px;align-items:center;padding:4px 8px 16px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:10px}
+.brand img{width:38px;height:42px;object-fit:contain;background:#FFF8E6;border-radius:9px;padding:2px}
+.brand b{color:#fff;font-size:14px;display:block;line-height:1.2}.brand small{color:var(--gold2);font-size:11px;font-weight:700;letter-spacing:.04em}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav .sec{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6F8F7E;margin:14px 10px 6px;font-weight:700}
+.nav a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:#CFE1D6;text-decoration:none;font-weight:600}
+.nav a:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav a.on{background:linear-gradient(90deg,rgba(224,180,21,.22),rgba(224,180,21,.04));color:#fff;box-shadow:inset 3px 0 0 var(--gold)}
+.nav svg{width:18px;height:18px;flex:none}.nav .ct{margin-left:auto;background:var(--gold);color:#1d1600;border-radius:999px;font-size:11px;padding:0 7px;font-weight:800}
+.me{margin-top:auto;border-top:1px solid rgba(255,255,255,.08);padding:12px 8px 0;display:flex;gap:10px;align-items:center}
+.av{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;color:#fff;background:var(--g);flex:none;font-size:13px}
+.me b{color:#fff;display:block;font-size:13px}.me small{color:#8FB09E;font-size:11.5px}
+.me button{margin-left:auto;background:none;border:1px solid rgba(255,255,255,.15);color:#CFE1D6;border-radius:8px;padding:5px 8px;cursor:pointer;font-size:12px}
+.main{min-width:0;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:12px;padding:14px 26px;background:rgba(243,245,242,.85);backdrop-filter:blur(8px);position:sticky;top:0;z-index:5;border-bottom:1px solid var(--line)}
+.top h2{margin:0;font-size:19px}.top .sub{color:var(--muted);font-size:12.5px}
+.top .sp{flex:1}.top .gs{max-width:280px}
+.burger{display:none;background:#fff;border:1.5px solid var(--line);border-radius:9px;padding:6px 9px;cursor:pointer}
+.content{padding:22px 26px 60px}
+/* cards */
+.grid{display:grid;gap:16px}.k4{grid-template-columns:repeat(4,minmax(0,1fr))}.k6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.c2{grid-template-columns:2fr 1fr}.c11{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:16px 18px;min-width:0}
+.card h3{margin:0 0 12px;font-size:14.5px;display:flex;align-items:center;gap:8px}.card h3 small{margin-left:auto;color:var(--muted);font-weight:500;font-size:12px}
+.kpi{position:relative;overflow:hidden}.kpi .lb{color:var(--muted);font-weight:600;font-size:12.5px}
+.kpi .v{font:800 28px/1.15 Inter;margin-top:4px;letter-spacing:-.02em}.kpi .d{font-size:12px;font-weight:700;margin-top:4px}
+.kpi .d.up{color:var(--g)}.kpi .d.dn{color:var(--red)}.kpi .d.nt{color:var(--muted)}
+.kpi .ico{position:absolute;right:14px;top:14px;width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
+.kpi .ico svg{width:18px;height:18px}
+.kpi .spark{position:absolute;right:0;bottom:0;opacity:.9}
+/* table */
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.tools input,.tools select{width:auto;min-width:130px}.tools .q{min-width:220px;flex:1;max-width:320px}
+.tw{overflow:auto;border:1px solid var(--line);border-radius:var(--r);background:#fff;box-shadow:var(--sh)}
+table{border-collapse:collapse;width:100%;min-width:860px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap;font-size:13px}
+th{background:#F7F9F7;color:var(--muted);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;position:sticky;top:0;cursor:pointer;user-select:none}
+tbody tr{cursor:pointer}tbody tr:hover{background:#F6FBF8}
+td .nm{font-weight:700}td .sm{color:var(--muted);font-size:12px}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:700;white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.tag{display:inline-block;border-radius:6px;padding:1px 7px;font-size:11.5px;font-weight:700;background:#EEF2EF;color:#3B4A42}
+.tag.trial{background:#E6F4EC;color:#0B6B3A}.tag.admission{background:#EAF0FE;color:#1D4ED8}.tag.teacher{background:#F3EAFE;color:#6D28D9}
+.tag.wa{background:#E3F8EA;color:#128C4B}
+.overdue{color:var(--red);font-weight:700}.today{color:var(--amber);font-weight:700}
+.bar{height:7px;background:#EAEFEA;border-radius:9px;overflow:hidden;min-width:90px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--g),#2FB36B);border-radius:9px}
+.mini{display:flex;gap:3px}.mini i{width:16px;height:6px;border-radius:3px;background:#E3E8E3}.mini i.d{background:var(--g)}.mini i.c{background:var(--gold)}
+/* kanban */
+.kb{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,1fr);gap:14px;overflow:auto;padding-bottom:8px}
+.col{background:#E9EEEA;border-radius:var(--r);padding:10px;min-height:300px}
+.col h4{margin:2px 4px 10px;font-size:13px;display:flex;align-items:center;gap:6px}.col h4 span{margin-left:auto;background:#fff;border-radius:999px;padding:0 8px;font-size:12px}
+.col.drop{outline:2px dashed var(--g);outline-offset:-4px}
+.kc{background:#fff;border-radius:11px;padding:10px 11px;margin-bottom:8px;box-shadow:var(--sh);cursor:grab;border-left:3px solid var(--line)}
+.kc b{display:block}.kc .sm{color:var(--muted);font-size:12px}
+/* drawer & modal */
+.ov{position:fixed;inset:0;background:rgba(8,20,14,.45);z-index:30;display:none}.ov.on{display:block}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(620px,100%);background:#fff;z-index:31;transform:translateX(100%);transition:.25s;display:flex;flex-direction:column;box-shadow:-20px 0 40px -20px rgba(0,0,0,.3)}
+.drawer.on{transform:none}
+.dh{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}
+.dh h3{margin:0;font-size:18px}.dh .x{margin-left:auto;background:none;border:0;font-size:22px;cursor:pointer;color:var(--muted)}
+.db{padding:16px 20px;overflow:auto;flex:1}
+.sect{margin-bottom:18px}.sect h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:5px 12px;font-size:13px}.kv dt{color:var(--muted)}.kv dd{margin:0;word-break:break-word}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.f2 .full{grid-column:1/-1}
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:14px}
+.tl .it{position:relative;margin-bottom:12px}.tl .it::before{content:"";position:absolute;left:-20px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--g);box-shadow:0 0 0 3px #fff}
+.tl .it small{color:var(--muted);display:block;font-size:11.5px}
+.modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.98);opacity:0;pointer-events:none;width:min(520px,94vw);max-height:90vh;overflow:auto;background:#fff;border-radius:18px;z-index:40;padding:20px;transition:.18s;box-shadow:0 30px 70px -20px rgba(0,0,0,.45)}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modal h3{margin:0 0 14px}
+.cred{background:#F6FBF8;border:1.5px dashed var(--g);border-radius:12px;padding:12px 14px;font-family:ui-monospace,Consolas,monospace;font-size:14px;margin:10px 0}
+/* stepper */
+.stepper{display:flex;gap:0;margin:6px 0 4px;overflow-x:auto;padding-bottom:4px}
+.st{flex:1;min-width:96px;text-align:center;position:relative}
+.st::after{content:"";position:absolute;top:15px;left:calc(50% + 17px);right:calc(-50% + 17px);height:3px;background:#E3E8E3}
+.st:last-child::after{display:none}.st.d::after{background:var(--g)}
+.st i{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;margin:0 auto 6px;background:#EEF2EF;color:var(--muted);font-style:normal;font-weight:800;font-size:13px;border:2px solid #E3E8E3;position:relative;z-index:1}
+.st.d i{background:var(--g);border-color:var(--g);color:#fff}.st.c i{background:#FFF6D6;border-color:var(--gold);color:#7A5B00}
+.st span{font-size:11.5px;font-weight:700;display:block;line-height:1.3}.st small{color:var(--muted);font-size:11px}
+/* charts */
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.hb{display:grid;grid-template-columns:120px 1fr 42px;gap:8px;align-items:center;margin-bottom:8px;font-size:12.5px}
+.hb .t{height:10px;background:#EEF2EF;border-radius:6px;overflow:hidden}.hb .t i{display:block;height:100%;border-radius:6px}
+.hb b{text-align:right}
+.empty{padding:30px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:var(--r)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#0B2418;color:#fff;padding:10px 16px;border-radius:11px;font-weight:700;z-index:60;box-shadow:var(--sh)}
 .toast.bad{background:var(--red)}
-@media(max-width:640px){.grid2{grid-template-columns:1fr}.upd{grid-template-columns:80px 1fr}.upd img{width:80px;height:56px}.upd .b{grid-column:1/-1}.kv{grid-template-columns:1fr}.kv dt{font-weight:700;margin-top:4px}}
+.lst .row{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}.lst .row:last-child{border:0}
+.lst .row .sm{color:var(--muted);font-size:12px}
+.chk{display:flex;gap:14px;flex-wrap:wrap}.chk label{display:flex;gap:6px;align-items:center;font-weight:600}.chk input{width:auto}
+.note{background:#FFF8E1;border:1px solid #F2DB8A;border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:13px}
+@media(max-width:1200px){.k6{grid-template-columns:repeat(3,1fr)}.c2{grid-template-columns:1fr}}
+@media(max-width:900px){.app{grid-template-columns:1fr}.side{position:fixed;left:0;top:0;z-index:35;width:260px;transform:translateX(-100%);transition:.25s}.side.on{transform:none}.burger{display:block}.k4{grid-template-columns:repeat(2,1fr)}.c11,.c3{grid-template-columns:1fr}.top{padding:12px 14px}.content{padding:16px 14px 60px}.top .gs{display:none}}
+@media(max-width:560px){.k6,.k4{grid-template-columns:1fr 1fr}.f2{grid-template-columns:1fr}.kv{grid-template-columns:1fr}.kv dt{font-weight:700;margin-top:4px}}
 </style>
 </head>
 <body>
-<div id="loginView">
- <div class="login">
-  <img src="logo.png" alt="Qurani Life">
-  <h2>অ্যাডমিন প্যানেল</h2>
-  <p>Qurani Life Online Academy</p>
-  <form id="loginForm"><input type="password" id="pw" placeholder="পাসওয়ার্ড" autocomplete="current-password" required><p class="err" id="lerr"></p><button class="btn" style="width:100%">প্রবেশ করুন</button></form>
- </div>
+<svg width="0" height="0" style="position:absolute">
+ <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9 21v-6h6v6"/></symbol>
+ <symbol id="i-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5h13L22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6z"/></symbol>
+ <symbol id="i-kanban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 7v7M12 7v4M16 7v9"/></symbol>
+ <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+ <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+ <symbol id="i-grad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+ <symbol id="i-mega" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+ <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4z"/></symbol>
+ <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+ <symbol id="i-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+ <symbol id="i-cog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+ <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+ <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+</svg>
+
+<div class="login" id="loginView">
+ <form class="lbox" id="loginForm" autocomplete="on">
+  <div class="lg"><img src="logo.png" alt=""><div><h1>Dashboard</h1><small>Qurani Life Online Academy</small></div></div>
+  <label class="fld"><span>Username</span><input id="lu" autocomplete="username" required placeholder="admin"></label>
+  <label class="fld"><span>পাসওয়ার্ড</span><input id="lp" type="password" autocomplete="current-password" required></label>
+  <p class="err" id="lerr"></p>
+  <button class="btn" style="width:100%">প্রবেশ করুন</button>
+  <p style="color:var(--muted);font-size:12px;margin:14px 0 0;text-align:center">শিক্ষার্থী? <a href="student.html">স্টুডেন্ট লগইন</a></p>
+ </form>
 </div>
 
-<div id="app" hidden>
- <header class="top">
-  <img src="logo.png" alt="">
-  <div><h1>অ্যাডমিন প্যানেল</h1><small>Qurani Life Online Academy</small></div>
-  <span class="sp"></span>
-  <a class="ed" href="index.html#edit" target="_blank">✎ হোম পেজের লেখা এডিট</a>
-  <a href="index.html" target="_blank">ওয়েবসাইট</a>
-  <a id="sheetLink" href="#" target="_blank">Google Sheet</a>
-  <button id="refresh" type="button">↻ রিফ্রেশ</button>
-  <button id="logout" type="button">বের হন</button>
- </header>
- <main>
-  <div class="stats" id="stats"></div>
-  <nav class="tabs" id="tabs">
-   <button data-t="trial" aria-selected="true">ফ্রি ট্রায়াল</button>
-   <button data-t="admission">ভর্তি</button>
-   <button data-t="teacher">শিক্ষক আবেদন</button>
-   <button data-t="updates">নোটিশ / আপডেট</button>
-   <button data-t="content">ওয়েবসাইটের লেখা</button>
-   <button data-t="settings">পাসওয়ার্ড</button>
-  </nav>
-  <section id="view"></section>
- </main>
+<div class="app" id="app" hidden>
+ <aside class="side" id="side">
+  <div class="brand"><img src="logo.png" alt=""><div><b>Qurani Life</b><small>CONTROL CENTER</small></div></div>
+  <nav class="nav" id="nav"></nav>
+  <div class="me"><div class="av" id="meAv"></div><div><b id="meName"></b><small id="meRole"></small></div><button id="logout" type="button">বের হন</button></div>
+ </aside>
+ <div class="main">
+  <div class="top">
+   <button class="burger" id="burger" type="button">☰</button>
+   <div><h2 id="pTitle"></h2><div class="sub" id="pSub"></div></div>
+   <span class="sp"></span>
+   <input class="gs" id="gsearch" placeholder="নাম, ID বা নম্বর খুঁজুন...">
+   <button class="btn ghost sm" id="refresh" type="button">↻ রিফ্রেশ</button>
+   <a class="btn ghost sm" href="index.html" target="_blank">ওয়েবসাইট ↗</a>
+  </div>
+  <div class="content" id="view"></div>
+ </div>
 </div>
+<div class="ov" id="ov"></div>
+<aside class="drawer" id="drawer"></aside>
+<div class="modal" id="modal"></div>
 
 <script src="config.js"></script>
 <script>
 const API=(window.QL_CONFIG&&QL_CONFIG.API_URL)||'';
-const $=s=>document.querySelector(s);
+const SITE=location.origin+location.pathname.replace(/[^/]*$/,'');
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let PASS='',DATA=null,TAB='trial',Q='',FS='';
-try{PASS=sessionStorage.getItem('qlAdminPass')||''}catch(e){}
-const TABN={trial:'ফ্রি ট্রায়াল',admission:'ভর্তি',teacher:'শিক্ষক আবেদন'};
+let TOKEN='',USER=null,D=null,PAGE='overview',DR=null;
+try{TOKEN=localStorage.getItem('qlTok')||''}catch(e){}
 const STATUSES=['নতুন','যোগাযোগ করা হয়েছে','ক্লাস নির্ধারিত','ভর্তি হয়েছে','বাতিল'];
+const SCOL={'নতুন':'#D97706','যোগাযোগ করা হয়েছে':'#2563EB','ক্লাস নির্ধারিত':'#7C3AED','ভর্তি হয়েছে':'#00703A','বাতিল':'#9CA3AF'};
+const TYPES={trial:'ফ্রি ট্রায়াল',admission:'ভর্তি',teacher:'শিক্ষক আবেদন'};
+const TCOL={trial:'#00703A',admission:'#2563EB',teacher:'#7C3AED'};
+const ROLE={superadmin:'Super Admin',employee:'Employee'};
+const PERMN={leads:'লিড ও আবেদন',students:'শিক্ষার্থী ও অগ্রগতি',notices:'নোটিশ',content:'ওয়েবসাইটের লেখা'};
+const SST=['Active','Paused','Completed','Left'],SSTB={Active:'চলমান',Paused:'বিরতি',Completed:'সম্পন্ন',Left:'ছেড়ে দিয়েছে'};
 
 function toast(m,bad){const t=document.createElement('div');t.className='toast'+(bad?' bad':'');t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200)}
-async function call(action,extra={}){
- const b=new URLSearchParams({action,pass:PASS,...extra});
- const r=await fetch(API,{method:'POST',body:b});return r.json();
+async function api(action,data={}){
+ const b=new URLSearchParams({action,token:TOKEN});
+ Object.entries(data).forEach(([k,v])=>b.append(k,typeof v==='object'?JSON.stringify(v):v));
+ const r=await fetch(API,{method:'POST',body:b}).then(r=>r.json());
+ if(r.error==='login required'){logout(true);throw new Error('login')}
+ return r;
 }
-async function login(p){
- PASS=p;const r=await call('login');
- if(!r.ok){PASS='';throw new Error(r.error)}
- try{sessionStorage.setItem('qlAdminPass',p)}catch(e){}
-}
-async function load(){
- $('#view').innerHTML='<div class="empty">লোড হচ্ছে...</div>';
- const r=await call('list');
- if(!r.ok){if(r.error==='wrong password')return logout();toast(r.error,1);return}
- DATA=r;$('#sheetLink').href=r.sheet;stats();render();
-}
-function logout(){try{sessionStorage.removeItem('qlAdminPass')}catch(e){}location.reload()}
+const ERR={'wrong login':'Username বা পাসওয়ার্ড ভুল।',locked:'অনেকবার ভুল হয়েছে, ১৫ মিনিট পর চেষ্টা করুন।','not allowed':'এই কাজের অনুমতি আপনার নেই।','username taken':'এই username আগেই নেওয়া।',username:'Username ৩-৩০ অক্ষরের হবে (ইংরেজি ছোট হাতের অক্ষর, সংখ্যা, . _ -)।','too short':'পাসওয়ার্ড আরও লম্বা দিন।','wrong old password':'পুরনো পাসওয়ার্ড ভুল।','name required':'নাম দিতে হবে।'};
+const em=e=>ERR[e]||e||'সমস্যা হয়েছে';
 
-const pick=(o,keys)=>{for(const k of Object.keys(o)){if(keys.some(x=>k.toLowerCase().includes(x))&&String(o[k]).trim())return o[k]}return ''};
-const nameOf=o=>pick(o,['student full name','student name','full name','name'])||'নাম নেই';
+/* ---------- data helpers ---------- */
+function parseTs(s){if(!s)return null;s=String(s);let d=new Date(s);if(!isNaN(d))return d;
+ const m=s.match(/(\d{1,4})[\/.-](\d{1,2})[\/.-](\d{2,4})(?:[ ,T]+(\d{1,2}):(\d{2})(?::(\d{2}))?)?/);if(!m)return null;
+ let a=+m[1],b=+m[2],c=+m[3];let y,mo,da;if(a>31){y=a;mo=b;da=c}else{y=c<100?2000+c:c;if(a>12){da=a;mo=b}else{mo=a;da=b}}
+ return new Date(y,mo-1,da,+(m[4]||0),+(m[5]||0))}
+const dayKey=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const today0=()=>{const d=new Date();d.setHours(0,0,0,0);return d};
+const fmt=d=>d?d.toLocaleDateString('en-GB',{day:'2-digit',month:'short'})+' '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}):'';
+const fmtD=d=>d?d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}):'';
+const ago=d=>{if(!d)return'';const s=(Date.now()-d)/1000;if(s<3600)return Math.max(1,Math.round(s/60))+' মিনিট আগে';if(s<86400)return Math.round(s/3600)+' ঘণ্টা আগে';return Math.round(s/86400)+' দিন আগে'};
+const pick=(o,keys)=>{const ks=Object.keys(o).filter(k=>!k.startsWith('_'));for(const x of keys){const k=ks.find(k=>{const lk=k.toLowerCase();return (lk===x||lk.includes(x))&&!(x==='name'&&/father|guardian|teacher/.test(lk))&&String(o[k]).trim()});if(k)return o[k]}return ''};
+const nameOf=o=>pick(o,['student full name','student name','full name','name'])||'(নাম নেই)';
 const phoneOf=o=>pick(o,['whatsapp','phone','mobile']);
-const digits=s=>String(s).replace(/[^\d]/g,'');
+const digits=s=>String(s||'').replace(/[^\d]/g,'');
+const can=p=>USER&&(USER.role==='superadmin'||(USER.perms||[]).includes(p));
+const isSA=()=>USER&&USER.role==='superadmin';
+let LEADS=[];
+function buildLeads(){
+ LEADS=[];['trial','admission','teacher'].forEach(t=>(D[t]||[]).forEach(o=>{
+  const ts=parseTs(o.Timestamp);
+  LEADS.push({...o,_tab:t,_ts:ts,_name:nameOf(o),_phone:phoneOf(o),_country:pick(o,['country']),_course:pick(o,['course']),_status:o.Status||'নতুন',_via:o['Sent via']||'Website',_fu:o['Follow-up']?parseTs(o['Follow-up']):null,_id:o['Lead ID']||(t[0].toUpperCase()+'-'+o._row)});
+ }));
+ LEADS.sort((a,b)=>(b._ts||0)-(a._ts||0));
+}
+const notesFor=l=>(D.notes||[]).filter(n=>n.Lead===l._tab+':'+l._row).reverse();
+const stageName=i=>{const s=(D.stages||[])[i-1];return s?s.bn:('Stage '+i)};
+const stuOverall=s=>{const n=(D.stages||[]).length||1;const st=Math.max(1,+s.Stage||1);return Math.round(((st-1)+(+s['Stage progress']||0)/100)/n*100)};
 
-function stats(){
- const c=k=>(DATA[k]||[]).length, n=k=>(DATA[k]||[]).filter(x=>!x.Status||x.Status==='নতুন').length;
- $('#stats').innerHTML=['trial','admission','teacher'].map(k=>`<div class="stat" data-go="${k}"><span>${TABN[k]}</span><b>${c(k)}</b><span class="nw">নতুন: ${n(k)}</span></div>`).join('')+
- `<div class="stat" data-go="updates"><span>নোটিশ</span><b>${(DATA.updates||[]).length}</b><span class="nw">ওয়েবসাইটে দেখাচ্ছে: ${(DATA.updates||[]).filter(u=>String(u.Show).toUpperCase()!=='NO').length}</span></div>`;
-}
-function setTab(t){TAB=t;Q='';FS='';document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));render()}
+/* ---------- charts (SVG) ---------- */
+function spark(vals,col){const w=110,h=36,mx=Math.max(1,...vals);const pts=vals.map((v,i)=>[(i/(vals.length-1||1))*w,h-3-(v/mx)*(h-8)]);
+ const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+ return `<svg class="spark" width="${w}" height="${h}"><path d="${d} L${w} ${h} L0 ${h}Z" fill="${col}" opacity=".12"/><path d="${d}" fill="none" stroke="${col}" stroke-width="2"/></svg>`}
+function stackBars(days,series){
+ const W=640,H=210,P=28,bw=(W-P)/days.length;let mx=1;days.forEach((d,i)=>{let s=0;series.forEach(se=>s+=se.v[i]);mx=Math.max(mx,s)});
+ const nice=Math.max(2,Math.ceil(mx/2)*2);let g='';
+ for(let k=0;k<=4;k++){const y=H-20-(H-30)*k/4;g+=`<line x1="${P}" x2="${W}" y1="${y}" y2="${y}" stroke="#EEF2EF"/><text x="${P-6}" y="${y+4}" font-size="10" text-anchor="end" fill="#8A968F">${Math.round(nice*k/4)}</text>`}
+ days.forEach((d,i)=>{let y=H-20;series.forEach(se=>{const h=(H-30)*se.v[i]/nice;if(h>0){g+=`<rect x="${(P+i*bw+bw*.18).toFixed(1)}" y="${(y-h).toFixed(1)}" width="${(bw*.64).toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${se.c}"><title>${d.l}: ${se.n} ${se.v[i]}</title></rect>`;y-=h}});
+  if(i%5===0||i===days.length-1)g+=`<text x="${P+i*bw+bw/2}" y="${H-5}" font-size="10" text-anchor="middle" fill="#8A968F">${d.l}</text>`});
+ return `<svg viewBox="0 0 ${W} ${H}" width="100%" style="display:block">${g}</svg><div class="legend">${series.map(s=>`<span><i style="background:${s.c}"></i>${s.n}</span>`).join('')}</div>`}
+function donut(parts){const tot=parts.reduce((a,p)=>a+p.v,0)||1;let a0=-Math.PI/2,g='';const R=58,r=38,cx=70,cy=70;
+ parts.forEach(p=>{if(!p.v)return;const a1=a0+2*Math.PI*p.v/tot;const big=a1-a0>Math.PI?1:0;
+  if(p.v===tot){g+=`<circle cx="${cx}" cy="${cy}" r="${(R+r)/2}" fill="none" stroke="${p.c}" stroke-width="${R-r}"/>`}else{
+  const P=(a,rr)=>[cx+rr*Math.cos(a),cy+rr*Math.sin(a)];const [x0,y0]=P(a0,R),[x1,y1]=P(a1,R),[x2,y2]=P(a1,r),[x3,y3]=P(a0,r);
+  g+=`<path d="M${x0} ${y0}A${R} ${R} 0 ${big} 1 ${x1} ${y1}L${x2} ${y2}A${r} ${r} 0 ${big} 0 ${x3} ${y3}Z" fill="${p.c}"><title>${p.n}: ${p.v}</title></path>`}a0=a1});
+ return `<div style="display:flex;gap:16px;align-items:center"><svg width="140" height="140">${g}<text x="70" y="68" text-anchor="middle" font-size="20" font-weight="800" fill="#16211B">${parts.reduce((a,p)=>a+p.v,0)}</text><text x="70" y="86" text-anchor="middle" font-size="10" fill="#8A968F">মোট</text></svg><div>${parts.map(p=>`<div style="margin:6px 0;font-size:12.5px"><i style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${p.c};margin-right:6px"></i>${p.n} <b>${p.v}</b> <span style="color:#8A968F">(${Math.round(p.v/tot*100)}%)</span></div>`).join('')}</div></div>`}
+function hbars(rows,col){const mx=Math.max(1,...rows.map(r=>r.v));return rows.length?rows.map(r=>`<div class="hb"><span title="${esc(r.n)}" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(r.n)}</span><div class="t"><i style="width:${r.v/mx*100}%;background:${r.c||col}"></i></div><b>${r.v}</b></div>`).join(''):'<div class="sm" style="color:var(--muted)">এখনো তথ্য নেই</div>'}
 
-function render(){
- if(!DATA)return;
- if(TAB in TABN)return renderApps();
- if(TAB==='updates')return renderUpdates();
- if(TAB==='content')return renderContent();
- renderSettings();
-}
-function renderApps(){
- let rows=(DATA[TAB]||[]).slice().reverse();
- const v=$('#view');
- v.innerHTML=`<div class="tools"><input id="q" placeholder="নাম, নম্বর বা দেশ দিয়ে খুঁজুন" value="${esc(Q)}"><select id="fs"><option value="">সব অবস্থা</option>${STATUSES.map(s=>`<option ${s===FS?'selected':''}>${s}</option>`).join('')}</select></div><div class="list" id="list"></div>`;
- const draw=()=>{
-  const q=Q.toLowerCase();
-  const list=rows.filter(o=>(!FS||(o.Status||'নতুন')===FS)&&(!q||Object.values(o).join(' ').toLowerCase().includes(q)));
-  $('#list').innerHTML=list.length?list.map(o=>card(o)).join(''):'<div class="empty">এখনো কোনো আবেদন নেই।</div>';
- };
- $('#q').oninput=e=>{Q=e.target.value;draw()};$('#fs').onchange=e=>{FS=e.target.value;draw()};draw();
-}
-function card(o){
- const st=o.Status||'নতুন',ph=phoneOf(o),d=digits(ph);
- const cls=st==='বাতিল'?'cancel':(st==='নতুন'?'':'done');
- const via=o['Sent via']||'Website';
- const country=pick(o,['country']),course=pick(o,['course']);
- const skip=['_row','Status','Sent via'];
- const kv=Object.keys(o).filter(k=>!skip.includes(k)&&String(o[k]).trim()).map(k=>`<dt>${esc(k)}</dt><dd>${esc(o[k])}</dd>`).join('');
- return `<article class="app ${cls}">
-  <div class="hd"><h3>${esc(nameOf(o))}</h3>${country?`<span class="pill">${esc(country)}</span>`:''}${course?`<span class="pill">${esc(course)}</span>`:''}<span class="pill ${via==='WhatsApp'?'wa':''}">${via==='WhatsApp'?'WhatsApp দিয়ে':'ওয়েবসাইট ফর্ম'}</span><span class="sp"></span><span class="meta">${esc(o.Timestamp||'')}</span></div>
-  <div class="acts">${d?`<a class="a-wa" target="_blank" href="https://wa.me/${d}">WhatsApp</a><a class="a-call" href="tel:+${d}">📞 কল</a><span class="meta">${esc(ph)}</span>`:''}<span class="sp"></span>
-  <label class="meta">অবস্থা: <select data-row="${o._row}">${STATUSES.map(s=>`<option ${s===st?'selected':''}>${s}</option>`).join('')}</select></label></div>
-  <details><summary>সব তথ্য দেখুন</summary><dl class="kv">${kv}</dl></details>
- </article>`;
-}
-document.addEventListener('change',async e=>{
- const s=e.target.closest('select[data-row]');if(!s)return;
- s.disabled=true;const r=await call('status',{tab:TAB,row:s.dataset.row,value:s.value});s.disabled=false;
- if(r.ok){const o=DATA[TAB].find(x=>String(x._row)===s.dataset.row);if(o)o.Status=s.value;stats();toast('অবস্থা সেভ হয়েছে');const a=s.closest('.app');a.className='app '+(s.value==='বাতিল'?'cancel':s.value==='নতুন'?'':'done')}else toast(r.error,1);
-});
+/* ---------- shell ---------- */
+const PAGES=[
+ {id:'overview',t:'Overview',s:'পুরো একাডেমির এক নজরে অবস্থা',i:'home',sec:'মূল'},
+ {id:'leads',t:'Leads & আবেদন',s:'সব ফর্ম ও WhatsApp আবেদন',i:'inbox',p:'leads'},
+ {id:'pipeline',t:'Pipeline',s:'টেনে এনে অবস্থা বদলান',i:'kanban',p:'leads'},
+ {id:'followups',t:'Follow-ups',s:'আজ ও বাকি থাকা যোগাযোগ',i:'bell',p:'leads'},
+ {id:'students',t:'শিক্ষার্থী',s:'প্রোফাইল, স্টেজ ও অগ্রগতি',i:'grad',p:'students',sec:'শিক্ষা'},
+ {id:'notices',t:'নোটিশ',s:'ওয়েবসাইটের আপডেট',i:'mega',p:'notices',sec:'ওয়েবসাইট'},
+ {id:'content',t:'ওয়েবসাইটের লেখা',s:'হোম পেজের লেখা বদলান',i:'edit',p:'content'},
+ {id:'team',t:'টিম ও অ্যাকাউন্ট',s:'Super admin ও employee',i:'shield',sa:1,sec:'প্রশাসন'},
+ {id:'activity',t:'Activity log',s:'কে কখন কী করেছে',i:'act',sa:1},
+ {id:'settings',t:'সেটিংস',s:'আপনার অ্যাকাউন্ট',i:'cog'}
+];
+const allowed=p=>(!p.p||can(p.p))&&(!p.sa||isSA());
+function navHtml(){let h='',sec='';const due=LEADS.filter(l=>l._fu&&l._fu<=new Date(Date.now()+864e5)&&!['ভর্তি হয়েছে','বাতিল'].includes(l._status)).length,nw=LEADS.filter(l=>l._status==='নতুন').length;
+ PAGES.filter(allowed).forEach(p=>{if(p.sec&&p.sec!==sec){sec=p.sec;h+=`<div class="sec">${p.sec}</div>`}
+  const ct=p.id==='leads'&&nw?nw:p.id==='followups'&&due?due:'';
+  h+=`<a href="#${p.id}" class="${p.id===PAGE?'on':''}"><svg><use href="#i-${p.i}"/></svg>${p.t}${ct?`<span class="ct">${ct}</span>`:''}</a>`});
+ $('#nav').innerHTML=h}
+function go(){let p=(location.hash||'#overview').slice(1);const pg=PAGES.find(x=>x.id===p&&allowed(x))||PAGES[0];PAGE=pg.id;
+ $('#pTitle').textContent=pg.t;$('#pSub').textContent=pg.s;navHtml();$('#side').classList.remove('on');
+ ({overview,leads,pipeline,followups,students,notices,content,team,activity,settings})[PAGE]();}
+addEventListener('hashchange',()=>D&&go());
 
-function renderUpdates(edit){
- const u=edit||{};const ups=(DATA.updates||[]).slice().reverse();
- $('#view').innerHTML=`<div class="panel"><h3>${edit?'নোটিশ এডিট করুন':'নতুন নোটিশ যোগ করুন'}</h3>
-  <form id="uf" class="grid2">
-   <label>শিরোনাম (বাংলা)<input name="titleBn" value="${esc(u['Title (Bangla)'])}" required></label>
-   <label>Title (English)<input name="titleEn" value="${esc(u['Title (English)'])}"></label>
-   <label class="full">বিস্তারিত (বাংলা)<textarea name="textBn" rows="3">${esc(u['Text (Bangla)'])}</textarea></label>
-   <label class="full">Details (English)<textarea name="textEn" rows="3">${esc(u['Text (English)'])}</textarea></label>
-   <label>তারিখ<input name="date" type="date" value="${esc(u.Date||new Date().toISOString().slice(0,10))}"></label>
-   <label>ছবি (ফাইলের নাম বা ছবির লিংক)<input name="image" value="${esc(u.Image)}" placeholder="update1.jpg অথবা https://..."></label>
-   <label>ওয়েবসাইটে দেখাবে?<select name="show"><option value="YES">হ্যাঁ</option><option value="NO" ${String(u.Show).toUpperCase()==='NO'?'selected':''}>না (লুকানো)</option></select></label>
-   <div class="full" style="display:flex;gap:10px;align-items:end"><button class="btn">${edit?'সেভ করুন':'যোগ করুন'}</button>${edit?'<button type="button" class="btn ghost" id="cancelE">বাতিল</button>':''}</div>
-  </form></div>
-  <div class="list">${ups.length?ups.map(x=>`<div class="upd"><img src="${esc(/^https?:/.test(x.Image)?x.Image:(x.Image||''))}" alt="" onerror="this.style.visibility='hidden'"><div><h4>${esc(x['Title (Bangla)']||x['Title (English)'])}</h4><p>${esc(x.Date)} ${String(x.Show).toUpperCase()==='NO'?'· <span class="off">লুকানো</span>':'· ওয়েবসাইটে দেখাচ্ছে'}</p></div><div class="b"><button class="btn ghost" data-ed="${x._row}">এডিট</button><button class="btn ghost" data-tg="${x._row}">${String(x.Show).toUpperCase()==='NO'?'দেখান':'লুকান'}</button><button class="btn red" data-del="${x._row}">মুছুন</button></div></div>`).join(''):'<div class="empty">কোনো নোটিশ নেই।</div>'}</div>`;
- $('#uf').onsubmit=async e=>{e.preventDefault();const f=Object.fromEntries(new FormData(e.target));const b=e.target.querySelector('.btn');b.disabled=true;
-  const r=await call(edit?'editUpdate':'addUpdate',edit?{...f,row:edit._row}:f);b.disabled=false;
-  if(r.ok){toast(edit?'সেভ হয়েছে':'নোটিশ যোগ হয়েছে');load().then(()=>setTab('updates'))}else toast(r.error,1)};
- const c=$('#cancelE');if(c)c.onclick=()=>renderUpdates();
-}
-function updFields(x,show){return{show:show||x.Show||'YES',date:x.Date,titleEn:x['Title (English)'],titleBn:x['Title (Bangla)'],textEn:x['Text (English)'],textBn:x['Text (Bangla)'],image:x.Image,row:x._row}}
-document.addEventListener('click',async e=>{
- const g=e.target.closest('[data-go]');if(g)return setTab(g.dataset.go);
- const t=e.target.closest('#tabs button');if(t)return setTab(t.dataset.t);
- const ed=e.target.closest('[data-ed]');if(ed){renderUpdates(DATA.updates.find(x=>String(x._row)===ed.dataset.ed));scrollTo({top:0,behavior:'smooth'});return}
- const tg=e.target.closest('[data-tg]');if(tg){const x=DATA.updates.find(y=>String(y._row)===tg.dataset.tg);const r=await call('editUpdate',updFields(x,String(x.Show).toUpperCase()==='NO'?'YES':'NO'));if(r.ok){toast('সেভ হয়েছে');load().then(()=>setTab('updates'))}else toast(r.error,1);return}
- const del=e.target.closest('[data-del]');if(del){if(!confirm('এই নোটিশটি মুছে ফেলবেন? এটা আর ফেরত আসবে না।'))return;const r=await call('deleteUpdate',{row:del.dataset.del});if(r.ok){toast('মুছে ফেলা হয়েছে');load().then(()=>setTab('updates'))}else toast(r.error,1);return}
- const rs=e.target.closest('[data-reset]');if(rs){if(!confirm('এই লেখাটি আগের মূল লেখায় ফিরিয়ে নেবেন?'))return;const r=await call('resetContent',{key:rs.dataset.reset});if(r.ok){toast('আগের লেখায় ফিরে গেছে');load().then(()=>setTab('content'))}else toast(r.error,1)}
-});
-
-function strip(h){const d=document.createElement('div');d.innerHTML=h;return d.textContent}
-function renderContent(){
- const c=DATA.content||{},keys=Object.keys(c);
- $('#view').innerHTML=`<div class="note"><b>কীভাবে লেখা বদলাবেন:</b> উপরের হলুদ <b>"✎ হোম পেজের লেখা এডিট"</b> বাটনে ক্লিক করুন। ওয়েবসাইট খুলবে, হলুদ দাগ দেওয়া যেকোনো লেখায় ক্লিক করে সরাসরি বদলান, তারপর নিচের <b>"সেভ করুন"</b> চাপুন। বাংলা ও English দুটো আলাদা করে বদলাতে নিচের বারে "বাংলা / English" বাটন আছে।</div>
- <div class="panel"><h3>যেসব লেখা বদলানো হয়েছে (${keys.length})</h3>${keys.length?keys.map(k=>`<div class="upd" style="grid-template-columns:1fr auto;margin-bottom:8px"><div><h4>${esc(strip(c[k].bn).slice(0,120))}</h4><p>${esc(strip(c[k].en).slice(0,120))}</p></div><div class="b"><button class="btn red" data-reset="${esc(k)}">আগের লেখায় ফেরান</button></div></div>`).join(''):'<div class="empty">এখনো কোনো লেখা বদলানো হয়নি।</div>'}</div>`;
-}
-function renderSettings(){
- $('#view').innerHTML=`<div class="panel" style="max-width:440px"><h3>পাসওয়ার্ড বদলান</h3><form id="pf"><label>নতুন পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)<input type="password" name="a" minlength="6" required autocomplete="new-password"></label><br><label>আবার লিখুন<input type="password" name="b" minlength="6" required autocomplete="new-password"></label><p class="err" id="perr"></p><button class="btn">পাসওয়ার্ড বদলান</button></form></div>`;
- $('#pf').onsubmit=async e=>{e.preventDefault();const f=Object.fromEntries(new FormData(e.target));if(f.a!==f.b){$('#perr').textContent='দুটো পাসওয়ার্ড মেলেনি।';return}
-  const r=await call('pass',{newPass:f.a});if(r.ok){PASS=f.a;try{sessionStorage.setItem('qlAdminPass',f.a)}catch(x){}toast('পাসওয়ার্ড বদলানো হয়েছে');e.target.reset();$('#perr').textContent=''}else $('#perr').textContent=r.error};
-}
-
+async function load(){const r=await api('dashboard');if(!r.ok){toast(em(r.error),1);return}
+ D=r;USER=r.user;buildLeads();$('#meName').textContent=USER.name;$('#meRole').textContent=ROLE[USER.role]||USER.role;
+ $('#meAv').textContent=(USER.name||'?').trim().split(/\s+/).map(x=>x[0]).slice(0,2).join('').toUpperCase();go()}
+function logout(silent){if(!silent)api('logout').catch(()=>{});try{localStorage.removeItem('qlTok')}catch(e){}TOKEN='';USER=null;D=null;$('#app').hidden=true;$('#loginView').hidden=false}
 $('#loginForm').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('button');b.disabled=true;$('#lerr').textContent='';
- try{await login($('#pw').value);start()}catch(x){$('#lerr').textContent=x.message==='wrong password'?'পাসওয়ার্ড ভুল।':'সংযোগে সমস্যা, আবার চেষ্টা করুন।'}b.disabled=false};
-$('#logout').onclick=logout;$('#refresh').onclick=()=>load().then(()=>setTab(TAB));
-function start(){$('#loginView').hidden=true;$('#app').hidden=false;load()}
-if(PASS)call('login').then(r=>r.ok?start():(PASS='')).catch(()=>{});
+ try{const r=await fetch(API,{method:'POST',body:new URLSearchParams({action:'login',username:$('#lu').value.trim(),password:$('#lp').value})}).then(r=>r.json());
+  if(!r.ok){$('#lerr').textContent=em(r.error)}else{TOKEN=r.token;try{localStorage.setItem('qlTok',TOKEN);sessionStorage.setItem('qlAdminTok',TOKEN)}catch(x){}start()}}
+ catch(x){$('#lerr').textContent='সংযোগে সমস্যা, আবার চেষ্টা করুন।'}b.disabled=false};
+function start(){$('#loginView').hidden=true;$('#app').hidden=false;$('#view').innerHTML='<div class="empty">লোড হচ্ছে...</div>';load()}
+$('#logout').onclick=()=>logout();$('#refresh').onclick=()=>load();$('#burger').onclick=()=>$('#side').classList.toggle('on');
+$('#gsearch').addEventListener('keydown',e=>{if(e.key==='Enter'){window._q=e.target.value;location.hash='#leads';if(PAGE==='leads')leads()}});
+
+/* ---------- drawer / modal ---------- */
+function openDrawer(html){$('#drawer').innerHTML=html;$('#drawer').classList.add('on');$('#ov').classList.add('on')}
+function closeAll(){$('#drawer').classList.remove('on');$('#modal').classList.remove('on');$('#ov').classList.remove('on');DR=null}
+function openModal(html){$('#modal').innerHTML=html;$('#modal').classList.add('on');$('#ov').classList.add('on')}
+$('#ov').onclick=closeAll;document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+document.addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeAll()});
+
+/* ---------- OVERVIEW ---------- */
+function overview(){
+ const v=$('#view');const t0=today0();const N=30;const days=[];for(let i=N-1;i>=0;i--){const d=new Date(t0);d.setDate(d.getDate()-i);days.push({k:dayKey(d),l:d.toLocaleDateString('en-GB',{day:'2-digit',month:'short'})})}
+ const by=t=>days.map(d=>LEADS.filter(l=>l._tab===t&&l._ts&&dayKey(l._ts)===d.k).length);
+ const tot=days.map((d,i)=>by('trial')[i]+by('admission')[i]+by('teacher')[i]);
+ const last7=LEADS.filter(l=>l._ts&&l._ts>=new Date(t0-6*864e5)).length,prev7=LEADS.filter(l=>l._ts&&l._ts<new Date(t0-6*864e5)&&l._ts>=new Date(t0-13*864e5)).length;
+ const stu=(D.students||[]),act=stu.filter(s=>(s.Status||'Active')==='Active');
+ const sl=LEADS.filter(l=>l._tab!=='teacher'),adm=sl.filter(l=>l._status==='ভর্তি হয়েছে').length;
+ const conv=sl.length?Math.round(adm/sl.length*100):0;
+ const due=LEADS.filter(l=>l._fu&&l._fu<new Date(+t0+864e5)&&!['ভর্তি হয়েছে','বাতিল'].includes(l._status));
+ const avg=act.length?Math.round(act.reduce((a,s)=>a+stuOverall(s),0)/act.length):0;
+ const dl=(a,b)=>{if(!b&&!a)return'<span class="d nt">আগের সপ্তাহের মতো</span>';const p=b?Math.round((a-b)/b*100):100;return `<span class="d ${p>=0?'up':'dn'}">${p>=0?'▲':'▼'} ${Math.abs(p)}% গত সপ্তাহের তুলনায়</span>`};
+ const k=(lb,val,d,col,ic,sp)=>`<div class="card kpi"><div class="lb">${lb}</div><div class="v">${val}</div>${d}<div class="ico" style="background:${col}1A;color:${col}"><svg><use href="#i-${ic}"/></svg></div>${sp||''}</div>`;
+ let h='';
+ if(can('leads')){
+ h+=`<div class="grid k4" style="margin-bottom:16px">
+  ${k('মোট লিড (৭ দিন)',last7,dl(last7,prev7),'#00703A','inbox',spark(tot.slice(-14),'#00703A'))}
+  ${k('নতুন, এখনো যোগাযোগ হয়নি',LEADS.filter(l=>l._status==='নতুন').length,'<span class="d nt">দ্রুত যোগাযোগ করুন</span>','#D97706','bell')}
+  ${k('Conversion rate',conv+'%',`<span class="d nt">${adm} জন ভর্তি / ${sl.length} লিড</span>`,'#2563EB','trend')}
+  ${k('Follow-up বাকি',due.length,due.length?'<span class="d dn">আজ বা আগের তারিখের</span>':'<span class="d up">সব আপডেট</span>','#C2410C','clock')}
+ </div>`}
+ if(can('students')){h+=`<div class="grid k4" style="margin-bottom:16px">
+  ${k('চলমান শিক্ষার্থী',act.length,`<span class="d nt">মোট ${stu.length} জন</span>`,'#0D9488','grad')}
+  ${k('গড় অগ্রগতি',avg+'%','<span class="d nt">পুরো কোর্স পথের হিসাবে</span>','#7C3AED','act')}
+  ${k('এই মাসে নতুন শিক্ষার্থী',stu.filter(s=>{const d=parseTs(s.Joined);return d&&d.getMonth()===t0.getMonth()&&d.getFullYear()===t0.getFullYear()}).length,'<span class="d nt">ভর্তি সম্পন্ন</span>','#00703A','users')}
+  ${k('অগ্রগতি আপডেট (৭ দিন)',(D.progress||[]).filter(p=>{const d=parseTs(p.Time);return d&&d>=new Date(t0-6*864e5)}).length,'<span class="d nt">শিক্ষকদের আপডেট</span>','#D97706','check')}
+ </div>`}
+ if(can('leads')){
+  const st=STATUSES.map(s=>({n:s,v:LEADS.filter(l=>l._status===s).length,c:SCOL[s]}));
+  const cn={};sl.forEach(l=>{const c=(l._country||'অজানা').trim();cn[c]=(cn[c]||0)+1});
+  const cr={};sl.forEach(l=>{const c=(l._course||'অজানা').trim();cr[c]=(cr[c]||0)+1});
+  h+=`<div class="grid c2" style="margin-bottom:16px"><div class="card"><h3>গত ৩০ দিনের লিড<small>দিন অনুযায়ী</small></h3>${stackBars(days,[{n:TYPES.trial,c:TCOL.trial,v:by('trial')},{n:TYPES.admission,c:TCOL.admission,v:by('admission')},{n:TYPES.teacher,c:TCOL.teacher,v:by('teacher')}])}</div>
+   <div class="card"><h3>লিড কোথা থেকে এসেছে</h3>${donut([{n:'ওয়েবসাইট ফর্ম',v:LEADS.filter(l=>l._via!=='WhatsApp').length,c:'#00703A'},{n:'WhatsApp',v:LEADS.filter(l=>l._via==='WhatsApp').length,c:'#25D366'}])}<h3 style="margin-top:14px">ধরন অনুযায়ী</h3>${donut(['trial','admission','teacher'].map(t=>({n:TYPES[t],v:LEADS.filter(l=>l._tab===t).length,c:TCOL[t]})))}</div></div>
+  <div class="grid c3" style="margin-bottom:16px"><div class="card"><h3>Pipeline অবস্থা</h3>${hbars(st)}</div>
+   <div class="card"><h3>শীর্ষ দেশ</h3>${hbars(Object.entries(cn).sort((a,b)=>b[1]-a[1]).slice(0,7).map(([n,v])=>({n,v})),'#0D9488')}</div>
+   <div class="card"><h3>জনপ্রিয় কোর্স</h3>${hbars(Object.entries(cr).sort((a,b)=>b[1]-a[1]).slice(0,7).map(([n,v])=>({n,v})),'#D97706')}</div></div>`}
+ const right=[];
+ if(can('students')){const sc=(D.stages||[]).map((s,i)=>({n:s.bn,v:act.filter(x=>(+x.Stage||1)===i+1).length,c:'#00703A'}));right.push(`<div class="card"><h3>স্টেজ অনুযায়ী শিক্ষার্থী</h3>${hbars(sc)}</div>`)}
+ if(can('leads')){const team=(D.team||[]).filter(u=>u.Active!=='NO');const rows=team.map(u=>{const mine=LEADS.filter(l=>l['Assigned to']===u.Name);return `<tr><td><b>${esc(u.Name)}</b><div class="sm">${ROLE[u.Role]||u.Role}</div></td><td>${mine.length}</td><td>${mine.filter(l=>l._status==='নতুন').length}</td><td>${mine.filter(l=>l._status==='ভর্তি হয়েছে').length}</td><td>${mine.length?Math.round(mine.filter(l=>l._status==='ভর্তি হয়েছে').length/mine.length*100):0}%</td></tr>`}).join('');
+  right.push(`<div class="card"><h3>টিমের পারফরম্যান্স</h3><div style="overflow:auto"><table style="min-width:0"><thead><tr><th>সদস্য</th><th>লিড</th><th>নতুন</th><th>ভর্তি</th><th>রেট</th></tr></thead><tbody>${rows||'<tr><td colspan=5>টিম নেই</td></tr>'}</tbody></table></div></div>`)}
+ const recent=can('leads')?LEADS.slice(0,7).map(l=>`<div class="row" data-lead="${l._tab}:${l._row}" style="cursor:pointer"><span class="tag ${l._tab}">${TYPES[l._tab]}</span><div><b>${esc(l._name)}</b><div class="sm">${esc(l._country)} · ${ago(l._ts)}</div></div><span style="margin-left:auto" class="pill" style="color:${SCOL[l._status]}">${esc(l._status)}</span></div>`).join(''):'';
+ h+=`<div class="grid c11">${right.join('')}${recent?`<div class="card lst"><h3>সাম্প্রতিক আবেদন<small><a href="#leads">সব দেখুন →</a></small></h3>${recent||'<div class="sm">এখনো কিছু নেই</div>'}</div>`:''}</div>`;
+ v.innerHTML=h||'<div class="empty">আপনার অ্যাকাউন্টে কোনো বিভাগের অনুমতি নেই। Super admin-এর সাথে যোগাযোগ করুন।</div>';
+ $$('#view .pill').forEach(p=>{const s=p.textContent.trim();if(SCOL[s])p.style.color=SCOL[s]});
+}
+document.addEventListener('click',e=>{const r=e.target.closest('[data-lead]');if(r&&!e.target.closest('a,button,select,input')){const [t,row]=r.dataset.lead.split(':');openLead(LEADS.find(l=>l._tab===t&&String(l._row)===row))}});
+
+/* ---------- LEADS ---------- */
+let LF={q:'',type:'',status:'',as:'',via:'',range:'',mine:false,sort:'date',dir:-1};
+function leads(){
+ if(window._q!==undefined){LF.q=window._q;window._q=undefined}
+ const team=(D.team||[]).filter(u=>u.Active!=='NO');
+ $('#view').innerHTML=`<div class="tools">
+  <input class="q" id="fq" placeholder="নাম, ID, নম্বর, দেশ..." value="${esc(LF.q)}">
+  <select id="ft"><option value="">সব ধরন</option>${Object.entries(TYPES).map(([k,v])=>`<option value="${k}" ${LF.type===k?'selected':''}>${v}</option>`).join('')}</select>
+  <select id="fs"><option value="">সব অবস্থা</option>${STATUSES.map(s=>`<option ${LF.status===s?'selected':''}>${s}</option>`).join('')}</select>
+  <select id="fa"><option value="">সবার লিড</option><option value="__none" ${LF.as==='__none'?'selected':''}>কাউকে দেওয়া হয়নি</option>${team.map(u=>`<option ${LF.as===u.Name?'selected':''}>${esc(u.Name)}</option>`).join('')}</select>
+  <select id="fv"><option value="">সব উৎস</option><option value="Website" ${LF.via==='Website'?'selected':''}>ওয়েবসাইট</option><option value="WhatsApp" ${LF.via==='WhatsApp'?'selected':''}>WhatsApp</option></select>
+  <select id="fr"><option value="">সব সময়</option><option value="7" ${LF.range==='7'?'selected':''}>গত ৭ দিন</option><option value="30" ${LF.range==='30'?'selected':''}>গত ৩০ দিন</option><option value="90" ${LF.range==='90'?'selected':''}>গত ৯০ দিন</option></select>
+  <label style="display:flex;gap:6px;align-items:center;font-weight:600"><input type="checkbox" id="fm" style="width:auto" ${LF.mine?'checked':''}> শুধু আমার</label>
+  <span style="flex:1"></span><span class="sm" id="fcount" style="color:var(--muted)"></span>
+  <button class="btn ghost sm" id="csv" type="button">⬇ CSV</button></div><div class="tw"><table><thead><tr>
+  <th data-s="id">ID</th><th data-s="name">নাম</th><th data-s="type">ধরন</th><th>দেশ</th><th>WhatsApp</th><th>কোর্স</th><th>উৎস</th><th data-s="status">অবস্থা</th><th data-s="as">দায়িত্বে</th><th data-s="fu">Follow-up</th><th data-s="date">তারিখ</th></tr></thead><tbody id="lt"></tbody></table></div>`;
+ const bind=(id,k,ev='change')=>$(id).addEventListener(ev,e=>{LF[k]=e.target.type==='checkbox'?e.target.checked:e.target.value;draw()});
+ bind('#fq','q','input');bind('#ft','type');bind('#fs','status');bind('#fa','as');bind('#fv','via');bind('#fr','range');bind('#fm','mine');
+ $$('th[data-s]').forEach(th=>th.onclick=()=>{LF.dir=LF.sort===th.dataset.s?-LF.dir:-1;LF.sort=th.dataset.s;draw()});
+ $('#csv').onclick=()=>csv(filtered());
+ draw();
+}
+function filtered(){const q=LF.q.toLowerCase(),t0=today0();
+ let r=LEADS.filter(l=>(!LF.type||l._tab===LF.type)&&(!LF.status||l._status===LF.status)&&(!LF.via||l._via===LF.via)
+  &&(!LF.as||(LF.as==='__none'?!l['Assigned to']:l['Assigned to']===LF.as))&&(!LF.mine||l['Assigned to']===USER.name)
+  &&(!LF.range||(l._ts&&l._ts>=new Date(t0-(+LF.range-1)*864e5)))&&(!q||Object.values(l).join(' ').toLowerCase().includes(q)));
+ const key={id:l=>l._id,name:l=>l._name,type:l=>l._tab,status:l=>STATUSES.indexOf(l._status),as:l=>l['Assigned to']||'',fu:l=>l._fu?+l._fu:9e15,date:l=>l._ts?+l._ts:0}[LF.sort];
+ return r.sort((a,b)=>{const x=key(a),y=key(b);return (x>y?1:x<y?-1:0)*LF.dir})}
+function fuCell(l){if(!l._fu)return'<span class="sm">-</span>';const t0=today0(),cls=l._fu<t0?'overdue':l._fu<new Date(+t0+864e5)?'today':'';return `<span class="${cls}">${fmtD(l._fu)}</span>`}
+function draw(){const r=filtered();$('#fcount').textContent=r.length+' টি';
+ $('#lt').innerHTML=r.length?r.map(l=>`<tr data-lead="${l._tab}:${l._row}"><td><b>${esc(l._id)}</b></td><td><div class="nm">${esc(l._name)}</div></td><td><span class="tag ${l._tab}">${TYPES[l._tab]}</span></td><td>${esc(l._country)}</td><td>${esc(l._phone)}</td><td>${esc(l._course)}</td><td>${l._via==='WhatsApp'?'<span class="tag wa">WhatsApp</span>':'<span class="tag">Website</span>'}</td><td><span class="pill" style="color:${SCOL[l._status]||'#666'}">${esc(l._status)}</span></td><td>${esc(l['Assigned to']||'—')}</td><td>${fuCell(l)}</td><td><span class="sm">${fmt(l._ts)}</span></td></tr>`).join(''):`<tr><td colspan="11" style="text-align:center;padding:30px;color:var(--muted)">কোনো আবেদন পাওয়া যায়নি</td></tr>`}
+function csv(rows){const keys=[...new Set(rows.flatMap(r=>Object.keys(r).filter(k=>!k.startsWith('_'))))];
+ const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"';const s='﻿'+[['Type',...keys].map(q).join(','),...rows.map(r=>[TYPES[r._tab],...keys.map(k=>r[k])].map(q).join(','))].join('\n');
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'text/csv'}));a.download='qurani-life-leads-'+dayKey(new Date())+'.csv';a.click()}
+
+function openLead(l){if(!l)return;DR=l;const team=(D.team||[]).filter(u=>u.Active!=='NO');const d=digits(l._phone);
+ const skip=k=>k.startsWith('_')||['Status','Assigned to','Follow-up','Sent via','Lead ID'].includes(k);
+ const kv=Object.keys(l).filter(k=>!skip(k)&&String(l[k]).trim()).map(k=>`<dt>${esc(k)}</dt><dd>${esc(l[k])}</dd>`).join('');
+ const notes=notesFor(l);const fu=l._fu?dayKey(l._fu):'';
+ openDrawer(`<div class="dh"><div><span class="tag ${l._tab}">${TYPES[l._tab]}</span> <span class="sm" style="color:var(--muted)">${esc(l._id)} · ${fmt(l._ts)}</span><h3>${esc(l._name)}</h3><div class="sm" style="color:var(--muted)">${esc(l._country)} ${l._course?'· '+esc(l._course):''}</div></div><button class="x" data-close>×</button></div>
+ <div class="db">
+  <div class="sect" style="display:flex;gap:8px;flex-wrap:wrap">${d?`<a class="btn wa sm" target="_blank" href="https://wa.me/${d}">WhatsApp</a><a class="btn ghost sm" href="tel:+${d}">📞 কল</a>`:''}${l._tab!=='teacher'&&can('students')&&l._status!=='ভর্তি হয়েছে'?`<button class="btn gold sm" id="toStu" type="button">🎓 শিক্ষার্থী বানান</button>`:''}${isSA()?`<button class="btn red sm" id="delLead" type="button">মুছুন</button>`:''}</div>
+  <div class="sect"><h4>অবস্থা ও দায়িত্ব</h4><div class="f2">
+   <label class="fld"><span>অবস্থা</span><select id="lst">${STATUSES.map(s=>`<option ${s===l._status?'selected':''}>${s}</option>`).join('')}</select></label>
+   <label class="fld"><span>দায়িত্বে</span><select id="las"><option value="">কেউ না</option>${team.map(u=>`<option ${u.Name===l['Assigned to']?'selected':''}>${esc(u.Name)}</option>`).join('')}</select></label>
+   <label class="fld"><span>Follow-up তারিখ</span><input type="date" id="lfu" value="${fu}"></label>
+   <div class="fld" style="display:flex;align-items:end"><button class="btn" id="lsave" type="button" style="width:100%">সেভ করুন</button></div></div></div>
+  <div class="sect"><h4>নোট ও যোগাযোগের ইতিহাস (${notes.length})</h4><div style="display:flex;gap:8px;margin-bottom:12px"><input id="lnote" placeholder="যেমন: কল করেছি, শনিবার ট্রায়াল ঠিক হয়েছে"><button class="btn sm" id="laddn" type="button">যোগ</button></div>
+   <div class="tl">${notes.map(n=>`<div class="it">${esc(n.Note)}<small>${esc(n.By)} · ${fmt(parseTs(n.Time))}</small></div>`).join('')||'<div class="sm" style="color:var(--muted)">এখনো কোনো নোট নেই</div>'}</div></div>
+  <div class="sect"><h4>ফর্মের সব তথ্য</h4><dl class="kv"><dt>উৎস</dt><dd>${l._via==='WhatsApp'?'WhatsApp দিয়ে পাঠানো':'ওয়েবসাইট ফর্ম'}</dd>${kv}</dl></div>
+ </div>`);
+ $('#lsave').onclick=async e=>{e.target.disabled=true;const r=await api('leadUpdate',{tab:l._tab,row:l._row,Status:$('#lst').value,'Assigned to':$('#las').value,'Follow-up':$('#lfu').value});e.target.disabled=false;
+  if(r.ok){Object.assign(l,{Status:$('#lst').value,'Assigned to':$('#las').value,'Follow-up':$('#lfu').value,_status:$('#lst').value,_fu:$('#lfu').value?parseTs($('#lfu').value):null});const o=D[l._tab].find(x=>x._row===l._row);if(o)Object.assign(o,{Status:l.Status,'Assigned to':l['Assigned to'],'Follow-up':l['Follow-up']});toast('সেভ হয়েছে');rerender()}else toast(em(r.error),1)};
+ $('#laddn').onclick=async e=>{const t=$('#lnote').value.trim();if(!t)return;e.target.disabled=true;const r=await api('leadNote',{tab:l._tab,row:l._row,note:t});e.target.disabled=false;
+  if(r.ok){(D.notes=D.notes||[]).push({Time:new Date().toISOString(),Lead:l._tab+':'+l._row,Note:t,By:USER.name});openLead(l)}else toast(em(r.error),1)};
+ const ts=$('#toStu');if(ts)ts.onclick=()=>convertModal(l);
+ const dl=$('#delLead');if(dl)dl.onclick=async()=>{if(!confirm('এই আবেদনটি Sheet থেকে মুছে যাবে, ফেরত আসবে না। মুছবেন?'))return;const r=await api('leadDelete',{tab:l._tab,row:l._row});if(r.ok){toast('মুছে ফেলা হয়েছে');closeAll();load()}else toast(em(r.error),1)};
+}
+function rerender(){navHtml();if(PAGE==='leads')draw();else if(PAGE==='pipeline')pipeline();else if(PAGE==='followups')followups();else if(PAGE==='overview')overview()}
+
+/* ---------- convert / student forms ---------- */
+const teachers=()=>(D.team||[]).filter(u=>u.Active!=='NO').map(u=>u.Name);
+function stuForm(s={}){return `<div class="f2">
+ <label class="fld"><span>শিক্ষার্থীর নাম *</span><input name="Name" required value="${esc(s.Name)}"></label>
+ <label class="fld"><span>অভিভাবক</span><input name="Guardian" value="${esc(s.Guardian)}"></label>
+ <label class="fld"><span>WhatsApp</span><input name="WhatsApp" value="${esc(s.WhatsApp)}" placeholder="+8801..."></label>
+ <label class="fld"><span>Email</span><input name="Email" value="${esc(s.Email)}"></label>
+ <label class="fld"><span>দেশ</span><input name="Country" value="${esc(s.Country)}"></label>
+ <label class="fld"><span>বয়স</span><input name="Age" value="${esc(s.Age)}"></label>
+ <label class="fld"><span>লিঙ্গ</span><select name="Gender"><option value="">-</option>${['Male','Female'].map(g=>`<option ${s.Gender===g?'selected':''}>${g}</option>`).join('')}</select></label>
+ <label class="fld"><span>কোর্স</span><input name="Course" value="${esc(s.Course)}"></label>
+ <label class="fld"><span>শিক্ষক</span><input name="Teacher" list="tlist" value="${esc(s.Teacher)}"><datalist id="tlist">${teachers().map(t=>`<option>${esc(t)}</option>`).join('')}</datalist></label>
+ <label class="fld"><span>ক্লাসের সময়</span><input name="Class time" value="${esc(s['Class time'])}" placeholder="যেমন: শনি-বৃহঃ, রাত ৮টা"></label>
+ ${s.ID?`<label class="fld"><span>অবস্থা</span><select name="Status">${SST.map(x=>`<option value="${x}" ${(s.Status||'Active')===x?'selected':''}>${SSTB[x]}</option>`).join('')}</select></label>`:''}
+ <label class="fld full"><span>ভেতরের নোট (শিক্ষার্থী দেখবে না)</span><textarea name="Notes" rows="2">${esc(s.Notes)}</textarea></label></div>`}
+const formObj=el=>Object.fromEntries(new FormData(el));
+function credBox(id,pw,s){const msg=`আসসালামু আলাইকুম।\nQurani Life Online Academy-তে ${s.Name||''}-এর স্টুডেন্ট অ্যাকাউন্ট তৈরি হয়েছে।\n\nলগইন: ${SITE}student.html\nStudent ID: ${id}\nপাসওয়ার্ড: ${pw}\n\nপ্রথমবার ঢুকে পাসওয়ার্ড বদলে নিন। এখানে আপনি পড়াশোনার স্টেজ ও অগ্রগতি দেখতে পারবেন।`;
+ const d=digits(s.WhatsApp);return `<div class="cred">Student ID: <b>${esc(id)}</b><br>পাসওয়ার্ড: <b>${esc(pw)}</b></div><p class="sm" style="color:var(--muted)">এই পাসওয়ার্ড আর দেখানো হবে না। এখনই শিক্ষার্থীকে পাঠিয়ে দিন।</p>
+ <div style="display:flex;gap:8px;flex-wrap:wrap">${d?`<a class="btn wa" target="_blank" href="https://wa.me/${d}?text=${encodeURIComponent(msg)}">WhatsApp-এ পাঠান</a>`:''}<button class="btn ghost" type="button" onclick="navigator.clipboard.writeText(${esc(JSON.stringify(msg))}).then(()=>toast('কপি হয়েছে'))">কপি করুন</button><button class="btn ghost" data-close type="button">বন্ধ</button></div>`}
+function convertModal(l){const s={Name:l._name,WhatsApp:l._phone,Country:l._country,Course:l._course,Guardian:pick(l,['guardian','father','parent']),Email:pick(l,['email']),Age:pick(l,['age']),Gender:pick(l,['gender']),'Class time':pick(l,['preferred time','preferred slot'])};
+ openModal(`<h3>🎓 শিক্ষার্থী অ্যাকাউন্ট তৈরি</h3><form id="cf">${stuForm(s)}<p class="err" id="cerr"></p><div style="display:flex;gap:8px"><button class="btn">অ্যাকাউন্ট তৈরি করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
+ $('#cf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;const f=formObj(e.target);const r=await api('convert',{tab:l._tab,row:l._row,fields:f});b.disabled=false;
+  if(r.ok){$('#modal').innerHTML=`<h3>✅ অ্যাকাউন্ট তৈরি হয়েছে</h3>${credBox(r.id,r.password,f)}`;load()}else $('#cerr').textContent=em(r.error)}}
+
+/* ---------- PIPELINE ---------- */
+function pipeline(){const r=LEADS.filter(l=>l._tab!=='teacher'||true);
+ $('#view').innerHTML=`<p class="sm" style="color:var(--muted);margin-top:0">কার্ড ধরে অন্য কলামে টেনে নিলেই অবস্থা বদলে যাবে। কার্ডে ক্লিক করলে বিস্তারিত।</p><div class="kb">${STATUSES.map(s=>{const it=r.filter(l=>l._status===s);return `<div class="col" data-st="${s}"><h4><i style="width:9px;height:9px;border-radius:50%;background:${SCOL[s]};display:inline-block"></i>${s}<span>${it.length}</span></h4>${it.slice(0,80).map(l=>`<div class="kc" draggable="true" data-lead="${l._tab}:${l._row}" style="border-left-color:${TCOL[l._tab]}"><b>${esc(l._name)}</b><div class="sm">${TYPES[l._tab]} · ${esc(l._country||'')}</div><div class="sm">${esc(l['Assigned to']||'কেউ দায়িত্বে নেই')} · ${ago(l._ts)}</div></div>`).join('')}</div>`}).join('')}</div>`;
+ $$('.kc').forEach(c=>c.addEventListener('dragstart',e=>e.dataTransfer.setData('text',c.dataset.lead)));
+ $$('.col').forEach(col=>{col.addEventListener('dragover',e=>{e.preventDefault();col.classList.add('drop')});col.addEventListener('dragleave',()=>col.classList.remove('drop'));
+  col.addEventListener('drop',async e=>{e.preventDefault();col.classList.remove('drop');const [t,row]=e.dataTransfer.getData('text').split(':');const l=LEADS.find(x=>x._tab===t&&String(x._row)===row);if(!l||l._status===col.dataset.st)return;
+   const old=l._status;l._status=l.Status=col.dataset.st;pipeline();const res=await api('leadUpdate',{tab:t,row,Status:col.dataset.st});
+   if(res.ok){const o=D[t].find(x=>String(x._row)===row);if(o)o.Status=col.dataset.st;toast('অবস্থা: '+col.dataset.st);navHtml()}else{l._status=l.Status=old;pipeline();toast(em(res.error),1)}})})}
+
+/* ---------- FOLLOW-UPS ---------- */
+function followups(){const t0=today0(),t1=new Date(+t0+864e5),open=LEADS.filter(l=>!['ভর্তি হয়েছে','বাতিল'].includes(l._status));
+ const g=[['⏰ সময় পেরিয়ে গেছে',open.filter(l=>l._fu&&l._fu<t0)],['📅 আজ',open.filter(l=>l._fu&&l._fu>=t0&&l._fu<t1)],['🗓 সামনে',open.filter(l=>l._fu&&l._fu>=t1).sort((a,b)=>a._fu-b._fu)],['🆕 নতুন, তারিখ ঠিক হয়নি',open.filter(l=>!l._fu&&l._status==='নতুন')]];
+ $('#view').innerHTML=`<div class="grid c11">${g.map(([t,a])=>`<div class="card lst"><h3>${t}<small>${a.length} টি</small></h3>${a.map(l=>`<div class="row" data-lead="${l._tab}:${l._row}" style="cursor:pointer"><span class="tag ${l._tab}">${TYPES[l._tab]}</span><div><b>${esc(l._name)}</b><div class="sm">${esc(l._phone)} · ${esc(l['Assigned to']||'কেউ দায়িত্বে নেই')}</div></div><span style="margin-left:auto">${fuCell(l)}</span></div>`).join('')||'<div class="sm" style="color:var(--muted)">কিছু নেই</div>'}</div>`).join('')}</div>`}
+
+/* ---------- STUDENTS ---------- */
+let SF={q:'',st:'Active',stage:'',teacher:''};
+function students(){const stg=D.stages||[];
+ $('#view').innerHTML=`<div class="tools"><input class="q" id="sq" placeholder="নাম, ID, নম্বর..." value="${esc(SF.q)}">
+  <select id="ss"><option value="">সব অবস্থা</option>${SST.map(x=>`<option value="${x}" ${SF.st===x?'selected':''}>${SSTB[x]}</option>`).join('')}</select>
+  <select id="sg"><option value="">সব স্টেজ</option>${stg.map((s,i)=>`<option value="${i+1}" ${SF.stage==String(i+1)?'selected':''}>${i+1}. ${esc(s.bn)}</option>`).join('')}</select>
+  <select id="stc"><option value="">সব শিক্ষক</option>${[...new Set((D.students||[]).map(s=>s.Teacher).filter(Boolean))].map(t=>`<option ${SF.teacher===t?'selected':''}>${esc(t)}</option>`).join('')}</select>
+  <span style="flex:1"></span><span class="sm" id="scount" style="color:var(--muted)"></span><button class="btn ghost sm" id="scsv" type="button">⬇ CSV</button><button class="btn gold sm" id="sadd" type="button">+ নতুন শিক্ষার্থী</button></div>
+  <div class="tw"><table><thead><tr><th>ID</th><th>নাম</th><th>কোর্স</th><th>শিক্ষক</th><th>বর্তমান স্টেজ</th><th>স্টেজের অগ্রগতি</th><th>পুরো পথ</th><th>অবস্থা</th><th>সর্বশেষ লগইন</th></tr></thead><tbody id="stb"></tbody></table></div>`;
+ const f=()=>{const q=SF.q.toLowerCase();return (D.students||[]).filter(s=>(!SF.st||(s.Status||'Active')===SF.st)&&(!SF.stage||String(s.Stage||1)===SF.stage)&&(!SF.teacher||s.Teacher===SF.teacher)&&(!q||Object.values(s).join(' ').toLowerCase().includes(q))).slice().reverse()};
+ const dr=()=>{const a=f();$('#scount').textContent=a.length+' জন';$('#stb').innerHTML=a.length?a.map(s=>{const st=+s.Stage||1,p=+s['Stage progress']||0;return `<tr data-stu="${esc(s.ID)}"><td><b>${esc(s.ID)}</b></td><td><div class="nm">${esc(s.Name)}</div><div class="sm">${esc(s.Country||'')}</div></td><td>${esc(s.Course)}</td><td>${esc(s.Teacher||'—')}</td><td><div class="mini">${stg.map((x,i)=>`<i class="${i+1<st?'d':i+1===st?'c':''}" title="${esc(x.bn)}"></i>`).join('')}</div><div class="sm" style="margin-top:3px">${st}. ${esc(stageName(st))}</div></td><td><div class="bar"><i style="width:${p}%"></i></div><div class="sm">${p}%${s['Current lesson']?' · '+esc(s['Current lesson']):''}</div></td><td><b>${stuOverall(s)}%</b></td><td><span class="pill" style="color:${{Active:'#00703A',Paused:'#D97706',Completed:'#2563EB',Left:'#9CA3AF'}[s.Status||'Active']}">${SSTB[s.Status||'Active']}</span></td><td><span class="sm">${s['Last login']?ago(parseTs(s['Last login'])):'কখনো না'}</span></td></tr>`}).join(''):`<tr><td colspan="9" style="text-align:center;padding:30px;color:var(--muted)">কোনো শিক্ষার্থী নেই। লিড থেকে "শিক্ষার্থী বানান" বা "+ নতুন শিক্ষার্থী" দিয়ে যোগ করুন।</td></tr>`};
+ [['#sq','q','input'],['#ss','st','change'],['#sg','stage','change'],['#stc','teacher','change']].forEach(([id,k,ev])=>$(id).addEventListener(ev,e=>{SF[k]=e.target.value;dr()}));
+ $('#scsv').onclick=()=>{const rows=f();const keys=Object.keys(rows[0]||{}).filter(k=>!k.startsWith('_'));const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"';const s='﻿'+[keys.map(q).join(','),...rows.map(r=>keys.map(k=>r[k]).map(q).join(','))].join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'text/csv'}));a.download='qurani-life-students.csv';a.click()};
+ $('#sadd').onclick=()=>{openModal(`<h3>নতুন শিক্ষার্থী</h3><form id="naf">${stuForm()}<p class="err" id="naerr"></p><div style="display:flex;gap:8px"><button class="btn">তৈরি করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
+  $('#naf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;const fo=formObj(e.target);const r=await api('studentSave',{fields:fo});b.disabled=false;if(r.ok){$('#modal').innerHTML=`<h3>✅ শিক্ষার্থী যোগ হয়েছে</h3>${credBox(r.id,r.password,fo)}`;load()}else $('#naerr').textContent=em(r.error)}};
+ dr()}
+document.addEventListener('click',e=>{const r=e.target.closest('[data-stu]');if(r)openStudent(r.dataset.stu)});
+function stepper(st,p){return `<div class="stepper">${(D.stages||[]).map((s,i)=>{const n=i+1,c=n<st?'d':n===st?'c':'';return `<div class="st ${c}"><i>${n<st?'✓':n}</i><span>${esc(s.bn)}</span><small>${n<st?'সম্পন্ন':n===st?p+'%':'সামনে'}</small></div>`}).join('')}</div>`}
+function openStudent(id){const s=(D.students||[]).find(x=>x.ID===id);if(!s)return;const st=+s.Stage||1,p=+s['Stage progress']||0;
+ const hist=(D.progress||[]).filter(x=>x['Student ID']===id).reverse();const d=digits(s.WhatsApp);
+ openDrawer(`<div class="dh"><div><span class="tag">${esc(s.ID)}</span> <span class="sm" style="color:var(--muted)">যোগ দিয়েছে ${fmtD(parseTs(s.Joined))}</span><h3>${esc(s.Name)}</h3><div class="sm" style="color:var(--muted)">${esc(s.Course||'')} ${s.Teacher?'· শিক্ষক: '+esc(s.Teacher):''}</div></div><button class="x" data-close>×</button></div>
+ <div class="db">
+  <div class="sect" style="display:flex;gap:8px;flex-wrap:wrap">${d?`<a class="btn wa sm" target="_blank" href="https://wa.me/${d}">WhatsApp</a>`:''}<button class="btn ghost sm" id="srp" type="button">🔑 নতুন পাসওয়ার্ড</button>${isSA()?'<button class="btn red sm" id="sdel" type="button">মুছুন</button>':''}</div>
+  <div class="sect card" style="box-shadow:none"><h4>শেখার পথ · মোট ${stuOverall(s)}%</h4>${stepper(st,p)}<div class="bar" style="margin-top:8px"><i style="width:${stuOverall(s)}%"></i></div></div>
+  <div class="sect"><h4>অগ্রগতি আপডেট করুন</h4><form id="pf" class="f2">
+   <label class="fld"><span>স্টেজ</span><select name="stage">${(D.stages||[]).map((x,i)=>`<option value="${i+1}" ${i+1===st?'selected':''}>${i+1}. ${esc(x.bn)}</option>`).join('')}</select></label>
+   <label class="fld"><span>এই স্টেজে অগ্রগতি: <b id="pv">${p}%</b></span><input type="range" name="pct" min="0" max="100" step="5" value="${p}" style="padding:0;border:0;box-shadow:none"></label>
+   <label class="fld"><span>বর্তমান পাঠ</span><input name="lesson" value="${esc(s['Current lesson'])}" placeholder="যেমন: সবক ১২, পারা ৫, সূরা মুলক"></label>
+   <label class="fld"><span>নোট (শিক্ষার্থী দেখতে পাবে)</span><input name="note" placeholder="যেমন: মাখরাজ ভালো হয়েছে"></label>
+   <div class="full"><button class="btn">অগ্রগতি সেভ করুন</button></div></form></div>
+  <div class="sect"><h4>অগ্রগতির ইতিহাস (${hist.length})</h4><div class="tl">${hist.slice(0,30).map(h=>`<div class="it"><b>${esc(stageName(+h.Stage))}</b> · ${esc(h['Stage progress'])}% ${h.Lesson?'· '+esc(h.Lesson):''}${h.Note?`<div>${esc(h.Note)}</div>`:''}<small>${esc(h.By)} · ${fmt(parseTs(h.Time))}</small></div>`).join('')||'<div class="sm" style="color:var(--muted)">এখনো কোনো আপডেট নেই</div>'}</div></div>
+  <div class="sect"><h4>প্রোফাইল</h4><form id="ef">${stuForm(s)}<button class="btn ghost">প্রোফাইল সেভ করুন</button></form></div>
+ </div>`);
+ const pf=$('#pf');pf.pct.oninput=e=>$('#pv').textContent=e.target.value+'%';
+ pf.onsubmit=async e=>{e.preventDefault();const b=pf.querySelector('.btn');b.disabled=true;const f=formObj(pf);const r=await api('studentProgress',{id,...f});b.disabled=false;
+  if(r.ok){Object.assign(s,{Stage:f.stage,'Stage progress':f.pct,'Current lesson':f.lesson});(D.progress=D.progress||[]).push({Time:new Date().toISOString(),'Student ID':id,Stage:f.stage,'Stage progress':f.pct,Lesson:f.lesson,Note:f.note,By:USER.name});toast('অগ্রগতি সেভ হয়েছে');openStudent(id);if(PAGE==='students')students()}else toast(em(r.error),1)};
+ $('#ef').onsubmit=async e=>{e.preventDefault();const f=formObj(e.target);const r=await api('studentSave',{id,fields:f});if(r.ok){Object.assign(s,f);toast('প্রোফাইল সেভ হয়েছে');if(PAGE==='students')students()}else toast(em(r.error),1)};
+ $('#srp').onclick=async()=>{if(!confirm('নতুন পাসওয়ার্ড তৈরি হবে, পুরনোটা আর কাজ করবে না। করবেন?'))return;const r=await api('studentResetPass',{id});if(r.ok)openModal(`<h3>🔑 নতুন পাসওয়ার্ড</h3>${credBox(id,r.password,s)}`);else toast(em(r.error),1)};
+ const sd=$('#sdel');if(sd)sd.onclick=async()=>{if(!confirm(s.Name+'-এর অ্যাকাউন্ট মুছে যাবে, ফেরত আসবে না। মুছবেন?'))return;const r=await api('studentDelete',{id});if(r.ok){toast('মুছে ফেলা হয়েছে');closeAll();load()}else toast(em(r.error),1)};
+}
+
+/* ---------- NOTICES ---------- */
+function notices(edit){const u=edit||{};const ups=(D.updates||[]).slice().reverse();
+ $('#view').innerHTML=`<div class="grid c2"><div class="lst card"><h3>সব নোটিশ<small>${ups.length} টি</small></h3>${ups.map(x=>`<div class="row"><img src="${esc(x.Image)}" alt="" style="width:74px;height:48px;object-fit:cover;border-radius:8px;background:#eee" onerror="this.style.visibility='hidden'"><div><b>${esc(x['Title (Bangla)']||x['Title (English)'])}</b><div class="sm">${esc(x.Date)} · ${String(x.Show).toUpperCase()==='NO'?'<span class="overdue">লুকানো</span>':'ওয়েবসাইটে দেখাচ্ছে'}</div></div><span style="margin-left:auto;display:flex;gap:6px"><button class="btn ghost sm" data-ued="${x._row}">এডিট</button><button class="btn ghost sm" data-utg="${x._row}">${String(x.Show).toUpperCase()==='NO'?'দেখান':'লুকান'}</button><button class="btn red sm" data-udel="${x._row}">মুছুন</button></span></div>`).join('')||'<div class="sm">কোনো নোটিশ নেই</div>'}</div>
+ <div class="card"><h3>${edit?'নোটিশ এডিট':'নতুন নোটিশ'}</h3><form id="uf">
+  <label class="fld"><span>শিরোনাম (বাংলা) *</span><input name="titleBn" required value="${esc(u['Title (Bangla)'])}"></label>
+  <label class="fld"><span>Title (English)</span><input name="titleEn" value="${esc(u['Title (English)'])}"></label>
+  <label class="fld"><span>বিস্তারিত (বাংলা)</span><textarea name="textBn" rows="3">${esc(u['Text (Bangla)'])}</textarea></label>
+  <label class="fld"><span>Details (English)</span><textarea name="textEn" rows="3">${esc(u['Text (English)'])}</textarea></label>
+  <div class="f2"><label class="fld"><span>তারিখ</span><input name="date" type="date" value="${esc(u.Date||dayKey(new Date()))}"></label>
+  <label class="fld"><span>দেখাবে?</span><select name="show"><option value="YES">হ্যাঁ</option><option value="NO" ${String(u.Show).toUpperCase()==='NO'?'selected':''}>না</option></select></label></div>
+  <label class="fld"><span>ছবি (ফাইলের নাম বা লিংক)</span><input name="image" value="${esc(u.Image)}" placeholder="update1.jpg বা https://..."></label>
+  <div style="display:flex;gap:8px"><button class="btn">${edit?'সেভ করুন':'যোগ করুন'}</button>${edit?'<button class="btn ghost" type="button" id="uc">বাতিল</button>':''}</div></form></div></div>`;
+ $('#uf').onsubmit=async e=>{e.preventDefault();const f=formObj(e.target);const r=await api(edit?'editUpdate':'addUpdate',edit?{...f,row:edit._row}:f);if(r.ok){toast('সেভ হয়েছে');await load();location.hash='#notices'}else toast(em(r.error),1)};
+ const c=$('#uc');if(c)c.onclick=()=>notices()}
+const updF=(x,show)=>({show:show||x.Show||'YES',date:x.Date,titleEn:x['Title (English)'],titleBn:x['Title (Bangla)'],textEn:x['Text (English)'],textBn:x['Text (Bangla)'],image:x.Image,row:x._row});
+document.addEventListener('click',async e=>{const f=(a)=>e.target.closest('['+a+']');let b;
+ if(b=f('data-ued'))return notices(D.updates.find(x=>String(x._row)===b.dataset.ued));
+ if(b=f('data-utg')){const x=D.updates.find(y=>String(y._row)===b.dataset.utg);const r=await api('editUpdate',updF(x,String(x.Show).toUpperCase()==='NO'?'YES':'NO'));if(r.ok){toast('সেভ হয়েছে');load()}else toast(em(r.error),1);return}
+ if(b=f('data-udel')){if(!confirm('নোটিশটি মুছে যাবে। মুছবেন?'))return;const r=await api('deleteUpdate',{row:b.dataset.udel});if(r.ok){toast('মুছে ফেলা হয়েছে');load()}else toast(em(r.error),1);return}
+ if(b=f('data-reset')){if(!confirm('আগের মূল লেখায় ফিরিয়ে নেবেন?'))return;const r=await api('resetContent',{key:b.dataset.reset});if(r.ok){toast('আগের লেখায় ফিরেছে');load()}else toast(em(r.error),1)}});
+
+/* ---------- CONTENT ---------- */
+function strip(h){const d=document.createElement('div');d.innerHTML=h;return d.textContent}
+function content(){const c=D.content||{},keys=Object.keys(c);
+ $('#view').innerHTML=`<div class="note"><b>কীভাবে লেখা বদলাবেন:</b> নিচের বাটনে চাপুন। ওয়েবসাইট খুলবে, হলুদ দাগ দেওয়া যেকোনো লেখায় ক্লিক করে বদলান, তারপর নিচের <b>"সেভ করুন"</b> চাপুন।</div>
+ <a class="btn gold" href="index.html#edit" target="_blank">✎ হোম পেজের লেখা এডিট করুন</a>
+ <div class="card lst" style="margin-top:16px"><h3>যেসব লেখা বদলানো হয়েছে<small>${keys.length} টি</small></h3>${keys.map(k=>`<div class="row"><div><b>${esc(strip(c[k].bn).slice(0,110))}</b><div class="sm">${esc(strip(c[k].en).slice(0,110))}</div></div><button class="btn red sm" style="margin-left:auto" data-reset="${esc(k)}">আগের লেখায় ফেরান</button></div>`).join('')||'<div class="sm">এখনো কোনো লেখা বদলানো হয়নি</div>'}</div>`}
+
+/* ---------- TEAM ---------- */
+function team(){const t=D.team||[];
+ $('#view').innerHTML=`<div class="tools"><span class="sm" style="color:var(--muted)">Super admin সব কিছু করতে পারে। Employee শুধু যে বিভাগের অনুমতি পাবে, সেটুকু দেখবে।</span><span style="flex:1"></span><button class="btn gold sm" id="uadd" type="button">+ নতুন অ্যাকাউন্ট</button></div>
+ <div class="tw"><table><thead><tr><th>নাম</th><th>Username</th><th>ভূমিকা</th><th>অনুমতি</th><th>ফোন</th><th>অবস্থা</th><th>সর্বশেষ লগইন</th><th></th></tr></thead><tbody>${t.map(u=>`<tr><td><b>${esc(u.Name)}</b><div class="sm">${esc(u.ID)}</div></td><td>${esc(u.Username)}</td><td><span class="pill" style="color:${u.Role==='superadmin'?'#B45309':'#2563EB'}">${ROLE[u.Role]||u.Role}</span></td><td><span class="sm">${u.Role==='superadmin'?'সব':String(u.Permissions||'').split(',').filter(Boolean).map(p=>PERMN[p]||p).join(', ')||'—'}</span></td><td>${esc(u.Phone)}</td><td>${u.Active==='NO'?'<span class="overdue">বন্ধ</span>':'চালু'}</td><td><span class="sm">${u['Last login']?ago(parseTs(u['Last login'])):'কখনো না'}</span></td><td><button class="btn ghost sm" data-uedit="${esc(u.ID)}">এডিট</button> <button class="btn ghost sm" data-upw="${esc(u.ID)}">পাসওয়ার্ড রিসেট</button></td></tr>`).join('')}</tbody></table></div>`;
+ $('#uadd').onclick=()=>userModal()}
+function userModal(u){const P=String(u&&u.Permissions||'').split(',');
+ openModal(`<h3>${u?'অ্যাকাউন্ট এডিট':'নতুন অ্যাকাউন্ট'}</h3><form id="umf"><div class="f2">
+  <label class="fld"><span>নাম *</span><input name="Name" required value="${esc(u&&u.Name)}"></label>
+  <label class="fld"><span>Username *</span><input name="Username" required pattern="[a-z0-9._\\-]{3,30}" value="${esc(u&&u.Username)}" placeholder="যেমন: rahim"></label>
+  <label class="fld"><span>ভূমিকা</span><select name="Role"><option value="employee">Employee</option><option value="superadmin" ${u&&u.Role==='superadmin'?'selected':''}>Super Admin</option></select></label>
+  <label class="fld"><span>ফোন</span><input name="Phone" value="${esc(u&&u.Phone)}"></label>
+  ${u?`<label class="fld"><span>অবস্থা</span><select name="Active"><option value="YES">চালু</option><option value="NO" ${u.Active==='NO'?'selected':''}>বন্ধ (লগইন করতে পারবে না)</option></select></label>`:''}</div>
+  <div class="fld"><span style="font-size:12.5px;font-weight:600;color:var(--muted)">Employee কোন বিভাগ দেখতে পারবে</span><div class="chk">${Object.entries(PERMN).map(([k,v])=>`<label><input type="checkbox" name="perm" value="${k}" ${!u||P.includes(k)?(u||k==='leads'||k==='students'?'checked':''):''}> ${v}</label>`).join('')}</div></div>
+  <p class="err" id="umerr"></p><div style="display:flex;gap:8px"><button class="btn">সেভ করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
+ $('#umf').onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.target);const f=Object.fromEntries(fd);f.Permissions=fd.getAll('perm');delete f.perm;f.Username=f.Username.trim().toLowerCase();
+  const r=await api('userSave',u?{id:u.ID,fields:f}:{fields:f});
+  if(!r.ok){$('#umerr').textContent=em(r.error);return}
+  if(r.password)$('#modal').innerHTML=`<h3>✅ অ্যাকাউন্ট তৈরি হয়েছে</h3><div class="cred">লগইন: ${esc(SITE)}admin.html<br>Username: <b>${esc(f.Username)}</b><br>পাসওয়ার্ড: <b>${esc(r.password)}</b></div><p class="sm" style="color:var(--muted)">এই পাসওয়ার্ড আর দেখানো হবে না। কর্মীকে দিয়ে দিন, প্রথমবার ঢুকে সেটিংস থেকে বদলে নিতে বলুন।</p><button class="btn ghost" data-close type="button">বন্ধ</button>`;
+  else{toast('সেভ হয়েছে');closeAll()}load()}}
+document.addEventListener('click',async e=>{let b=e.target.closest('[data-uedit]');if(b)return userModal(D.team.find(u=>u.ID===b.dataset.uedit));
+ b=e.target.closest('[data-upw]');if(b){if(!confirm('এই অ্যাকাউন্টের নতুন পাসওয়ার্ড তৈরি হবে। করবেন?'))return;const u=D.team.find(x=>x.ID===b.dataset.upw);const r=await api('userResetPass',{id:b.dataset.upw});
+  if(r.ok)openModal(`<h3>🔑 নতুন পাসওয়ার্ড</h3><div class="cred">Username: <b>${esc(u.Username)}</b><br>পাসওয়ার্ড: <b>${esc(r.password)}</b></div><button class="btn ghost" data-close type="button">বন্ধ</button>`);else toast(em(r.error),1)}});
+
+/* ---------- ACTIVITY ---------- */
+function activity(){const L=D.log||[];$('#view').innerHTML=`<div class="tw"><table><thead><tr><th>সময়</th><th>কে</th><th>কাজ</th><th>বিস্তারিত</th></tr></thead><tbody>${L.map(x=>`<tr style="cursor:default"><td><span class="sm">${fmt(parseTs(x.Time))}</span></td><td><b>${esc(x.User)}</b></td><td><span class="tag">${esc(x.Action)}</span></td><td style="white-space:normal">${esc(x.Details)}</td></tr>`).join('')||'<tr><td colspan=4 style="text-align:center;padding:30px">এখনো কিছু নেই</td></tr>'}</tbody></table></div>`}
+
+/* ---------- SETTINGS ---------- */
+function settings(){$('#view').innerHTML=`<div class="grid c11"><div class="card"><h3>পাসওয়ার্ড বদলান</h3><form id="cpf">
+ <label class="fld"><span>বর্তমান পাসওয়ার্ড</span><input type="password" name="oldPass" required autocomplete="current-password"></label>
+ <label class="fld"><span>নতুন পাসওয়ার্ড (কমপক্ষে ৮ অক্ষর)</span><input type="password" name="newPass" minlength="8" required autocomplete="new-password"></label>
+ <label class="fld"><span>আবার লিখুন</span><input type="password" name="again" minlength="8" required autocomplete="new-password"></label><p class="err" id="cperr"></p><button class="btn">বদলান</button></form></div>
+ <div class="card"><h3>আপনার অ্যাকাউন্ট</h3><dl class="kv"><dt>নাম</dt><dd>${esc(USER.name)}</dd><dt>Username</dt><dd>${esc(USER.username)}</dd><dt>ভূমিকা</dt><dd>${ROLE[USER.role]}</dd><dt>অনুমতি</dt><dd>${isSA()?'সব':(USER.perms||[]).map(p=>PERMN[p]).join(', ')}</dd></dl>
+ ${isSA()?`<h3 style="margin-top:18px">স্টেজের তালিকা</h3><p class="sm" style="color:var(--muted)">শেখার ধাপগুলো Google Sheet-এর <b>Stages</b> ট্যাবে রাখা। সেখানে বদলালে এখানে আর শিক্ষার্থীর প্রোফাইলে বদলে যাবে।</p><ol style="margin:0;padding-left:18px">${(D.stages||[]).map(s=>`<li>${esc(s.bn)} <span class="sm" style="color:var(--muted)">(${esc(s.en)})</span></li>`).join('')}</ol><a class="btn ghost sm" style="margin-top:10px" target="_blank" href="${esc(D.sheet)}">Google Sheet খুলুন ↗</a>`:''}</div></div>`;
+ $('#cpf').onsubmit=async e=>{e.preventDefault();const f=formObj(e.target);if(f.newPass!==f.again){$('#cperr').textContent='দুটো পাসওয়ার্ড মেলেনি।';return}const r=await api('changePass',{oldPass:f.oldPass,newPass:f.newPass});if(r.ok){toast('পাসওয়ার্ড বদলানো হয়েছে');e.target.reset();$('#cperr').textContent=''}else $('#cperr').textContent=em(r.error)}}
+
+if(TOKEN)start();
 </script>
 </body>
 </html>
