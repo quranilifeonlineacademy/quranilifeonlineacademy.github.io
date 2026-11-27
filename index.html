@@ -504,6 +504,15 @@ html.js .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.soc .si::after,.fstack a::after,.wa::after,.wa{animation:none}}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 0 0 10px rgba(37,211,102,0)}}
 @media(max-width:560px){.pcard{grid-column:auto;grid-template-columns:100px minmax(0,1fr)}.pcard img{width:100px;height:130px}}
+
+/* wide screens: use the full width */
+@media(min-width:1300px){
+ .wrap{max-width:min(1560px,92vw)}
+ .fam{max-width:min(1440px,92vw);grid-template-columns:minmax(0,400px) minmax(0,1fr)}
+ .phonev{max-width:400px}.phonev.sm{max-width:320px}
+ .dir,.revs,.ytband,.socs,.clocks,.contact{max-width:100%}
+}
+@media(min-width:1600px){body{font-size:17.5px}.famt>p{font-size:18px}.famlist b{font-size:17px}.famlist em{font-size:15.5px}}
 </style>
 </head>
 <body>
@@ -1136,7 +1145,7 @@ $$('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{
 const fromSheet=d=>{const two=(o,k)=>({en:o[k+' (English)']||'',bn:o[k+' (Bangla)']||o[k+' (English)']||''});
  if(d.courses&&d.courses.length)COURSES=d.courses.map((o,i)=>{const pe=String(o['Points (English)']||'').split(',').map(x=>x.trim()).filter(Boolean),pb=String(o['Points (Bangla)']||'').split(',').map(x=>x.trim()).filter(Boolean);return{n:o.Step||String(i+1),val:o['Form value']||o['Title (English)'],icon:['book-open','book-open-check','scroll-text'][i%3],t:two(o,'Title'),d:two(o,'Description'),l:pe.map((x,j)=>({en:x,bn:pb[j]||x})),img:o.Image}});
  if(d.updates&&d.updates.length)UPDATES=d.updates.map(o=>({d:{en:o.Date||'',bn:o.Date||''},t:two(o,'Title'),p:two(o,'Text'),img:o.Image}));
- if(d.faq&&d.faq.length)FAQ=d.faq.map(o=>[two(o,'Question'),two(o,'Answer')]);render()};
+ if(d.faq&&d.faq.length)FAQ=d.faq.map(o=>[two(o,'Question'),two(o,'Answer')]);render();io()};
 if(API)fetch(API).then(r=>r.json()).then(fromSheet).catch(()=>{});
 
 /* menu, sticky, modal, reveal */
