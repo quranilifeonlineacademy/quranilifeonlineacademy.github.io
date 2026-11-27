@@ -513,6 +513,11 @@ html.js .rv.in{opacity:1;transform:none}
  .dir,.revs,.ytband,.socs,.clocks,.contact{max-width:100%}
 }
 @media(min-width:1600px){body{font-size:17.5px}.famt>p{font-size:18px}.famlist b{font-size:17px}.famlist em{font-size:15.5px}}
+
+a.tool.stu{text-decoration:none;color:inherit}
+.navstu{display:none!important}
+@media(max-width:1100px){.navstu{display:block!important}}
+@media(max-width:600px){a.tool.stu{display:none}}
 </style>
 </head>
 <body>
@@ -689,8 +694,9 @@ html.js .rv.in{opacity:1;transform:none}
   <a class="brand" href="#home"><img src="logo.png" alt="Qurani Life Online Academy logo"><span>QURANI LIFE<br><small class="bsub">ONLINE ACADEMY</small></span></a>
   <nav class="nav" id="nav">
    <a href="#home" data-bn="হোম">Home</a><a href="#courses" data-bn="কোর্স">Courses</a><a href="#services" data-bn="সেবা">Services</a><a href="#admission" data-bn="ভর্তি">Admission</a><a href="#about" data-bn="আমাদের সম্পর্কে">About</a><a href="#principal" data-bn="পরিচালক">Principal</a><a href="#hadiya" data-bn="হাদিয়া">Hadiya</a><a href="#faq" data-bn="প্রশ্নোত্তর">FAQ</a><a href="#contact" data-bn="যোগাযোগ">Contact</a>
-  </nav>
+  <a href="student.html" class="navstu" data-bn="স্টুডেন্ট লগইন">Student login</a></nav>
   <button class="tool lang" id="langBtn" type="button" aria-label="Switch language: English / বাংলা" title="English / বাংলা"><svg class="i"><use href="#languages"/></svg><span class="lgo" data-l="en">EN</span><span class="lgsep"></span><span class="lgo" data-l="bn">বাং</span></button>
+  <a class="tool stu" href="student.html" title="Student login" aria-label="Student login"><svg class="i"><use href="#graduation-cap"/></svg></a>
   <button class="tool" id="themeBtn" type="button" aria-label="Dark mode"><svg class="i"><use href="#moon"/></svg></button>
   <a class="btn b-gold b-sm" href="#admission" data-bn="ভর্তি হোন">Apply now</a>
   <button class="tool menu" id="menuBtn" aria-label="Menu" aria-expanded="false"><svg class="i"><use href="#menu"/></svg></button>
