@@ -518,6 +518,20 @@ a.tool.stu{text-decoration:none;color:inherit}
 .navstu{display:none!important}
 @media(max-width:1100px){.navstu{display:block!important}}
 @media(max-width:600px){a.tool.stu{display:none}}
+
+.ctypes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:22px;max-width:1100px;margin:0 auto}
+.ctype{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:10px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.ctype:hover{transform:translateY(-4px);border-color:var(--deep);box-shadow:0 30px 60px -30px rgba(0,80,40,.5)}
+.ctype.alt{background:linear-gradient(160deg,var(--paper),var(--mint))}
+.ctype .cti{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--deep);color:#fff}.ctype.alt .cti{background:var(--gold);color:#2a2000}
+.ctype .cti .i{width:28px;height:28px}
+.ctype .ctag{position:absolute;top:24px;right:24px;font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 12px;background:var(--mint);color:var(--deep)}
+.ctype h3{margin:6px 0 0;font:700 clamp(21px,2.2vw,26px)/1.3 var(--head);color:light-dark(var(--deep),#fff)}
+.ctype p{margin:0;color:var(--muted)}
+.ctype ul{list-style:none;padding:0;margin:4px 0 8px;display:grid;gap:8px}
+.ctype li{display:flex;gap:10px;align-items:flex-start}.ctype li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--mint);color:var(--deep);font-weight:800;font-size:12px}
+.ctype .btn{margin-top:auto;align-self:flex-start}
+@media(max-width:520px){.ctype .ctag{position:static;align-self:flex-start}}
 </style>
 </head>
 <body>
@@ -750,6 +764,19 @@ a.tool.stu{text-decoration:none;color:inherit}
  <p class="note" data-bn="ফি ও সময়সূচি জানতে WhatsApp করুন।">Message us on WhatsApp for fees and schedule.</p>
 </div></section>
 
+<section class="band" id="classtypes"><div class="wrap">
+ <div class="sh"><h2 data-bn="একা পড়বেন, নাকি ব্যাচে? দুটোই আছে">One-to-one or batch, your choice</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="সন্তানের প্রয়োজন আর আপনার সুবিধা অনুযায়ী ক্লাসের ধরন বেছে নিন।">Choose the class type that suits your child and your family.</p></div>
+ <div class="ctypes">
+  <article class="ctype rv"><div class="cti"><svg class="i"><use href="#user-round"/></svg></div><span class="ctag" data-bn="সবচেয়ে বেশি মনোযোগ">Most personal attention</span><h3 data-bn="One-to-one ক্লাস">One-to-one class</h3><p data-bn="একজন শিক্ষার্থী, একজন শিক্ষক। পুরো ক্লাসের সময়টা শুধু আপনার সন্তানের জন্য।">One student, one teacher. The whole class time belongs to your child.</p>
+   <ul><li data-bn="নিজের সুবিধামতো দিন ও সময়">Days and time that suit you</li><li data-bn="নিজের গতিতে এগিয়ে যাওয়া">Progress at the student's own pace</li><li data-bn="প্রতিটি ভুল সাথে সাথে সংশোধন">Every mistake corrected on the spot</li></ul>
+   <a class="btn b-deep" href="#admission" data-ct="One-to-one" data-bn="One-to-one ক্লাসে ভর্তি">Join one-to-one</a></article>
+  <article class="ctype alt rv"><div class="cti"><svg class="i"><use href="#users-round"/></svg></div><span class="ctag" data-bn="একসাথে শেখার আনন্দ">Learning together</span><h3 data-bn="ব্যাচ ক্লাস">Batch class</h3><p data-bn="একই স্তরের কয়েকজন শিক্ষার্থী মিলে ছোট একটি গ্রুপে, নির্দিষ্ট সময়সূচিতে লাইভ ক্লাস।">A small live group of students at the same level, on a fixed schedule.</p>
+   <ul><li data-bn="একই স্তরের শিক্ষার্থীদের সাথে">With students at the same level</li><li data-bn="নির্দিষ্ট দিন ও সময়ে নিয়মিত ক্লাস">Regular classes on fixed days and times</li><li data-bn="একে অপরকে দেখে শেখার উৎসাহ">Motivation from learning side by side</li></ul>
+   <a class="btn b-gold" href="#admission" data-ct="Batch" data-bn="ব্যাচে ভর্তি">Join a batch</a></article>
+ </div>
+ <p class="note" data-bn="কোন ধরন ভালো হবে বুঝতে না পারলে ফ্রি ট্রায়াল ক্লাসে শিক্ষকই পরামর্শ দেবেন।">Not sure which is right? The teacher will advise you in the free trial class.</p>
+</div></section>
+
 <section class="band" id="services"><div class="wrap">
  <div class="sh"><h2 data-bn="যত্ন দিয়ে গড়া প্রতিটি ক্লাস">Every class, built with care</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="আপনার সন্তান আমাদের কাছে আমানত।">Your child is an amanah in our hands.</p></div>
  <div class="grid4" id="svcGrid"></div>
@@ -795,6 +822,7 @@ a.tool.stu{text-decoration:none;color:inherit}
    <div class="row"><label><span data-bn="অভিভাবকের নাম">Guardian's name</span><input name="Guardian name"></label><label><span data-bn="বর্তমান দেশ">Country of residence</span> <span class="req">*</span><select name="Country" class="countrySel" required></select></label></div>
    <label><span data-bn="WhatsApp নম্বর">WhatsApp number</span> <span class="req">*</span><span class="hint" data-bn="কান্ট্রি কোড সহ">With country code</span><input name="WhatsApp" type="tel" inputmode="tel" required pattern="\+?[0-9 \-]{10,18}" class="phone"></label>
    <fieldset><span class="lbl"><span data-bn="শিক্ষার্থী">Student</span> <span class="req">*</span></span><div class="radios"><label><input type="radio" name="Student type" value="Boy" required><span data-bn="ছেলে">Boy</span></label><label><input type="radio" name="Student type" value="Girl"><span data-bn="মেয়ে">Girl</span></label><label><input type="radio" name="Student type" value="Adult (male)"><span data-bn="বড় (পুরুষ)">Adult (male)</span></label><label><input type="radio" name="Student type" value="Adult (female)"><span data-bn="বড় (মহিলা)">Adult (female)</span></label></div></fieldset>
+   <fieldset><span class="lbl"><span data-bn="ক্লাসের ধরন">Class type</span> <span class="req">*</span></span><div class="radios"><label><input type="radio" name="Class type" value="One-to-one" required><span data-bn="One-to-one (একক)">One-to-one</span></label><label><input type="radio" name="Class type" value="Batch"><span data-bn="ব্যাচ (ছোট গ্রুপ)">Batch (small group)</span></label></div></fieldset>
    <fieldset><span class="lbl"><span data-bn="কোর্স">Course</span> <span class="req">*</span></span><div class="radios col courseRadios"></div></fieldset>
    <div class="timeblock"></div>
    <p class="err" aria-live="polite"></p>
@@ -806,6 +834,7 @@ a.tool.stu{text-decoration:none;color:inherit}
    <label><span data-bn="পিতার নাম">Father's name</span> <span class="req">*</span><span class="hint" data-bn="পিতার জাতীয় পরিচয়পত্র অনুযায়ী।">As on official documents (NID/Passport).</span><input name="Father name" required></label>
    <div class="row"><label><span data-bn="জন্ম তারিখ">Date of birth</span> <span class="req">*</span><span class="hint" data-bn="ক্যালেন্ডার থেকে বেছে নিন">Pick from the calendar</span><input name="Date of birth" type="date" required></label><label><span data-bn="বর্তমান বসবাসের দেশ">Current country of residence</span> <span class="req">*</span><span class="hint" data-bn="যে দেশে এখন থাকেন">The country you live in now</span><select name="Country" class="countrySel" required></select></label></div>
    <label><span data-bn="শিক্ষার্থী/অভিভাবকের WhatsApp নম্বর">Student/Guardian WhatsApp number</span> <span class="req">*</span><span class="hint" data-bn="কান্ট্রি কোড সহ">With country code</span><input name="WhatsApp" type="tel" inputmode="tel" required pattern="\+?[0-9 \-]{10,18}" class="phone"></label>
+   <fieldset><span class="lbl"><span data-bn="ক্লাসের ধরন">Class type</span> <span class="req">*</span></span><div class="radios"><label><input type="radio" name="Class type" value="One-to-one" required><span data-bn="One-to-one (একক)">One-to-one</span></label><label><input type="radio" name="Class type" value="Batch"><span data-bn="ব্যাচ (ছোট গ্রুপ)">Batch (small group)</span></label></div></fieldset>
    <fieldset><span class="lbl"><span data-bn="কোর্স নির্বাচন">Course selection</span> <span class="req">*</span></span><div class="radios col courseRadios"></div></fieldset>
    <div class="timeblock"></div>
    <label><span data-bn="অতিরিক্ত তথ্য / পরামর্শ / মতামত">Additional information / suggestions</span><span class="hint" data-bn="(ঐচ্ছিক)">(Optional)</span><textarea name="Additional info"></textarea></label>
@@ -987,7 +1016,7 @@ const ic=(n,c='i')=>`<svg class="${c}"><use href="#${n}"/></svg>`;
 const imgSrc=n=>/^https?:\/\//.test(n||'')?n:''+(n||'slide1.jpg');
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 
-const TICK=[{en:'Free trial class available',bn:'ফ্রি ট্রায়াল ক্লাস চালু আছে'},{en:'Students can join from any country',bn:'যেকোনো দেশ থেকে ক্লাস করা যায়'},{en:'Weekly Adab & Akhlaq class and Islamic seminar',bn:'সাপ্তাহিক আদব-আখলাক ক্লাস ও ইসলামিক সেমিনার'},{en:'Separate teachers for boys and girls',bn:'ছেলে ও মেয়েদের জন্য পৃথক শিক্ষক'},{en:'Admission open, apply today',bn:'ভর্তি চলছে, আজই আবেদন করুন'}];
+let TICK=[{en:'Free trial class available',bn:'ফ্রি ট্রায়াল ক্লাস চালু আছে'},{en:'Students can join from any country',bn:'যেকোনো দেশ থেকে ক্লাস করা যায়'},{en:'Weekly Adab & Akhlaq class and Islamic seminar',bn:'সাপ্তাহিক আদব-আখলাক ক্লাস ও ইসলামিক সেমিনার'},{en:'Separate teachers for boys and girls',bn:'ছেলে ও মেয়েদের জন্য পৃথক শিক্ষক'},{en:'Admission open, apply today',bn:'ভর্তি চলছে, আজই আবেদন করুন'}];
 const BEN=[{i:'user-check',en:'Experienced teachers',bn:'অভিজ্ঞ শিক্ষক'},{i:'video',en:'Live online classes',bn:'লাইভ অনলাইন ক্লাস'},{i:'clock',en:'Flexible schedule',bn:'সুবিধাজনক সময়'},{i:'users-round',en:'Kids & adults',bn:'শিশু ও বড়দের জন্য'},{i:'user-round-check',en:'One-to-one learning',bn:'One-to-one শিক্ষা'},{i:'shield-check',en:'Separate male & female teachers',bn:'পৃথক শিক্ষক-শিক্ষিকা'}];
 let COURSES=[
  {n:'1',val:'Noorani Qaida',icon:'book-a',t:{en:'Noorani Qaida',bn:'নূরানী কায়দা'},tag:{en:'The very first step',bn:'একদম প্রথম ধাপ'},d:{en:'From the first Arabic letter to the first lines of recitation, built on the right pronunciation from day one.',bn:'প্রথম আরবি হরফ থেকে প্রথম তিলাওয়াত পর্যন্ত, শুরু থেকেই সঠিক উচ্চারণের ভিত্তিতে।'},l:[{en:'Knowing every Arabic letter',bn:'আরবি হরফ চেনা ও সঠিক উচ্চারণ'},{en:'Makhraj practice',bn:'মাখরাজের অনুশীলন'},{en:'Harakat, Jazm and Tanween',bn:'হরকত, জযম ও তানভীন'},{en:'Madd and Tashdeed',bn:'মাদ ও তাশদীদ'},{en:'Joining letters into words',bn:'হরফ মিলিয়ে শব্দ পড়া'},{en:'Getting ready to read the Qur\'an',bn:'কুরআন পড়ার প্রস্তুতি'}]},
@@ -1098,6 +1127,7 @@ $('.car').addEventListener('pointerenter',()=>clearInterval(auto));$('.car').add
 document.addEventListener('click',async e=>{
  const t=e.target;
  const more=t.closest('[data-more]');if(more){const c=more.closest('.course');c.classList.toggle('open');more.textContent=c.classList.contains('open')?(LANG==='bn'?'কম দেখুন':'Less'):(LANG==='bn'?'বিস্তারিত দেখুন':'Details')}
+ const ctb=t.closest('a[data-ct]');if(ctb){setTimeout(()=>{document.querySelectorAll('form:not([hidden]) input[name="Class type"]').forEach(x=>{if(x.value===ctb.dataset.ct)x.checked=true})},400)}
  const enr=t.closest('a[data-c]');if(enr){setTimeout(()=>{const rd=[...document.querySelectorAll('form[data-form="admission"] .courseRadios input')].find(x=>x.value===enr.dataset.c);if(rd)rd.checked=true},80)}
  const s=t.closest('.slot');if(s){SLOT=SLOT===s.dataset.slot?'':s.dataset.slot;$$('.slot').forEach(b=>b.setAttribute('aria-pressed',b.dataset.slot===SLOT));$$('form[data-form]').forEach(updTime)}
  const rm=t.closest('[data-rm]');if(rm){clockList=clockList.filter(z=>z!==rm.dataset.rm);store.set('ql-clocks',clockList.join('|'));renderClocks()}
@@ -1150,6 +1180,7 @@ $$('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{
 /* sheet content */
 const fromSheet=d=>{const two=(o,k)=>({en:o[k+' (English)']||'',bn:o[k+' (Bangla)']||o[k+' (English)']||''});
  if(d.courses&&d.courses.length)COURSES=d.courses.map((o,i)=>{const pe=String(o['Points (English)']||'').split(',').map(x=>x.trim()).filter(Boolean),pb=String(o['Points (Bangla)']||'').split(',').map(x=>x.trim()).filter(Boolean);return{n:o.Step||String(i+1),val:o['Form value']||o['Title (English)'],icon:['book-open','book-open-check','scroll-text'][i%3],t:two(o,'Title'),d:two(o,'Description'),l:pe.map((x,j)=>({en:x,bn:pb[j]||x})),img:o.Image}});
+ if(d.ticker&&d.ticker.length)TICK=d.ticker.map(t=>({en:t.en||t.bn,bn:t.bn||t.en}));
  if(d.updates&&d.updates.length)UPDATES=d.updates.map(o=>({d:{en:o.Date||'',bn:o.Date||''},t:two(o,'Title'),p:two(o,'Text'),img:o.Image}));
  if(d.faq&&d.faq.length)FAQ=d.faq.map(o=>[two(o,'Question'),two(o,'Answer')]);render();io()};
 if(API)fetch(API).then(r=>r.json()).then(fromSheet).catch(()=>{});

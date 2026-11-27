@@ -141,6 +141,11 @@ td .nm{font-weight:700}td .sm{color:var(--muted);font-size:12px}
  <symbol id="i-act" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
  <symbol id="i-cog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
  <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+ <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+ <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+ <symbol id="i-ticker" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 12h.01M10 12h8"/></symbol>
+ <symbol id="i-batch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20a6 6 0 0 1 12 0M10 20a6 6 0 0 1 12 0"/></symbol>
+ <symbol id="i-sheet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></symbol>
  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
 </svg>
@@ -152,7 +157,7 @@ td .nm{font-weight:700}td .sm{color:var(--muted);font-size:12px}
   <label class="fld"><span>পাসওয়ার্ড</span><input id="lp" type="password" autocomplete="current-password" required></label>
   <p class="err" id="lerr"></p>
   <button class="btn" style="width:100%">প্রবেশ করুন</button>
-  <p style="color:var(--muted);font-size:12px;margin:14px 0 0;text-align:center">শিক্ষার্থী? <a href="student.html">স্টুডেন্ট লগইন</a></p>
+  <p style="color:var(--muted);font-size:12px;margin:14px 0 0;text-align:center">শিক্ষার্থী? <a href="student.html">স্টুডেন্ট লগইন</a> · <a href="#" id="langL">English / বাংলা</a></p>
  </form>
 </div>
 
@@ -168,6 +173,9 @@ td .nm{font-weight:700}td .sm{color:var(--muted);font-size:12px}
    <div><h2 id="pTitle"></h2><div class="sub" id="pSub"></div></div>
    <span class="sp"></span>
    <input class="gs" id="gsearch" placeholder="নাম, ID বা নম্বর খুঁজুন...">
+   <button class="btn ghost sm" id="langT" type="button" title="বাংলা / English">EN</button>
+   <a class="btn ghost sm" id="sheetBtn" href="#" target="_blank" hidden>Google Sheet ↗</a>
+   <a class="btn gold sm" id="editBtn" href="index.html#edit" target="_blank" hidden>✎ হোম পেজ এডিট</a>
    <button class="btn ghost sm" id="refresh" type="button">↻ রিফ্রেশ</button>
    <a class="btn ghost sm" href="index.html" target="_blank">ওয়েবসাইট ↗</a>
   </div>
@@ -180,6 +188,408 @@ td .nm{font-weight:700}td .sm{color:var(--muted);font-size:12px}
 
 <script src="config.js"></script>
 <script>
+const DICT=[
+['পাসওয়ার্ড "—" দেখালে সেটা আগের সিস্টেমে তৈরি, তাই জানা নেই। "পাসওয়ার্ড" বাটন দিয়ে নতুন দিলে এখানে দেখা যাবে।','If a password shows "—", it was made in the old system and is unknown. Set a new one with the "Password" button and it will show here.'],
+['Super admin সব করতে পারে। Employee শুধু অনুমতি পাওয়া বিভাগ দেখে। Teacher শুধু নিজের শিক্ষার্থী আর ক্লাস দেখে, কারো যোগাযোগের তথ্য দেখে না।','Super admins can do everything. Employees see only the sections they are allowed. Teachers see only their own students and classes, never anyone\'s contact details.'],
+['ওয়েবসাইটের একদম উপরে যে হলুদ লাইনে লেখাগুলো চলতে থাকে, সেগুলো এখানে বদলান। বাংলা আর English দুটোই দিন।','Edit the lines that scroll in the yellow bar at the very top of the website. Fill in both Bangla and English.'],
+['চাপলে ১-২ মিনিটের মধ্যে ওয়েবসাইটে বদলে যাবে।','and the website updates within 1-2 minutes.'],
+['কার্ড ধরে অন্য কলামে টেনে নিলেই অবস্থা বদলে যাবে। কার্ডে ক্লিক করলে বিস্তারিত।','Drag a card to another column to change its status. Click a card for details.'],
+['ব্যাচে কয়েকজন শিক্ষার্থী একই শিক্ষকের সাথে একই সময়ে ক্লাস করে। ব্যাচের সময় বা শিক্ষক বদলালে সব সদস্যের প্রোফাইলেও বদলে যাবে।','In a batch, several students learn with the same teacher at the same time. Changing the batch time or teacher updates every member\'s profile too.'],
+['ব্যাচে দিলে শিক্ষক আর ক্লাসের সময় ব্যাচ থেকে নিজে থেকে বসে যাবে।','In a batch, the teacher and class time come from the batch automatically.'],
+['শিক্ষার্থী বা অভিভাবকের সাথে সব যোগাযোগ একাডেমির মাধ্যমে হবে। কোনো দরকার হলে একাডেমিকে জানান।','All contact with students and guardians goes through the academy. Let the academy know if you need anything.'],
+['নিচের বাটনে চাপুন। ওয়েবসাইট খুলবে, হলুদ দাগ দেওয়া যেকোনো লেখায় ক্লিক করে বদলান, তারপর নিচের','Press the button below. The website opens; click any text with a yellow outline to change it, then press'],
+['ট্যাবে রাখা। সেখানে বদলালে এখানে আর শিক্ষার্থীর প্রোফাইলে বদলে যাবে।','tab. Changes there show here and in student profiles.'],
+['শেখার ধাপগুলো Google Sheet-এর','The learning stages are kept in the Google Sheet'],
+['শিক্ষার্থীর প্রোফাইলে (শুধু Super Admin) এই তথ্য সবসময় দেখা যাবে।','This is always visible in the student profile (Super Admin only).'],
+['"টিম ও অ্যাকাউন্ট" পেজে এই তথ্য সবসময় দেখা যাবে।','This is always visible on the "Team & accounts" page.'],
+['এখনো কোনো শিক্ষার্থী আপনার কাছে দেওয়া হয়নি।','No students have been assigned to you yet.'],
+['কোনো ক্লাসের সময় ঠিক করা নেই। অ্যাডমিন শিক্ষার্থীর প্রোফাইলে দিন ও সময় দিলে এখানে দেখাবে।','No class times set yet. They appear here once the admin adds days and time to a student profile.'],
+['জন শিক্ষার্থীর ক্লাসের সময় এখনো ঠিক করা হয়নি।','students do not have a class time yet.'],
+['আপনার অ্যাকাউন্টে কোনো বিভাগের অনুমতি নেই। Super admin-এর সাথে যোগাযোগ করুন।','Your account has no sections allowed. Please contact the super admin.'],
+['কোনো শিক্ষার্থী নেই। লিড থেকে "শিক্ষার্থী বানান" বা "+ নতুন শিক্ষার্থী" দিয়ে যোগ করুন।','No students yet. Add one with "Make student" on a lead or "+ New student".'],
+['কোনো লেনদেন নেই। "+ লেনদেন যোগ" দিয়ে শুরু করুন।','No transactions yet. Start with "+ Add transaction".'],
+['এখনো কোনো ব্যাচ নেই। "+ নতুন ব্যাচ" দিয়ে শুরু করুন।','No batches yet. Start with "+ New batch".'],
+['আগে "টিম ও অ্যাকাউন্ট" থেকে Teacher অ্যাকাউন্ট খুলুন।','First create a Teacher account under "Team & accounts".'],
+['এই পাসওয়ার্ড আর দেখানো হবে না। এখনই শিক্ষার্থীকে পাঠিয়ে দিন।','Send this to the student now.'],
+['পুরনো পাসওয়ার্ড আর কাজ করবে না।','The old password will stop working.'],
+['এখনো কোনো লেখা বদলানো হয়নি','No text has been changed yet'],
+['কোনো আবেদন পাওয়া যায়নি','No applications found'],
+['কোনো নোটিশ নেই','No notices'],
+['এখনো কোনো আপডেট নেই','No updates yet'],
+['এখনো কোনো নোট নেই','No notes yet'],
+['এখনো কিছু নেই','Nothing yet'],
+['এখনো তথ্য নেই','No data yet'],
+['কোনো শিক্ষার্থী নেই','No students'],
+['কিছু নেই','Nothing here'],
+['টিম নেই','No team'],
+['কীভাবে লেখা বদলাবেন:','How to change text:'],
+['ভেতরের নোট (শিক্ষার্থী বা শিক্ষক দেখবে না)','Internal note (hidden from student and teacher)'],
+['ভেতরের নোট (শিক্ষার্থী দেখবে না)','Internal note (hidden from student)'],
+['নতুন পাসওয়ার্ড (খালি রাখলে নিজে থেকে তৈরি হবে)','New password (leave empty to auto-generate)'],
+['পাসওয়ার্ড (খালি রাখলে নিজে থেকে তৈরি হবে)','Password (leave empty to auto-generate)'],
+['নতুন পাসওয়ার্ড (কমপক্ষে','New password (at least'],
+['Employee কোন বিভাগ দেখতে পারবে','Sections this employee can see'],
+['বন্ধ (লগইন করতে পারবে না)','Disabled (cannot log in)'],
+['ফোন (শুধু অ্যাডমিন দেখবে)','Phone (admin only)'],
+['শিক্ষক (Teacher অ্যাকাউন্ট)','Teacher (teacher account)'],
+['ক্লাস শুরুর সময় (বাংলাদেশ সময়)','Class start (Bangladesh time)'],
+['শুরুর সময় (বাংলাদেশ সময়)','Start time (Bangladesh time)'],
+['নোট (শিক্ষার্থী দেখতে পাবে)','Note (student can see)'],
+['ছবি (ফাইলের নাম বা লিংক)','Image (file name or link)'],
+['Student ID (যদি থাকে)','Student ID (if any)'],
+['কার কাছ থেকে / কাকে','From / to'],
+['যেমন: কল করেছি, শনিবার ট্রায়াল ঠিক হয়েছে','e.g. Called, trial fixed for Saturday'],
+['যেমন: নভেম্বর মাসের হাদিয়া, TrxID ...','e.g. November hadiya, TrxID ...'],
+['যেমন: অভিভাবকের নাম, শিক্ষকের নাম',"e.g. guardian's name, teacher's name"],
+['যেমন: নূরানী সন্ধ্যা ব্যাচ (ছেলে)','e.g. Noorani evening batch (boys)'],
+['যেমন: মাখরাজ ভালো হয়েছে','e.g. Makhraj has improved'],
+['যেমন: সবক ১২, পারা ৫, সূরা মুলক','e.g. Lesson 12, Para 5, Surah Mulk'],
+['যেমন: সবক ১২, সূরা মুলক','e.g. Lesson 12, Surah Mulk'],
+['যেমন: শনি-বৃহঃ, রাত ৮টা','e.g. Sat-Thu, 8 pm'],
+['খুঁজুন: নাম, নোট, Student ID...','Search: name, note, Student ID...'],
+['নাম, ID বা নম্বর খুঁজুন...','Search name, ID or number...'],
+['নাম, ID, নম্বর, দেশ...','Name, ID, number, country...'],
+['নাম, ID, নম্বর...','Name, ID, number...'],
+['নাম বা ID দিয়ে খুঁজুন','Search by name or ID'],
+['update1.jpg বা https://...','update1.jpg or https://...'],
+['যেমন: rahim','e.g. rahim'],
+['যেমন: 1500','e.g. 1500'],
+['যেমন: 6','e.g. 6'],
+['কমপক্ষে ৬ অক্ষর','at least 6 characters'],
+['বাংলা লেখা','Bangla text'],
+['পুরো একাডেমির এক নজরে অবস্থা','The whole academy at a glance'],
+['সব ফর্ম ও WhatsApp আবেদন','All form and WhatsApp applications'],
+['টেনে এনে অবস্থা বদলান','Drag to change status'],
+['আজ ও বাকি থাকা যোগাযোগ','Due today and overdue'],
+['প্রোফাইল, স্টেজ ও অগ্রগতি','Profiles, stages and progress'],
+['গ্রুপ ক্লাস ও সময়সূচি','Group classes and schedules'],
+['ওয়েবসাইটের উপরে চলমান হলুদ লাইন','The scrolling yellow line at the top of the website'],
+['হোম পেজের লেখা বদলান','Change home page text'],
+['আয়-ব্যয়ের হিসাব','Income and expenses'],
+['Super admin, employee ও teacher','Super admin, employee and teacher'],
+['কে কখন কী করেছে','Who did what, when'],
+['স্টেজ ও অগ্রগতি আপডেট','Update stage and progress'],
+['সামনের ক্লাসগুলো','Upcoming classes'],
+['ফ্রি ট্রায়ালের আবেদন','Free trial requests'],
+['শিক্ষক হওয়ার আবেদন','Applications to teach'],
+['উপরের নোটিশ লাইন','Top notice line'],
+['ওয়েবসাইটের আপডেট','Website updates'],
+['ওয়েবসাইটের লেখা','Website text'],
+['টিম ও অ্যাকাউন্ট','Team & accounts'],
+['Leads & আবেদন','Leads & applications'],
+['আপনার অ্যাকাউন্ট','Your account'],
+['মোট লিড (৭ দিন)','Total leads (7 days)'],
+['নতুন, এখনো যোগাযোগ হয়নি','New, not contacted yet'],
+['দ্রুত যোগাযোগ করুন','Contact them soon'],
+['Follow-up বাকি','Follow-ups due'],
+['আজ বা আগের তারিখের','Today or earlier'],
+['সব আপডেট','All up to date'],
+['আজকের নতুন লিড',"Today's new leads"],
+['আজ এসেছে','Arrived today'],
+['চলমান শিক্ষার্থী','Active students'],
+['গড় অগ্রগতি','Average progress'],
+['পুরো কোর্স পথের হিসাবে','Across the whole learning path'],
+['এই মাসে নতুন শিক্ষার্থী','New students this month'],
+['ভর্তি সম্পন্ন','Admission completed'],
+['অগ্রগতি আপডেট (৭ দিন)','Progress updates (7 days)'],
+['শিক্ষকদের আপডেট','From teachers'],
+['গত সপ্তাহের তুলনায়','vs last week'],
+['আগের সপ্তাহের মতো','Same as last week'],
+['গত ৩০ দিনের লিড','Leads in the last 30 days'],
+['দিন অনুযায়ী','by day'],
+['লিড কোথা থেকে এসেছে','Where leads come from'],
+['ধরন অনুযায়ী','By type'],
+['Pipeline অবস্থা','Pipeline status'],
+['শীর্ষ দেশ','Top countries'],
+['জনপ্রিয় কোর্স','Popular courses'],
+['স্টেজ অনুযায়ী শিক্ষার্থী','Students by stage'],
+['টিমের পারফরম্যান্স','Team performance'],
+['সাম্প্রতিক আবেদন','Recent applications'],
+['সব দেখুন →','See all →'],
+['ওয়েবসাইট ফর্ম','Website form'],
+['WhatsApp দিয়ে পাঠানো','Sent via WhatsApp'],
+['WhatsApp-এ পাঠান','Send on WhatsApp'],
+['নোট ও যোগাযোগের ইতিহাস','Notes and contact history'],
+['ফর্মের সব তথ্য','All form details'],
+['অবস্থা ও দায়িত্ব','Status and owner'],
+['Follow-up তারিখ','Follow-up date'],
+['শিক্ষার্থী বানান','Make student'],
+['শিক্ষার্থী অ্যাকাউন্ট তৈরি','Create student account'],
+['অ্যাকাউন্ট তৈরি করুন','Create account'],
+['অ্যাকাউন্ট তৈরি হয়েছে','Account created'],
+['শিক্ষার্থী যোগ হয়েছে','Student added'],
+['সময় পেরিয়ে গেছে','Overdue'],
+['তারিখ ঠিক হয়নি','no date set'],
+['কেউ দায়িত্বে নেই','Unassigned'],
+['কাউকে দেওয়া হয়নি','Unassigned'],
+['সবার লিড','Everyone\'s leads'],
+['শুধু আমার','Mine only'],
+['সব ধরন','All types'],
+['সব অবস্থা','All statuses'],
+['সব উৎস','All sources'],
+['সব সময়','All time'],
+['সব স্টেজ','All stages'],
+['সব শিক্ষক','All teachers'],
+['সব মাস','All months'],
+['সব নোটিশ','All notices'],
+['গত ৭ দিন','Last 7 days'],
+['গত ৩০ দিন','Last 30 days'],
+['গত ৯০ দিন','Last 90 days'],
+['গত ৬ মাস','Last 6 months'],
+['নতুন শিক্ষার্থী','New student'],
+['নতুন অ্যাকাউন্ট','New account'],
+['নতুন ব্যাচ','New batch'],
+['নতুন লাইন','New line'],
+['নতুন নোটিশ','New notice'],
+['নতুন লেনদেন','New transaction'],
+['নতুন পাসওয়ার্ড','New password'],
+['লেনদেন যোগ','Add transaction'],
+['লেনদেন এডিট','Edit transaction'],
+['অ্যাকাউন্ট এডিট','Edit account'],
+['নোটিশ এডিট','Edit notice'],
+['ব্যাচ এডিট','Edit batch'],
+['ব্যাচ মুছুন','Delete batch'],
+['ব্যাচ সেভ হয়েছে','Batch saved'],
+['শিক্ষার্থীর নাম','Student name'],
+['ব্যাচের নাম','Batch name'],
+['বর্তমান স্টেজ','Current stage'],
+['স্টেজের অগ্রগতি','Stage progress'],
+['পুরো পথ','Whole path'],
+['সর্বশেষ লগইন','Last login'],
+['লগইন তথ্য','Login details'],
+['শেখার পথ','Learning path'],
+['অগ্রগতি আপডেট করুন','Update progress'],
+['অগ্রগতি সেভ করুন','Save progress'],
+['অগ্রগতি সেভ হয়েছে','Progress saved'],
+['অগ্রগতির ইতিহাস','Progress history'],
+['এই স্টেজে অগ্রগতি:','Progress in this stage:'],
+['বর্তমান পাঠ','Current lesson'],
+['ভর্তির সময়ের তথ্য','Details from admission'],
+['প্রোফাইল সেভ করুন','Save profile'],
+['প্রোফাইল সেভ হয়েছে','Profile saved'],
+['ক্লাসের ধরন','Class type'],
+['ক্লাসের দিন','Class days'],
+['ক্লাসের দৈর্ঘ্য','Class length'],
+['ব্যাচ বেছে নিন','Choose a batch'],
+['ব্যাচ (গ্রুপ)','Batch (group)'],
+['One-to-one (একক)','One-to-one'],
+['সর্বোচ্চ শিক্ষার্থী','Max students'],
+['সদস্য শিক্ষার্থী','Member students'],
+['আসন খালি','seats free'],
+['জন শিক্ষার্থী','students'],
+['সময় ঠিক হয়নি','time not set'],
+['ক্লাসের সময় ঠিক হয়নি','class time not set'],
+['এখনো ঠিক হয়নি','Not decided yet'],
+['শিরোনাম (বাংলা)','Title (Bangla)'],
+['বিস্তারিত (বাংলা)','Details (Bangla)'],
+['ওয়েবসাইটে দেখাচ্ছে','showing on website'],
+['আগের মূল লেখায় ফেরান','Restore original text'],
+['আগের লেখায় ফিরেছে','Restored'],
+['যেসব লেখা বদলানো হয়েছে','Changed texts'],
+['হোম পেজের লেখা এডিট করুন','Edit home page text'],
+['হোম পেজ এডিট','Edit home page'],
+['নোটিশ লাইন সেভ হয়েছে','Notice line saved'],
+['এই মাসের আয়','Income this month'],
+['এই মাসের ব্যয়','Expense this month'],
+['এই মাসের লাভ','Profit this month'],
+['মোট ব্যালেন্স','Total balance'],
+['শুরু থেকে আজ পর্যন্ত','From the start until today'],
+['আয়ের খাত','Income by category'],
+['ব্যয়ের খাত','Expense by category'],
+['আয় ও ব্যয়','Income and expense'],
+['শুধু আয়','Income only'],
+['শুধু ব্যয়','Expense only'],
+['যোগ করেছেন','Added by'],
+['মার্জিন','margin'],
+['টি লেনদেন','transactions'],
+['হাদিয়া / মাসিক ফি','Hadiya / monthly fee'],
+['ভর্তি ফি','Admission fee'],
+['অন্যান্য আয়','Other income'],
+['শিক্ষকের সম্মানী','Teacher honorarium'],
+['স্টাফ বেতন','Staff salary'],
+['সফটওয়্যার / ইন্টারনেট','Software / internet'],
+['অফিস খরচ','Office costs'],
+['অন্যান্য ব্যয়','Other expense'],
+['নিজের শিক্ষার্থী ও ক্লাস','Own students and classes'],
+['লিড ও আবেদন','Leads and applications'],
+['শিক্ষার্থী ও অগ্রগতি','Students and progress'],
+['হিসাব (Accounts)','Accounts'],
+['স্টেজের তালিকা','Stage list'],
+['Google Sheet খুলুন','Open Google Sheet'],
+['পাসওয়ার্ড বদলান','Change password'],
+['পাসওয়ার্ড বদলানো হয়েছে','Password changed'],
+['বর্তমান পাসওয়ার্ড','Current password'],
+['আবার লিখুন','Type again'],
+['দুটো পাসওয়ার্ড মেলেনি।','The two passwords do not match.'],
+['সামনের ৫টি ক্লাস','Next 5 classes'],
+['পরের ক্লাস','Next class'],
+['এখন চলছে','Live now'],
+['এক নজরে','At a glance'],
+['আমার শিক্ষার্থী','My students'],
+['আমার ক্লাস','My classes'],
+['সময় দেখানো হচ্ছে','Times shown in'],
+['বাংলাদেশ সময়','Bangladesh time'],
+['স্টুডেন্ট লগইন','Student login'],
+['প্রবেশ করুন','Log in'],
+['ঘণ্টা আগে','hours ago'],
+['মিনিট আগে','minutes ago'],
+['দিন আগে','days ago'],
+['কখনো না','Never'],
+['যোগ দিয়েছে','Joined'],
+['সেভ হয়েছে','Saved'],
+['মুছে ফেলা হয়েছে','Deleted'],
+['কপি হয়েছে','Copied'],
+['অবস্থা সেভ হয়েছে','Status saved'],
+['সেভ হচ্ছে...','Saving...'],
+['লোড হচ্ছে...','Loading...'],
+['সেভ করুন','Save'],
+['যোগ করুন','Add'],
+['তৈরি করুন','Create'],
+['সেট করুন','Set'],
+['কপি করুন','Copy'],
+['বের হন','Log out'],
+['রিফ্রেশ','Refresh'],
+['ওয়েবসাইট','Website'],
+['যোগাযোগ করা হয়েছে','Contacted'],
+['ক্লাস নির্ধারিত','Class scheduled'],
+['ভর্তি হয়েছে','Admitted'],
+['ফ্রি ট্রায়াল','Free trial'],
+['শিক্ষক আবেদন','Teacher application'],
+['নূরানী কায়দা','Noorani Qaida'],
+['আমপারা','Ampara'],
+['নাজেরা কুরআন',"Nazera Qur'an"],
+['তাজবিদ','Tajweed'],
+['হিফজুল কুরআন',"Hifzul Qur'an"],
+['তাফসিরুল কুরআন',"Tafsirul Qur'an"],
+['ছেড়ে দিয়েছে','Left'],
+['শিক্ষার্থী?','Student?'],
+['শিক্ষার্থী','Students'],
+['শিক্ষক','Teacher'],
+['ব্যাচ','Batch'],
+['নোটিশ','Notices'],
+['সেটিংস','Settings'],
+['প্রশাসন','Admin'],
+['শিক্ষা','Education'],
+['হিসাব','Accounts'],
+['মূল','Main'],
+['উৎস','Source'],
+['দায়িত্বে','Owner'],
+['অবস্থা','Status'],
+['অনুমতি','Permissions'],
+['ভূমিকা','Role'],
+['পাসওয়ার্ড:','Password:'],
+['পাসওয়ার্ড','Password'],
+['লিংক:','Link:'],
+['লগইন:','Login:'],
+['প্রোফাইল','Profile'],
+['অভিভাবক','Guardian'],
+['লিঙ্গ','Gender'],
+['বয়স','Age'],
+['দেশ','Country'],
+['কোর্স','Course'],
+['নাম','Name'],
+['তারিখ','Date'],
+['ধরন','Type'],
+['খাত','Category'],
+['পরিমাণ','Amount'],
+['মুদ্রা:','Currency:'],
+['মুদ্রা','Currency'],
+['মাধ্যম','Method'],
+['নোট','Note'],
+['দৈর্ঘ্য','Length'],
+['সদস্য','Member'],
+['স্টেজ','Stage'],
+['ক্লাস','Class'],
+['সময়','Time'],
+['বিস্তারিত','Details'],
+['দেখাবে?','Show?'],
+['কাজ','Action'],
+['লিড','Leads'],
+['রেট','Rate'],
+['ভর্তি','Admission'],
+['নতুন','New'],
+['বাতিল','Cancelled'],
+['চলমান','Active'],
+['বিরতি','Paused'],
+['সম্পন্ন','Completed'],
+['সামনে','Upcoming'],
+['চালু','Active'],
+['বন্ধ','Closed'],
+['হ্যাঁ','Yes'],
+['না','No'],
+['সব','All'],
+['কেউ না','Nobody'],
+['এডিট','Edit'],
+['মুছুন','Delete'],
+['দেখান','Show'],
+['লুকান','Hide'],
+['লুকানো','hidden'],
+['বদলান','Change'],
+['যোগ','Add'],
+['সেভ','Save'],
+['উপরে','Up'],
+['নিচে','Down'],
+['কল','Call'],
+['আয়','Income'],
+['ব্যয়','Expense'],
+['দান','Donation'],
+['বিজ্ঞাপন','Advertising'],
+['অন্যান্য','Other'],
+['মোট','Total'],
+['কে','Who'],
+['জন ভর্তি','admitted'],
+['মিনিট পর','minutes left'],
+['ঘণ্টা','h'],
+['মিনিট','min'],
+['দিন','days'],
+['পর','left'],
+['জন','people'],
+['টি','items'],
+['শনি','Sat'],['রবি','Sun'],['সোম','Mon'],['মঙ্গল','Tue'],['বুধ','Wed'],['বৃহঃ','Thu'],['শুক্র','Fri'],
+['চাপুন।','.'],
+['এখানে বদলান','change here'],
+['অজানা','unknown'],
+['জানা নেই, নতুন পাসওয়ার্ড দিন','unknown, set a new password'],
+['এই কাজের অনুমতি আপনার নেই।','You do not have permission for this.'],
+['Username বা পাসওয়ার্ড ভুল।','Wrong username or password.'],
+['অনেকবার ভুল হয়েছে, ১৫ মিনিট পর চেষ্টা করুন।','Too many attempts. Try again in 15 minutes.'],
+['সংযোগে সমস্যা, আবার চেষ্টা করুন।','Connection problem, please try again.'],
+['সঠিক পরিমাণ দিন।','Enter a valid amount.'],
+['নাম দিতে হবে।','Name is required.'],
+['এই username আগেই নেওয়া।','This username is taken.'],
+['পুরনো পাসওয়ার্ড ভুল।','Old password is wrong.'],
+['পাসওয়ার্ড আরও লম্বা দিন।','Please use a longer password.'],
+['এই আবেদনটি Sheet থেকে মুছে যাবে, ফেরত আসবে না। মুছবেন?','This application will be deleted from the Sheet permanently. Delete?'],
+['নতুন পাসওয়ার্ড তৈরি হবে, পুরনোটা আর কাজ করবে না। করবেন?','A new password will be made and the old one will stop working. Continue?'],
+['লেনদেনটি মুছে যাবে, ফেরত আসবে না। মুছবেন?','The transaction will be deleted permanently. Delete?'],
+['ব্যাচটি মুছে যাবে। সদস্যরা One-to-one হিসেবে থেকে যাবে। মুছবেন?','The batch will be deleted; its members stay as one-to-one. Delete?'],
+['নোটিশটি মুছে যাবে। মুছবেন?','The notice will be deleted. Delete?'],
+['আগের মূল লেখায় ফিরিয়ে নেবেন?','Restore the original text?'],
+['মূল ৫টি লেখায় ফিরিয়ে নেবেন? সেভ চাপলে কার্যকর হবে।','Restore the original 5 lines? Takes effect when you save.'],
+['আসসালামু আলাইকুম।','Assalamu alaikum.'],
+['(খালি)','(empty)'],
+['আমার','My'],
+['অক্ষর','characters'],
+['আজ','Today'],
+['-এর',"'s"],
+['সামনে','Upcoming']
+];
+
+let LG='bn';try{LG=localStorage.getItem('qlDashLang')||'bn'}catch(e){}
+const LOC=()=>LG==='en'?'en-GB':'bn-BD';
+const DS=DICT.slice().sort((a,b)=>b[0].length-a[0].length).map(([b,e])=>[b,e,new RegExp('(?<![\\u0980-\\u09FF])'+b.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(?![\\u0980-\\u09FF])','g')]);
+const BND='০১২৩৪৫৬৭৮৯';
+function trText(t){if(!t||!/[ঀ-৿]/.test(t))return t;let r=t;for(const [b,e,rx] of DS){if(r.includes(b))r=r.replace(rx,e)}return r.replace(/[০-৯]/g,c=>BND.indexOf(c))}
+function trNode(root){if(LG!=='en'||!root)return;
+ if(root.nodeType===3){const v=root.nodeValue;const n=trText(v);if(n!==v)root.nodeValue=n;return}
+ if(root.nodeType!==1)return;if(root.closest&&root.closest('script,style,textarea,input,[contenteditable],.notr'))return;
+ const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let x;while(x=w.nextNode()){if(x.parentElement&&x.parentElement.closest('script,style,textarea,.notr'))continue;const v=x.nodeValue;const n=trText(v);if(n!==v)x.nodeValue=n}
+ [root,...root.querySelectorAll('[placeholder],[title]')].forEach(el=>{['placeholder','title'].forEach(a=>{const v=el.getAttribute&&el.getAttribute(a);if(v){const n=trText(v);if(n!==v)el.setAttribute(a,n)}})})}
+if(LG==='en'){document.documentElement.lang='en';
+ const _c=window.confirm.bind(window),_p=window.prompt.bind(window);window.confirm=m=>_c(trText(m));window.prompt=(m,d)=>_p(trText(m),d);
+ const mo=new MutationObserver(ms=>{for(const m of ms)m.addedNodes.forEach(trNode)});
+ document.addEventListener('DOMContentLoaded',()=>{trNode(document.body);mo.observe(document.body,{childList:true,subtree:true})});
+ if(document.body){trNode(document.body);mo.observe(document.body,{childList:true,subtree:true})}}
 const API=(window.QL_CONFIG&&QL_CONFIG.API_URL)||'';
 const SITE=location.origin+location.pathname.replace(/[^/]*$/,'');
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -190,8 +600,23 @@ const STATUSES=['নতুন','যোগাযোগ করা হয়েছ�
 const SCOL={'নতুন':'#D97706','যোগাযোগ করা হয়েছে':'#2563EB','ক্লাস নির্ধারিত':'#7C3AED','ভর্তি হয়েছে':'#00703A','বাতিল':'#9CA3AF'};
 const TYPES={trial:'ফ্রি ট্রায়াল',admission:'ভর্তি',teacher:'শিক্ষক আবেদন'};
 const TCOL={trial:'#00703A',admission:'#2563EB',teacher:'#7C3AED'};
-const ROLE={superadmin:'Super Admin',employee:'Employee'};
-const PERMN={leads:'লিড ও আবেদন',students:'শিক্ষার্থী ও অগ্রগতি',notices:'নোটিশ',content:'ওয়েবসাইটের লেখা'};
+const ROLE={superadmin:'Super Admin',employee:'Employee',teacher:'Teacher'};
+const PERMN={leads:'লিড ও আবেদন',students:'শিক্ষার্থী ও অগ্রগতি',notices:'নোটিশ',content:'ওয়েবসাইটের লেখা',accounts:'হিসাব (Accounts)'};
+const isT=()=>USER&&USER.role==='teacher';
+const DAYS=[['Sat','শনি',6],['Sun','রবি',0],['Mon','সোম',1],['Tue','মঙ্গল',2],['Wed','বুধ',3],['Thu','বৃহঃ',4],['Fri','শুক্র',5]];
+const BD=6*3600e3;
+const tBD=d=>d.toLocaleTimeString(LOC(),{hour:'numeric',minute:'2-digit',timeZone:'Asia/Dhaka'});
+const dBD=d=>d.toLocaleDateString(LOC(),{weekday:'long',day:'numeric',month:'long',timeZone:'Asia/Dhaka'});
+function schedText(s){const ds=String(s['Class days']||'').split(',').filter(Boolean);if(!ds.length||!s['Class start'])return s['Class time']||'';
+ const [h,m]=String(s['Class start']).split(':').map(Number);const d=new Date(Date.UTC(2026,0,1,h,m)-BD);
+ return ds.map(x=>(DAYS.find(y=>y[0]===x)||[])[1]).filter(Boolean).join(', ')+' · '+tBD(d)+' (বাংলাদেশ সময়)'}
+function nextClasses(list,n){const now=Date.now(),out=[];const b=new Date(now+BD);
+ list.forEach(s=>{const ds=String(s['Class days']||'').split(',').filter(Boolean);if(!ds.length||!/^\d{1,2}:\d{2}/.test(s['Class start']||''))return;
+  if((s.Status||'Active')!=='Active')return;const [h,m]=s['Class start'].split(':').map(Number);const dur=(+s.Duration||30)*6e4;
+  for(let o=0;o<9;o++){const y=b.getUTCFullYear(),mo=b.getUTCMonth(),da=b.getUTCDate()+o;const st=Date.UTC(y,mo,da,h,m)-BD;const wd=new Date(st+BD).getUTCDay();
+   if(ds.some(x=>(DAYS.find(z=>z[0]===x)||[])[2]===wd)&&st+dur>now)out.push({s,start:new Date(st),end:new Date(st+dur)})}});
+ const g=[],seen={};out.sort((a,b)=>a.start-b.start).forEach(o=>{const bid=o.s['Batch ID'];if(bid){const k=bid+'@'+(+o.start);if(seen[k]){seen[k].group.push(o.s);return}o.group=[o.s];seen[k]=o}g.push(o)});return g.slice(0,n)}
+const until=d=>{let m=Math.round((d-Date.now())/6e4);if(m<=0)return 'এখন চলছে';const dd=Math.floor(m/1440),hh=Math.floor(m%1440/60),mm=m%60;return (dd?dd+' দিন ':'')+(hh?hh+' ঘণ্টা ':'')+(dd?'':mm+' মিনিট')+' পর'};
 const SST=['Active','Paused','Completed','Left'],SSTB={Active:'চলমান',Paused:'বিরতি',Completed:'সম্পন্ন',Left:'ছেড়ে দিয়েছে'};
 
 function toast(m,bad){const t=document.createElement('div');t.className='toast'+(bad?' bad':'');t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3200)}
@@ -254,30 +679,42 @@ function hbars(rows,col){const mx=Math.max(1,...rows.map(r=>r.v));return rows.le
 
 /* ---------- shell ---------- */
 const PAGES=[
+ {id:'classes',t:'আমার ক্লাস',s:'সামনের ক্লাসগুলো',i:'cal',sec:'শিক্ষক',tr:1},
+ {id:'mystudents',t:'আমার শিক্ষার্থী',s:'স্টেজ ও অগ্রগতি আপডেট',i:'grad',tr:1},
  {id:'overview',t:'Overview',s:'পুরো একাডেমির এক নজরে অবস্থা',i:'home',sec:'মূল'},
  {id:'leads',t:'Leads & আবেদন',s:'সব ফর্ম ও WhatsApp আবেদন',i:'inbox',p:'leads'},
+ {id:'l-trial',t:'ফ্রি ট্রায়াল',s:'ফ্রি ট্রায়ালের আবেদন',i:'check',p:'leads',sub:1},
+ {id:'l-admission',t:'ভর্তি',s:'ভর্তি ফরম',i:'edit',p:'leads',sub:1},
+ {id:'l-teacher',t:'শিক্ষক আবেদন',s:'শিক্ষক হওয়ার আবেদন',i:'users',p:'leads',sub:1},
  {id:'pipeline',t:'Pipeline',s:'টেনে এনে অবস্থা বদলান',i:'kanban',p:'leads'},
- {id:'followups',t:'Follow-ups',s:'আজ ও বাকি থাকা যোগাযোগ',i:'bell',p:'leads'},
+ {id:'followups',t:'Follow-ups',s:'আজ ও বাকি থাকা যোগাযোগ',i:'bell',p:'leads',sa:1},
  {id:'students',t:'শিক্ষার্থী',s:'প্রোফাইল, স্টেজ ও অগ্রগতি',i:'grad',p:'students',sec:'শিক্ষা'},
- {id:'notices',t:'নোটিশ',s:'ওয়েবসাইটের আপডেট',i:'mega',p:'notices',sec:'ওয়েবসাইট'},
+ {id:'batches',t:'ব্যাচ',s:'গ্রুপ ক্লাস ও সময়সূচি',i:'batch',p:'students'},
+ {id:'ticker',t:'উপরের নোটিশ লাইন',s:'ওয়েবসাইটের উপরে চলমান হলুদ লাইন',i:'ticker',p:'notices',sec:'ওয়েবসাইট'},
+ {id:'notices',t:'নোটিশ',s:'ওয়েবসাইটের আপডেট',i:'mega',p:'notices'},
  {id:'content',t:'ওয়েবসাইটের লেখা',s:'হোম পেজের লেখা বদলান',i:'edit',p:'content'},
- {id:'team',t:'টিম ও অ্যাকাউন্ট',s:'Super admin ও employee',i:'shield',sa:1,sec:'প্রশাসন'},
+ {id:'accounts',t:'Accounts',s:'আয়-ব্যয়ের হিসাব',i:'wallet',p:'accounts',sec:'হিসাব'},
+ {id:'team',t:'টিম ও অ্যাকাউন্ট',s:'Super admin, employee ও teacher',i:'shield',sa:1,sec:'প্রশাসন'},
  {id:'activity',t:'Activity log',s:'কে কখন কী করেছে',i:'act',sa:1},
  {id:'settings',t:'সেটিংস',s:'আপনার অ্যাকাউন্ট',i:'cog'}
 ];
-const allowed=p=>(!p.p||can(p.p))&&(!p.sa||isSA());
+const allowed=p=>isT()?(p.tr||p.id==='settings'):(!p.tr&&(!p.p||can(p.p))&&(!p.sa||isSA()));
 function navHtml(){let h='',sec='';const due=LEADS.filter(l=>l._fu&&l._fu<=new Date(Date.now()+864e5)&&!['ভর্তি হয়েছে','বাতিল'].includes(l._status)).length,nw=LEADS.filter(l=>l._status==='নতুন').length;
  PAGES.filter(allowed).forEach(p=>{if(p.sec&&p.sec!==sec){sec=p.sec;h+=`<div class="sec">${p.sec}</div>`}
-  const ct=p.id==='leads'&&nw?nw:p.id==='followups'&&due?due:'';
-  h+=`<a href="#${p.id}" class="${p.id===PAGE?'on':''}"><svg><use href="#i-${p.i}"/></svg>${p.t}${ct?`<span class="ct">${ct}</span>`:''}</a>`});
+  const ct=isT()?'':p.id==='leads'&&nw?nw:p.id==='followups'&&due?due:'';
+  const subc=p.sub&&!isT()?LEADS.filter(l=>'l-'+l._tab===p.id&&l._status==='নতুন').length:0;
+  h+=`<a href="#${p.id}" class="${p.id===PAGE?'on':''}" ${p.sub?'style="padding-left:30px;font-size:13px"':''}><svg><use href="#i-${p.i}"/></svg>${p.t}${ct?`<span class="ct">${ct}</span>`:subc?`<span class="ct" style="background:#2E4A3B;color:#fff">${subc}</span>`:''}</a>`});
  $('#nav').innerHTML=h}
-function go(){let p=(location.hash||'#overview').slice(1);const pg=PAGES.find(x=>x.id===p&&allowed(x))||PAGES[0];PAGE=pg.id;
+function go(){let p=(location.hash||'#overview').slice(1);const pg=PAGES.find(x=>x.id===p&&allowed(x))||PAGES.find(allowed);PAGE=pg.id;
  $('#pTitle').textContent=pg.t;$('#pSub').textContent=pg.s;navHtml();$('#side').classList.remove('on');
- ({overview,leads,pipeline,followups,students,notices,content,team,activity,settings})[PAGE]();}
+ if(PAGE.startsWith('l-')){LF.type=PAGE.slice(2);window._fromSub=1;return leads()}
+ if(PAGE==='leads'&&window._fromSub)LF.type='';
+ window._fromSub=0;
+ ({classes,mystudents,overview,leads,pipeline,followups,students,batches,ticker,notices,content,accounts,team,activity,settings})[PAGE]();}
 addEventListener('hashchange',()=>D&&go());
 
 async function load(){const r=await api('dashboard');if(!r.ok){toast(em(r.error),1);return}
- D=r;USER=r.user;buildLeads();$('#meName').textContent=USER.name;$('#meRole').textContent=ROLE[USER.role]||USER.role;
+ D=r;USER=r.user;TK=null;if(!isT())buildLeads();else LEADS=[];$('#gsearch').style.display=isT()?'none':'';$('#sheetBtn').hidden=!isSA();if(D.sheet)$('#sheetBtn').href=D.sheet;$('#editBtn').hidden=!can('content');$('#meName').textContent=USER.name;$('#meRole').textContent=ROLE[USER.role]||USER.role;
  $('#meAv').textContent=(USER.name||'?').trim().split(/\s+/).map(x=>x[0]).slice(0,2).join('').toUpperCase();go()}
 function logout(silent){if(!silent)api('logout').catch(()=>{});try{localStorage.removeItem('qlTok')}catch(e){}TOKEN='';USER=null;D=null;$('#app').hidden=true;$('#loginView').hidden=false}
 $('#loginForm').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('button');b.disabled=true;$('#lerr').textContent='';
@@ -285,7 +722,7 @@ $('#loginForm').onsubmit=async e=>{e.preventDefault();const b=e.target.querySele
   if(!r.ok){$('#lerr').textContent=em(r.error)}else{TOKEN=r.token;try{localStorage.setItem('qlTok',TOKEN);sessionStorage.setItem('qlAdminTok',TOKEN)}catch(x){}start()}}
  catch(x){$('#lerr').textContent='সংযোগে সমস্যা, আবার চেষ্টা করুন।'}b.disabled=false};
 function start(){$('#loginView').hidden=true;$('#app').hidden=false;$('#view').innerHTML='<div class="empty">লোড হচ্ছে...</div>';load()}
-$('#logout').onclick=()=>logout();$('#refresh').onclick=()=>load();$('#burger').onclick=()=>$('#side').classList.toggle('on');
+$('#logout').onclick=()=>logout();$('#langT').textContent=LG==='en'?'বাং':'EN';document.getElementById('langL').onclick=e=>{e.preventDefault();$('#langT').click()};$('#langT').onclick=()=>{try{localStorage.setItem('qlDashLang',LG==='en'?'bn':'en')}catch(e){}location.reload()};$('#refresh').onclick=()=>load();$('#burger').onclick=()=>$('#side').classList.toggle('on');
 $('#gsearch').addEventListener('keydown',e=>{if(e.key==='Enter'){window._q=e.target.value;location.hash='#leads';if(PAGE==='leads')leads()}});
 
 /* ---------- drawer / modal ---------- */
@@ -314,7 +751,7 @@ function overview(){
   ${k('মোট লিড (৭ দিন)',last7,dl(last7,prev7),'#00703A','inbox',spark(tot.slice(-14),'#00703A'))}
   ${k('নতুন, এখনো যোগাযোগ হয়নি',LEADS.filter(l=>l._status==='নতুন').length,'<span class="d nt">দ্রুত যোগাযোগ করুন</span>','#D97706','bell')}
   ${k('Conversion rate',conv+'%',`<span class="d nt">${adm} জন ভর্তি / ${sl.length} লিড</span>`,'#2563EB','trend')}
-  ${k('Follow-up বাকি',due.length,due.length?'<span class="d dn">আজ বা আগের তারিখের</span>':'<span class="d up">সব আপডেট</span>','#C2410C','clock')}
+  ${isSA()?k('Follow-up বাকি',due.length,due.length?'<span class="d dn">আজ বা আগের তারিখের</span>':'<span class="d up">সব আপডেট</span>','#C2410C','clock'):k('আজকের নতুন লিড',LEADS.filter(l=>l._ts&&l._ts>=t0).length,'<span class="d nt">আজ এসেছে</span>','#C2410C','clock')}
  </div>`}
  if(can('students')){h+=`<div class="grid k4" style="margin-bottom:16px">
   ${k('চলমান শিক্ষার্থী',act.length,`<span class="d nt">মোট ${stu.length} জন</span>`,'#0D9488','grad')}
@@ -357,7 +794,7 @@ function leads(){
   <label style="display:flex;gap:6px;align-items:center;font-weight:600"><input type="checkbox" id="fm" style="width:auto" ${LF.mine?'checked':''}> শুধু আমার</label>
   <span style="flex:1"></span><span class="sm" id="fcount" style="color:var(--muted)"></span>
   <button class="btn ghost sm" id="csv" type="button">⬇ CSV</button></div><div class="tw"><table><thead><tr>
-  <th data-s="id">ID</th><th data-s="name">নাম</th><th data-s="type">ধরন</th><th>দেশ</th><th>WhatsApp</th><th>কোর্স</th><th>উৎস</th><th data-s="status">অবস্থা</th><th data-s="as">দায়িত্বে</th><th data-s="fu">Follow-up</th><th data-s="date">তারিখ</th></tr></thead><tbody id="lt"></tbody></table></div>`;
+  <th data-s="id">ID</th><th data-s="name">নাম</th><th data-s="type">ধরন</th><th>দেশ</th><th>WhatsApp</th><th>কোর্স</th><th>উৎস</th><th data-s="status">অবস্থা</th><th data-s="as">দায়িত্বে</th>${isSA()?'<th data-s="fu">Follow-up</th>':''}<th data-s="date">তারিখ</th></tr></thead><tbody id="lt"></tbody></table></div>`;
  const bind=(id,k,ev='change')=>$(id).addEventListener(ev,e=>{LF[k]=e.target.type==='checkbox'?e.target.checked:e.target.value;draw()});
  bind('#fq','q','input');bind('#ft','type');bind('#fs','status');bind('#fa','as');bind('#fv','via');bind('#fr','range');bind('#fm','mine');
  $$('th[data-s]').forEach(th=>th.onclick=()=>{LF.dir=LF.sort===th.dataset.s?-LF.dir:-1;LF.sort=th.dataset.s;draw()});
@@ -372,7 +809,7 @@ function filtered(){const q=LF.q.toLowerCase(),t0=today0();
  return r.sort((a,b)=>{const x=key(a),y=key(b);return (x>y?1:x<y?-1:0)*LF.dir})}
 function fuCell(l){if(!l._fu)return'<span class="sm">-</span>';const t0=today0(),cls=l._fu<t0?'overdue':l._fu<new Date(+t0+864e5)?'today':'';return `<span class="${cls}">${fmtD(l._fu)}</span>`}
 function draw(){const r=filtered();$('#fcount').textContent=r.length+' টি';
- $('#lt').innerHTML=r.length?r.map(l=>`<tr data-lead="${l._tab}:${l._row}"><td><b>${esc(l._id)}</b></td><td><div class="nm">${esc(l._name)}</div></td><td><span class="tag ${l._tab}">${TYPES[l._tab]}</span></td><td>${esc(l._country)}</td><td>${esc(l._phone)}</td><td>${esc(l._course)}</td><td>${l._via==='WhatsApp'?'<span class="tag wa">WhatsApp</span>':'<span class="tag">Website</span>'}</td><td><span class="pill" style="color:${SCOL[l._status]||'#666'}">${esc(l._status)}</span></td><td>${esc(l['Assigned to']||'—')}</td><td>${fuCell(l)}</td><td><span class="sm">${fmt(l._ts)}</span></td></tr>`).join(''):`<tr><td colspan="11" style="text-align:center;padding:30px;color:var(--muted)">কোনো আবেদন পাওয়া যায়নি</td></tr>`}
+ $('#lt').innerHTML=r.length?r.map(l=>`<tr data-lead="${l._tab}:${l._row}"><td><b>${esc(l._id)}</b></td><td><div class="nm">${esc(l._name)}</div></td><td><span class="tag ${l._tab}">${TYPES[l._tab]}</span></td><td>${esc(l._country)}</td><td>${esc(l._phone)}</td><td>${esc(l._course)}</td><td>${l._via==='WhatsApp'?'<span class="tag wa">WhatsApp</span>':'<span class="tag">Website</span>'}</td><td><span class="pill" style="color:${SCOL[l._status]||'#666'}">${esc(l._status)}</span></td><td>${esc(l['Assigned to']||'—')}</td>${isSA()?`<td>${fuCell(l)}</td>`:''}<td><span class="sm">${fmt(l._ts)}</span></td></tr>`).join(''):`<tr><td colspan="12" style="text-align:center;padding:30px;color:var(--muted)">কোনো আবেদন পাওয়া যায়নি</td></tr>`}
 function csv(rows){const keys=[...new Set(rows.flatMap(r=>Object.keys(r).filter(k=>!k.startsWith('_'))))];
  const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"';const s='﻿'+[['Type',...keys].map(q).join(','),...rows.map(r=>[TYPES[r._tab],...keys.map(k=>r[k])].map(q).join(','))].join('\n');
  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'text/csv'}));a.download='qurani-life-leads-'+dayKey(new Date())+'.csv';a.click()}
@@ -387,14 +824,14 @@ function openLead(l){if(!l)return;DR=l;const team=(D.team||[]).filter(u=>u.Activ
   <div class="sect"><h4>অবস্থা ও দায়িত্ব</h4><div class="f2">
    <label class="fld"><span>অবস্থা</span><select id="lst">${STATUSES.map(s=>`<option ${s===l._status?'selected':''}>${s}</option>`).join('')}</select></label>
    <label class="fld"><span>দায়িত্বে</span><select id="las"><option value="">কেউ না</option>${team.map(u=>`<option ${u.Name===l['Assigned to']?'selected':''}>${esc(u.Name)}</option>`).join('')}</select></label>
-   <label class="fld"><span>Follow-up তারিখ</span><input type="date" id="lfu" value="${fu}"></label>
+   ${isSA()?`<label class="fld"><span>Follow-up তারিখ</span><input type="date" id="lfu" value="${fu}"></label>`:''}
    <div class="fld" style="display:flex;align-items:end"><button class="btn" id="lsave" type="button" style="width:100%">সেভ করুন</button></div></div></div>
   <div class="sect"><h4>নোট ও যোগাযোগের ইতিহাস (${notes.length})</h4><div style="display:flex;gap:8px;margin-bottom:12px"><input id="lnote" placeholder="যেমন: কল করেছি, শনিবার ট্রায়াল ঠিক হয়েছে"><button class="btn sm" id="laddn" type="button">যোগ</button></div>
    <div class="tl">${notes.map(n=>`<div class="it">${esc(n.Note)}<small>${esc(n.By)} · ${fmt(parseTs(n.Time))}</small></div>`).join('')||'<div class="sm" style="color:var(--muted)">এখনো কোনো নোট নেই</div>'}</div></div>
   <div class="sect"><h4>ফর্মের সব তথ্য</h4><dl class="kv"><dt>উৎস</dt><dd>${l._via==='WhatsApp'?'WhatsApp দিয়ে পাঠানো':'ওয়েবসাইট ফর্ম'}</dd>${kv}</dl></div>
  </div>`);
- $('#lsave').onclick=async e=>{e.target.disabled=true;const r=await api('leadUpdate',{tab:l._tab,row:l._row,Status:$('#lst').value,'Assigned to':$('#las').value,'Follow-up':$('#lfu').value});e.target.disabled=false;
-  if(r.ok){Object.assign(l,{Status:$('#lst').value,'Assigned to':$('#las').value,'Follow-up':$('#lfu').value,_status:$('#lst').value,_fu:$('#lfu').value?parseTs($('#lfu').value):null});const o=D[l._tab].find(x=>x._row===l._row);if(o)Object.assign(o,{Status:l.Status,'Assigned to':l['Assigned to'],'Follow-up':l['Follow-up']});toast('সেভ হয়েছে');rerender()}else toast(em(r.error),1)};
+ $('#lsave').onclick=async e=>{e.target.disabled=true;const fuv=$('#lfu')?$('#lfu').value:(l['Follow-up']||'');const pl={tab:l._tab,row:l._row,Status:$('#lst').value,'Assigned to':$('#las').value};if($('#lfu'))pl['Follow-up']=fuv;const r=await api('leadUpdate',pl);e.target.disabled=false;
+  if(r.ok){Object.assign(l,{Status:$('#lst').value,'Assigned to':$('#las').value,'Follow-up':fuv,_status:$('#lst').value,_fu:fuv?parseTs(fuv):null});const o=D[l._tab].find(x=>x._row===l._row);if(o)Object.assign(o,{Status:l.Status,'Assigned to':l['Assigned to'],'Follow-up':l['Follow-up']});toast('সেভ হয়েছে');rerender()}else toast(em(r.error),1)};
  $('#laddn').onclick=async e=>{const t=$('#lnote').value.trim();if(!t)return;e.target.disabled=true;const r=await api('leadNote',{tab:l._tab,row:l._row,note:t});e.target.disabled=false;
   if(r.ok){(D.notes=D.notes||[]).push({Time:new Date().toISOString(),Lead:l._tab+':'+l._row,Note:t,By:USER.name});openLead(l)}else toast(em(r.error),1)};
  const ts=$('#toStu');if(ts)ts.onclick=()=>convertModal(l);
@@ -403,8 +840,8 @@ function openLead(l){if(!l)return;DR=l;const team=(D.team||[]).filter(u=>u.Activ
 function rerender(){navHtml();if(PAGE==='leads')draw();else if(PAGE==='pipeline')pipeline();else if(PAGE==='followups')followups();else if(PAGE==='overview')overview()}
 
 /* ---------- convert / student forms ---------- */
-const teachers=()=>(D.team||[]).filter(u=>u.Active!=='NO').map(u=>u.Name);
-function stuForm(s={}){return `<div class="f2">
+const teachers=()=>(D.team||[]).filter(u=>u.Active!=='NO'&&u.Role==='teacher');
+function stuForm(s={}){const ds=String(s['Class days']||'').split(',');return `<div class="f2">
  <label class="fld"><span>শিক্ষার্থীর নাম *</span><input name="Name" required value="${esc(s.Name)}"></label>
  <label class="fld"><span>অভিভাবক</span><input name="Guardian" value="${esc(s.Guardian)}"></label>
  <label class="fld"><span>WhatsApp</span><input name="WhatsApp" value="${esc(s.WhatsApp)}" placeholder="+8801..."></label>
@@ -413,17 +850,28 @@ function stuForm(s={}){return `<div class="f2">
  <label class="fld"><span>বয়স</span><input name="Age" value="${esc(s.Age)}"></label>
  <label class="fld"><span>লিঙ্গ</span><select name="Gender"><option value="">-</option>${['Male','Female'].map(g=>`<option ${s.Gender===g?'selected':''}>${g}</option>`).join('')}</select></label>
  <label class="fld"><span>কোর্স</span><input name="Course" value="${esc(s.Course)}"></label>
- <label class="fld"><span>শিক্ষক</span><input name="Teacher" list="tlist" value="${esc(s.Teacher)}"><datalist id="tlist">${teachers().map(t=>`<option>${esc(t)}</option>`).join('')}</datalist></label>
- <label class="fld"><span>ক্লাসের সময়</span><input name="Class time" value="${esc(s['Class time'])}" placeholder="যেমন: শনি-বৃহঃ, রাত ৮টা"></label>
- ${s.ID?`<label class="fld"><span>অবস্থা</span><select name="Status">${SST.map(x=>`<option value="${x}" ${(s.Status||'Active')===x?'selected':''}>${SSTB[x]}</option>`).join('')}</select></label>`:''}
- <label class="fld full"><span>ভেতরের নোট (শিক্ষার্থী দেখবে না)</span><textarea name="Notes" rows="2">${esc(s.Notes)}</textarea></label></div>`}
+ <label class="fld"><span>ক্লাসের ধরন</span><select name="Class type" id="sfct"><option value="One-to-one">One-to-one (একক)</option><option value="Batch" ${s['Class type']==='Batch'?'selected':''}>ব্যাচ (গ্রুপ)</option></select></label>
+ <label class="fld" id="sfbw"><span>ব্যাচ</span><select name="Batch ID"><option value="">ব্যাচ বেছে নিন</option>${(D.batches||[]).map(b=>`<option value="${esc(b.ID)}" ${s['Batch ID']===b.ID?'selected':''}>${esc(b.Name)} (${esc(b.ID)})</option>`).join('')}</select></label>
+ <div class="fld full" id="sfbn" style="display:none;margin-top:-6px"><small style="color:var(--muted)">ব্যাচে দিলে শিক্ষক আর ক্লাসের সময় ব্যাচ থেকে নিজে থেকে বসে যাবে।</small></div>
+ <label class="fld full sf1"><span>শিক্ষক (Teacher অ্যাকাউন্ট)</span><select name="Teacher ID"><option value="">এখনো ঠিক হয়নি</option>${teachers().map(t=>`<option value="${esc(t.ID)}" ${s['Teacher ID']===t.ID?'selected':''}>${esc(t.Name)}</option>`).join('')}</select>${teachers().length?'':'<small style="color:var(--muted)">আগে "টিম ও অ্যাকাউন্ট" থেকে Teacher অ্যাকাউন্ট খুলুন।</small>'}</label>
+ <div class="fld full sf1"><span>ক্লাসের দিন</span><div class="chk">${DAYS.map(d=>`<label><input type="checkbox" name="cd" value="${d[0]}" ${ds.includes(d[0])?'checked':''}> ${d[1]}</label>`).join('')}</div></div>
+ <label class="fld sf1"><span>ক্লাস শুরুর সময় (বাংলাদেশ সময়)</span><input type="time" name="Class start" value="${esc(s['Class start'])}"></label>
+ <label class="fld sf1"><span>ক্লাসের দৈর্ঘ্য</span><select name="Duration">${[20,30,40,45,60,90].map(m=>`<option value="${m}" ${String(s.Duration||30)==String(m)?'selected':''}>${m} মিনিট</option>`).join('')}</select></label>
+ ${s.ID?`<label class="fld"><span>অবস্থা</span><select name="Status">${SST.map(x=>`<option value="${x}" ${(s.Status||'Active')===x?'selected':''}>${SSTB[x]}</option>`).join('')}</select></label>`:`<label class="fld"><span>পাসওয়ার্ড (খালি রাখলে নিজে থেকে তৈরি হবে)</span><input name="Password" minlength="6" placeholder="কমপক্ষে ৬ অক্ষর"></label>`}
+ <label class="fld full"><span>ভেতরের নোট (শিক্ষার্থী বা শিক্ষক দেখবে না)</span><textarea name="Notes" rows="2">${esc(s.Notes)}</textarea></label></div>`}
+function stuToggle(){const c=$('#sfct');if(!c)return;const b=c.value==='Batch';$$('.sf1').forEach(x=>x.style.display=b?'none':'');$('#sfbw').style.display=b?'':'none';$('#sfbn').style.display=b?'':'none'}
+document.addEventListener('change',e=>{if(e.target.id==='sfct')stuToggle()});
+new MutationObserver(()=>{if($('#sfct')&&!$('#sfct').dataset.t){$('#sfct').dataset.t=1;stuToggle()}}).observe(document.body,{childList:true,subtree:true});
+function stuObj(el){const fd=new FormData(el);const f=Object.fromEntries(fd);f['Class days']=fd.getAll('cd').join(',');delete f.cd;if(f['Class type']==='Batch'){const b=(D.batches||[]).find(x=>x.ID===f['Batch ID']);if(b){f['Class days']=b['Class days'];f['Class start']=b['Class start'];f.Duration=b.Duration;f['Teacher ID']=b['Teacher ID']}}else f['Batch ID']='';f['Class time']=schedText(f);return f}
 const formObj=el=>Object.fromEntries(new FormData(el));
-function credBox(id,pw,s){const msg=`আসসালামু আলাইকুম।\nQurani Life Online Academy-তে ${s.Name||''}-এর স্টুডেন্ট অ্যাকাউন্ট তৈরি হয়েছে।\n\nলগইন: ${SITE}student.html\nStudent ID: ${id}\nপাসওয়ার্ড: ${pw}\n\nপ্রথমবার ঢুকে পাসওয়ার্ড বদলে নিন। এখানে আপনি পড়াশোনার স্টেজ ও অগ্রগতি দেখতে পারবেন।`;
- const d=digits(s.WhatsApp);return `<div class="cred">Student ID: <b>${esc(id)}</b><br>পাসওয়ার্ড: <b>${esc(pw)}</b></div><p class="sm" style="color:var(--muted)">এই পাসওয়ার্ড আর দেখানো হবে না। এখনই শিক্ষার্থীকে পাঠিয়ে দিন।</p>
- <div style="display:flex;gap:8px;flex-wrap:wrap">${d?`<a class="btn wa" target="_blank" href="https://wa.me/${d}?text=${encodeURIComponent(msg)}">WhatsApp-এ পাঠান</a>`:''}<button class="btn ghost" type="button" onclick="navigator.clipboard.writeText(${esc(JSON.stringify(msg))}).then(()=>toast('কপি হয়েছে'))">কপি করুন</button><button class="btn ghost" data-close type="button">বন্ধ</button></div>`}
-function convertModal(l){const s={Name:l._name,WhatsApp:l._phone,Country:l._country,Course:l._course,Guardian:pick(l,['guardian','father','parent']),Email:pick(l,['email']),Age:pick(l,['age']),Gender:pick(l,['gender']),'Class time':pick(l,['preferred time','preferred slot'])};
+function credMsg(id,pw,s){return `আসসালামু আলাইকুম।\nQurani Life Online Academy-তে ${s.Name||''}-এর স্টুডেন্ট অ্যাকাউন্ট।\n\nলগইন: ${SITE}student.html\nStudent ID: ${id}\nপাসওয়ার্ড: ${pw}\n\nএখানে পড়াশোনার স্টেজ, অগ্রগতি ও পরের ক্লাসের সময় দেখতে পারবেন।\nযেকোনো প্রয়োজনে: WhatsApp +880 1889-012156`}
+function credBtns(id,pw,s){const msg=credMsg(id,pw,s),d=digits(s.WhatsApp);window._cm=msg;return `<div style="display:flex;gap:8px;flex-wrap:wrap">${d?`<a class="btn wa sm" target="_blank" href="https://wa.me/${d}?text=${encodeURIComponent(msg)}">WhatsApp-এ পাঠান</a>`:''}<button class="btn ghost sm" type="button" onclick="navigator.clipboard.writeText(window._cm).then(()=>toast('কপি হয়েছে'))">কপি করুন</button></div>`}
+function credBox(id,pw,s){return `<div class="cred">Student ID: <b>${esc(id)}</b><br>পাসওয়ার্ড: <b>${esc(pw)}</b></div><p class="sm" style="color:var(--muted)">শিক্ষার্থীর প্রোফাইলে (শুধু Super Admin) এই তথ্য সবসময় দেখা যাবে।</p>${credBtns(id,pw,s)}<div style="margin-top:10px"><button class="btn ghost sm" data-close type="button">বন্ধ</button></div>`}
+function passModal(name,cb){openModal(`<h3>🔑 ${esc(name)}-এর নতুন পাসওয়ার্ড</h3><form id="pmf"><label class="fld"><span>নতুন পাসওয়ার্ড (খালি রাখলে নিজে থেকে তৈরি হবে)</span><input name="np" minlength="6" placeholder="কমপক্ষে ৬ অক্ষর"></label><p class="sm" style="color:var(--muted)">পুরনো পাসওয়ার্ড আর কাজ করবে না।</p><div style="display:flex;gap:8px"><button class="btn">সেট করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
+ $('#pmf').onsubmit=e=>{e.preventDefault();cb(e.target.np.value.trim())}}
+function convertModal(l){const s={Name:l._name,WhatsApp:l._phone,Country:l._country,Course:l._course,Guardian:pick(l,['guardian','father','parent']),Email:pick(l,['email']),Age:pick(l,['age']),Gender:pick(l,['gender']),Notes:[pick(l,['preferred time','preferred slot'])].filter(Boolean).map(x=>'পছন্দের সময়: '+x).join('')};
  openModal(`<h3>🎓 শিক্ষার্থী অ্যাকাউন্ট তৈরি</h3><form id="cf">${stuForm(s)}<p class="err" id="cerr"></p><div style="display:flex;gap:8px"><button class="btn">অ্যাকাউন্ট তৈরি করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
- $('#cf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;const f=formObj(e.target);const r=await api('convert',{tab:l._tab,row:l._row,fields:f});b.disabled=false;
+ $('#cf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;const f=stuObj(e.target);const r=await api('convert',{tab:l._tab,row:l._row,fields:f});b.disabled=false;
   if(r.ok){$('#modal').innerHTML=`<h3>✅ অ্যাকাউন্ট তৈরি হয়েছে</h3>${credBox(r.id,r.password,f)}`;load()}else $('#cerr').textContent=em(r.error)}}
 
 /* ---------- PIPELINE ---------- */
@@ -448,21 +896,22 @@ function students(){const stg=D.stages||[];
   <select id="sg"><option value="">সব স্টেজ</option>${stg.map((s,i)=>`<option value="${i+1}" ${SF.stage==String(i+1)?'selected':''}>${i+1}. ${esc(s.bn)}</option>`).join('')}</select>
   <select id="stc"><option value="">সব শিক্ষক</option>${[...new Set((D.students||[]).map(s=>s.Teacher).filter(Boolean))].map(t=>`<option ${SF.teacher===t?'selected':''}>${esc(t)}</option>`).join('')}</select>
   <span style="flex:1"></span><span class="sm" id="scount" style="color:var(--muted)"></span><button class="btn ghost sm" id="scsv" type="button">⬇ CSV</button><button class="btn gold sm" id="sadd" type="button">+ নতুন শিক্ষার্থী</button></div>
-  <div class="tw"><table><thead><tr><th>ID</th><th>নাম</th><th>কোর্স</th><th>শিক্ষক</th><th>বর্তমান স্টেজ</th><th>স্টেজের অগ্রগতি</th><th>পুরো পথ</th><th>অবস্থা</th><th>সর্বশেষ লগইন</th></tr></thead><tbody id="stb"></tbody></table></div>`;
+  <div class="tw"><table><thead><tr><th>ID</th><th>নাম</th>${isSA()?'<th>পাসওয়ার্ড</th>':''}<th>কোর্স</th><th>শিক্ষক</th><th>ক্লাস</th><th>বর্তমান স্টেজ</th><th>স্টেজের অগ্রগতি</th><th>পুরো পথ</th><th>অবস্থা</th><th>সর্বশেষ লগইন</th></tr></thead><tbody id="stb"></tbody></table></div>`;
  const f=()=>{const q=SF.q.toLowerCase();return (D.students||[]).filter(s=>(!SF.st||(s.Status||'Active')===SF.st)&&(!SF.stage||String(s.Stage||1)===SF.stage)&&(!SF.teacher||s.Teacher===SF.teacher)&&(!q||Object.values(s).join(' ').toLowerCase().includes(q))).slice().reverse()};
- const dr=()=>{const a=f();$('#scount').textContent=a.length+' জন';$('#stb').innerHTML=a.length?a.map(s=>{const st=+s.Stage||1,p=+s['Stage progress']||0;return `<tr data-stu="${esc(s.ID)}"><td><b>${esc(s.ID)}</b></td><td><div class="nm">${esc(s.Name)}</div><div class="sm">${esc(s.Country||'')}</div></td><td>${esc(s.Course)}</td><td>${esc(s.Teacher||'—')}</td><td><div class="mini">${stg.map((x,i)=>`<i class="${i+1<st?'d':i+1===st?'c':''}" title="${esc(x.bn)}"></i>`).join('')}</div><div class="sm" style="margin-top:3px">${st}. ${esc(stageName(st))}</div></td><td><div class="bar"><i style="width:${p}%"></i></div><div class="sm">${p}%${s['Current lesson']?' · '+esc(s['Current lesson']):''}</div></td><td><b>${stuOverall(s)}%</b></td><td><span class="pill" style="color:${{Active:'#00703A',Paused:'#D97706',Completed:'#2563EB',Left:'#9CA3AF'}[s.Status||'Active']}">${SSTB[s.Status||'Active']}</span></td><td><span class="sm">${s['Last login']?ago(parseTs(s['Last login'])):'কখনো না'}</span></td></tr>`}).join(''):`<tr><td colspan="9" style="text-align:center;padding:30px;color:var(--muted)">কোনো শিক্ষার্থী নেই। লিড থেকে "শিক্ষার্থী বানান" বা "+ নতুন শিক্ষার্থী" দিয়ে যোগ করুন।</td></tr>`};
+ const dr=()=>{const a=f();$('#scount').textContent=a.length+' জন';$('#stb').innerHTML=a.length?a.map(s=>{const st=+s.Stage||1,p=+s['Stage progress']||0;return `<tr data-stu="${esc(s.ID)}"><td><b>${esc(s.ID)}</b></td><td><div class="nm">${esc(s.Name)}</div><div class="sm">${s['Class type']==='Batch'?`<span class="tag" style="background:#FFF4CC;color:#7A5B00">ব্যাচ ${esc(s['Batch ID'])}</span> `:''}${esc(s.Country||'')}</div></td>${isSA()?`<td><code>${esc(s.Password||'—')}</code></td>`:''}<td>${esc(s.Course)}</td><td>${esc(s.Teacher||'—')}</td><td><span class="sm">${esc(schedText(s)||'—')}</span></td><td><div class="mini">${stg.map((x,i)=>`<i class="${i+1<st?'d':i+1===st?'c':''}" title="${esc(x.bn)}"></i>`).join('')}</div><div class="sm" style="margin-top:3px">${st}. ${esc(stageName(st))}</div></td><td><div class="bar"><i style="width:${p}%"></i></div><div class="sm">${p}%${s['Current lesson']?' · '+esc(s['Current lesson']):''}</div></td><td><b>${stuOverall(s)}%</b></td><td><span class="pill" style="color:${{Active:'#00703A',Paused:'#D97706',Completed:'#2563EB',Left:'#9CA3AF'}[s.Status||'Active']}">${SSTB[s.Status||'Active']}</span></td><td><span class="sm">${s['Last login']?ago(parseTs(s['Last login'])):'কখনো না'}</span></td></tr>`}).join(''):`<tr><td colspan="11" style="text-align:center;padding:30px;color:var(--muted)">কোনো শিক্ষার্থী নেই। লিড থেকে "শিক্ষার্থী বানান" বা "+ নতুন শিক্ষার্থী" দিয়ে যোগ করুন।</td></tr>`};
  [['#sq','q','input'],['#ss','st','change'],['#sg','stage','change'],['#stc','teacher','change']].forEach(([id,k,ev])=>$(id).addEventListener(ev,e=>{SF[k]=e.target.value;dr()}));
  $('#scsv').onclick=()=>{const rows=f();const keys=Object.keys(rows[0]||{}).filter(k=>!k.startsWith('_'));const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"';const s='﻿'+[keys.map(q).join(','),...rows.map(r=>keys.map(k=>r[k]).map(q).join(','))].join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'text/csv'}));a.download='qurani-life-students.csv';a.click()};
  $('#sadd').onclick=()=>{openModal(`<h3>নতুন শিক্ষার্থী</h3><form id="naf">${stuForm()}<p class="err" id="naerr"></p><div style="display:flex;gap:8px"><button class="btn">তৈরি করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
-  $('#naf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;const fo=formObj(e.target);const r=await api('studentSave',{fields:fo});b.disabled=false;if(r.ok){$('#modal').innerHTML=`<h3>✅ শিক্ষার্থী যোগ হয়েছে</h3>${credBox(r.id,r.password,fo)}`;load()}else $('#naerr').textContent=em(r.error)}};
+  $('#naf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;const fo=stuObj(e.target);const r=await api('studentSave',{fields:fo});b.disabled=false;if(r.ok){$('#modal').innerHTML=`<h3>✅ শিক্ষার্থী যোগ হয়েছে</h3>${credBox(r.id,r.password,fo)}`;load()}else $('#naerr').textContent=em(r.error)}};
  dr()}
-document.addEventListener('click',e=>{const r=e.target.closest('[data-stu]');if(r)openStudent(r.dataset.stu)});
+document.addEventListener('click',e=>{const r=e.target.closest('[data-stu]');if(r&&!isT())openStudent(r.dataset.stu)});
 function stepper(st,p){return `<div class="stepper">${(D.stages||[]).map((s,i)=>{const n=i+1,c=n<st?'d':n===st?'c':'';return `<div class="st ${c}"><i>${n<st?'✓':n}</i><span>${esc(s.bn)}</span><small>${n<st?'সম্পন্ন':n===st?p+'%':'সামনে'}</small></div>`}).join('')}</div>`}
 function openStudent(id){const s=(D.students||[]).find(x=>x.ID===id);if(!s)return;const st=+s.Stage||1,p=+s['Stage progress']||0;
  const hist=(D.progress||[]).filter(x=>x['Student ID']===id).reverse();const d=digits(s.WhatsApp);
  openDrawer(`<div class="dh"><div><span class="tag">${esc(s.ID)}</span> <span class="sm" style="color:var(--muted)">যোগ দিয়েছে ${fmtD(parseTs(s.Joined))}</span><h3>${esc(s.Name)}</h3><div class="sm" style="color:var(--muted)">${esc(s.Course||'')} ${s.Teacher?'· শিক্ষক: '+esc(s.Teacher):''}</div></div><button class="x" data-close>×</button></div>
  <div class="db">
   <div class="sect" style="display:flex;gap:8px;flex-wrap:wrap">${d?`<a class="btn wa sm" target="_blank" href="https://wa.me/${d}">WhatsApp</a>`:''}<button class="btn ghost sm" id="srp" type="button">🔑 নতুন পাসওয়ার্ড</button>${isSA()?'<button class="btn red sm" id="sdel" type="button">মুছুন</button>':''}</div>
+  ${isSA()?`<div class="sect"><h4>লগইন তথ্য</h4><div class="cred" style="margin:0">লিংক: ${esc(SITE)}student.html<br>Student ID: <b>${esc(s.ID)}</b><br>পাসওয়ার্ড: <b>${esc(s.Password||'জানা নেই, নতুন পাসওয়ার্ড দিন')}</b></div>${s.Password?`<div style="margin-top:8px">${credBtns(s.ID,s.Password,s)}</div>`:''}</div>`:''}
   <div class="sect card" style="box-shadow:none"><h4>শেখার পথ · মোট ${stuOverall(s)}%</h4>${stepper(st,p)}<div class="bar" style="margin-top:8px"><i style="width:${stuOverall(s)}%"></i></div></div>
   <div class="sect"><h4>অগ্রগতি আপডেট করুন</h4><form id="pf" class="f2">
    <label class="fld"><span>স্টেজ</span><select name="stage">${(D.stages||[]).map((x,i)=>`<option value="${i+1}" ${i+1===st?'selected':''}>${i+1}. ${esc(x.bn)}</option>`).join('')}</select></label>
@@ -476,8 +925,8 @@ function openStudent(id){const s=(D.students||[]).find(x=>x.ID===id);if(!s)retur
  const pf=$('#pf');pf.pct.oninput=e=>$('#pv').textContent=e.target.value+'%';
  pf.onsubmit=async e=>{e.preventDefault();const b=pf.querySelector('.btn');b.disabled=true;const f=formObj(pf);const r=await api('studentProgress',{id,...f});b.disabled=false;
   if(r.ok){Object.assign(s,{Stage:f.stage,'Stage progress':f.pct,'Current lesson':f.lesson});(D.progress=D.progress||[]).push({Time:new Date().toISOString(),'Student ID':id,Stage:f.stage,'Stage progress':f.pct,Lesson:f.lesson,Note:f.note,By:USER.name});toast('অগ্রগতি সেভ হয়েছে');openStudent(id);if(PAGE==='students')students()}else toast(em(r.error),1)};
- $('#ef').onsubmit=async e=>{e.preventDefault();const f=formObj(e.target);const r=await api('studentSave',{id,fields:f});if(r.ok){Object.assign(s,f);toast('প্রোফাইল সেভ হয়েছে');if(PAGE==='students')students()}else toast(em(r.error),1)};
- $('#srp').onclick=async()=>{if(!confirm('নতুন পাসওয়ার্ড তৈরি হবে, পুরনোটা আর কাজ করবে না। করবেন?'))return;const r=await api('studentResetPass',{id});if(r.ok)openModal(`<h3>🔑 নতুন পাসওয়ার্ড</h3>${credBox(id,r.password,s)}`);else toast(em(r.error),1)};
+ $('#ef').onsubmit=async e=>{e.preventDefault();const f=stuObj(e.target);const r=await api('studentSave',{id,fields:f});if(r.ok){Object.assign(s,f);s.Teacher=(teachers().find(t=>t.ID===f['Teacher ID'])||{}).Name||'';toast('প্রোফাইল সেভ হয়েছে');if(PAGE==='students')students()}else toast(em(r.error),1)};
+ $('#srp').onclick=()=>passModal(s.Name,async np=>{const r=await api('studentResetPass',{id,newPass:np});if(r.ok){s.Password=r.password;openModal(`<h3>🔑 নতুন পাসওয়ার্ড</h3>${credBox(id,r.password,s)}`);if(PAGE==='students')students()}else toast(em(r.error),1)});
  const sd=$('#sdel');if(sd)sd.onclick=async()=>{if(!confirm(s.Name+'-এর অ্যাকাউন্ট মুছে যাবে, ফেরত আসবে না। মুছবেন?'))return;const r=await api('studentDelete',{id});if(r.ok){toast('মুছে ফেলা হয়েছে');closeAll();load()}else toast(em(r.error),1)};
 }
 
@@ -511,26 +960,166 @@ function content(){const c=D.content||{},keys=Object.keys(c);
 
 /* ---------- TEAM ---------- */
 function team(){const t=D.team||[];
- $('#view').innerHTML=`<div class="tools"><span class="sm" style="color:var(--muted)">Super admin সব কিছু করতে পারে। Employee শুধু যে বিভাগের অনুমতি পাবে, সেটুকু দেখবে।</span><span style="flex:1"></span><button class="btn gold sm" id="uadd" type="button">+ নতুন অ্যাকাউন্ট</button></div>
- <div class="tw"><table><thead><tr><th>নাম</th><th>Username</th><th>ভূমিকা</th><th>অনুমতি</th><th>ফোন</th><th>অবস্থা</th><th>সর্বশেষ লগইন</th><th></th></tr></thead><tbody>${t.map(u=>`<tr><td><b>${esc(u.Name)}</b><div class="sm">${esc(u.ID)}</div></td><td>${esc(u.Username)}</td><td><span class="pill" style="color:${u.Role==='superadmin'?'#B45309':'#2563EB'}">${ROLE[u.Role]||u.Role}</span></td><td><span class="sm">${u.Role==='superadmin'?'সব':String(u.Permissions||'').split(',').filter(Boolean).map(p=>PERMN[p]||p).join(', ')||'—'}</span></td><td>${esc(u.Phone)}</td><td>${u.Active==='NO'?'<span class="overdue">বন্ধ</span>':'চালু'}</td><td><span class="sm">${u['Last login']?ago(parseTs(u['Last login'])):'কখনো না'}</span></td><td><button class="btn ghost sm" data-uedit="${esc(u.ID)}">এডিট</button> <button class="btn ghost sm" data-upw="${esc(u.ID)}">পাসওয়ার্ড রিসেট</button></td></tr>`).join('')}</tbody></table></div>`;
+ $('#view').innerHTML=`<div class="tools"><span class="sm" style="color:var(--muted)">Super admin সব করতে পারে। Employee শুধু অনুমতি পাওয়া বিভাগ দেখে। Teacher শুধু নিজের শিক্ষার্থী আর ক্লাস দেখে, কারো যোগাযোগের তথ্য দেখে না।</span><span style="flex:1"></span><button class="btn gold sm" id="uadd" type="button">+ নতুন অ্যাকাউন্ট</button></div>
+ <div class="tw"><table><thead><tr><th>নাম</th><th>Username</th><th>পাসওয়ার্ড</th><th>ভূমিকা</th><th>অনুমতি</th><th>শিক্ষার্থী</th><th>অবস্থা</th><th>সর্বশেষ লগইন</th><th></th></tr></thead><tbody>${t.map(u=>`<tr style="cursor:default"><td><b>${esc(u.Name)}</b><div class="sm">${esc(u.ID)}${u.Phone?' · '+esc(u.Phone):''}</div></td><td><code>${esc(u.Username)}</code></td><td><code>${esc(u.Password||'—')}</code></td><td><span class="pill" style="color:${{superadmin:'#B45309',teacher:'#0D9488'}[u.Role]||'#2563EB'}">${ROLE[u.Role]||u.Role}</span></td><td><span class="sm">${u.Role==='superadmin'?'সব':u.Role==='teacher'?'নিজের শিক্ষার্থী ও ক্লাস':String(u.Permissions||'').split(',').filter(Boolean).map(p=>PERMN[p]||p).join(', ')||'—'}</span></td><td>${u.Role==='teacher'?(D.students||[]).filter(x=>x['Teacher ID']===u.ID).length:''}</td><td>${u.Active==='NO'?'<span class="overdue">বন্ধ</span>':'চালু'}</td><td><span class="sm">${u['Last login']?ago(parseTs(u['Last login'])):'কখনো না'}</span></td><td><button class="btn ghost sm" data-uedit="${esc(u.ID)}">এডিট</button> <button class="btn ghost sm" data-upw="${esc(u.ID)}">পাসওয়ার্ড</button></td></tr>`).join('')}</tbody></table></div>
+ <p class="sm" style="color:var(--muted)">পাসওয়ার্ড "—" দেখালে সেটা আগের সিস্টেমে তৈরি, তাই জানা নেই। "পাসওয়ার্ড" বাটন দিয়ে নতুন দিলে এখানে দেখা যাবে।</p>`;
  $('#uadd').onclick=()=>userModal()}
 function userModal(u){const P=String(u&&u.Permissions||'').split(',');
  openModal(`<h3>${u?'অ্যাকাউন্ট এডিট':'নতুন অ্যাকাউন্ট'}</h3><form id="umf"><div class="f2">
   <label class="fld"><span>নাম *</span><input name="Name" required value="${esc(u&&u.Name)}"></label>
   <label class="fld"><span>Username *</span><input name="Username" required pattern="[a-z0-9._\\-]{3,30}" value="${esc(u&&u.Username)}" placeholder="যেমন: rahim"></label>
-  <label class="fld"><span>ভূমিকা</span><select name="Role"><option value="employee">Employee</option><option value="superadmin" ${u&&u.Role==='superadmin'?'selected':''}>Super Admin</option></select></label>
-  <label class="fld"><span>ফোন</span><input name="Phone" value="${esc(u&&u.Phone)}"></label>
-  ${u?`<label class="fld"><span>অবস্থা</span><select name="Active"><option value="YES">চালু</option><option value="NO" ${u.Active==='NO'?'selected':''}>বন্ধ (লগইন করতে পারবে না)</option></select></label>`:''}</div>
-  <div class="fld"><span style="font-size:12.5px;font-weight:600;color:var(--muted)">Employee কোন বিভাগ দেখতে পারবে</span><div class="chk">${Object.entries(PERMN).map(([k,v])=>`<label><input type="checkbox" name="perm" value="${k}" ${!u||P.includes(k)?(u||k==='leads'||k==='students'?'checked':''):''}> ${v}</label>`).join('')}</div></div>
+  <label class="fld"><span>ভূমিকা</span><select name="Role" id="urole"><option value="employee">Employee</option><option value="teacher" ${u&&u.Role==='teacher'?'selected':''}>Teacher</option><option value="superadmin" ${u&&u.Role==='superadmin'?'selected':''}>Super Admin</option></select></label>
+  <label class="fld"><span>ফোন (শুধু অ্যাডমিন দেখবে)</span><input name="Phone" value="${esc(u&&u.Phone)}"></label>
+  ${u?`<label class="fld"><span>অবস্থা</span><select name="Active"><option value="YES">চালু</option><option value="NO" ${u.Active==='NO'?'selected':''}>বন্ধ (লগইন করতে পারবে না)</option></select></label>`:`<label class="fld"><span>পাসওয়ার্ড (খালি রাখলে নিজে থেকে তৈরি হবে)</span><input name="Password" minlength="6"></label>`}</div>
+  <div class="fld" id="permbox"><span style="font-size:12.5px;font-weight:600;color:var(--muted)">Employee কোন বিভাগ দেখতে পারবে</span><div class="chk">${Object.entries(PERMN).map(([k,v])=>`<label><input type="checkbox" name="perm" value="${k}" ${u?(P.includes(k)?'checked':''):(k==='leads'||k==='students'?'checked':'')}> ${v}</label>`).join('')}</div></div>
   <p class="err" id="umerr"></p><div style="display:flex;gap:8px"><button class="btn">সেভ করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
+ const pb=()=>$('#permbox').hidden=$('#urole').value!=='employee';$('#urole').onchange=pb;pb();
  $('#umf').onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.target);const f=Object.fromEntries(fd);f.Permissions=fd.getAll('perm');delete f.perm;f.Username=f.Username.trim().toLowerCase();
   const r=await api('userSave',u?{id:u.ID,fields:f}:{fields:f});
   if(!r.ok){$('#umerr').textContent=em(r.error);return}
-  if(r.password)$('#modal').innerHTML=`<h3>✅ অ্যাকাউন্ট তৈরি হয়েছে</h3><div class="cred">লগইন: ${esc(SITE)}admin.html<br>Username: <b>${esc(f.Username)}</b><br>পাসওয়ার্ড: <b>${esc(r.password)}</b></div><p class="sm" style="color:var(--muted)">এই পাসওয়ার্ড আর দেখানো হবে না। কর্মীকে দিয়ে দিন, প্রথমবার ঢুকে সেটিংস থেকে বদলে নিতে বলুন।</p><button class="btn ghost" data-close type="button">বন্ধ</button>`;
+  if(r.password)$('#modal').innerHTML=`<h3>✅ অ্যাকাউন্ট তৈরি হয়েছে</h3><div class="cred">লগইন: ${esc(SITE)}admin.html<br>Username: <b>${esc(f.Username)}</b><br>পাসওয়ার্ড: <b>${esc(r.password)}</b></div><p class="sm" style="color:var(--muted)">"টিম ও অ্যাকাউন্ট" পেজে এই তথ্য সবসময় দেখা যাবে।</p><button class="btn ghost" data-close type="button">বন্ধ</button>`;
   else{toast('সেভ হয়েছে');closeAll()}load()}}
 document.addEventListener('click',async e=>{let b=e.target.closest('[data-uedit]');if(b)return userModal(D.team.find(u=>u.ID===b.dataset.uedit));
- b=e.target.closest('[data-upw]');if(b){if(!confirm('এই অ্যাকাউন্টের নতুন পাসওয়ার্ড তৈরি হবে। করবেন?'))return;const u=D.team.find(x=>x.ID===b.dataset.upw);const r=await api('userResetPass',{id:b.dataset.upw});
-  if(r.ok)openModal(`<h3>🔑 নতুন পাসওয়ার্ড</h3><div class="cred">Username: <b>${esc(u.Username)}</b><br>পাসওয়ার্ড: <b>${esc(r.password)}</b></div><button class="btn ghost" data-close type="button">বন্ধ</button>`);else toast(em(r.error),1)}});
+ b=e.target.closest('[data-upw]');if(b){const u=D.team.find(x=>x.ID===b.dataset.upw);passModal(u.Name,async np=>{const r=await api('userResetPass',{id:u.ID,newPass:np});
+  if(r.ok){openModal(`<h3>🔑 নতুন পাসওয়ার্ড</h3><div class="cred">Username: <b>${esc(u.Username)}</b><br>পাসওয়ার্ড: <b>${esc(r.password)}</b></div><button class="btn ghost" data-close type="button">বন্ধ</button>`);load()}else toast(em(r.error),1)})}});
+
+/* ---------- ACCOUNTS ---------- */
+const CATS={Income:['হাদিয়া / মাসিক ফি','ভর্তি ফি','দান','অন্যান্য আয়'],Expense:['শিক্ষকের সম্মানী','স্টাফ বেতন','বিজ্ঞাপন','সফটওয়্যার / ইন্টারনেট','অফিস খরচ','অন্যান্য ব্যয়']};
+const METHODS=['bKash','Nagad','Rocket','Bank','Cash','Western Union','Remitly','অন্যান্য'];
+let AF={q:'',type:'',cur:'',m:''};
+const money=(n,c)=>(c==='BDT'||!c?'৳':c+' ')+Number(n||0).toLocaleString('en-IN',{maximumFractionDigits:2});
+function accounts(){const T=(D.txns||[]).map(t=>({...t,_d:parseTs(t.Date),_a:+t.Amount||0}));
+ const curs=[...new Set(T.map(t=>t.Currency||'BDT'))];if(!curs.length)curs.push('BDT');if(!AF.cur)AF.cur=curs.includes('BDT')?'BDT':curs[0];
+ const C=T.filter(t=>(t.Currency||'BDT')===AF.cur),t0=today0(),ms=new Date(t0.getFullYear(),t0.getMonth(),1);
+ const sum=(a,ty)=>a.filter(t=>t.Type===ty).reduce((x,t)=>x+t._a,0);const thisM=C.filter(t=>t._d&&t._d>=ms);
+ const inc=sum(thisM,'Income'),exp=sum(thisM,'Expense'),bal=sum(C,'Income')-sum(C,'Expense');
+ const months=[];for(let i=5;i>=0;i--){const d=new Date(t0.getFullYear(),t0.getMonth()-i,1);months.push({k:d.getFullYear()+'-'+d.getMonth(),l:d.toLocaleDateString('en-GB',{month:'short'})})}
+ const mv=ty=>months.map(m=>C.filter(t=>t.Type===ty&&t._d&&(t._d.getFullYear()+'-'+t._d.getMonth())===m.k).reduce((x,t)=>x+t._a,0));
+ const cat={};C.filter(t=>t.Type==='Expense').forEach(t=>cat[t.Category||'অন্যান্য']=(cat[t.Category||'অন্যান্য']||0)+t._a);
+ const icat={};C.filter(t=>t.Type==='Income').forEach(t=>icat[t.Category||'অন্যান্য']=(icat[t.Category||'অন্যান্য']||0)+t._a);
+ const k=(lb,v,col,ic,sub)=>`<div class="card kpi"><div class="lb">${lb}</div><div class="v" style="font-size:24px">${v}</div><span class="d nt">${sub}</span><div class="ico" style="background:${col}1A;color:${col}"><svg><use href="#i-${ic}"/></svg></div></div>`;
+ $('#view').innerHTML=`<div class="tools"><span class="sm" style="color:var(--muted)">মুদ্রা:</span>${curs.map(c=>`<button class="btn ${c===AF.cur?'':'ghost'} sm" data-cur="${esc(c)}" type="button">${esc(c)}</button>`).join('')}<span style="flex:1"></span><button class="btn ghost sm" id="tcsv" type="button">⬇ CSV</button><button class="btn gold sm" id="tadd" type="button">+ লেনদেন যোগ</button></div>
+ <div class="grid k4" style="margin-bottom:16px">${k('এই মাসের আয়',money(inc,AF.cur),'#00703A','trend',thisM.filter(t=>t.Type==='Income').length+' টি লেনদেন')}${k('এই মাসের ব্যয়',money(exp,AF.cur),'#C2410C','wallet',thisM.filter(t=>t.Type==='Expense').length+' টি লেনদেন')}${k('এই মাসের লাভ',money(inc-exp,AF.cur),inc-exp>=0?'#2563EB':'#C2410C','act',inc?Math.round((inc-exp)/inc*100)+'% মার্জিন':'—')}${k('মোট ব্যালেন্স',money(bal,AF.cur),'#7C3AED','shield','শুরু থেকে আজ পর্যন্ত')}</div>
+ <div class="grid c2" style="margin-bottom:16px"><div class="card"><h3>গত ৬ মাস<small>${esc(AF.cur)}</small></h3>${groupBars(months,[{n:'আয়',c:'#00703A',v:mv('Income')},{n:'ব্যয়',c:'#E4572E',v:mv('Expense')}])}</div>
+ <div class="card"><h3>আয়ের খাত</h3>${hbars(Object.entries(icat).sort((a,b)=>b[1]-a[1]).map(([n,v])=>({n,v:Math.round(v)})),'#00703A')}<h3 style="margin-top:14px">ব্যয়ের খাত</h3>${hbars(Object.entries(cat).sort((a,b)=>b[1]-a[1]).map(([n,v])=>({n,v:Math.round(v)})),'#E4572E')}</div></div>
+ <div class="tools"><input class="q" id="tq" placeholder="খুঁজুন: নাম, নোট, Student ID..." value="${esc(AF.q)}"><select id="tt"><option value="">আয় ও ব্যয়</option><option value="Income" ${AF.type==='Income'?'selected':''}>শুধু আয়</option><option value="Expense" ${AF.type==='Expense'?'selected':''}>শুধু ব্যয়</option></select><select id="tm"><option value="">সব মাস</option>${months.slice().reverse().map(m=>`<option value="${m.k}" ${AF.m===m.k?'selected':''}>${m.l}</option>`).join('')}</select><span style="flex:1"></span><span class="sm" id="tcount" style="color:var(--muted)"></span></div>
+ <div class="tw"><table><thead><tr><th>তারিখ</th><th>ID</th><th>ধরন</th><th>খাত</th><th>পরিমাণ</th><th>মাধ্যম</th><th>কার কাছ থেকে / কাকে</th><th>Student</th><th>নোট</th><th>যোগ করেছেন</th></tr></thead><tbody id="ttb"></tbody></table></div>`;
+ const rows=()=>{const q=AF.q.toLowerCase();return C.filter(t=>(!AF.type||t.Type===AF.type)&&(!AF.m||(t._d&&(t._d.getFullYear()+'-'+t._d.getMonth())===AF.m))&&(!q||Object.values(t).join(' ').toLowerCase().includes(q))).sort((a,b)=>(b._d||0)-(a._d||0))};
+ const dr=()=>{const r=rows();$('#tcount').textContent=r.length+' টি · আয় '+money(sum(r,'Income'),AF.cur)+' · ব্যয় '+money(sum(r,'Expense'),AF.cur);
+  $('#ttb').innerHTML=r.map(t=>`<tr data-txn="${esc(t.ID)}"><td>${fmtD(t._d)}</td><td><span class="sm">${esc(t.ID)}</span></td><td><span class="pill" style="color:${t.Type==='Income'?'#00703A':'#E4572E'}">${t.Type==='Income'?'আয়':'ব্যয়'}</span></td><td>${esc(t.Category)}</td><td><b style="color:${t.Type==='Income'?'#00703A':'#C2410C'}">${t.Type==='Income'?'+':'−'}${money(t._a,t.Currency)}</b></td><td>${esc(t.Method)}</td><td>${esc(t.Party)}</td><td>${esc(t['Student ID'])}</td><td style="white-space:normal;max-width:260px">${esc(t.Note)}</td><td><span class="sm">${esc(t.By)}</span></td></tr>`).join('')||'<tr><td colspan="10" style="text-align:center;padding:30px;color:var(--muted)">কোনো লেনদেন নেই। "+ লেনদেন যোগ" দিয়ে শুরু করুন।</td></tr>'};
+ [['#tq','q','input'],['#tt','type','change'],['#tm','m','change']].forEach(([id,k2,ev])=>$(id).addEventListener(ev,e=>{AF[k2]=e.target.value;dr()}));
+ $$('[data-cur]').forEach(b=>b.onclick=()=>{AF.cur=b.dataset.cur;accounts()});
+ $('#tadd').onclick=()=>txnModal();$('#tcsv').onclick=()=>{const r=rows();const keys=['Date','ID','Type','Category','Amount','Currency','Method','Party','Student ID','Note','By'];const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"';const s2='﻿'+[keys.map(q).join(','),...r.map(t=>keys.map(x=>t[x]).map(q).join(','))].join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s2],{type:'text/csv'}));a.download='qurani-life-accounts.csv';a.click()};
+ dr()}
+function groupBars(cats,series){const W=640,H=210,P=56,gw=(W-P)/cats.length;let mx=1;series.forEach(s=>s.v.forEach(v=>mx=Math.max(mx,v)));let g='';
+ for(let k=0;k<=4;k++){const y=H-20-(H-30)*k/4;g+=`<line x1="${P}" x2="${W}" y1="${y}" y2="${y}" stroke="#EEF2EF"/><text x="${P-6}" y="${y+4}" font-size="10" text-anchor="end" fill="#8A968F">${Math.round(mx*k/4).toLocaleString('en-IN')}</text>`}
+ cats.forEach((c,i)=>{const bw=gw*.32;series.forEach((s,j)=>{const h=(H-30)*s.v[i]/mx;g+=`<rect x="${(P+i*gw+gw*.16+j*bw).toFixed(1)}" y="${(H-20-h).toFixed(1)}" width="${(bw-3).toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${s.c}"><title>${c.l} ${s.n}: ${s.v[i].toLocaleString('en-IN')}</title></rect>`});g+=`<text x="${P+i*gw+gw/2}" y="${H-5}" font-size="11" text-anchor="middle" fill="#8A968F">${c.l}</text>`});
+ return `<svg viewBox="0 0 ${W} ${H}" width="100%" style="display:block">${g}</svg><div class="legend">${series.map(s=>`<span><i style="background:${s.c}"></i>${s.n}</span>`).join('')}</div>`}
+function txnModal(t){t=t||{Type:'Income',Currency:AF.cur||'BDT',Date:dayKey(new Date())};
+ const catOpts=ty=>CATS[ty].map(c=>`<option ${t.Category===c?'selected':''}>${c}</option>`).join('');
+ openModal(`<h3>${t.ID?'লেনদেন এডিট · '+esc(t.ID):'নতুন লেনদেন'}</h3><form id="txf"><div class="f2">
+  <label class="fld"><span>ধরন</span><select name="Type" id="txty"><option value="Income">আয়</option><option value="Expense" ${t.Type==='Expense'?'selected':''}>ব্যয়</option></select></label>
+  <label class="fld"><span>তারিখ</span><input type="date" name="Date" required value="${esc(t.Date&&parseTs(t.Date)?dayKey(parseTs(t.Date)):t.Date)}"></label>
+  <label class="fld"><span>খাত</span><input name="Category" list="txcat" value="${esc(t.Category)}" required><datalist id="txcat">${catOpts(t.Type||'Income')}</datalist></label>
+  <label class="fld"><span>পরিমাণ *</span><input name="Amount" inputmode="decimal" required value="${esc(t.Amount)}" placeholder="যেমন: 1500"></label>
+  <label class="fld"><span>মুদ্রা</span><input name="Currency" list="txcur" value="${esc(t.Currency||'BDT')}"><datalist id="txcur">${['BDT','USD','SAR','AED','GBP','EUR','QAR','MYR'].map(c=>`<option>${c}</option>`).join('')}</datalist></label>
+  <label class="fld"><span>মাধ্যম</span><input name="Method" list="txm" value="${esc(t.Method)}"><datalist id="txm">${METHODS.map(m=>`<option>${m}</option>`).join('')}</datalist></label>
+  <label class="fld"><span>কার কাছ থেকে / কাকে</span><input name="Party" value="${esc(t.Party)}" placeholder="যেমন: অভিভাবকের নাম, শিক্ষকের নাম"></label>
+  <label class="fld"><span>Student ID (যদি থাকে)</span><input name="Student ID" list="txs" value="${esc(t['Student ID'])}"><datalist id="txs">${(D.students||[]).map(x=>`<option value="${esc(x.ID)}">${esc(x.Name)}</option>`).join('')}</datalist></label>
+  <label class="fld full"><span>নোট</span><textarea name="Note" rows="2" placeholder="যেমন: নভেম্বর মাসের হাদিয়া, TrxID ...">${esc(t.Note)}</textarea></label></div>
+  <p class="err" id="txerr"></p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn">সেভ করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button>${t.ID&&isSA()?'<button class="btn red" type="button" id="txdel" style="margin-left:auto">মুছুন</button>':''}</div></form>`);
+ $('#txty').onchange=e=>$('#txcat').innerHTML=catOpts(e.target.value);
+ $('#txf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;const f=formObj(e.target);const r=await api('txnSave',t.ID?{id:t.ID,fields:f}:{fields:f});b.disabled=false;
+  if(r.ok){toast('সেভ হয়েছে');closeAll();await load();location.hash='#accounts'}else $('#txerr').textContent=r.error==='amount'?'সঠিক পরিমাণ দিন।':em(r.error)};
+ const d=$('#txdel');if(d)d.onclick=async()=>{if(!confirm('লেনদেনটি মুছে যাবে, ফেরত আসবে না। মুছবেন?'))return;const r=await api('txnDelete',{id:t.ID});if(r.ok){toast('মুছে ফেলা হয়েছে');closeAll();load()}else toast(em(r.error),1)}}
+document.addEventListener('click',e=>{const r=e.target.closest('[data-txn]');if(r)txnModal((D.txns||[]).find(t=>t.ID===r.dataset.txn))});
+
+/* ---------- BATCHES ---------- */
+function batches(){const B=D.batches||[],S=D.students||[];
+ $('#view').innerHTML=`<div class="tools"><span class="sm" style="color:var(--muted)">ব্যাচে কয়েকজন শিক্ষার্থী একই শিক্ষকের সাথে একই সময়ে ক্লাস করে। ব্যাচের সময় বা শিক্ষক বদলালে সব সদস্যের প্রোফাইলেও বদলে যাবে।</span><span style="flex:1"></span><button class="btn gold sm" id="badd" type="button">+ নতুন ব্যাচ</button></div>
+ <div class="grid c3">${B.map(b=>{const m=S.filter(x=>x['Batch ID']===b.ID);const cap=+b.Capacity||0;return `<div class="card" style="cursor:pointer" data-batch="${esc(b.ID)}"><div style="display:flex;justify-content:space-between;gap:8px"><div><b style="font-size:16px">${esc(b.Name)}</b><div class="sm" style="color:var(--muted)">${esc(b.ID)} · ${esc(b.Course||'')}</div></div><span class="pill" style="color:${b.Status==='Closed'?'#9CA3AF':'#00703A'}">${b.Status==='Closed'?'বন্ধ':'চলমান'}</span></div>
+  <div class="sm" style="margin-top:10px">👤 শিক্ষক: <b>${esc(b.Teacher||'ঠিক হয়নি')}</b></div><div class="sm" style="margin-top:4px">🗓 ${esc(schedText(b)||'সময় ঠিক হয়নি')}</div>
+  <div style="margin-top:10px;display:flex;justify-content:space-between" class="sm"><span>${m.length}${cap?' / '+cap:''} জন শিক্ষার্থী</span>${cap?`<span>${Math.max(0,cap-m.length)} আসন খালি</span>`:''}</div>${cap?`<div class="bar" style="margin-top:4px"><i style="width:${Math.min(100,m.length/cap*100)}%"></i></div>`:''}
+  <div style="margin-top:10px;display:flex;gap:5px;flex-wrap:wrap">${m.slice(0,8).map(x=>`<span class="tag">${esc(x.Name)}</span>`).join('')}${m.length>8?`<span class="tag">+${m.length-8}</span>`:''}</div></div>`}).join('')||'<div class="empty">এখনো কোনো ব্যাচ নেই। "+ নতুন ব্যাচ" দিয়ে শুরু করুন।</div>'}</div>`;
+ $('#badd').onclick=()=>batchModal()}
+function batchModal(b){b=b||{Duration:45,Status:'Open'};const ds=String(b['Class days']||'').split(',');const S=D.students||[];const mem=S.filter(x=>x['Batch ID']===b.ID).map(x=>x.ID);
+ openModal(`<h3>${b.ID?'ব্যাচ এডিট · '+esc(b.ID):'নতুন ব্যাচ'}</h3><form id="bf"><div class="f2">
+  <label class="fld"><span>ব্যাচের নাম *</span><input name="Name" required value="${esc(b.Name)}" placeholder="যেমন: নূরানী সন্ধ্যা ব্যাচ (ছেলে)"></label>
+  <label class="fld"><span>কোর্স</span><input name="Course" value="${esc(b.Course)}"></label>
+  <label class="fld"><span>শিক্ষক</span><select name="Teacher ID"><option value="">এখনো ঠিক হয়নি</option>${teachers().map(t=>`<option value="${esc(t.ID)}" ${b['Teacher ID']===t.ID?'selected':''}>${esc(t.Name)}</option>`).join('')}</select></label>
+  <label class="fld"><span>সর্বোচ্চ শিক্ষার্থী</span><input name="Capacity" inputmode="numeric" value="${esc(b.Capacity)}" placeholder="যেমন: 6"></label>
+  <div class="fld full"><span>ক্লাসের দিন</span><div class="chk">${DAYS.map(d=>`<label><input type="checkbox" name="cd" value="${d[0]}" ${ds.includes(d[0])?'checked':''}> ${d[1]}</label>`).join('')}</div></div>
+  <label class="fld"><span>শুরুর সময় (বাংলাদেশ সময়)</span><input type="time" name="Class start" value="${esc(b['Class start'])}"></label>
+  <label class="fld"><span>দৈর্ঘ্য</span><select name="Duration">${[30,40,45,60,75,90].map(m=>`<option value="${m}" ${String(b.Duration)==String(m)?'selected':''}>${m} মিনিট</option>`).join('')}</select></label>
+  <label class="fld"><span>অবস্থা</span><select name="Status"><option value="Open">চলমান</option><option value="Closed" ${b.Status==='Closed'?'selected':''}>বন্ধ</option></select></label>
+  <label class="fld full"><span>নোট</span><input name="Notes" value="${esc(b.Notes)}"></label></div>
+  <div class="fld"><span style="font-size:12.5px;font-weight:600;color:var(--muted)">সদস্য শিক্ষার্থী</span><input id="bq" placeholder="নাম বা ID দিয়ে খুঁজুন" style="margin:6px 0"><div id="bml" style="max-height:200px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:6px 10px">${S.filter(x=>(x.Status||'Active')!=='Left').map(x=>`<label style="display:flex;gap:8px;align-items:center;padding:4px 0" data-n="${esc((x.Name+' '+x.ID).toLowerCase())}"><input type="checkbox" name="mem" value="${esc(x.ID)}" style="width:auto" ${mem.includes(x.ID)?'checked':''}> ${esc(x.Name)} <span class="sm" style="color:var(--muted)">${esc(x.ID)} ${x['Batch ID']&&x['Batch ID']!==b.ID?'· এখন '+esc(x['Batch ID'])+'-এ':''}</span></label>`).join('')||'<span class="sm">কোনো শিক্ষার্থী নেই</span>'}</div></div>
+  <p class="err" id="berr"></p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn">সেভ করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button>${b.ID&&isSA()?'<button class="btn red" type="button" id="bdel" style="margin-left:auto">ব্যাচ মুছুন</button>':''}</div></form>`);
+ $('#bq').oninput=e=>{const q=e.target.value.toLowerCase();$$('#bml label').forEach(l=>l.style.display=l.dataset.n.includes(q)?'':'none')};
+ $('#bf').onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.target);const f=Object.fromEntries(fd);f['Class days']=fd.getAll('cd').join(',');delete f.cd;const members=fd.getAll('mem');delete f.mem;
+  const btn=e.target.querySelector('.btn');btn.disabled=true;const r=await api('batchSave',b.ID?{id:b.ID,fields:f,members}:{fields:f,members});btn.disabled=false;
+  if(r.ok){toast('ব্যাচ সেভ হয়েছে');closeAll();await load();location.hash='#batches'}else $('#berr').textContent=em(r.error)};
+ const d=$('#bdel');if(d)d.onclick=async()=>{if(!confirm('ব্যাচটি মুছে যাবে। সদস্যরা One-to-one হিসেবে থেকে যাবে। মুছবেন?'))return;const r=await api('batchDelete',{id:b.ID});if(r.ok){toast('মুছে ফেলা হয়েছে');closeAll();load()}else toast(em(r.error),1)}}
+document.addEventListener('click',e=>{const r=e.target.closest('[data-batch]');if(r)batchModal((D.batches||[]).find(b=>b.ID===r.dataset.batch))});
+
+/* ---------- NOTICE LINE (TICKER) ---------- */
+const TICK_DEF=[{en:'Free trial class available',bn:'ফ্রি ট্রায়াল ক্লাস চালু আছে'},{en:'Students can join from any country',bn:'যেকোনো দেশ থেকে ক্লাস করা যায়'},{en:'Weekly Adab & Akhlaq class and Islamic seminar',bn:'সাপ্তাহিক আদব-আখলাক ক্লাস ও ইসলামিক সেমিনার'},{en:'Separate teachers for boys and girls',bn:'ছেলে ও মেয়েদের জন্য পৃথক শিক্ষক'},{en:'Admission open, apply today',bn:'ভর্তি চলছে, আজই আবেদন করুন'}];
+let TK=null;
+function ticker(){if(!TK){const rows=(D.ticker||[]).filter(t=>t.English||t.Bangla).sort((a,b)=>a.Order-b.Order);TK=rows.length?rows.map(t=>({en:t.English,bn:t.Bangla,show:String(t.Show).toUpperCase()==='NO'?'NO':'YES'})):TICK_DEF.map(t=>({...t,show:'YES'}))}
+ const vis=TK.filter(t=>t.show!=='NO');
+ $('#view').innerHTML=`<div class="note">ওয়েবসাইটের একদম উপরে যে হলুদ লাইনে লেখাগুলো চলতে থাকে, সেগুলো এখানে বদলান। বাংলা আর English দুটোই দিন। <b>সেভ</b> চাপলে ১-২ মিনিটের মধ্যে ওয়েবসাইটে বদলে যাবে।</div>
+ <div class="card notr" style="padding:0;overflow:hidden;margin-bottom:16px"><div style="background:#E0B415;color:#2a2000;font-weight:700;padding:8px 14px;white-space:nowrap;overflow:hidden;font-size:14px">${vis.map(t=>esc(t.bn||t.en)).join('  ✦  ')||'(খালি)'}</div><div style="background:#E0B415;color:#2a2000;font-weight:700;padding:0 14px 8px;white-space:nowrap;overflow:hidden;font-size:13px;opacity:.85">${vis.map(t=>esc(t.en||t.bn)).join('  ✦  ')}</div></div>
+ <div class="grid" style="gap:10px">${TK.map((t,i)=>`<div class="card" style="display:grid;grid-template-columns:34px 1fr 1fr auto;gap:10px;align-items:center;padding:12px"><b style="color:var(--muted)">${i+1}</b>
+  <input data-tk="${i}" data-f="bn" value="${esc(t.bn)}" placeholder="বাংলা লেখা"><input data-tk="${i}" data-f="en" value="${esc(t.en)}" placeholder="English text">
+  <span style="display:flex;gap:4px"><button class="btn ghost sm" data-tkm="${i}:-1" type="button" title="উপরে">↑</button><button class="btn ghost sm" data-tkm="${i}:1" type="button" title="নিচে">↓</button><button class="btn ghost sm" data-tks="${i}" type="button">${t.show==='NO'?'দেখান':'লুকান'}</button><button class="btn red sm" data-tkd="${i}" type="button">✕</button></span></div>`).join('')}</div>
+ <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="btn ghost" id="tkadd" type="button">+ নতুন লাইন</button><button class="btn" id="tksave" type="button">সেভ করুন</button><button class="btn ghost" id="tkreset" type="button" style="margin-left:auto">আগের মূল লেখায় ফেরান</button></div>`;
+ $$('[data-tk]').forEach(inp=>inp.oninput=e=>{TK[+e.target.dataset.tk][e.target.dataset.f]=e.target.value});
+ $('#tkadd').onclick=()=>{TK.push({en:'',bn:'',show:'YES'});ticker()};
+ $('#tkreset').onclick=()=>{if(confirm('মূল ৫টি লেখায় ফিরিয়ে নেবেন? সেভ চাপলে কার্যকর হবে।')){TK=TICK_DEF.map(t=>({...t,show:'YES'}));ticker()}};
+ $('#tksave').onclick=async e=>{e.target.disabled=true;const r=await api('tickerSave',{items:TK});e.target.disabled=false;if(r.ok){toast('নোটিশ লাইন সেভ হয়েছে');TK=null;await load();location.hash='#ticker'}else toast(em(r.error),1)}}
+document.addEventListener('click',e=>{let b=e.target.closest('[data-tkm]');if(b){const [i,d]=b.dataset.tkm.split(':').map(Number);const j=i+d;if(j<0||j>=TK.length)return;[TK[i],TK[j]]=[TK[j],TK[i]];return ticker()}
+ b=e.target.closest('[data-tks]');if(b){const t=TK[+b.dataset.tks];t.show=t.show==='NO'?'YES':'NO';return ticker()}
+ b=e.target.closest('[data-tkd]');if(b){TK.splice(+b.dataset.tkd,1);return ticker()}});
+
+/* ---------- TEACHER ---------- */
+const academyBox=()=>{const a=D.academy||{};return `<div class="card" style="background:linear-gradient(135deg,#0B2418,#00552C);color:#fff;border:0"><h3 style="color:#fff">${esc(a.name||'Qurani Life Online Academy')}</h3><p style="margin:0 0 10px;color:#CFE6D8;font-size:13px">শিক্ষার্থী বা অভিভাবকের সাথে সব যোগাযোগ একাডেমির মাধ্যমে হবে। কোনো দরকার হলে একাডেমিকে জানান।</p><a class="btn wa sm" target="_blank" href="https://wa.me/${esc(a.whatsapp||'8801889012156')}">WhatsApp: ${esc(a.phone||'+880 1889-012156')}</a></div>`};
+function classes(){const list=D.students||[];const nx=nextClasses(list,5);
+ const card=(c,i)=>{if(c.group){const b=(D.batches||[]).find(x=>x.ID===c.s['Batch ID'])||{Name:c.s['Batch ID']};const live=c.start<=new Date();
+  return i===0?`<div class="card" style="border:2px solid var(--gold);background:linear-gradient(135deg,#FFFBEA,#fff);padding:22px"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><div style="flex:1;min-width:220px"><span class="pill" style="color:${live?'#C2410C':'#B45309'};font-size:13px">${live?'🔴 এখন চলছে':'⏰ পরের ক্লাস'} · ব্যাচ</span><h2 style="margin:8px 0 2px;font-size:26px">${esc(b.Name)}</h2><div style="color:var(--muted)">${esc(b.Course||'')} · ${c.group.length} জন শিক্ষার্থী</div><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${c.group.map(x=>`<span class="tag" data-tstu="${esc(x.ID)}" style="cursor:pointer">${esc(x.Name)}</span>`).join('')}</div></div><div style="text-align:right"><div style="font:800 34px/1.1 Inter;color:#00552C">${tBD(c.start)}</div><div style="color:var(--muted)">${dBD(c.start)} · ${(c.end-c.start)/6e4} মিনিট</div><div style="font-weight:800;color:${live?'#C2410C':'#B45309'};margin-top:6px;font-size:16px">${until(c.start)}</div></div></div></div>`
+  :`<div class="card" style="display:flex;gap:14px;align-items:center"><div style="width:62px;text-align:center;border-right:1px solid var(--line);padding-right:12px"><div style="font:800 16px Inter;color:#00552C">${tBD(c.start)}</div><div class="sm" style="color:var(--muted)">${c.start.toLocaleDateString(LOC(),{weekday:'short',timeZone:'Asia/Dhaka'})}</div></div><div style="flex:1"><b>${esc(b.Name)}</b> <span class="tag" style="background:#FFF4CC;color:#7A5B00">ব্যাচ</span><div class="sm" style="color:var(--muted)">${c.group.length} জন · ${esc(b.Course||'')}</div></div><div class="sm" style="font-weight:700;color:#B45309">${until(c.start)}</div></div>`}
+ const s=c.s,st=+s.Stage||1,live=c.start<=new Date();
+  return i===0?`<div class="card" style="border:2px solid var(--gold);background:linear-gradient(135deg,#FFFBEA,#fff);padding:22px">
+   <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><div style="flex:1;min-width:220px"><span class="pill" style="color:${live?'#C2410C':'#B45309'};font-size:13px">${live?'🔴 এখন চলছে':'⏰ পরের ক্লাস'}</span>
+   <h2 style="margin:8px 0 2px;font-size:26px">${esc(s.Name)}</h2><div style="color:var(--muted)">${esc(s.ID)} · ${esc(s.Course||'')} · ${st}. ${esc(stageName(st))} (${+s['Stage progress']||0}%)</div>${s['Current lesson']?`<div style="margin-top:4px">বর্তমান পাঠ: <b>${esc(s['Current lesson'])}</b></div>`:''}</div>
+   <div style="text-align:right"><div style="font:800 34px/1.1 Inter;color:#00552C">${tBD(c.start)}</div><div style="color:var(--muted)">${dBD(c.start)} · ${(c.end-c.start)/6e4} মিনিট</div><div style="font-weight:800;color:${live?'#C2410C':'#B45309'};margin-top:6px;font-size:16px">${until(c.start)}</div></div></div>
+   <div style="margin-top:14px"><button class="btn sm" data-tstu="${esc(s.ID)}" type="button">অগ্রগতি আপডেট করুন</button></div></div>`
+  :`<div class="card" style="display:flex;gap:14px;align-items:center;cursor:pointer" data-tstu="${esc(s.ID)}"><div style="width:62px;text-align:center;border-right:1px solid var(--line);padding-right:12px"><div style="font:800 16px Inter;color:#00552C">${tBD(c.start)}</div><div class="sm" style="color:var(--muted)">${c.start.toLocaleDateString(LOC(),{weekday:'short',timeZone:'Asia/Dhaka'})}</div></div><div style="flex:1"><b>${esc(s.Name)}</b><div class="sm" style="color:var(--muted)">${esc(s.Course||'')} · ${st}. ${esc(stageName(st))}</div></div><div class="sm" style="font-weight:700;color:#B45309">${until(c.start)}</div></div>`};
+ const noSched=list.filter(s=>!s['Class days']||!s['Class start']);
+ $('#view').innerHTML=`<div class="grid c2"><div><h3 style="margin:0 0 12px">সামনের ৫টি ক্লাস</h3>${nx.length?`<div class="grid" style="gap:12px">${nx.map(card).join('')}</div>`:'<div class="empty">কোনো ক্লাসের সময় ঠিক করা নেই। অ্যাডমিন শিক্ষার্থীর প্রোফাইলে দিন ও সময় দিলে এখানে দেখাবে।</div>'}
+  ${noSched.length?`<p class="sm" style="color:var(--muted);margin-top:12px">${noSched.length} জন শিক্ষার্থীর ক্লাসের সময় এখনো ঠিক করা হয়নি।</p>`:''}</div>
+  <div class="grid" style="gap:16px;align-content:start">${academyBox()}<div class="card"><h3>এক নজরে</h3><dl class="kv"><dt>আমার শিক্ষার্থী</dt><dd><b>${list.length}</b> জন</dd><dt>চলমান</dt><dd>${list.filter(s=>(s.Status||'Active')==='Active').length} জন</dd><dt>সময় দেখানো হচ্ছে</dt><dd>বাংলাদেশ সময়</dd></dl></div></div></div>`;
+ clearInterval(window._ct);window._ct=setInterval(()=>{if(PAGE==='classes'&&!$('#drawer').classList.contains('on'))classes()},60000)}
+function mystudents(){const list=D.students||[];
+ $('#view').innerHTML=`<div class="grid c3">${list.map(s=>{const st=+s.Stage||1,p=+s['Stage progress']||0;return `<div class="card" style="cursor:pointer" data-tstu="${esc(s.ID)}"><div style="display:flex;justify-content:space-between;gap:8px"><div><b style="font-size:16px">${esc(s.Name)}</b><div class="sm" style="color:var(--muted)">${esc(s.ID)} · ${esc(s.Course||'')}</div></div><span class="pill" style="color:${{Active:'#00703A',Paused:'#D97706',Completed:'#2563EB',Left:'#9CA3AF'}[s.Status||'Active']}">${SSTB[s.Status||'Active']}</span></div>
+  <div class="mini" style="margin:12px 0 6px">${(D.stages||[]).map((x,i)=>`<i class="${i+1<st?'d':i+1===st?'c':''}" style="flex:1"></i>`).join('')}</div><div class="sm">${st}. ${esc(stageName(st))} · <b>${p}%</b>${s['Current lesson']?' · '+esc(s['Current lesson']):''}</div><div class="sm" style="color:var(--muted);margin-top:6px">🗓 ${esc(schedText(s)||'ক্লাসের সময় ঠিক হয়নি')}</div></div>`}).join('')||'<div class="empty">এখনো কোনো শিক্ষার্থী আপনার কাছে দেওয়া হয়নি।</div>'}</div><div style="margin-top:16px">${academyBox()}</div>`}
+document.addEventListener('click',e=>{const r=e.target.closest('[data-tstu]');if(r&&isT())openTStudent(r.dataset.tstu)});
+function openTStudent(id){const s=(D.students||[]).find(x=>x.ID===id);if(!s)return;const st=+s.Stage||1,p=+s['Stage progress']||0;
+ const hist=(D.progress||[]).filter(x=>x['Student ID']===id).reverse();const lead=(D.myLeads||[]).find(l=>l._student===id);
+ const lkv=lead?Object.keys(lead).filter(k=>!k.startsWith('_')&&!['Status','Assigned to','Follow-up','Sent via'].includes(k)&&String(lead[k]).trim()).map(k=>`<dt>${esc(k)}</dt><dd>${esc(lead[k])}</dd>`).join(''):'';
+ openDrawer(`<div class="dh"><div><span class="tag">${esc(s.ID)}</span><h3>${esc(s.Name)}</h3><div class="sm" style="color:var(--muted)">${esc(s.Course||'')} ${s.Age?'· বয়স '+esc(s.Age):''} ${s.Country?'· '+esc(s.Country):''}</div><div class="sm" style="margin-top:4px">🗓 ${esc(schedText(s)||'ক্লাসের সময় ঠিক হয়নি')}</div></div><button class="x" data-close>×</button></div>
+ <div class="db"><div class="sect card" style="box-shadow:none"><h4>শেখার পথ · মোট ${stuOverall(s)}%</h4>${stepper(st,p)}</div>
+  <div class="sect"><h4>অগ্রগতি আপডেট করুন</h4><form id="pf" class="f2">
+   <label class="fld"><span>স্টেজ</span><select name="stage">${(D.stages||[]).map((x,i)=>`<option value="${i+1}" ${i+1===st?'selected':''}>${i+1}. ${esc(x.bn)}</option>`).join('')}</select></label>
+   <label class="fld"><span>এই স্টেজে অগ্রগতি: <b id="pv">${p}%</b></span><input type="range" name="pct" min="0" max="100" step="5" value="${p}" style="padding:0;border:0;box-shadow:none"></label>
+   <label class="fld"><span>বর্তমান পাঠ</span><input name="lesson" value="${esc(s['Current lesson'])}" placeholder="যেমন: সবক ১২, সূরা মুলক"></label>
+   <label class="fld"><span>নোট (শিক্ষার্থী দেখতে পাবে)</span><input name="note" placeholder="যেমন: মাখরাজ ভালো হয়েছে"></label>
+   <div class="full"><button class="btn">অগ্রগতি সেভ করুন</button></div></form></div>
+  <div class="sect"><h4>অগ্রগতির ইতিহাস</h4><div class="tl">${hist.slice(0,30).map(h=>`<div class="it"><b>${esc(stageName(+h.Stage))}</b> · ${esc(h['Stage progress'])}% ${h.Lesson?'· '+esc(h.Lesson):''}${h.Note?`<div>${esc(h.Note)}</div>`:''}<small>${esc(h.By)} · ${fmt(parseTs(h.Time))}</small></div>`).join('')||'<div class="sm" style="color:var(--muted)">এখনো কোনো আপডেট নেই</div>'}</div></div>
+  ${lkv?`<div class="sect"><h4>ভর্তির সময়ের তথ্য</h4><dl class="kv">${lkv}</dl></div>`:''}
+  <div class="sect">${academyBox()}</div></div>`);
+ const pf=$('#pf');pf.pct.oninput=e=>$('#pv').textContent=e.target.value+'%';
+ pf.onsubmit=async e=>{e.preventDefault();const b=pf.querySelector('.btn');b.disabled=true;const f=formObj(pf);const r=await api('studentProgress',{id,...f});b.disabled=false;
+  if(r.ok){Object.assign(s,{Stage:f.stage,'Stage progress':f.pct,'Current lesson':f.lesson});(D.progress=D.progress||[]).push({Time:new Date().toISOString(),'Student ID':id,Stage:f.stage,'Stage progress':f.pct,Lesson:f.lesson,Note:f.note,By:USER.name});toast('অগ্রগতি সেভ হয়েছে');openTStudent(id);go()}else toast(em(r.error),1)}}
 
 /* ---------- ACTIVITY ---------- */
 function activity(){const L=D.log||[];$('#view').innerHTML=`<div class="tw"><table><thead><tr><th>সময়</th><th>কে</th><th>কাজ</th><th>বিস্তারিত</th></tr></thead><tbody>${L.map(x=>`<tr style="cursor:default"><td><span class="sm">${fmt(parseTs(x.Time))}</span></td><td><b>${esc(x.User)}</b></td><td><span class="tag">${esc(x.Action)}</span></td><td style="white-space:normal">${esc(x.Details)}</td></tr>`).join('')||'<tr><td colspan=4 style="text-align:center;padding:30px">এখনো কিছু নেই</td></tr>'}</tbody></table></div>`}
@@ -540,7 +1129,7 @@ function settings(){$('#view').innerHTML=`<div class="grid c11"><div class="card
  <label class="fld"><span>বর্তমান পাসওয়ার্ড</span><input type="password" name="oldPass" required autocomplete="current-password"></label>
  <label class="fld"><span>নতুন পাসওয়ার্ড (কমপক্ষে ৮ অক্ষর)</span><input type="password" name="newPass" minlength="8" required autocomplete="new-password"></label>
  <label class="fld"><span>আবার লিখুন</span><input type="password" name="again" minlength="8" required autocomplete="new-password"></label><p class="err" id="cperr"></p><button class="btn">বদলান</button></form></div>
- <div class="card"><h3>আপনার অ্যাকাউন্ট</h3><dl class="kv"><dt>নাম</dt><dd>${esc(USER.name)}</dd><dt>Username</dt><dd>${esc(USER.username)}</dd><dt>ভূমিকা</dt><dd>${ROLE[USER.role]}</dd><dt>অনুমতি</dt><dd>${isSA()?'সব':(USER.perms||[]).map(p=>PERMN[p]).join(', ')}</dd></dl>
+ <div class="card"><h3>আপনার অ্যাকাউন্ট</h3><dl class="kv"><dt>নাম</dt><dd>${esc(USER.name)}</dd><dt>Username</dt><dd>${esc(USER.username)}</dd><dt>ভূমিকা</dt><dd>${ROLE[USER.role]}</dd><dt>অনুমতি</dt><dd>${isSA()?'সব':isT()?'নিজের শিক্ষার্থী ও ক্লাস':(USER.perms||[]).map(p=>PERMN[p]).join(', ')}</dd></dl>
  ${isSA()?`<h3 style="margin-top:18px">স্টেজের তালিকা</h3><p class="sm" style="color:var(--muted)">শেখার ধাপগুলো Google Sheet-এর <b>Stages</b> ট্যাবে রাখা। সেখানে বদলালে এখানে আর শিক্ষার্থীর প্রোফাইলে বদলে যাবে।</p><ol style="margin:0;padding-left:18px">${(D.stages||[]).map(s=>`<li>${esc(s.bn)} <span class="sm" style="color:var(--muted)">(${esc(s.en)})</span></li>`).join('')}</ol><a class="btn ghost sm" style="margin-top:10px" target="_blank" href="${esc(D.sheet)}">Google Sheet খুলুন ↗</a>`:''}</div></div>`;
  $('#cpf').onsubmit=async e=>{e.preventDefault();const f=formObj(e.target);if(f.newPass!==f.again){$('#cperr').textContent='দুটো পাসওয়ার্ড মেলেনি।';return}const r=await api('changePass',{oldPass:f.oldPass,newPass:f.newPass});if(r.ok){toast('পাসওয়ার্ড বদলানো হয়েছে');e.target.reset();$('#cperr').textContent=''}else $('#cperr').textContent=em(r.error)}}
 
