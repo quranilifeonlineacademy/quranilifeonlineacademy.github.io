@@ -1167,6 +1167,7 @@ const autoTag=()=>{const bn=$('#benefits');if(bn){const ks=[...bn.children].filt
  [...sec.querySelectorAll('*')].forEach(g=>{if(g.closest(SKIP)||g.children.length<2)return;const cs=getComputedStyle(g);if(!(cs.display==='grid'||(cs.display==='flex'&&cs.flexWrap==='wrap')))return;if(g.closest('.rv'))return;
   const kids=[...g.children].filter(c=>c.offsetHeight>30&&!c.classList.contains('rv'));kids.forEach((c,i)=>{c.classList.add('rv');const d=Math.min(i,7)*.07;c.style.setProperty('--d',d.toFixed(2)+'s');if(kids.length===2)c.classList.add(i?'fr':'fl');lines(c,d)})})})};
 const io=()=>{autoTag();if(!('IntersectionObserver' in window)){$$('.rv').forEach(el=>el.classList.add('in'));return}obs=obs||new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){const t=x.target;t.classList.add('in');obs.unobserve(t);setTimeout(()=>t.querySelectorAll('.ln').forEach(e=>{e.classList.remove('ln')}),2200)}}),{threshold:.08,rootMargin:'0px 0px -6% 0px'});$$('.rv:not(.in)').forEach(el=>obs.observe(el))};
+const rvCheck=()=>{const h=innerHeight;document.querySelectorAll('.rv:not(.in)').forEach(e=>{const r=e.getBoundingClientRect();if(r.top<h*.96&&r.bottom>0)e.classList.add('in')})};addEventListener('scroll',rvCheck,{passive:true});addEventListener('resize',rvCheck);setInterval(rvCheck,1200);
 
 setLang('en');
 const th=store.get('ql-theme');if(th)setTheme(th);
