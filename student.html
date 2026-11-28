@@ -57,6 +57,25 @@ main{max-width:1080px;margin:0 auto;padding:22px 16px 60px}
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--deep);color:#fff;padding:10px 18px;border-radius:12px;font-weight:700;z-index:50}
 .toast.bad{background:var(--red)}
 @media(max-width:760px){.hello{grid-template-columns:1fr}.ring{margin:0 auto}.grid{grid-template-columns:1fr}.kv{grid-template-columns:1fr}.kv dt{font-weight:700}}
+
+.g2{grid-template-columns:1fr 1fr!important}@media(max-width:820px){.g2{grid-template-columns:1fr!important}}
+.th{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}.th h2{margin:0}
+.att{display:inline-block;padding:3px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--c);background:color-mix(in srgb,var(--c) 12%,#fff);border:1px solid color-mix(in srgb,var(--c) 30%,#fff)}.att.sm{font-size:11.5px;padding:1px 8px}
+.today{border-top:4px solid var(--gold)}.today .dt{color:var(--muted);margin:0 0 12px;font-size:14px}
+.lgrid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.lgrid2>div{background:#F7FAF8;border:1px solid var(--line);border-radius:12px;padding:10px 12px}.lgrid2 small{display:block;color:var(--muted);font-size:12px}.lgrid2 b{font-size:15.5px}
+.hw,.tn{margin-top:10px;padding:10px 12px;border-radius:12px;font-size:14.5px}.hw{background:#FFF8E1}.tn{background:#E9F5EE}
+.stars{color:#E0B415;letter-spacing:1px}.stars i{color:#D9DED9;font-style:normal}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:6px 0 12px}.kp>div{text-align:center;background:#F7FAF8;border:1px solid var(--line);border-radius:12px;padding:10px 4px}.kp b{display:block;font-size:22px;color:var(--gd)}.kp small{color:var(--muted);font-size:12px}
+@media(max-width:420px){.kp{grid-template-columns:repeat(2,1fr)}}
+.dots{display:flex;flex-wrap:wrap;gap:5px}.dots i{width:24px;height:24px;border-radius:7px;color:#fff;font:700 12px/24px Inter;text-align:center;font-style:normal}
+.lg{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:8px 0 0}.lg span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-right:5px;vertical-align:-1px}
+.btn.sm{padding:6px 12px;font-size:13px}
+.rcwrap{position:fixed;inset:0;background:rgba(5,20,14,.6);z-index:80;display:grid;place-items:center;padding:14px;overflow:auto}
+.rcbox{background:#fff;border-radius:18px;max-width:720px;width:100%;padding:18px;max-height:94vh;overflow:auto}
+.rctools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.rctools select{flex:1;min-width:140px;padding:9px;border:1.5px solid var(--line);border-radius:10px}
+.rc{border:2px solid var(--gold);border-radius:16px;padding:20px}.rch{display:flex;gap:12px;align-items:center;border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:12px}.rch img{width:54px;height:60px;object-fit:contain}.rch b{display:block;font-size:18px;color:var(--gd)}.rch small{color:var(--muted)}
+.rc h3{margin:14px 0 6px;font-size:15.5px;color:var(--gd)}.rc ul{margin:0;padding-left:18px}.rcf{margin-top:16px;font-size:12px;color:var(--muted);text-align:center}
+@media print{body>*:not(.rcwrap){display:none!important}.rcwrap{position:static;background:none;padding:0}.rcbox{max-height:none;box-shadow:none;padding:0}.rctools{display:none}}
 </style>
 </head>
 <body>
@@ -64,8 +83,8 @@ main{max-width:1080px;margin:0 auto;padding:22px 16px 60px}
  <form class="lbox" id="lf">
   <img src="logo.png" alt="Qurani Life">
   <p class="ay">رَبِّ زِدْنِي عِلْمًا</p>
-  <h1>স্টুডেন্ট পোর্টাল</h1>
-  <p>আপনার শেখার যাত্রা কতদূর এগোলো, এখানে দেখুন</p>
+  <h1>অভিভাবক ও শিক্ষার্থী পোর্টাল</h1>
+  <p>প্রতিদিনের পড়া, উপস্থিতি, অগ্রগতি ও হাদিয়া, সব এক জায়গায়</p>
   <label><span>Student ID বা WhatsApp নম্বর</span><input id="sid" required placeholder="যেমন: QL-0001" autocomplete="username"></label>
   <label><span>পাসওয়ার্ড</span><input id="spw" type="password" required autocomplete="current-password"></label>
   <p class="err" id="lerr"></p>
@@ -75,7 +94,7 @@ main{max-width:1080px;margin:0 auto;padding:22px 16px 60px}
 </div>
 
 <div id="app" hidden>
- <header><div class="hd"><img src="logo.png" alt=""><div><b>Qurani Life Online Academy</b><small>স্টুডেন্ট পোর্টাল</small></div><span class="sp"></span><a href="index.html">ওয়েবসাইট</a><button id="out" type="button">বের হন</button></div></header>
+ <header><div class="hd"><img src="logo.png" alt=""><div><b>Qurani Life Online Academy</b><small>অভিভাবক ও শিক্ষার্থী পোর্টাল</small></div><span class="sp"></span><a href="index.html">ওয়েবসাইট</a><button id="out" type="button">বের হন</button></div></header>
  <main id="view"></main>
 </div>
 
@@ -103,6 +122,42 @@ $('#lf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.
  catch(x){$('#lerr').textContent='ইন্টারনেট সংযোগে সমস্যা।'}b.disabled=false};
 $('#out').onclick=()=>{post({action:'logout',token:TOK}).catch(()=>{});try{localStorage.removeItem('qlStuTok')}catch(e){}location.reload()};
 
+
+const ATT={Present:['উপস্থিত','#00703A','✓'],Late:['দেরিতে','#D97706','◷'],Absent:['অনুপস্থিত','#C0392B','✕'],Leave:['ছুটি','#6B7280','–']};
+const stars=n=>{n=+n||0;return n?`<span class="stars">${'★'.repeat(n)}<i>${'★'.repeat(5-n)}</i></span>`:''};
+const dLong=s=>{const d=parseTs(s);return d?d.toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',month:'long'}):esc(s)};
+const curMonth=()=>new Date(Date.now()+BD).toISOString().slice(0,7);
+const mName=m=>new Date(m+'-15').toLocaleDateString('bn-BD',{month:'long',year:'numeric'});
+function mStats(C,m){const L=C.filter(x=>String(x.date).slice(0,7)===m);const c={Present:0,Late:0,Absent:0,Leave:0};L.forEach(x=>c[x.att in c?x.att:'Present']++);const r=L.filter(x=>x.rating);return {L,c,tot:L.length,pct:L.length?Math.round((c.Present+c.Late)/L.length*100):null,avg:r.length?(r.reduce((a,x)=>a+x.rating,0)/r.length):0}}
+function extra(S){const C=S.classes||[],H=S.hadiya||{paid:[]},m=curMonth(),ms=mStats(C,m);const last=C[0];const A=S.academy||{whatsapp:'8801889012156'};
+ const paidM=(H.paid||[]).filter(x=>String(x.month||'').slice(0,7)===m);
+ const lastCard=last?`<section class="card today"><div class="th"><h2>📖 ${C.length&&String(last.date)===new Date(Date.now()+BD).toISOString().slice(0,10)?'আজকের ক্লাস':'শেষ ক্লাসের রিপোর্ট'}</h2><span class="att" style="--c:${(ATT[last.att]||ATT.Present)[1]}">${(ATT[last.att]||ATT.Present)[0]}</span></div>
+  <p class="dt">${dLong(last.date)}${last.by?' · শিক্ষক: '+esc(last.by):''}</p>
+  <div class="lgrid2">${last.sabaq?`<div><small>আজকের সবক</small><b>${esc(last.sabaq)}</b></div>`:''}${last.sabqi?`<div><small>সবকি (রিভিশন)</small><b>${esc(last.sabqi)}</b></div>`:''}${last.manzil?`<div><small>মানজিল</small><b>${esc(last.manzil)}</b></div>`:''}${last.rating?`<div><small>কেমন পড়েছে</small><b>${stars(last.rating)}</b></div>`:''}</div>
+  ${last.hw?`<div class="hw">📝 <b>বাড়ির কাজ:</b> ${esc(last.hw)}</div>`:''}${last.note?`<div class="tn">💬 <b>শিক্ষকের মন্তব্য:</b> ${esc(last.note)}</div>`:''}</section>`
+  :`<section class="card today"><h2>📖 ক্লাস রিপোর্ট</h2><p style="color:var(--muted)">এখনো কোনো ক্লাস রিপোর্ট নেই। প্রতিটি ক্লাস শেষে শিক্ষক রিপোর্ট দিলে এখানে আজকের পড়া, বাড়ির কাজ ও মন্তব্য দেখাবে।</p></section>`;
+ const dots=C.slice(0,30).reverse().map(x=>{const a=ATT[x.att]||ATT.Present;return `<i title="${esc(x.date)}: ${a[0]}" style="background:${a[1]}">${a[2]}</i>`}).join('');
+ const attCard=`<section class="card"><div class="th"><h2>🗓 ${esc(mName(m))}-এর উপস্থিতি</h2><button class="btn ghost sm" id="rcBtn" type="button">📄 মাসিক রিপোর্ট কার্ড</button></div>
+  ${ms.tot?`<div class="kp"><div><b style="color:${ms.pct>=80?'#00703A':ms.pct>=60?'#D97706':'#C0392B'}">${bnNum(ms.pct)}%</b><small>উপস্থিতি</small></div><div><b>${bnNum(ms.tot)}</b><small>মোট ক্লাস</small></div><div><b>${bnNum(ms.c.Present)}</b><small>উপস্থিত</small></div><div><b>${bnNum(ms.c.Absent)}</b><small>অনুপস্থিত</small></div></div>`:'<p style="color:var(--muted)">এ মাসে এখনো কোনো ক্লাস রিপোর্ট নেই।</p>'}
+  ${dots?`<div class="dots" aria-label="শেষ ৩০টি ক্লাস">${dots}</div><p class="lg"><span style="--c:#00703A">উপস্থিত</span><span style="--c:#D97706">দেরিতে</span><span style="--c:#C0392B">অনুপস্থিত</span><span style="--c:#6B7280">ছুটি</span></p>`:''}</section>`;
+ const hdCard=`<section class="card"><div class="th"><h2>💳 হাদিয়া</h2>${paidM.length?'<span class="att" style="--c:#00703A">এ মাসে পরিশোধিত</span>':(H.fee?'<span class="att" style="--c:#D97706">এ মাসে বাকি</span>':'')}</div>
+  ${H.fee?`<p>মাসিক হাদিয়া: <b>${esc(H.fee)}</b></p>`:''}
+  ${(H.paid||[]).length?`<div class="tl">${H.paid.slice(0,6).map(x=>`<div class="it"><b>${x.month?esc(mName(String(x.month).slice(0,7))):fmtD(parseTs(x.date))}</b> · ${esc(x.amount)} ${esc(x.cur||'')}${x.method?' · '+esc(x.method):''}<small>${fmtD(parseTs(x.date))}</small></div>`).join('')}</div>`:'<p style="color:var(--muted)">এখনো কোনো পরিশোধের হিসাব নেই।</p>'}
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><a class="btn ghost" href="index.html#hadiya">পরিশোধের মাধ্যম দেখুন</a><a class="btn wa" target="_blank" href="https://wa.me/${esc(A.whatsapp)}?text=${encodeURIComponent('আসসালামু আলাইকুম। '+(S.profile.Name||'')+' ('+S.profile.ID+')-এর হাদিয়া পরিশোধ করেছি, স্ক্রিনশট পাঠাচ্ছি।')}">স্ক্রিনশট পাঠান</a></div></section>`;
+ const diary=C.length>1?`<section class="card"><h2>📚 ক্লাসের ডায়েরি</h2><div class="tl">${C.slice(1,16).map(x=>{const a=ATT[x.att]||ATT.Present;return `<div class="it"><b>${dLong(x.date)}</b> <span class="att sm" style="--c:${a[1]}">${a[0]}</span> ${stars(x.rating)}${x.sabaq?`<div>সবক: <b>${esc(x.sabaq)}</b></div>`:''}${x.hw?`<div>📝 ${esc(x.hw)}</div>`:''}${x.note?`<div>💬 ${esc(x.note)}</div>`:''}</div>`}).join('')}</div></section>`:'';
+ setTimeout(()=>{const b=$('#rcBtn');if(b)b.onclick=()=>reportCard(S)},0);
+ return `<div class="grid g2">${lastCard}${attCard}</div><div class="grid g2">${hdCard}${diary||'<div></div>'}</div>`}
+function reportCard(S){const C=S.classes||[],p=S.profile,st=S.stages||[];const ms=[...new Set(C.map(x=>String(x.date).slice(0,7)))].sort().reverse();if(!ms.includes(curMonth()))ms.unshift(curMonth());
+ const draw=m=>{const s=mStats(C,m);const cur=Math.max(1,+p.Stage||1);const lessons=s.L.filter(x=>x.sabaq).map(x=>x.sabaq);const notes=s.L.filter(x=>x.note).slice(0,4);
+  $('#rcv').innerHTML=`<div class="rc"><div class="rch"><img src="logo.png" alt=""><div><b>Qurani Life Online Academy</b><small>মাসিক রিপোর্ট কার্ড · ${esc(mName(m))}</small></div></div>
+  <dl class="kv"><dt>শিক্ষার্থী</dt><dd>${esc(p.Name)} (${esc(p.ID)})</dd>${p.Course?`<dt>কোর্স</dt><dd>${esc(p.Course)}</dd>`:''}${p.Teacher?`<dt>শিক্ষক</dt><dd>${esc(p.Teacher)}</dd>`:''}<dt>বর্তমান স্টেজ</dt><dd>${bnNum(cur)}. ${esc((st[cur-1]||{}).bn||'')} · ${bnNum(+p['Stage progress']||0)}%</dd></dl>
+  <div class="kp"><div><b>${s.tot?bnNum(s.pct)+'%':'-'}</b><small>উপস্থিতি</small></div><div><b>${bnNum(s.tot)}</b><small>ক্লাস</small></div><div><b>${bnNum(s.c.Present+s.c.Late)}</b><small>উপস্থিত</small></div><div><b>${s.avg?s.avg.toFixed(1).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d])+' ★':'-'}</b><small>গড় মূল্যায়ন</small></div></div>
+  ${lessons.length?`<h3>এ মাসে যা পড়েছে</h3><p>${lessons.map(esc).join(' → ')}</p>`:''}
+  ${notes.length?`<h3>শিক্ষকের মন্তব্য</h3><ul>${notes.map(x=>`<li>${esc(x.note)} <small>(${esc(x.date)})</small></li>`).join('')}</ul>`:''}
+  <p class="rcf">যেকোনো প্রয়োজনে: WhatsApp +880 1889-012156 · quranilifeonlineacademy.github.io</p></div>`};
+ const ov=document.createElement('div');ov.className='rcwrap';ov.innerHTML=`<div class="rcbox"><div class="rctools"><select id="rcm">${ms.map(m=>`<option value="${m}">${esc(mName(m))}</option>`).join('')}</select><button class="btn" id="rcp" type="button">🖨 প্রিন্ট / PDF</button><button class="btn ghost" id="rcx" type="button">বন্ধ</button></div><div id="rcv"></div></div>`;
+ document.body.appendChild(ov);draw(ms[0]);$('#rcm').onchange=e=>draw(e.target.value);$('#rcx').onclick=()=>ov.remove();$('#rcp').onclick=()=>window.print();ov.onclick=e=>{if(e.target===ov)ov.remove()}}
+
 function show(S){
  if(!S){toast('প্রোফাইল পাওয়া যায়নি',1);return}
  $('#lv').hidden=true;$('#app').hidden=false;
@@ -119,8 +174,9 @@ function show(S){
   <p style="margin-top:14px">${done?'আলহামদুলিল্লাহ! আপনি পুরো পথ সম্পন্ন করেছেন।':`আপনি এখন <b style="color:#F2C832">${bnNum(cur)} নম্বর স্টেজে: ${esc((st[cur-1]||{}).bn||'')}</b>। ${n>cur?`সামনে আর ${bnNum(n-cur)}টি স্টেজ।`:'এটাই শেষ স্টেজ।'}`}</p></div>
   <div class="ring"><svg width="130" height="130"><circle cx="65" cy="65" r="54" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="12"/><circle cx="65" cy="65" r="54" fill="none" stroke="#F2C832" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-overall/100)}"/></svg><b>${bnNum(overall)}%</b><small>পুরো পথ</small></div></section>
  ${nc?`<section class="card" style="border:2px solid var(--gold);background:linear-gradient(135deg,#FFFBEA,#fff);display:flex;gap:16px;align-items:center;flex-wrap:wrap"><div style="font-size:34px">🗓</div><div style="flex:1;min-width:200px"><div style="color:var(--muted);font-weight:600">${nc.start<=new Date()?'এখন ক্লাস চলছে':'পরের ক্লাস'}</div><div style="font:800 24px Inter;color:var(--gd)">${nc.start.toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',month:'long'})}, ${tLocal(nc.start)}</div><div style="color:var(--muted);font-size:13.5px">বাংলাদেশ সময় ${tBD(nc.start)} · ${bnNum((nc.end-nc.start)/6e4)} মিনিট</div></div><div style="font-weight:800;color:#B45309;font-size:18px">${until(nc.start)}</div></section>`:''}
+ ${extra(S)}
  <div class="grid"><section class="card"><h2>আমার শেখার পথ</h2><div class="path">${path||'<p>স্টেজের তালিকা এখনো ঠিক হয়নি।</p>'}</div></section>
- <div><section class="card"><h2>শিক্ষকের আপডেট</h2><div class="tl">${hist||'<p style="color:var(--muted)">এখনো কোনো আপডেট নেই। শিক্ষক অগ্রগতি দিলে এখানে দেখাবে।</p>'}</div></section>
+ <div><section class="card"><h2>স্টেজের আপডেট</h2><div class="tl">${hist||'<p style="color:var(--muted)">এখনো কোনো আপডেট নেই। শিক্ষক অগ্রগতি দিলে এখানে দেখাবে।</p>'}</div></section>
  <section class="card"><h2>আমার তথ্য</h2><p style="margin:-6px 0 12px;color:var(--muted);font-size:13.5px">যেকোনো প্রয়োজনে Qurani Life Online Academy-র সাথে যোগাযোগ করুন: <b>${esc(A.phone)}</b></p><dl class="kv"><dt>Student ID</dt><dd>${esc(p.ID)}</dd>${p.Guardian?`<dt>অভিভাবক</dt><dd>${esc(p.Guardian)}</dd>`:''}<dt>দেশ</dt><dd>${esc(p.Country||'-')}</dd><dt>যোগ দিয়েছেন</dt><dd>${fmtD(parseTs(p.Joined))}</dd></dl>
   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><a class="btn wa" target="_blank" href="https://wa.me/${esc(A.whatsapp)}">একাডেমির WhatsApp</a><button class="btn ghost" id="cpb" type="button">পাসওয়ার্ড বদলান</button></div>
   <form id="cpf" hidden style="margin-top:14px"><input type="password" name="oldPass" placeholder="বর্তমান পাসওয়ার্ড" required style="margin-bottom:8px"><input type="password" name="newPass" placeholder="নতুন পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)" minlength="6" required style="margin-bottom:8px"><p class="err" id="cperr"></p><button class="btn">সেভ করুন</button></form></section></div></div>`;
