@@ -125,6 +125,33 @@ td .nm{font-weight:700}td .sm{color:var(--muted);font-size:12px}
 @media(max-width:1200px){.k6{grid-template-columns:repeat(3,1fr)}.c2{grid-template-columns:1fr}}
 @media(max-width:900px){.app{grid-template-columns:1fr}.side{position:fixed;left:0;top:0;z-index:35;width:260px;transform:translateX(-100%);transition:.25s}.side.on{transform:none}.burger{display:block}.k4{grid-template-columns:repeat(2,1fr)}.c11,.c3{grid-template-columns:1fr}.top{padding:12px 14px}.content{padding:16px 14px 60px}.top .gs{display:none}}
 @media(max-width:560px){.k6,.k4{grid-template-columns:1fr 1fr}.f2{grid-template-columns:1fr}.kv{grid-template-columns:1fr}.kv dt{font-weight:700;margin-top:4px}}
+
+/* v9 */
+@media(max-width:900px){.c2{grid-template-columns:1fr}}
+.okline{background:#E7F6EE;color:#00552C;border-radius:10px;padding:8px 12px;font-weight:700;margin:0 0 10px}
+.attrow{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:8px 0;border-bottom:1px dashed var(--line)}
+.seg{display:inline-flex;flex-wrap:wrap;gap:6px}.seg label{cursor:pointer}.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:inline-block;padding:7px 12px;border-radius:999px;border:1.5px solid var(--line);font-size:13px;font-weight:700;background:#fff;color:var(--muted);transition:all .15s}
+.seg input:checked+span{background:var(--g);border-color:var(--g);color:#fff}.seg input:focus-visible+span{outline:2px solid var(--gold)}
+.seg.stars5 input:checked+span{background:#E0B415;border-color:#E0B415;color:#1d1600}
+.seg.wide{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}.seg.wide span{text-align:center;width:100%;padding:10px}
+.attbox{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}.attbox>div{flex:1;min-width:80px;background:#F7FAF8;border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+.attbox b{display:block;font-size:20px;color:var(--gd)}.attbox small{color:var(--muted);font-size:11.5px}
+.chk1{display:flex;gap:8px;align-items:center;font-size:13px;margin-top:6px}.chk1 input{width:auto}
+.hero2{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chipb{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:13px}.chipb.on{background:var(--g);color:#fff;border-color:var(--g)}
+.rvc{display:flex;flex-direction:column;gap:10px}
+.switch{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-weight:700;font-size:13px;white-space:nowrap}.switch input{position:absolute;opacity:0}
+.switch span{width:44px;height:24px;border-radius:999px;background:#CBD5CF;position:relative;transition:background .2s;flex:none}.switch span::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.switch input:checked+span{background:var(--g)}.switch input:checked+span::after{transform:translateX(20px)}.switch input:focus-visible+span{outline:2px solid var(--gold)}
+.setrow{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
+.tcav{width:84px;height:84px;margin:0 auto 10px;border-radius:50%;overflow:hidden;background:linear-gradient(150deg,#0B2418,#00703A);display:grid;place-items:center;color:var(--gold);font:700 30px 'Hind Siliguri',serif;flex:none}.tcav img{width:100%;height:100%;object-fit:cover}
+#tcpv{margin:0}
+.bt-help{font-size:12.5px;color:#7A5B00;background:#FFF8E1;border-radius:8px;padding:8px 10px;margin:8px 0}
+.bt-canvas{display:block;width:100%;max-height:60vh;object-fit:contain;border-radius:10px;border:1px solid var(--line);touch-action:none;cursor:crosshair;background:#f4f4f4}
+.bt-bar{display:flex;gap:8px;margin-top:6px}
+#rvMediaBox .cur{display:flex;gap:10px;align-items:center}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}.kpis .card small{display:block;color:var(--muted);font-weight:600}.kpis .card b{font-size:22px}
 </style>
 </head>
 <body>
@@ -147,6 +174,10 @@ td .nm{font-weight:700}td .sm{color:var(--muted);font-size:12px}
  <symbol id="i-batch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20a6 6 0 0 1 12 0M10 20a6 6 0 0 1 12 0"/></symbol>
  <symbol id="i-sheet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></symbol>
  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+ <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+ <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 15v2M11 10v7M15 12v5M19 6v11"/></symbol>
+ <symbol id="i-coin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2.1 0 2.9 6 1.4 6 4.3 0 1.2-1.3 2.1-3 2.1-1.5 0-2.6-.6-3.1-1.6M12 6v2M12 16v2"/></symbol>
+ <symbol id="i-idcard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 17c.6-1.7 2-2.6 3.5-2.6s2.9.9 3.5 2.6M15 9h3M15 13h3"/></symbol>
  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
 </svg>
 
@@ -157,7 +188,7 @@ td .nm{font-weight:700}td .sm{color:var(--muted);font-size:12px}
   <label class="fld"><span>পাসওয়ার্ড</span><input id="lp" type="password" autocomplete="current-password" required></label>
   <p class="err" id="lerr"></p>
   <button class="btn" style="width:100%">প্রবেশ করুন</button>
-  <p style="color:var(--muted);font-size:12px;margin:14px 0 0;text-align:center">শিক্ষার্থী? <a href="student.html">স্টুডেন্ট লগইন</a> · <a href="#" id="langL">English / বাংলা</a></p>
+  <p style="color:var(--muted);font-size:12px;margin:14px 0 0;text-align:center">অভিভাবক / শিক্ষার্থী? <a href="student.html">এখানে লগইন করুন</a> · <a href="#" id="langL">English / বাংলা</a></p><p style="font-size:12px;margin:8px 0 0;text-align:center"><a href="index.html">← ওয়েবসাইটে ফিরে যান</a></p>
  </form>
 </div>
 
@@ -706,10 +737,14 @@ const PAGES=[
  {id:'followups',t:'Follow-ups',s:'আজ ও বাকি থাকা যোগাযোগ',i:'bell',p:'leads',sa:1},
  {id:'students',t:'শিক্ষার্থী',s:'প্রোফাইল, স্টেজ ও অগ্রগতি',i:'grad',p:'students',sec:'শিক্ষা'},
  {id:'batches',t:'ব্যাচ',s:'গ্রুপ ক্লাস ও সময়সূচি',i:'batch',p:'students'},
+ {id:'reports',t:'উপস্থিতি ও রিপোর্ট',s:'মাসিক উপস্থিতি ও শিক্ষকদের ক্লাসের হিসাব',i:'chart',p:'students'},
  {id:'ticker',t:'উপরের নোটিশ লাইন',s:'ওয়েবসাইটের উপরে চলমান হলুদ লাইন',i:'ticker',p:'notices',sec:'ওয়েবসাইট'},
  {id:'notices',t:'নোটিশ',s:'ওয়েবসাইটের আপডেট',i:'mega',p:'notices'},
  {id:'content',t:'ওয়েবসাইটের লেখা',s:'হোম পেজের লেখা বদলান',i:'edit',p:'content'},
+ {id:'reviews',t:'রিভিউ / মতামত',s:'লেখা, স্ক্রিনশট, ভয়েস ও ভিডিও মতামত',i:'star',p:'content'},
+ {id:'tcards',t:'ওয়েবসাইটের শিক্ষক',s:'ওয়েবসাইটে দেখানো শিক্ষক পরিচিতি',i:'idcard',p:'content'},
  {id:'accounts',t:'Accounts',s:'আয়-ব্যয়ের হিসাব',i:'wallet',p:'accounts',sec:'হিসাব'},
+ {id:'hadiya',t:'হাদিয়া ট্র্যাকার',s:'এই মাসে কে দিয়েছেন, কে বাকি',i:'coin',p:'accounts'},
  {id:'team',t:'টিম ও অ্যাকাউন্ট',s:'Super admin, employee ও teacher',i:'shield',sa:1,sec:'প্রশাসন'},
  {id:'activity',t:'Activity log',s:'কে কখন কী করেছে',i:'act',sa:1},
  {id:'settings',t:'সেটিংস',s:'আপনার অ্যাকাউন্ট',i:'cog'}
@@ -726,7 +761,7 @@ function go(){let p=(location.hash||'#overview').slice(1);const pg=PAGES.find(x=
  if(PAGE.startsWith('l-')){LF.type=PAGE.slice(2);window._fromSub=1;return leads()}
  if(PAGE==='leads'&&window._fromSub)LF.type='';
  window._fromSub=0;
- ({classes,mystudents,overview,leads,pipeline,followups,students,batches,ticker,notices,content,accounts,team,activity,settings})[PAGE]();}
+ ({classes,mystudents,overview,leads,pipeline,followups,students,batches,ticker,notices,content,accounts,team,activity,settings,reports,reviews:reviewsPage,tcards,hadiya})[PAGE]();}
 addEventListener('hashchange',()=>D&&go());
 
 async function load(){const r=await api('dashboard');if(!r.ok){toast(em(r.error),1);return}
@@ -842,6 +877,7 @@ function openLead(l){if(!l)return;DR=l;const team=(D.team||[]).filter(u=>u.Activ
    <label class="fld"><span>দায়িত্বে</span><select id="las"><option value="">কেউ না</option>${team.map(u=>`<option ${u.Name===l['Assigned to']?'selected':''}>${esc(u.Name)}</option>`).join('')}</select></label>
    ${isSA()?`<label class="fld"><span>Follow-up তারিখ</span><input type="date" id="lfu" value="${fu}"></label>`:''}
    <div class="fld" style="display:flex;align-items:end"><button class="btn" id="lsave" type="button" style="width:100%">সেভ করুন</button></div></div></div>
+  ${leadTrialSect(l)}
   <div class="sect"><h4>নোট ও যোগাযোগের ইতিহাস (${notes.length})</h4><div style="display:flex;gap:8px;margin-bottom:12px"><input id="lnote" placeholder="যেমন: কল করেছি, শনিবার ট্রায়াল ঠিক হয়েছে"><button class="btn sm" id="laddn" type="button">যোগ</button></div>
    <div class="tl">${notes.map(n=>`<div class="it">${esc(n.Note)}<small>${esc(n.By)} · ${fmt(parseTs(n.Time))}</small></div>`).join('')||'<div class="sm" style="color:var(--muted)">এখনো কোনো নোট নেই</div>'}</div></div>
   <div class="sect"><h4>ফর্মের সব তথ্য</h4><dl class="kv"><dt>উৎস</dt><dd>${l._via==='WhatsApp'?'WhatsApp দিয়ে পাঠানো':'ওয়েবসাইট ফর্ম'}</dd>${kv}</dl></div>
@@ -851,6 +887,7 @@ function openLead(l){if(!l)return;DR=l;const team=(D.team||[]).filter(u=>u.Activ
  $('#laddn').onclick=async e=>{const t=$('#lnote').value.trim();if(!t)return;e.target.disabled=true;const r=await api('leadNote',{tab:l._tab,row:l._row,note:t});e.target.disabled=false;
   if(r.ok){(D.notes=D.notes||[]).push({Time:new Date().toISOString(),Lead:l._tab+':'+l._row,Note:t,By:USER.name});openLead(l)}else toast(em(r.error),1)};
  const ts=$('#toStu');if(ts)ts.onclick=()=>convertModal(l);
+ bindLeadTrial(l);
  const dl=$('#delLead');if(dl)dl.onclick=async()=>{if(!confirm('এই আবেদনটি Sheet থেকে মুছে যাবে, ফেরত আসবে না। মুছবেন?'))return;const r=await api('leadDelete',{tab:l._tab,row:l._row});if(r.ok){toast('মুছে ফেলা হয়েছে');closeAll();load()}else toast(em(r.error),1)};
 }
 function rerender(){navHtml();if(PAGE==='leads')draw();else if(PAGE==='pipeline')pipeline();else if(PAGE==='followups')followups();else if(PAGE==='overview')overview()}
@@ -866,6 +903,7 @@ function stuForm(s={}){const ds=String(s['Class days']||'').split(',');return `<
  <label class="fld"><span>বয়স</span><input name="Age" value="${esc(s.Age)}"></label>
  <label class="fld"><span>লিঙ্গ</span><select name="Gender"><option value="">-</option>${['Male','Female'].map(g=>`<option ${s.Gender===g?'selected':''}>${g}</option>`).join('')}</select></label>
  <label class="fld"><span>কোর্স</span><input name="Course" value="${esc(s.Course)}"></label>
+ <label class="fld"><span>মাসিক হাদিয়া</span><input name="Monthly hadiya" value="${esc(s['Monthly hadiya'])}" placeholder="যেমন: 1500 BDT বা 30 USD"></label>
  <label class="fld"><span>ক্লাসের ধরন</span><select name="Class type" id="sfct"><option value="One-to-one">One-to-one (একক)</option><option value="Batch" ${s['Class type']==='Batch'?'selected':''}>ব্যাচ (গ্রুপ)</option></select></label>
  <label class="fld" id="sfbw"><span>ব্যাচ</span><select name="Batch ID"><option value="">ব্যাচ বেছে নিন</option>${(D.batches||[]).map(b=>`<option value="${esc(b.ID)}" ${s['Batch ID']===b.ID?'selected':''}>${esc(b.Name)} (${esc(b.ID)})</option>`).join('')}</select></label>
  <div class="fld full" id="sfbn" style="display:none;margin-top:-6px"><small style="color:var(--muted)">ব্যাচে দিলে শিক্ষক আর ক্লাসের সময় ব্যাচ থেকে নিজে থেকে বসে যাবে।</small></div>
@@ -880,15 +918,15 @@ document.addEventListener('change',e=>{if(e.target.id==='sfct')stuToggle()});
 new MutationObserver(()=>{if($('#sfct')&&!$('#sfct').dataset.t){$('#sfct').dataset.t=1;stuToggle()}}).observe(document.body,{childList:true,subtree:true});
 function stuObj(el){const fd=new FormData(el);const f=Object.fromEntries(fd);f['Class days']=fd.getAll('cd').join(',');delete f.cd;if(f['Class type']==='Batch'){const b=(D.batches||[]).find(x=>x.ID===f['Batch ID']);if(b){f['Class days']=b['Class days'];f['Class start']=b['Class start'];f.Duration=b.Duration;f['Teacher ID']=b['Teacher ID']}}else f['Batch ID']='';f['Class time']=schedText(f);return f}
 const formObj=el=>Object.fromEntries(new FormData(el));
-function credMsg(id,pw,s){return `আসসালামু আলাইকুম।\nQurani Life Online Academy-তে ${s.Name||''}-এর স্টুডেন্ট অ্যাকাউন্ট।\n\nলগইন: ${SITE}student.html\nStudent ID: ${id}\nপাসওয়ার্ড: ${pw}\n\nএখানে পড়াশোনার স্টেজ, অগ্রগতি ও পরের ক্লাসের সময় দেখতে পারবেন।\nযেকোনো প্রয়োজনে: WhatsApp +880 1889-012156`}
+function credMsg(id,pw,s){const tn=s.Teacher||(teachers().find(t=>t.ID===s['Teacher ID'])||{}).Name||'';const sc=schedText(s);return `আসসালামু আলাইকুম।\nআলহামদুলিল্লাহ, Qurani Life Online Academy-তে ${s.Name||''}-এর ভর্তি নিশ্চিত হয়েছে।${tn?`\n\nশিক্ষক: ${tn}`:''}${sc?`\nক্লাসের সময়: ${sc}`:''}\n\nঅভিভাবক পোর্টাল: ${SITE}student.html\nStudent ID: ${id}\nপাসওয়ার্ড: ${pw}\n\nপোর্টালে প্রতিদিনের পড়া, উপস্থিতি, অগ্রগতি ও হাদিয়ার হিসাব দেখতে পারবেন।\nযেকোনো প্রয়োজনে একাডেমির অফিসিয়াল WhatsApp: +880 1889-012156`}
 function credBtns(id,pw,s){const msg=credMsg(id,pw,s),d=digits(s.WhatsApp);window._cm=msg;return `<div style="display:flex;gap:8px;flex-wrap:wrap">${d?`<a class="btn wa sm" target="_blank" href="https://wa.me/${d}?text=${encodeURIComponent(msg)}">WhatsApp-এ পাঠান</a>`:''}<button class="btn ghost sm" type="button" onclick="navigator.clipboard.writeText(window._cm).then(()=>toast('কপি হয়েছে'))">কপি করুন</button></div>`}
 function credBox(id,pw,s){return `<div class="cred">Student ID: <b>${esc(id)}</b><br>পাসওয়ার্ড: <b>${esc(pw)}</b></div><p class="sm" style="color:var(--muted)">শিক্ষার্থীর প্রোফাইলে (শুধু Super Admin) এই তথ্য সবসময় দেখা যাবে।</p>${credBtns(id,pw,s)}<div style="margin-top:10px"><button class="btn ghost sm" data-close type="button">বন্ধ</button></div>`}
 function passModal(name,cb){openModal(`<h3>🔑 ${esc(name)}-এর নতুন পাসওয়ার্ড</h3><form id="pmf"><label class="fld"><span>নতুন পাসওয়ার্ড (খালি রাখলে নিজে থেকে তৈরি হবে)</span><input name="np" minlength="6" placeholder="কমপক্ষে ৬ অক্ষর"></label><p class="sm" style="color:var(--muted)">পুরনো পাসওয়ার্ড আর কাজ করবে না।</p><div style="display:flex;gap:8px"><button class="btn">সেট করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
  $('#pmf').onsubmit=e=>{e.preventDefault();cb(e.target.np.value.trim())}}
 function convertModal(l){const s={Name:l._name,WhatsApp:l._phone,Country:l._country,Course:l._course,Guardian:pick(l,['guardian','father','parent']),Email:pick(l,['email']),Age:pick(l,['age']),Gender:pick(l,['gender']),'Class type':pick(l,['class type'])==='Batch'?'Batch':'One-to-one','Batch ID':String(pick(l,['preferred batch'])||'').split(' · ')[0],Notes:[pick(l,['preferred time','preferred slot'])].filter(Boolean).map(x=>'পছন্দের সময়: '+x).join('')};
  openModal(`<h3>🎓 শিক্ষার্থী অ্যাকাউন্ট তৈরি</h3><form id="cf">${stuForm(s)}<p class="err" id="cerr"></p><div style="display:flex;gap:8px"><button class="btn">অ্যাকাউন্ট তৈরি করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
- $('#cf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;const f=stuObj(e.target);const r=await api('convert',{tab:l._tab,row:l._row,fields:f});b.disabled=false;
-  if(r.ok){$('#modal').innerHTML=`<h3>✅ অ্যাকাউন্ট তৈরি হয়েছে</h3>${credBox(r.id,r.password,f)}`;load()}else $('#cerr').textContent=em(r.error)}}
+ $('#cf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;const f=stuObj(e.target);const r=await api('convert',{tab:l._tab,row:l._row,fields:f,mail:'YES'});b.disabled=false;
+  if(r.ok){$('#modal').innerHTML=`<h3>✅ ভর্তি নিশ্চিত, অ্যাকাউন্ট তৈরি হয়েছে</h3>${r.mailed?'<p class="okline">✉️ অভিভাবকের ইমেইলে কনফার্মেশন পাঠানো হয়েছে।</p>':''}<p class="sm" style="color:var(--muted)">নিচের বাটনে চাপ দিলে শিক্ষক, ক্লাসের সময় ও লগইন তথ্যসহ কনফার্মেশন মেসেজ অভিভাবকের WhatsApp-এ চলে যাবে।</p>${credBox(r.id,r.password,f)}`;load()}else $('#cerr').textContent=em(r.error)}}
 
 /* ---------- PIPELINE ---------- */
 function pipeline(){const r=LEADS.filter(l=>l._tab!=='teacher'||true);
@@ -935,13 +973,14 @@ function openStudent(id){const s=(D.students||[]).find(x=>x.ID===id);if(!s)retur
    <label class="fld"><span>বর্তমান পাঠ</span><input name="lesson" value="${esc(s['Current lesson'])}" placeholder="যেমন: সবক ১২, পারা ৫, সূরা মুলক"></label>
    <label class="fld"><span>নোট (শিক্ষার্থী দেখতে পাবে)</span><input name="note" placeholder="যেমন: মাখরাজ ভালো হয়েছে"></label>
    <div class="full"><button class="btn">অগ্রগতি সেভ করুন</button></div></form></div>
+  ${classSect(id)}
   <div class="sect"><h4>অগ্রগতির ইতিহাস (${hist.length})</h4><div class="tl">${hist.slice(0,30).map(h=>`<div class="it"><b>${esc(stageName(+h.Stage))}</b> · ${esc(h['Stage progress'])}% ${h.Lesson?'· '+esc(h.Lesson):''}${h.Note?`<div>${esc(h.Note)}</div>`:''}<small>${esc(h.By)} · ${fmt(parseTs(h.Time))}</small></div>`).join('')||'<div class="sm" style="color:var(--muted)">এখনো কোনো আপডেট নেই</div>'}</div></div>
   <div class="sect"><h4>প্রোফাইল</h4><form id="ef">${stuForm(s)}<button class="btn ghost">প্রোফাইল সেভ করুন</button></form></div>
  </div>`);
  const pf=$('#pf');pf.pct.oninput=e=>$('#pv').textContent=e.target.value+'%';
  pf.onsubmit=async e=>{e.preventDefault();const b=pf.querySelector('.btn');b.disabled=true;const f=formObj(pf);const r=await api('studentProgress',{id,...f});b.disabled=false;
   if(r.ok){Object.assign(s,{Stage:f.stage,'Stage progress':f.pct,'Current lesson':f.lesson});(D.progress=D.progress||[]).push({Time:new Date().toISOString(),'Student ID':id,Stage:f.stage,'Stage progress':f.pct,Lesson:f.lesson,Note:f.note,By:USER.name});toast('অগ্রগতি সেভ হয়েছে');openStudent(id);if(PAGE==='students')students()}else toast(em(r.error),1)};
- $('#ef').onsubmit=async e=>{e.preventDefault();const f=stuObj(e.target);const r=await api('studentSave',{id,fields:f});if(r.ok){Object.assign(s,f);s.Teacher=(teachers().find(t=>t.ID===f['Teacher ID'])||{}).Name||'';toast('প্রোফাইল সেভ হয়েছে');if(PAGE==='students')students()}else toast(em(r.error),1)};
+ $('#ef').onsubmit=async e=>{e.preventDefault();const f=stuObj(e.target);const r=await api('studentSave',{id,fields:f,mail:'YES'});if(r.ok){Object.assign(s,f);s.Teacher=(teachers().find(t=>t.ID===f['Teacher ID'])||{}).Name||'';toast('প্রোফাইল সেভ হয়েছে');if(PAGE==='students')students();if(r.assigned)assignedModal(s,r.mailed)}else toast(em(r.error),1)};
  $('#srp').onclick=()=>passModal(s.Name,async np=>{const r=await api('studentResetPass',{id,newPass:np});if(r.ok){s.Password=r.password;openModal(`<h3>🔑 নতুন পাসওয়ার্ড</h3>${credBox(id,r.password,s)}`);if(PAGE==='students')students()}else toast(em(r.error),1)});
  const sd=$('#sdel');if(sd)sd.onclick=async()=>{if(!confirm(s.Name+'-এর অ্যাকাউন্ট মুছে যাবে, ফেরত আসবে না। মুছবেন?'))return;const r=await api('studentDelete',{id});if(r.ok){toast('মুছে ফেলা হয়েছে');closeAll();load()}else toast(em(r.error),1)};
 }
@@ -1042,11 +1081,12 @@ function txnModal(t){t=t||{Type:'Income',Currency:AF.cur||'BDT',Date:dayKey(new 
   <label class="fld"><span>মাধ্যম</span><input name="Method" list="txm" value="${esc(t.Method)}"><datalist id="txm">${METHODS.map(m=>`<option>${m}</option>`).join('')}</datalist></label>
   <label class="fld"><span>কার কাছ থেকে / কাকে</span><input name="Party" value="${esc(t.Party)}" placeholder="যেমন: অভিভাবকের নাম, শিক্ষকের নাম"></label>
   <label class="fld"><span>Student ID (যদি থাকে)</span><input name="Student ID" list="txs" value="${esc(t['Student ID'])}"><datalist id="txs">${(D.students||[]).map(x=>`<option value="${esc(x.ID)}">${esc(x.Name)}</option>`).join('')}</datalist></label>
+  <label class="fld"><span>কোন মাসের হাদিয়া (যদি হাদিয়া হয়)</span><input type="month" name="Month" value="${esc(String(t.Month||'').slice(0,7))}"></label>
   <label class="fld full"><span>নোট</span><textarea name="Note" rows="2" placeholder="যেমন: নভেম্বর মাসের হাদিয়া, TrxID ...">${esc(t.Note)}</textarea></label></div>
   <p class="err" id="txerr"></p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn">সেভ করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button>${t.ID&&isSA()?'<button class="btn red" type="button" id="txdel" style="margin-left:auto">মুছুন</button>':''}</div></form>`);
  $('#txty').onchange=e=>$('#txcat').innerHTML=catOpts(e.target.value);
  $('#txf').onsubmit=async e=>{e.preventDefault();const b=e.target.querySelector('.btn');b.disabled=true;const f=formObj(e.target);const r=await api('txnSave',t.ID?{id:t.ID,fields:f}:{fields:f});b.disabled=false;
-  if(r.ok){toast('সেভ হয়েছে');closeAll();await load();location.hash='#accounts'}else $('#txerr').textContent=r.error==='amount'?'সঠিক পরিমাণ দিন।':em(r.error)};
+  if(r.ok){toast('সেভ হয়েছে');closeAll();const bk=window._txBack||'#accounts';window._txBack='';await load();location.hash=bk}else $('#txerr').textContent=r.error==='amount'?'সঠিক পরিমাণ দিন।':em(r.error)};
  const d=$('#txdel');if(d)d.onclick=async()=>{if(!confirm('লেনদেনটি মুছে যাবে, ফেরত আসবে না। মুছবেন?'))return;const r=await api('txnDelete',{id:t.ID});if(r.ok){toast('মুছে ফেলা হয়েছে');closeAll();load()}else toast(em(r.error),1)}}
 document.addEventListener('click',e=>{const r=e.target.closest('[data-txn]');if(r)txnModal((D.txns||[]).find(t=>t.ID===r.dataset.txn))});
 
@@ -1108,18 +1148,19 @@ document.addEventListener('click',e=>{let b=e.target.closest('[data-tkm]');if(b)
 const academyBox=()=>{const a=D.academy||{};return `<div class="card" style="background:linear-gradient(135deg,#0B2418,#00552C);color:#fff;border:0"><h3 style="color:#fff">${esc(a.name||'Qurani Life Online Academy')}</h3><p style="margin:0 0 10px;color:#CFE6D8;font-size:13px">শিক্ষার্থী বা অভিভাবকের সাথে সব যোগাযোগ একাডেমির মাধ্যমে হবে। কোনো দরকার হলে একাডেমিকে জানান।</p><a class="btn wa sm" target="_blank" href="https://wa.me/${esc(a.whatsapp||'8801889012156')}">WhatsApp: ${esc(a.phone||'+880 1889-012156')}</a></div>`};
 function classes(){const list=D.students||[];const nx=nextClasses(list,5);
  const card=(c,i)=>{if(c.group){const b=(D.batches||[]).find(x=>x.ID===c.s['Batch ID'])||{Name:c.s['Batch ID']};const live=c.start<=new Date();
-  return i===0?`<div class="card" style="border:2px solid var(--gold);background:linear-gradient(135deg,#FFFBEA,#fff);padding:22px"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><div style="flex:1;min-width:220px"><span class="pill" style="color:${live?'#C2410C':'#B45309'};font-size:13px">${live?'🔴 এখন চলছে':'⏰ পরের ক্লাস'} · ব্যাচ</span><h2 style="margin:8px 0 2px;font-size:26px">${esc(b.Name)}</h2><div style="color:var(--muted)">${esc(b.Course||'')} · ${c.group.length} জন শিক্ষার্থী</div><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${c.group.map(x=>`<span class="tag" data-tstu="${esc(x.ID)}" style="cursor:pointer">${esc(x.Name)}</span>`).join('')}</div></div><div style="text-align:right"><div style="font:800 34px/1.1 Inter;color:#00552C">${tBD(c.start)}</div><div style="color:var(--muted)">${dBD(c.start)} · ${(c.end-c.start)/6e4} মিনিট</div><div style="font-weight:800;color:${live?'#C2410C':'#B45309'};margin-top:6px;font-size:16px">${until(c.start)}</div></div></div></div>`
-  :`<div class="card" style="display:flex;gap:14px;align-items:center"><div style="width:62px;text-align:center;border-right:1px solid var(--line);padding-right:12px"><div style="font:800 16px Inter;color:#00552C">${tBD(c.start)}</div><div class="sm" style="color:var(--muted)">${c.start.toLocaleDateString(LOC(),{weekday:'short',timeZone:'Asia/Dhaka'})}</div></div><div style="flex:1"><b>${esc(b.Name)}</b> <span class="tag" style="background:#FFF4CC;color:#7A5B00">ব্যাচ</span><div class="sm" style="color:var(--muted)">${c.group.length} জন · ${esc(b.Course||'')}</div></div><div class="sm" style="font-weight:700;color:#B45309">${until(c.start)}</div></div>`}
+  return i===0?`<div class="card" style="border:2px solid var(--gold);background:linear-gradient(135deg,#FFFBEA,#fff);padding:22px"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><div style="flex:1;min-width:220px"><span class="pill" style="color:${live?'#C2410C':'#B45309'};font-size:13px">${live?'🔴 এখন চলছে':'⏰ পরের ক্লাস'} · ব্যাচ</span><h2 style="margin:8px 0 2px;font-size:26px">${esc(b.Name)}</h2><div style="color:var(--muted)">${esc(b.Course||'')} · ${c.group.length} জন শিক্ষার্থী</div><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${c.group.map(x=>`<span class="tag" data-tstu="${esc(x.ID)}" style="cursor:pointer">${esc(x.Name)}</span>`).join('')}</div></div><div style="text-align:right"><div style="font:800 34px/1.1 Inter;color:#00552C">${tBD(c.start)}</div><div style="color:var(--muted)">${dBD(c.start)} · ${(c.end-c.start)/6e4} মিনিট</div><div style="font-weight:800;color:${live?'#C2410C':'#B45309'};margin-top:6px;font-size:16px">${until(c.start)}</div></div></div><div style="margin-top:14px"><button class="btn gold" data-done="${esc(c.group.map(x=>x.ID).join(','))}" data-batch="${esc(b.ID||'')}" type="button">✅ ক্লাস শেষ, সবার রিপোর্ট দিন</button></div></div>`
+  :`<div class="card" style="display:flex;gap:14px;align-items:center"><div style="width:62px;text-align:center;border-right:1px solid var(--line);padding-right:12px"><div style="font:800 16px Inter;color:#00552C">${tBD(c.start)}</div><div class="sm" style="color:var(--muted)">${c.start.toLocaleDateString(LOC(),{weekday:'short',timeZone:'Asia/Dhaka'})}</div></div><div style="flex:1"><b>${esc(b.Name)}</b> <span class="tag" style="background:#FFF4CC;color:#7A5B00">ব্যাচ</span><div class="sm" style="color:var(--muted)">${c.group.length} জন · ${esc(b.Course||'')}</div></div><div class="sm" style="font-weight:700;color:#B45309">${until(c.start)}</div><button class="btn ghost sm" data-done="${esc(c.group.map(x=>x.ID).join(','))}" data-batch="${esc(b.ID||'')}" type="button">✅ রিপোর্ট</button></div>`}
  const s=c.s,st=+s.Stage||1,live=c.start<=new Date();
   return i===0?`<div class="card" style="border:2px solid var(--gold);background:linear-gradient(135deg,#FFFBEA,#fff);padding:22px">
    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><div style="flex:1;min-width:220px"><span class="pill" style="color:${live?'#C2410C':'#B45309'};font-size:13px">${live?'🔴 এখন চলছে':'⏰ পরের ক্লাস'}</span>
    <h2 style="margin:8px 0 2px;font-size:26px">${esc(s.Name)}</h2><div style="color:var(--muted)">${esc(s.ID)} · ${esc(s.Course||'')} · ${st}. ${esc(stageName(st))} (${+s['Stage progress']||0}%)</div>${s['Current lesson']?`<div style="margin-top:4px">বর্তমান পাঠ: <b>${esc(s['Current lesson'])}</b></div>`:''}</div>
    <div style="text-align:right"><div style="font:800 34px/1.1 Inter;color:#00552C">${tBD(c.start)}</div><div style="color:var(--muted)">${dBD(c.start)} · ${(c.end-c.start)/6e4} মিনিট</div><div style="font-weight:800;color:${live?'#C2410C':'#B45309'};margin-top:6px;font-size:16px">${until(c.start)}</div></div></div>
-   <div style="margin-top:14px"><button class="btn sm" data-tstu="${esc(s.ID)}" type="button">অগ্রগতি আপডেট করুন</button></div></div>`
-  :`<div class="card" style="display:flex;gap:14px;align-items:center;cursor:pointer" data-tstu="${esc(s.ID)}"><div style="width:62px;text-align:center;border-right:1px solid var(--line);padding-right:12px"><div style="font:800 16px Inter;color:#00552C">${tBD(c.start)}</div><div class="sm" style="color:var(--muted)">${c.start.toLocaleDateString(LOC(),{weekday:'short',timeZone:'Asia/Dhaka'})}</div></div><div style="flex:1"><b>${esc(s.Name)}</b><div class="sm" style="color:var(--muted)">${esc(s.Course||'')} · ${st}. ${esc(stageName(st))}</div></div><div class="sm" style="font-weight:700;color:#B45309">${until(c.start)}</div></div>`};
+   <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn gold" data-done="${esc(s.ID)}" type="button">✅ ক্লাস শেষ, রিপোর্ট দিন</button><button class="btn ghost sm" data-tstu="${esc(s.ID)}" type="button">স্টেজ ও অগ্রগতি</button></div></div>`
+  :`<div class="card" style="display:flex;gap:14px;align-items:center;cursor:pointer" data-tstu="${esc(s.ID)}"><div style="width:62px;text-align:center;border-right:1px solid var(--line);padding-right:12px"><div style="font:800 16px Inter;color:#00552C">${tBD(c.start)}</div><div class="sm" style="color:var(--muted)">${c.start.toLocaleDateString(LOC(),{weekday:'short',timeZone:'Asia/Dhaka'})}</div></div><div style="flex:1"><b>${esc(s.Name)}</b><div class="sm" style="color:var(--muted)">${esc(s.Course||'')} · ${st}. ${esc(stageName(st))}</div></div><div class="sm" style="font-weight:700;color:#B45309">${until(c.start)}</div><button class="btn ghost sm" data-done="${esc(s.ID)}" type="button" title="ক্লাস শেষ, রিপোর্ট দিন">✅ রিপোর্ট</button></div>`};
  const noSched=list.filter(s=>!s['Class days']||!s['Class start']);
  $('#view').innerHTML=`<div class="grid c2"><div><h3 style="margin:0 0 12px">সামনের ৫টি ক্লাস</h3>${nx.length?`<div class="grid" style="gap:12px">${nx.map(card).join('')}</div>`:'<div class="empty">কোনো ক্লাসের সময় ঠিক করা নেই। অ্যাডমিন শিক্ষার্থীর প্রোফাইলে দিন ও সময় দিলে এখানে দেখাবে।</div>'}
-  ${noSched.length?`<p class="sm" style="color:var(--muted);margin-top:12px">${noSched.length} জন শিক্ষার্থীর ক্লাসের সময় এখনো ঠিক করা হয়নি।</p>`:''}</div>
+  ${noSched.length?`<p class="sm" style="color:var(--muted);margin-top:12px">${noSched.length} জন শিক্ষার্থীর ক্লাসের সময় এখনো ঠিক করা হয়নি।</p>`:''}
+  ${(D.trials||[]).length?`<h3 style="margin:22px 0 12px">🎯 আমার ফ্রি ট্রায়াল ক্লাস</h3><div class="grid" style="gap:10px">${D.trials.map(t=>`<div class="card" style="display:flex;gap:14px;align-items:center;border-left:4px solid #7C3AED"><div style="flex:1"><b>${esc(t.name||'শিক্ষার্থী')}</b> <span class="tag">${esc(t.id)}</span><div class="sm" style="color:var(--muted)">${esc([t.course,t.age?'বয়স '+t.age:'',t.type].filter(Boolean).join(' · '))}</div></div><div style="text-align:right"><b style="color:#5B21B6">${esc(t.date)}</b><div class="sm">${esc(t.time||'')} (বাংলাদেশ সময়)</div></div></div>`).join('')}</div><p class="sm" style="color:var(--muted)">ট্রায়াল ক্লাসের লিংক ও যোগাযোগ একাডেমি থেকে করা হবে।</p>`:''}</div>
   <div class="grid" style="gap:16px;align-content:start">${academyBox()}<div class="card"><h3>এক নজরে</h3><dl class="kv"><dt>আমার শিক্ষার্থী</dt><dd><b>${list.length}</b> জন</dd><dt>চলমান</dt><dd>${list.filter(s=>(s.Status||'Active')==='Active').length} জন</dd><dt>সময় দেখানো হচ্ছে</dt><dd>বাংলাদেশ সময়</dd></dl></div></div></div>`;
  clearInterval(window._ct);window._ct=setInterval(()=>{if(PAGE==='classes'&&!$('#drawer').classList.contains('on'))classes()},60000)}
 function mystudents(){const list=D.students||[];
@@ -1137,6 +1178,7 @@ function openTStudent(id){const s=(D.students||[]).find(x=>x.ID===id);if(!s)retu
    <label class="fld"><span>বর্তমান পাঠ</span><input name="lesson" value="${esc(s['Current lesson'])}" placeholder="যেমন: সবক ১২, সূরা মুলক"></label>
    <label class="fld"><span>নোট (শিক্ষার্থী দেখতে পাবে)</span><input name="note" placeholder="যেমন: মাখরাজ ভালো হয়েছে"></label>
    <div class="full"><button class="btn">অগ্রগতি সেভ করুন</button></div></form></div>
+  ${classSect(id)}
   <div class="sect"><h4>অগ্রগতির ইতিহাস</h4><div class="tl">${hist.slice(0,30).map(h=>`<div class="it"><b>${esc(stageName(+h.Stage))}</b> · ${esc(h['Stage progress'])}% ${h.Lesson?'· '+esc(h.Lesson):''}${h.Note?`<div>${esc(h.Note)}</div>`:''}<small>${esc(h.By)} · ${fmt(parseTs(h.Time))}</small></div>`).join('')||'<div class="sm" style="color:var(--muted)">এখনো কোনো আপডেট নেই</div>'}</div></div>
   ${lkv?`<div class="sect"><h4>ভর্তির সময়ের তথ্য</h4><dl class="kv">${lkv}</dl></div>`:''}
   <div class="sect">${academyBox()}</div></div>`);
@@ -1154,7 +1196,172 @@ function settings(){$('#view').innerHTML=`<div class="grid c11"><div class="card
  <label class="fld"><span>আবার লিখুন</span><input type="password" name="again" minlength="8" required autocomplete="new-password"></label><p class="err" id="cperr"></p><button class="btn">বদলান</button></form></div>
  <div class="card"><h3>আপনার অ্যাকাউন্ট</h3><dl class="kv"><dt>নাম</dt><dd>${esc(USER.name)}</dd><dt>Username</dt><dd>${esc(USER.username)}</dd><dt>ভূমিকা</dt><dd>${ROLE[USER.role]}</dd><dt>অনুমতি</dt><dd>${isSA()?'সব':isT()?'নিজের শিক্ষার্থী ও ক্লাস':(USER.perms||[]).map(p=>PERMN[p]).join(', ')}</dd></dl>
  ${isSA()?`<h3 style="margin-top:18px">স্টেজের তালিকা</h3><p class="sm" style="color:var(--muted)">শেখার ধাপগুলো Google Sheet-এর <b>Stages</b> ট্যাবে রাখা। সেখানে বদলালে এখানে আর শিক্ষার্থীর প্রোফাইলে বদলে যাবে।</p><ol style="margin:0;padding-left:18px">${(D.stages||[]).map(s=>`<li>${esc(s.bn)} <span class="sm" style="color:var(--muted)">(${esc(s.en)})</span></li>`).join('')}</ol><a class="btn ghost sm" style="margin-top:10px" target="_blank" href="${esc(D.sheet)}">Google Sheet খুলুন ↗</a>`:''}</div></div>`;
+ if(isSA())siteSettings();
  $('#cpf').onsubmit=async e=>{e.preventDefault();const f=formObj(e.target);if(f.newPass!==f.again){$('#cperr').textContent='দুটো পাসওয়ার্ড মেলেনি।';return}const r=await api('changePass',{oldPass:f.oldPass,newPass:f.newPass});if(r.ok){toast('পাসওয়ার্ড বদলানো হয়েছে');e.target.reset();$('#cperr').textContent=''}else $('#cperr').textContent=em(r.error)}}
+
+/* ---------- v9: class reports, reviews, website teachers, hadiya, reports, trial ---------- */
+const ATT={Present:['উপস্থিত','#00703A'],Late:['দেরিতে','#D97706'],Absent:['অনুপস্থিত','#C0392B'],Leave:['ছুটি','#6B7280']};
+const logsFor=id=>(D.classlog||[]).filter(x=>x['Student ID']===id).slice().reverse();
+const todayBD=()=>new Date(Date.now()+BD).toISOString().slice(0,10);
+const monthBD=()=>new Date(Date.now()+BD).toISOString().slice(0,7);
+const starTxt=n=>{n=+n||0;return n?`<span style="color:#E0B415;letter-spacing:1px">${'★'.repeat(n)}</span><span style="color:#D9DED9">${'★'.repeat(5-n)}</span>`:''};
+function attStats(id,month){const L=logsFor(id).filter(x=>!month||String(x.Date).slice(0,7)===month);const c={Present:0,Late:0,Absent:0,Leave:0};L.forEach(x=>{c[x.Attendance in c?x.Attendance:'Present']++});const tot=L.length;return {...c,tot,pct:tot?Math.round((c.Present+c.Late)/tot*100):null}}
+function logList(id,n){const L=logsFor(id);return L.length?`<div class="tl">${L.slice(0,n||20).map(x=>{const a=ATT[x.Attendance]||ATT.Present;return `<div class="it"><b>${esc(x.Date)}</b> <span class="pill" style="color:${a[1]};background:${a[1]}14">${a[0]}</span> ${starTxt(x.Rating)}${x.Sabaq?`<div>সবক: <b>${esc(x.Sabaq)}</b></div>`:''}${x.Sabqi?`<div>সবকি: ${esc(x.Sabqi)}</div>`:''}${x.Manzil?`<div>মানজিল: ${esc(x.Manzil)}</div>`:''}${x.Homework?`<div>📝 বাড়ির কাজ: ${esc(x.Homework)}</div>`:''}${x.Note?`<div>💬 ${esc(x.Note)}</div>`:''}<small>${esc(x.Teacher)}</small></div>`}).join('')}</div>`:'<div class="sm" style="color:var(--muted)">এখনো কোনো ক্লাস রিপোর্ট নেই। ক্লাস শেষে "ক্লাস শেষ, রিপোর্ট দিন" চাপুন।</div>'}
+function classSect(id){const a=attStats(id,monthBD());return `<div class="sect"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h4 style="margin:0">ক্লাস রিপোর্ট ও উপস্থিতি</h4><button class="btn gold sm" type="button" data-done="${esc(id)}">✅ আজকের ক্লাস রিপোর্ট দিন</button></div>
+ <div class="attbox">${a.tot?`<div><b>${a.pct}%</b><small>এ মাসে উপস্থিতি</small></div><div><b>${a.Present}</b><small>উপস্থিত</small></div><div><b>${a.Late}</b><small>দেরিতে</small></div><div><b>${a.Absent}</b><small>অনুপস্থিত</small></div>`:'<div class="sm" style="color:var(--muted)">এ মাসে এখনো কোনো ক্লাস রিপোর্ট নেই</div>'}</div>${logList(id,15)}</div>`}
+function classDone(ids,batchId){const list=ids.map(i=>(D.students||[]).find(s=>s.ID===i)).filter(Boolean);if(!list.length)return;const one=list.length===1,s0=list[0];
+ const bn=((D.batches||[]).find(b=>b.ID===batchId)||{}).Name;
+ openModal(`<h3>✅ ক্লাস শেষ: রিপোর্ট দিন</h3><p class="sm" style="color:var(--muted);margin:-6px 0 10px">${one?esc(s0.Name):esc(bn||'ব্যাচ')+' · '+list.length+' জন'} · সেভ করলেই অভিভাবক পোর্টালে দেখা যাবে</p>
+ <form id="cdf"><label class="fld"><span>তারিখ</span><input type="date" name="date" value="${todayBD()}" max="${todayBD()}"></label>
+ <div class="fld"><span>উপস্থিতি</span>${list.map(s=>`<div class="attrow"><b>${esc(s.Name)}</b><div class="seg">${Object.entries(ATT).map(([k,v],j)=>`<label><input type="radio" name="att_${esc(s.ID)}" value="${k}" ${j?'':'checked'}><span>${v[0]}</span></label>`).join('')}</div></div>`).join('')}</div>
+ <div class="f2"><label class="fld"><span>আজকের সবক (নতুন পড়া)</span><input name="sabaq" value="${one?esc(s0['Current lesson']||''):''}" placeholder="যেমন: কায়দা পৃষ্ঠা ১২ বা সূরা মুলক ১-১০"></label>
+ <label class="fld"><span>সবকি (আগের পড়ার রিভিশন)</span><input name="sabqi" placeholder="ঐচ্ছিক"></label>
+ <label class="fld"><span>মানজিল (পুরনো পড়া)</span><input name="manzil" placeholder="ঐচ্ছিক"></label>
+ <div class="fld"><span>আজ কেমন পড়েছে?</span><div class="seg stars5">${[1,2,3,4,5].map(n=>`<label><input type="radio" name="rating" value="${n}" ${n===4?'checked':''}><span>${n}★</span></label>`).join('')}</div></div>
+ <label class="fld full"><span>বাড়ির কাজ</span><input name="homework" placeholder="যেমন: সূরা মুলক ১-৫ তিনবার পড়বে"></label>
+ <label class="fld full"><span>শিক্ষকের মন্তব্য (অভিভাবক দেখবেন)</span><input name="note" placeholder="যেমন: মাখরাজ ভালো হয়েছে, গুন্নাহ আরও অনুশীলন দরকার"></label></div>
+ <p class="err" id="cderr"></p><div style="display:flex;gap:8px"><button class="btn">সেভ করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
+ $('#cdf').onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.target);const fields={date:fd.get('date'),sabaq:fd.get('sabaq'),sabqi:fd.get('sabqi'),manzil:fd.get('manzil'),rating:fd.get('rating'),homework:fd.get('homework'),note:fd.get('note')};
+  const entries=list.map(s=>({id:s.ID,att:fd.get('att_'+s.ID)}));const b=e.target.querySelector('.btn');b.disabled=true;const r=await api('classLog',{entries,fields});b.disabled=false;
+  if(r.ok){const now=new Date().toISOString();entries.forEach(en=>{const ab=en.att==='Absent';(D.classlog=D.classlog||[]).push({Time:now,Date:fields.date,'Student ID':en.id,Attendance:en.att,Sabaq:ab?'':fields.sabaq,Sabqi:ab?'':fields.sabqi,Manzil:ab?'':fields.manzil,Rating:ab?'':fields.rating,Homework:fields.homework,Note:fields.note,Teacher:USER.name});const s=(D.students||[]).find(x=>x.ID===en.id);if(s&&!ab&&fields.sabaq)s['Current lesson']=fields.sabaq});closeAll();toast('ক্লাস রিপোর্ট সেভ হয়েছে · '+r.count+' জন');go()}else $('#cderr').textContent=em(r.error)}}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-done]');if(b){e.stopPropagation();e.preventDefault();classDone(b.dataset.done.split(',').filter(Boolean),b.dataset.batch||'')}},true);
+
+function assignedModal(s,mailed){const pw=s.Password||'';openModal(`<h3>👳 শিক্ষক নির্ধারিত হয়েছে</h3><p>${esc(s.Name)}-এর শিক্ষক এখন <b>${esc(s.Teacher||'')}</b>।</p>${mailed?'<p class="okline">✉️ অভিভাবকের ইমেইলে কনফার্মেশন পাঠানো হয়েছে।</p>':(s.Email?'':'<p class="sm" style="color:var(--muted)">এই শিক্ষার্থীর ইমেইল দেওয়া নেই, তাই শুধু WhatsApp-এ পাঠান।</p>')}
+ <p class="sm" style="color:var(--muted)">নিচের বাটনে চাপ দিলে শিক্ষকের নাম, ক্লাসের সময় ও পোর্টালের লগইনসহ কনফার্মেশন অভিভাবকের WhatsApp-এ যাবে (শিক্ষকের নম্বর যাবে না)।</p>${credBtns(s.ID,pw||'(একাডেমি থেকে জেনে নিন)',s)}<div style="margin-top:10px"><button class="btn ghost sm" data-close type="button">বন্ধ</button></div>`)}
+
+function leadTrialSect(l){if(l._tab==='teacher')return `<div class="sect"><h4>দ্রুত WhatsApp মেসেজ</h4><div style="display:flex;gap:8px;flex-wrap:wrap">${waTpl(l,'recv')}${waTpl(l,'interview')}</div></div>`;
+ const tt=teachers();return `<div class="sect"><h4>🎯 ফ্রি ট্রায়াল ক্লাস ঠিক করুন</h4><div class="f2">
+ <label class="fld"><span>তারিখ</span><input type="date" id="trd" value="${esc(String(l['Trial date']||'').slice(0,10))}"></label>
+ <label class="fld"><span>সময় (বাংলাদেশ সময়)</span><input type="time" id="trt" value="${esc(l['Trial time']||'')}"></label>
+ <label class="fld"><span>শিক্ষক</span><select id="trtc"><option value="">পরে ঠিক হবে</option>${tt.map(t=>`<option value="${esc(t.ID)}" ${l['Trial teacher ID']===t.ID?'selected':''}>${esc(t.Name)}</option>`).join('')}</select></label>
+ <div class="fld" style="display:flex;align-items:end"><button class="btn" id="trsave" type="button" style="width:100%">ট্রায়াল সেভ করুন</button></div></div>
+ ${pick(l,['email'])?'<label class="chk1"><input type="checkbox" id="trmail" checked> অভিভাবককে ইমেইলে জানান</label>':''}
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">${waTpl(l,'recv')}${l['Trial date']?waTpl(l,'trial'):''}</div></div>`}
+function waTpl(l,k){const d=digits(l._phone);if(!d)return '';const nm=l._name,id=l._id;
+ const T={recv:['👋 আবেদন গ্রহণের মেসেজ',`আসসালামু আলাইকুম।\nQurani Life Online Academy-তে ${l._tab==='teacher'?'শিক্ষক হিসেবে':''}আবেদন করার জন্য জাযাকাল্লাহু খাইরান।\n\nআবেদন নম্বর: ${id}\nনাম: ${nm}\n\nআমরা আপনার আবেদন পেয়েছি। ${l._tab==='teacher'?'যাচাই করে শীঘ্রই জানানো হবে':'শীঘ্রই ক্লাসের বিষয়ে কথা বলব'}, ইনশাআল্লাহ।\nআবেদনের অবস্থা দেখুন: ${SITE}#track`],
+  trial:['🎯 ট্রায়াল ক্লাসের মেসেজ',`আসসালামু আলাইকুম।\nআলহামদুলিল্লাহ, ${nm}-এর ফ্রি ট্রায়াল ক্লাস ঠিক হয়েছে।\n\nতারিখ: ${String(l['Trial date']||'').slice(0,10)}\nসময়: ${l['Trial time']||''} (বাংলাদেশ সময়)${l['Trial teacher']?`\nশিক্ষক: ${l['Trial teacher']}`:''}\n\nক্লাসের আগে লিংক পাঠানো হবে, ইনশাআল্লাহ।\nআবেদন নম্বর: ${id}`],
+  interview:['🗓 সাক্ষাৎকারের মেসেজ',`আসসালামু আলাইকুম।\nQurani Life Online Academy-তে শিক্ষক আবেদনের জন্য জাযাকাল্লাহু খাইরান।\nআপনার সাথে একটি ছোট সাক্ষাৎকার / ডেমো ক্লাসের জন্য সময় ঠিক করতে চাই। কখন সুবিধা হবে জানাবেন।\nআবেদন নম্বর: ${id}`]}[k];
+ return `<a class="btn wa sm" target="_blank" href="https://wa.me/${d}?text=${encodeURIComponent(T[1])}">${T[0]}</a>`}
+function bindLeadTrial(l){const b=$('#trsave');if(!b)return;b.onclick=async()=>{const pl={tab:l._tab,row:l._row,'Trial date':$('#trd').value,'Trial time':$('#trt').value,'Trial teacher ID':$('#trtc').value,mail:$('#trmail')&&$('#trmail').checked?'YES':'NO'};
+ if(!pl['Trial date']){toast('তারিখ দিন',1);return}b.disabled=true;const r=await api('leadUpdate',pl);b.disabled=false;
+ if(r.ok){const tn=(teachers().find(t=>t.ID===pl['Trial teacher ID'])||{}).Name||'';Object.assign(l,{'Trial date':pl['Trial date'],'Trial time':pl['Trial time'],'Trial teacher ID':pl['Trial teacher ID'],'Trial teacher':tn});if(l._status==='নতুন'||l._status==='যোগাযোগ করা হয়েছে'){l._status=l.Status='ক্লাস নির্ধারিত'}const o=(D[l._tab]||[]).find(x=>x._row===l._row);if(o)Object.assign(o,{'Trial date':l['Trial date'],'Trial time':l['Trial time'],'Trial teacher ID':l['Trial teacher ID'],'Trial teacher':tn,Status:l.Status});toast(r.mailed?'ট্রায়াল সেভ হয়েছে, ইমেইল পাঠানো হয়েছে':'ট্রায়াল সেভ হয়েছে');openLead(l);rerender()}else toast(em(r.error),1)}}
+
+/* uploads */
+async function shrinkImage(file,max){try{const bm=await createImageBitmap(file);const k=Math.min(1,max/Math.max(bm.width,bm.height));const c=document.createElement('canvas');c.width=Math.round(bm.width*k);c.height=Math.round(bm.height*k);c.getContext('2d').drawImage(bm,0,0,c.width,c.height);return await new Promise(r=>c.toBlob(r,'image/jpeg',.86))}catch(e){return file}}
+async function uploadBlob(blob,name){if(blob.size>25*1024*1024)return {ok:false,error:'too big'};const b64=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]);r.onerror=rej;r.readAsDataURL(blob)});return api('upload',{mime:blob.type||'application/octet-stream',name:name||'file',data:b64})}
+const driveImg=(id,w)=>/^https?:/.test(id||'')?id:`https://lh3.googleusercontent.com/d/${id}=w${w||600}`;
+const driveFile=id=>/^https?:/.test(id||'')?id:`https://drive.google.com/uc?export=download&id=${id}`;
+function blurTool(box,file){return new Promise(async res=>{const bm=await createImageBitmap(file);const k=Math.min(1,1600/Math.max(bm.width,bm.height));const c=document.createElement('canvas');c.width=Math.round(bm.width*k);c.height=Math.round(bm.height*k);const x=c.getContext('2d');const draw0=()=>x.drawImage(bm,0,0,c.width,c.height);draw0();
+ box.innerHTML='<div class="bt-help">ফোন নম্বর, নাম বা প্রোফাইল ছবি ঢাকতে ছবির উপর আঙুল/মাউস টেনে বক্স আঁকুন। প্রতিটি বক্স ঝাপসা হয়ে যাবে।</div>';c.className='bt-canvas';box.appendChild(c);
+ const bar=document.createElement('div');bar.className='bt-bar';bar.innerHTML='<button type="button" class="btn ghost sm" data-r>↺ আবার শুরু</button>';box.appendChild(bar);
+ let st=null,ov=null;const pos=e=>{const r=c.getBoundingClientRect();return [(e.clientX-r.left)*c.width/r.width,(e.clientY-r.top)*c.height/r.height]};
+ c.addEventListener('pointerdown',e=>{e.preventDefault();c.setPointerCapture(e.pointerId);st=pos(e);ov=x.getImageData(0,0,c.width,c.height)});
+ c.addEventListener('pointermove',e=>{if(!st)return;const p=pos(e);x.putImageData(ov,0,0);x.strokeStyle='#E0B415';x.lineWidth=Math.max(2,c.width/300);x.strokeRect(st[0],st[1],p[0]-st[0],p[1]-st[1])});
+ c.addEventListener('pointerup',e=>{if(!st)return;const p=pos(e);x.putImageData(ov,0,0);let [x0,y0]=st,[x1,y1]=p;if(x1<x0)[x0,x1]=[x1,x0];if(y1<y0)[y0,y1]=[y1,y0];const w=x1-x0,h=y1-y0;st=null;if(w<6||h<6)return;
+  const t=document.createElement('canvas');const f=Math.max(6,Math.round(Math.min(w,h)/8));t.width=Math.max(1,Math.round(w/f));t.height=Math.max(1,Math.round(h/f));const tx=t.getContext('2d');tx.drawImage(c,x0,y0,w,h,0,0,t.width,t.height);x.imageSmoothingEnabled=false;x.drawImage(t,0,0,t.width,t.height,x0,y0,w,h);x.imageSmoothingEnabled=true});
+ bar.querySelector('[data-r]').onclick=draw0;res(()=>new Promise(r=>c.toBlob(r,'image/jpeg',.86)))})}
+
+/* reviews */
+const RVT={text:['✍️','লেখা'],screenshot:['📱','WhatsApp স্ক্রিনশট'],voice:['🎙️','ভয়েস'],video:['🎬','ভিডিও']};
+const RVS={Published:['প্রকাশিত','#00703A'],Pending:['অপেক্ষমাণ','#D97706'],Hidden:['লুকানো','#6B7280']};
+function rvMedia(r){if(r.Type==='screenshot'&&r.Media)return `<img src="${esc(driveImg(r.Media,500))}" alt="" style="width:100%;max-height:220px;object-fit:cover;object-position:top;border-radius:10px;border:1px solid var(--line)">`;
+ if(r.Type==='voice'&&(r.Media||r.Link))return `<audio controls preload="none" src="${esc(driveFile(r.Media||r.Link))}" style="width:100%"></audio>`;
+ if(r.Type==='video'&&(r.Media||r.Link))return `<a class="btn ghost sm" target="_blank" href="${esc(r.Link||('https://drive.google.com/file/d/'+r.Media+'/view'))}">▶ ভিডিও দেখুন</a>`;return ''}
+function reviewsPage(){const R=(D.reviews||[]).slice().reverse();const tab=window._rvt||'all';const cnt=k=>R.filter(r=>k==='all'||r.Status===k).length;const list=R.filter(r=>tab==='all'||r.Status===tab);const st=D.settings||{};
+ $('#view').innerHTML=`<div class="card hero2"><div style="flex:1;min-width:240px"><h3 style="margin:0">ওয়েবসাইটের রিভিউ</h3><p class="sm" style="color:var(--muted);margin:4px 0 0">লেখা, WhatsApp স্ক্রিনশট, ভয়েস বা ভিডিও মতামত যোগ করুন। শুধু "প্রকাশিত" গুলো ওয়েবসাইটে দেখাবে। ওয়েবসাইট থেকে কেউ মতামত লিখলে এখানে "অপেক্ষমাণ" হিসেবে আসবে।</p></div><button class="btn gold" id="rvAdd" type="button">+ নতুন রিভিউ যোগ করুন</button></div>
+ ${isSA()?`<div class="card" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px"><div style="flex:1;min-width:220px"><b>ওয়েবসাইট থেকে আসা মতামত</b><div class="sm" style="color:var(--muted)">${st.reviewAuto==='YES'?'এখন সরাসরি প্রকাশ হচ্ছে।':'এখন আপনার অনুমোদনের পর প্রকাশ হচ্ছে (প্রস্তাবিত)।'}</div></div><label class="switch"><input type="checkbox" id="rvAuto" ${st.reviewAuto==='YES'?'checked':''}><span></span> সরাসরি প্রকাশ</label></div>`:''}
+ <div class="chips" style="margin:14px 0">${[['all','সব'],['Pending','অপেক্ষমাণ'],['Published','প্রকাশিত'],['Hidden','লুকানো']].map(([k,t])=>`<button class="chipb ${tab===k?'on':''}" data-rvt="${k}" type="button">${t} <b>${cnt(k)}</b></button>`).join('')}</div>
+ <div class="grid c3">${list.map(r=>{const s=RVS[r.Status]||RVS.Hidden,t=RVT[r.Type]||RVT.text;return `<div class="card rvc"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><span class="tag">${t[0]} ${t[1]}</span><span class="pill" style="color:${s[1]};background:${s[1]}14">${s[0]}</span></div>
+  <div><b>${esc(r.Name)}</b> ${starTxt(r.Stars)}<div class="sm" style="color:var(--muted)">${esc([r.Relation,r.Course].filter(Boolean).join(' · '))}</div></div>${rvMedia(r)}${r.Text?`<p class="sm" style="margin:0;white-space:pre-wrap">${esc(String(r.Text).slice(0,260))}${String(r.Text).length>260?'…':''}</p>`:''}
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto">${r.Status!=='Published'?`<button class="btn sm" data-rvs="${esc(r.ID)}|Published" type="button">✓ প্রকাশ করুন</button>`:`<button class="btn ghost sm" data-rvs="${esc(r.ID)}|Hidden" type="button">লুকান</button>`}<button class="btn ghost sm" data-rve="${esc(r.ID)}" type="button">এডিট</button><button class="btn red sm" data-rvd="${esc(r.ID)}" type="button">মুছুন</button></div></div>`}).join('')||'<div class="empty">এখানে এখনো কোনো রিভিউ নেই। উপরের বাটন থেকে যোগ করুন।</div>'}</div>`;
+ $('#rvAdd').onclick=()=>reviewModal();const au=$('#rvAuto');if(au)au.onchange=async()=>{const r=await api('settingsSave',{fields:{reviewAuto:au.checked?'YES':'NO'}});if(r.ok){D.settings.reviewAuto=au.checked?'YES':'NO';toast('সেভ হয়েছে');reviewsPage()}else toast(em(r.error),1)}}
+document.addEventListener('click',async e=>{const t=e.target.closest('[data-rvt]');if(t){window._rvt=t.dataset.rvt;reviewsPage();return}
+ const s=e.target.closest('[data-rvs]');if(s){const [id,st]=s.dataset.rvs.split('|');s.disabled=true;const r=await api('reviewSave',{id,fields:{Status:st}});if(r.ok){const x=(D.reviews||[]).find(v=>v.ID===id);if(x)x.Status=st;toast(st==='Published'?'ওয়েবসাইটে প্রকাশিত হয়েছে':'লুকানো হয়েছে');reviewsPage()}else toast(em(r.error),1);return}
+ const ed=e.target.closest('[data-rve]');if(ed){reviewModal((D.reviews||[]).find(v=>v.ID===ed.dataset.rve));return}
+ const dl=e.target.closest('[data-rvd]');if(dl){if(!confirm('রিভিউটি মুছে যাবে। মুছবেন?'))return;const r=await api('reviewDelete',{id:dl.dataset.rvd});if(r.ok){D.reviews=(D.reviews||[]).filter(v=>v.ID!==dl.dataset.rvd);toast('মুছে ফেলা হয়েছে');reviewsPage()}else toast(em(r.error),1)}});
+function reviewModal(r){r=r||{Type:'screenshot',Status:'Published',Stars:5};let media=r.Media||'',getBlob=null,pick2=null;
+ openModal(`<h3>${r.ID?'রিভিউ এডিট · '+esc(r.ID):'নতুন রিভিউ যোগ করুন'}</h3><form id="rvf">
+ <div class="fld"><span>কোন ধরনের রিভিউ?</span><div class="seg wide">${Object.entries(RVT).map(([k,v])=>`<label><input type="radio" name="Type" value="${k}" ${r.Type===k?'checked':''}><span>${v[0]} ${v[1]}</span></label>`).join('')}</div></div>
+ <div id="rvMediaBox" class="fld"></div>
+ <div class="f2"><label class="fld"><span>নাম *</span><input name="Name" required value="${esc(r.Name)}" placeholder="যেমন: আব্দুল করিম"></label>
+ <label class="fld"><span>পরিচয়</span><input name="Relation" list="rvrel" value="${esc(r.Relation)}" placeholder="যেমন: অভিভাবক, সৌদি আরব"><datalist id="rvrel"><option>অভিভাবক</option><option>প্রবাসী অভিভাবক</option><option>শিক্ষার্থী</option></datalist></label>
+ <label class="fld"><span>কোর্স</span><input name="Course" value="${esc(r.Course)}"></label>
+ <label class="fld"><span>তারকা</span><select name="Stars">${[5,4,3,0].map(n=>`<option value="${n}" ${String(r.Stars)==String(n)?'selected':''}>${n?n+' ★':'দেখাবে না'}</option>`).join('')}</select></label>
+ <label class="fld full"><span>মতামতের লেখা <small>(লেখা রিভিউতে জরুরি, বাকিগুলোতে ঐচ্ছিক)</small></span><textarea name="Text" rows="3">${esc(r.Text)}</textarea></label>
+ <label class="fld"><span>অবস্থা</span><select name="Status">${Object.entries(RVS).map(([k,v])=>`<option value="${k}" ${r.Status===k?'selected':''}>${v[0]}</option>`).join('')}</select></label>
+ <label class="fld"><span>ক্রম (ছোট সংখ্যা আগে দেখাবে)</span><input name="Order" inputmode="numeric" value="${esc(r.Order)}"></label></div>
+ <p class="err" id="rverr"></p><div style="display:flex;gap:8px"><button class="btn" id="rvsave">সেভ করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button></div></form>`);
+ const f=$('#rvf');const box=$('#rvMediaBox');
+ const drawBox=()=>{const ty=f.Type.value;getBlob=null;pick2=null;
+  if(ty==='text'){box.innerHTML='';return}
+  const acc={screenshot:'image/*',voice:'audio/*',video:'video/*'}[ty];
+  box.innerHTML=`<span>${ty==='screenshot'?'স্ক্রিনশট ছবি':ty==='voice'?'ভয়েস ফাইল (WhatsApp থেকে সেভ করা অডিও)':'ভিডিও ফাইল (ছোট ভিডিও, ২৫ MB পর্যন্ত)'}</span>
+   ${media?`<div class="cur">${ty==='screenshot'?`<img src="${esc(driveImg(media,400))}" alt="" style="max-height:120px;border-radius:8px">`:'✓ ফাইল যুক্ত আছে'} <button type="button" class="btn ghost sm" id="rvclr">বদলান</button></div>`:`<input type="file" id="rvfile" accept="${acc}"><div id="rvprev"></div>`}
+   ${ty!=='screenshot'?`<label class="fld" style="margin-top:8px"><span>অথবা লিংক দিন (YouTube / Facebook / Google Drive)</span><input name="Link" value="${esc(r.Link)}" placeholder="https://..."></label>`:''}`;
+  const clr=$('#rvclr');if(clr)clr.onclick=()=>{media='';drawBox()};
+  const fi=$('#rvfile');if(fi)fi.onchange=async()=>{const file=fi.files[0];if(!file)return;pick2=file;if(ty==='screenshot'){getBlob=await blurTool($('#rvprev'),file)}else{$('#rvprev').innerHTML=`<div class="sm">✓ ${esc(file.name)} (${(file.size/1048576).toFixed(1)} MB)</div>`}}};
+ f.addEventListener('change',e=>{if(e.target.name==='Type'){media=r.Type===e.target.value?(r.Media||''):'';drawBox()}});drawBox();
+ f.onsubmit=async e=>{e.preventDefault();const fo=formObj(f);const ty=fo.Type;const err=$('#rverr');err.textContent='';
+  if(!fo.Name.trim()){err.textContent='নাম দিন।';return}if(ty==='text'&&!fo.Text.trim()){err.textContent='লেখা রিভিউর জন্য মতামত লিখুন।';return}
+  const b=$('#rvsave');b.disabled=true;
+  try{if(pick2){b.textContent='আপলোড হচ্ছে...';let blob=ty==='screenshot'&&getBlob?await getBlob():pick2;const up=await uploadBlob(blob,pick2.name);if(!up.ok)throw new Error(up.error==='too big'?'ফাইল খুব বড় (২৫ MB-এর কম দিন), বড় ভিডিও YouTube/Facebook-এ দিয়ে লিংক দিন।':up.error==='file type'?'এই ধরনের ফাইল চলবে না।':em(up.error));media=up.id}
+   if(ty!=='text'&&!media&&!(fo.Link||'').trim())throw new Error('ফাইল বা লিংক দিন।');
+   b.textContent='সেভ হচ্ছে...';fo.Media=ty==='text'?'':media;if(ty==='screenshot'||ty==='text')fo.Link='';const res=await api('reviewSave',r.ID?{id:r.ID,fields:fo}:{fields:fo});if(!res.ok)throw new Error(em(res.error));
+   toast('রিভিউ সেভ হয়েছে');closeAll();await load();location.hash='#reviews'}catch(x){err.textContent=x.message||'সমস্যা হয়েছে';b.disabled=false;b.textContent='সেভ করুন'}}}
+
+/* website teacher cards */
+const FORN={boys:'ছেলেদের জন্য',girls:'মেয়ে ও মহিলাদের জন্য',adults:'বড়দের জন্য',all:'সবার জন্য'};
+function tcards(){const T=(D.tcards||[]).slice().sort((a,b)=>(+a.Order||999)-(+b.Order||999));
+ $('#view').innerHTML=`<div class="card hero2"><div style="flex:1;min-width:240px"><h3 style="margin:0">ওয়েবসাইটের শিক্ষক পরিচিতি</h3><p class="sm" style="color:var(--muted);margin:4px 0 0">এখানে যোগ করা শিক্ষকরা ওয়েবসাইটের "শিক্ষক" অংশে দেখাবে। কেউ না থাকলে অংশটি লুকানো থাকবে। শিক্ষকের ফোন নম্বর ওয়েবসাইটে যায় না।</p></div><button class="btn gold" id="tcAdd" type="button">+ শিক্ষক যোগ করুন</button></div>
+ <div class="grid c3" style="margin-top:14px">${T.map(t=>`<div class="card" style="text-align:center"><div class="tcav">${t.Photo?`<img src="${esc(driveImg(t.Photo,300))}" alt="">`:`<span>${esc(String(t['Name (Bangla)']||t['Name (English)']||'?').slice(0,1))}</span>`}</div><b>${esc(t['Name (Bangla)']||t['Name (English)'])}</b><div class="sm" style="color:var(--muted)">${esc(t['Name (English)']||'')}</div><div class="sm">${esc(t['Subject (Bangla)']||t['Subject (English)']||'')}</div>${t.For?`<span class="tag">${esc(FORN[t.For]||t.For)}</span>`:''} ${t.Show==='NO'?'<span class="pill" style="color:#6B7280">লুকানো</span>':''}<div style="margin-top:10px"><button class="btn ghost sm" data-tce="${esc(t.ID)}" type="button">এডিট</button></div></div>`).join('')||'<div class="empty">এখনো কোনো শিক্ষক যোগ করা হয়নি।</div>'}</div>`;
+ $('#tcAdd').onclick=()=>tcardModal()}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-tce]');if(t)tcardModal((D.tcards||[]).find(x=>x.ID===t.dataset.tce))});
+function tcardModal(t){t=t||{Show:'YES'};let photo=t.Photo||'',file=null;
+ openModal(`<h3>${t.ID?'শিক্ষক এডিট':'নতুন শিক্ষক'}</h3><form id="tcf"><div class="fld"><span>ছবি (ঐচ্ছিক)</span><div style="display:flex;gap:12px;align-items:center"><div class="tcav" id="tcpv">${photo?`<img src="${esc(driveImg(photo,300))}" alt="">`:'<span>?</span>'}</div><input type="file" id="tcfile" accept="image/*"></div></div>
+ <div class="f2"><label class="fld"><span>নাম (বাংলা) *</span><input name="Name (Bangla)" value="${esc(t['Name (Bangla)'])}" placeholder="যেমন: হাফেজ মাওলানা ..."></label>
+ <label class="fld"><span>নাম (English)</span><input name="Name (English)" value="${esc(t['Name (English)'])}" placeholder="e.g. Hafez Mawlana ..."></label>
+ <label class="fld"><span>বিষয় (বাংলা)</span><input name="Subject (Bangla)" value="${esc(t['Subject (Bangla)'])}" placeholder="যেমন: নূরানী ও নাজেরা"></label>
+ <label class="fld"><span>বিষয় (English)</span><input name="Subject (English)" value="${esc(t['Subject (English)'])}" placeholder="e.g. Noorani & Nazera"></label>
+ <label class="fld"><span>কাদের পড়ান</span><select name="For"><option value="">-</option>${Object.entries(FORN).map(([k,v])=>`<option value="${k}" ${t.For===k?'selected':''}>${v}</option>`).join('')}</select></label>
+ <label class="fld"><span>ক্রম</span><input name="Order" inputmode="numeric" value="${esc(t.Order)}"></label>
+ <label class="fld"><span>ওয়েবসাইটে দেখাবে?</span><select name="Show"><option value="YES">হ্যাঁ</option><option value="NO" ${t.Show==='NO'?'selected':''}>না</option></select></label></div>
+ <p class="err" id="tcerr"></p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="tcsave">সেভ করুন</button><button class="btn ghost" type="button" data-close>বাতিল</button>${t.ID?'<button class="btn red" type="button" id="tcdel" style="margin-left:auto">মুছুন</button>':''}</div></form>`);
+ $('#tcfile').onchange=e=>{file=e.target.files[0];if(file)$('#tcpv').innerHTML=`<img src="${URL.createObjectURL(file)}" alt="">`};
+ $('#tcf').onsubmit=async e=>{e.preventDefault();const fo=formObj(e.target);if(!fo['Name (Bangla)'].trim()&&!fo['Name (English)'].trim()){$('#tcerr').textContent='নাম দিন।';return}const b=$('#tcsave');b.disabled=true;
+  try{if(file){b.textContent='ছবি আপলোড হচ্ছে...';const up=await uploadBlob(await shrinkImage(file,700),file.name);if(!up.ok)throw new Error(em(up.error));photo=up.id}fo.Photo=photo;
+   const r=await api('tcardSave',t.ID?{id:t.ID,fields:fo}:{fields:fo});if(!r.ok)throw new Error(em(r.error));toast('সেভ হয়েছে');closeAll();await load();location.hash='#tcards'}catch(x){$('#tcerr').textContent=x.message;b.disabled=false;b.textContent='সেভ করুন'}};
+ const d=$('#tcdel');if(d)d.onclick=async()=>{if(!confirm('মুছে ফেলবেন?'))return;const r=await api('tcardDelete',{id:t.ID});if(r.ok){toast('মুছে ফেলা হয়েছে');closeAll();await load();location.hash='#tcards'}else toast(em(r.error),1)}}
+
+/* hadiya tracker */
+function hadiya(){const m=window._hm||monthBD();const S=(D.students||[]).filter(s=>(s.Status||'Active')==='Active');
+ const T=(D.txns||[]).filter(t=>t.Type==='Income'&&t['Student ID']);const paid=id=>T.filter(t=>t['Student ID']===id&&String(t.Month||'').slice(0,7)===m);
+ const rows=S.map(s=>({s,p:paid(s.ID)}));const done=rows.filter(r=>r.p.length).length;const mName=new Date(m+'-15').toLocaleDateString(LOC(),{month:'long',year:'numeric'});
+ const sums={};rows.forEach(r=>r.p.forEach(t=>{sums[t.Currency||'BDT']=(sums[t.Currency||'BDT']||0)+(+t.Amount||0)}));
+ $('#view').innerHTML=`<div class="card hero2"><div style="flex:1;min-width:220px"><h3 style="margin:0">${esc(mName)}-এর হাদিয়া</h3><p class="sm" style="color:var(--muted);margin:4px 0 0">চলমান শিক্ষার্থীদের মধ্যে কে এ মাসের হাদিয়া দিয়েছেন আর কে বাকি। "পরিশোধ যোগ করুন" চাপলে Accounts-এ হিসাবও উঠে যাবে।</p></div><label class="fld" style="margin:0;min-width:170px"><span>মাস</span><input type="month" id="hm" value="${m}"></label></div>
+ <div class="kpis" style="margin:14px 0"><div class="card"><small>পরিশোধ করেছেন</small><b style="color:#00703A">${done} / ${rows.length}</b></div><div class="card"><small>বাকি</small><b style="color:#C2410C">${rows.length-done}</b></div><div class="card"><small>এ মাসে আদায়</small><b>${Object.entries(sums).map(([c,v])=>money(v,c)).join(' + ')||'০'}</b></div></div>
+ <div class="tw"><table><thead><tr><th>শিক্ষার্থী</th><th>মাসিক হাদিয়া</th><th>অবস্থা</th><th></th></tr></thead><tbody>${rows.sort((a,b)=>a.p.length-b.p.length).map(({s,p})=>{const d=digits(s.WhatsApp);const msg=`আসসালামু আলাইকুম।\nQurani Life Online Academy থেকে বলছি। ${s.Name}-এর ${mName}-এর হাদিয়া${s['Monthly hadiya']?` (${s['Monthly hadiya']})`:''} পরিশোধের অনুরোধ রইল।\n\nপরিশোধের মাধ্যম: ${SITE}#hadiya\nপরিশোধের পর স্ক্রিনশট এই নম্বরে পাঠাবেন।\nজাযাকাল্লাহু খাইরান।`;
+  return `<tr style="cursor:default"><td><b>${esc(s.Name)}</b><div class="sm" style="color:var(--muted)">${esc(s.ID)} ${s.Teacher?'· '+esc(s.Teacher):''}</div></td><td>${esc(s['Monthly hadiya']||'-')}</td><td>${p.length?`<span class="pill" style="color:#00703A;background:#00703A14">✓ পরিশোধিত</span><div class="sm">${p.map(t=>money(t.Amount,t.Currency)+(t.Method?' · '+esc(t.Method):'')).join(', ')}</div>`:'<span class="pill" style="color:#C2410C;background:#C2410C14">বাকি</span>'}</td>
+  <td style="white-space:nowrap">${p.length?'':`<button class="btn sm" type="button" data-hpay="${esc(s.ID)}">+ পরিশোধ যোগ করুন</button> ${d?`<a class="btn wa sm" target="_blank" href="https://wa.me/${d}?text=${encodeURIComponent(msg)}">রিমাইন্ডার</a>`:''}`}</td></tr>`}).join('')||'<tr><td colspan=4 style="text-align:center;padding:30px">কোনো চলমান শিক্ষার্থী নেই</td></tr>'}</tbody></table></div>
+ <p class="sm" style="color:var(--muted)">টিপ: শিক্ষার্থীর প্রোফাইলে "মাসিক হাদিয়া" লিখে রাখলে এখানে আর রিমাইন্ডার মেসেজে দেখাবে।</p>`;
+ $('#hm').onchange=e=>{window._hm=e.target.value;hadiya()}}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-hpay]');if(!b)return;const s=(D.students||[]).find(x=>x.ID===b.dataset.hpay);if(!s)return;const m=window._hm||monthBD();const am=String(s['Monthly hadiya']||'').match(/[\d.]+/);const cur=(String(s['Monthly hadiya']||'').match(/[A-Za-z]{3}/)||['BDT'])[0].toUpperCase();
+ window._txBack='#hadiya';txnModal({Type:'Income',Category:'Hadiya',Date:dayKey(new Date()),'Student ID':s.ID,Party:s.Guardian||s.Name,Amount:am?am[0]:'',Currency:cur,Month:m,Note:''})});
+
+/* attendance & teacher reports */
+function reports(){const m=window._rm||monthBD();const L=(D.classlog||[]).filter(x=>String(x.Date).slice(0,7)===m);const S=D.students||[];
+ const byT={};L.forEach(x=>{const k=x.Teacher||'-';byT[k]=byT[k]||{n:0,days:new Set(),st:new Set()};byT[k].n++;byT[k].days.add(x.Date+'|'+(x['Batch ID']||x['Student ID']));byT[k].st.add(x['Student ID'])});
+ const stRows=S.filter(s=>(s.Status||'Active')==='Active').map(s=>({s,a:attStats(s.ID,m)}));
+ $('#view').innerHTML=`<div class="card hero2"><div style="flex:1;min-width:220px"><h3 style="margin:0">উপস্থিতি ও ক্লাসের রিপোর্ট</h3><p class="sm" style="color:var(--muted);margin:4px 0 0">শিক্ষকরা "ক্লাস শেষ, রিপোর্ট দিন" চাপলে এখানে হিসাব আসে। শিক্ষকের সম্মানী হিসাবেও কাজে লাগবে।</p></div><label class="fld" style="margin:0;min-width:170px"><span>মাস</span><input type="month" id="rmn" value="${m}"></label></div>
+ <div class="grid c2" style="margin-top:14px"><div class="card"><h3>শিক্ষক অনুযায়ী ক্লাস</h3><div class="tw" style="box-shadow:none"><table><thead><tr><th>শিক্ষক</th><th>ক্লাস নেওয়া হয়েছে</th><th>শিক্ষার্থী</th></tr></thead><tbody>${Object.entries(byT).map(([k,v])=>`<tr style="cursor:default"><td><b>${esc(k)}</b></td><td>${v.days.size}টি ক্লাস <span class="sm" style="color:var(--muted)">(${v.n} এন্ট্রি)</span></td><td>${v.st.size} জন</td></tr>`).join('')||'<tr><td colspan=3 style="text-align:center;padding:20px">এ মাসে এখনো কোনো রিপোর্ট নেই</td></tr>'}</tbody></table></div></div>
+ <div class="card"><h3>শিক্ষার্থীর উপস্থিতি</h3><div class="tw" style="box-shadow:none"><table><thead><tr><th>শিক্ষার্থী</th><th>উপস্থিতি</th><th>উপ / দেরি / অনু / ছুটি</th></tr></thead><tbody>${stRows.sort((a,b)=>(a.a.pct??101)-(b.a.pct??101)).map(({s,a})=>`<tr data-stu="${esc(s.ID)}"><td><b>${esc(s.Name)}</b><div class="sm" style="color:var(--muted)">${esc(s.Teacher||'')}</div></td><td>${a.tot?`<b style="color:${a.pct>=80?'#00703A':a.pct>=60?'#D97706':'#C2410C'}">${a.pct}%</b>`:'<span class="sm">-</span>'}</td><td class="sm">${a.Present} / ${a.Late} / ${a.Absent} / ${a.Leave}</td></tr>`).join('')}</tbody></table></div></div></div>`;
+ $('#rmn').onchange=e=>{window._rm=e.target.value;reports()}}
+
+/* website settings (super admin) */
+function siteSettings(){const st=D.settings||{};const host=$('#view .grid.c11');if(!host)return;const c=document.createElement('div');c.className='card';c.style.gridColumn='1/-1';
+ const row=(k,t,d)=>`<div class="setrow"><div><b>${t}</b><div class="sm" style="color:var(--muted)">${d}</div></div><label class="switch"><input type="checkbox" data-set="${k}" ${st[k]==='YES'?'checked':''}><span></span></label></div>`;
+ c.innerHTML=`<h3>ওয়েবসাইট ও অটো-মেসেজ সেটিংস</h3>${row('emailApplicant','আবেদনকারীকে কনফার্মেশন ইমেইল','কেউ ফর্মে ইমেইল দিলে আবেদন নম্বরসহ "আবেদন গ্রহণ করা হয়েছে" ইমেইল অটোমেটিক যাবে।')}${row('emailStudent','শিক্ষক যুক্ত হলে অভিভাবককে ইমেইল','শিক্ষক নির্ধারণ বা ভর্তি নিশ্চিত হলে শিক্ষক, ক্লাসের সময় ও পোর্টাল লগইনসহ ইমেইল অটোমেটিক যাবে।')}${row('reviewAuto','ওয়েবসাইটের মতামত সরাসরি প্রকাশ','বন্ধ থাকলে নতুন মতামত আগে "রিভিউ" পাতায় অপেক্ষমাণ থাকবে (প্রস্তাবিত)।')}
+ <p class="sm" style="color:var(--muted);margin:10px 0 0">আজ আর ${D.mailQuota>=0?D.mailQuota:'?'}টি অটো-ইমেইল পাঠানো যাবে (Google-এর দৈনিক সীমা)। নতুন আবেদনের খবর একাডেমির Gmail-এ যায়।</p>`;
+ host.appendChild(c);c.addEventListener('change',async e=>{const k=e.target.dataset.set;if(!k)return;const v=e.target.checked?'YES':'NO';const r=await api('settingsSave',{fields:{[k]:v}});if(r.ok){D.settings[k]=v;toast('সেভ হয়েছে')}else{toast(em(r.error),1);e.target.checked=!e.target.checked}})}
 
 if(TOKEN)start();
 </script>
