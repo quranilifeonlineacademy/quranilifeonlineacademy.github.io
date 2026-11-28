@@ -3,7 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Qurani Life Online Academy</title>
+<title>Qurani Life Online Academy · কুরআনী লাইফ অনলাইন একাডেমি</title>
+<meta name="description" content="One-to-one and batch live online Qur'an classes from home: Noorani Qaida, Nazera, Tajweed, Hifz and Tafsir, for children and adults in Bangladesh and abroad. ঘরে বসেই অনলাইনে কুরআন শিক্ষা।">
+<meta name="theme-color" content="#00703A">
+<link rel="icon" type="image/png" href="logo.png"><link rel="apple-touch-icon" href="logo.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Qurani Life Online Academy">
+<meta property="og:title" content="Qurani Life Online Academy · কুরআনী লাইফ অনলাইন একাডেমি">
+<meta property="og:description" content="আপনার ঘরেই জ্বলে উঠুক কুরআনের আলো। One-to-one ও ব্যাচে লাইভ অনলাইন কুরআন ক্লাস, ফ্রি ট্রায়াল ক্লাস চালু আছে।">
+<meta property="og:url" content="https://quranilifeonlineacademy.github.io/">
+<meta property="og:image" content="https://quranilifeonlineacademy.github.io/hero.jpg"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Hind+Siliguri:wght@400;500;600;700&family=Lora:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -550,6 +558,107 @@ a.tool.stu{text-decoration:none;color:inherit}
 .bdone{display:grid;gap:12px;text-align:center;justify-items:center}.bdone .btn{width:100%;max-width:380px;justify-content:center}
 .paynote{background:var(--goldS);border:1px solid var(--gold);border-radius:14px;padding:12px 16px;text-align:left;max-width:520px}.paynote p{margin:6px 0 0;font-size:14.5px}.paynote .sm{font-size:13px;color:var(--muted)}
 @media(max-width:520px){.bitem{grid-template-columns:1fr}.bitem .btn{justify-self:start}}
+
+/* ===== v9: login, tracker, reviews, teachers, course cards, mobile ===== */
+a.tool.login{width:auto;padding:0 12px;gap:6px;display:inline-flex;align-items:center;text-decoration:none;color:#fff;font:700 13.5px var(--body);border-color:rgba(255,255,255,.45)}
+@media(max-width:1100px){.navstu{border-top:1px solid rgba(255,255,255,.14)}}
+@media(max-width:600px){a.tool.login{padding:0;width:38px;justify-content:center}a.tool.login span{display:none}.bar .happly{display:none}#themeBtn{display:none}}
+.navtheme{display:none!important}@media(max-width:600px){.navtheme{display:block!important}}
+body.mopen{overflow:hidden}
+.gbox{max-width:520px;max-height:90vh;overflow:auto;overscroll-behavior:contain}
+.gbox h3{font-size:clamp(21px,2.6vw,25px);color:light-dark(var(--deep),#fff);padding-right:36px;margin:0}
+.gbox .ld{color:var(--muted);margin:0;font-size:14.5px}
+.mkick{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:var(--goldD);text-transform:uppercase;letter-spacing:.04em}.mkick svg{width:15px;height:15px}
+.lgrid{display:grid;gap:10px;margin-top:4px}
+.lrole{display:flex;gap:14px;align-items:center;padding:14px 14px 14px 12px;border:1.5px solid var(--line);border-radius:16px;background:var(--bg);text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s,box-shadow .2s}
+.lrole:hover,.lrole:focus-visible{border-color:var(--deep);transform:translateY(-2px);box-shadow:0 14px 26px -16px rgba(0,80,40,.5)}
+.lrole .li{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;flex:none;color:#fff}.lrole .li svg{width:24px;height:24px}
+.lrole.r1 .li{background:linear-gradient(140deg,#00703A,#0f8a4f)}.lrole.r2 .li{background:linear-gradient(140deg,#B7791F,#E0B415)}.lrole.r3 .li{background:linear-gradient(140deg,#1F3B57,#355f86)}
+.lrole .lt{display:grid;gap:2px;min-width:0}.lrole b{font-size:16px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.lrole small{color:var(--muted);font-size:13.5px;line-height:1.45}
+.lrole .go{margin-left:auto;color:var(--muted);flex:none}
+.lrole .on{font-style:normal;font-size:11px;font-weight:800;color:var(--green);background:var(--mint);border-radius:999px;padding:1px 8px}
+.ltrack{display:flex;gap:8px;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:light-dark(var(--deep),var(--gold));text-decoration:none;padding:10px;border-radius:12px;background:light-dark(var(--mint),rgba(255,255,255,.05))}
+.ltrack svg{width:17px;height:17px}
+.lfoot{margin:0;font-size:12.5px;color:var(--muted);text-align:center}.lfoot a{color:inherit;font-weight:700}
+.trackline{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:-4px 0 18px;font-size:15px;color:var(--muted)}
+.trackline svg{width:17px;height:17px;color:var(--gold)}.trackline a{font-weight:800;color:light-dark(var(--deep),var(--gold))}
+.refbox{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;background:light-dark(#FFF8E1,rgba(224,180,21,.1));border:1.5px dashed var(--gold);border-radius:16px;padding:12px 18px}
+.refbox small{color:var(--muted);font-size:13px;font-weight:700;width:100%;text-align:center}
+.refbox b{font:800 clamp(26px,5vw,32px) Manrope,sans-serif;letter-spacing:.06em;color:light-dark(var(--deep),var(--gold))}
+.done .sm,.bdone .sm,.gbox .sm{font-size:13.5px;color:var(--muted);margin:0}
+.mailok{display:flex;gap:8px;align-items:center;justify-content:center;color:var(--green);font-weight:700;font-size:14px;margin:0}.mailok svg{width:17px;height:17px}
+.nexts{width:100%;max-width:460px;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.nexts>b{display:block;margin-bottom:8px;color:light-dark(var(--deep),#fff)}
+.tline{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+.tline li{display:grid;grid-template-columns:30px 1fr;column-gap:12px;align-items:center;padding:7px 0;position:relative}
+.tline li:not(:last-child)::after{content:"";position:absolute;left:14px;top:34px;bottom:-6px;width:2px;background:var(--line)}
+.tline li.dn:not(:last-child)::after{background:var(--green)}
+.tline li>span{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:800 13px Manrope;background:var(--paper);border:2px solid var(--line);color:var(--muted);position:relative;z-index:1}
+.tline li.dn>span{background:var(--green);border-color:var(--green);color:#fff}.tline li>span svg{width:15px;height:15px}
+.tline li.cu>span{border-color:var(--gold);color:var(--goldD);box-shadow:0 0 0 4px rgba(224,180,21,.22)}
+.tline li b{font-size:14.5px;font-weight:600;color:var(--ink)}.tline li.dn b{font-weight:700}
+.tline li em{grid-column:2;font-style:normal;font-size:12px;font-weight:800;color:var(--goldD)}
+.dacts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%}
+.done .dacts .btn{flex:1 1 220px;max-width:340px}
+details.sent{width:100%;max-width:460px;text-align:left}details.sent summary{cursor:pointer;font-size:13.5px;color:var(--muted);font-weight:700}
+.trk{display:grid;gap:12px;margin-top:6px;border-top:1px solid var(--line);padding-top:14px}.trk .hi{margin:0;font-size:16px}
+.tcan{margin:0;background:light-dark(#FDECEA,rgba(192,57,43,.15));color:light-dark(#9B2C1F,#F5B7B1);border-radius:12px;padding:12px 14px;font-weight:700}
+.trk .dacts{justify-content:flex-start}
+.starpick{border:0;padding:0;margin:0}.starpick>div{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:4px;margin-top:4px}
+.starpick input{position:absolute;opacity:0;pointer-events:none}
+.starpick label{cursor:pointer;color:light-dark(#D9DED9,#3a4a41);transition:transform .15s,color .15s}.starpick label svg{width:34px;height:34px;fill:currentColor;stroke:none}
+.starpick input:checked~label,.starpick label:hover,.starpick label:hover~label{color:#E0B415}
+.starpick input:focus-visible+label{outline:2px solid var(--deep);border-radius:6px}
+.zbox{max-width:min(92vw,760px);padding:14px}.zimg{display:block;width:100%;height:auto;border-radius:12px}
+/* reviews */
+.revs{align-items:start}
+.revacts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.rv2 .rbadge{align-self:flex-start;font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:999px;background:var(--mint);color:var(--deep)}
+.rshot{display:block;position:relative;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--bg);max-height:340px}
+.rshot img{display:block;width:100%;height:auto;max-height:340px;object-fit:cover;object-position:top}
+.rshot span{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;display:grid;place-items:center}.rshot span svg{width:17px;height:17px}
+.rvoice{display:flex;gap:10px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:6px 8px 6px 6px}
+.rvoice .mi{width:40px;height:40px;border-radius:50%;background:var(--deep);color:var(--gold);display:grid;place-items:center;flex:none}.rvoice .mi svg{width:19px;height:19px}
+.rvoice audio{width:100%;height:40px;min-width:0}
+.rvid{display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;aspect-ratio:16/10;border:0;border-radius:14px;cursor:pointer;color:#fff;font:700 14.5px var(--body);background:radial-gradient(circle at 30% 20%,#0f8a4f,#06341f)}
+.rvid svg{width:54px;height:54px}
+.rframe{position:relative;aspect-ratio:9/16;max-height:520px;border-radius:14px;overflow:hidden;background:#000}.rframe.wide{aspect-ratio:16/9}
+.rframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media(max-width:700px){.revs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1*max(5vw,16px));padding:4px max(5vw,16px) 16px;scrollbar-width:none}.revs::-webkit-scrollbar{display:none}.revs>.rv2{flex:0 0 86%;scroll-snap-align:center}}
+/* teachers */
+.av.ph{background:var(--mint);overflow:hidden}.av.ph img{width:100%;height:100%;object-fit:cover}
+/* course cards v3 */
+.course.cc3{padding:0;overflow:hidden;border-top:0;gap:0}
+.cc3 .cband{position:relative;height:104px;background:linear-gradient(135deg,#00703A 0%,#05532d 100%);display:flex;align-items:flex-start;justify-content:space-between;padding:14px 16px;overflow:visible;isolation:isolate}
+.cc3 .cband::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.13) 1px,transparent 1.2px);background-size:13px 13px;z-index:-1;mask-image:linear-gradient(to left,#000,transparent 85%)}
+.cc3 .cglyph{position:absolute;right:12px;bottom:-14px;font:700 54px/1 Amiri,serif;color:rgba(242,194,48,.28);direction:rtl;white-space:nowrap;z-index:-1;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.cc3 .clvl{font:800 11.5px Manrope,'Hind Siliguri',sans-serif;letter-spacing:.06em;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);padding:4px 11px;border-radius:999px;text-transform:uppercase}
+.cc3 .cico{position:absolute;left:16px;bottom:-24px;width:52px;height:52px;border-radius:16px;background:var(--gold);color:#1d1600;display:grid;place-items:center;box-shadow:0 12px 22px -10px rgba(0,0,0,.45);border:3px solid var(--paper)}
+.cc3 .cico svg{width:24px;height:24px}
+.cc3 .cbody{padding:34px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cc3 ul.cl{list-style:none;padding:0;margin:2px 0 0;display:grid;gap:5px}
+.cc3 ul.cl li{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;color:var(--ink)}
+.cc3 ul.cl svg{width:16px;height:16px;flex:none;margin-top:3px;color:var(--green);background:var(--mint);border-radius:50%;padding:2px}
+@media(hover:hover){.cc3:hover .cglyph{transform:translateX(-10px) scale(1.06)}}
+.swipehint{display:none}
+@media(max-width:700px){
+ #courseGrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1*max(5vw,16px));padding:6px max(5vw,16px) 18px;scrollbar-width:none}
+ #courseGrid::-webkit-scrollbar{display:none}
+ #courseGrid>.course{flex:0 0 84%;scroll-snap-align:center}
+ .swipehint{display:flex;gap:6px;align-items:center;justify-content:center;color:var(--muted);font-size:13px;font-weight:700;margin:2px 0 0}
+ .swipehint svg{width:16px;height:16px;color:var(--gold)}
+}
+/* floating buttons: one tidy button on phones */
+.fmore{display:none}
+@media(max-width:820px){
+ .fstack{display:none;right:22px;bottom:calc(var(--wab,78px) + 112px)}
+ .fstack.open{display:grid;animation:mzi .2s both}
+ .fmore{display:grid;place-items:center;position:fixed;right:22px;bottom:calc(var(--wab,78px) + 62px);z-index:45;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);background:var(--paper);color:light-dark(var(--deep),#fff);box-shadow:0 10px 20px -8px rgba(0,0,0,.35);cursor:pointer}
+ .fmore svg{width:20px;height:20px}
+ .wa{bottom:var(--wab,78px)}
+ .nosticky{--wab:16px}
+ [data-tip]::before{display:none}
+}
 </style>
 </head>
 <body>
@@ -717,7 +826,12 @@ a.tool.stu{text-decoration:none;color:inherit}
   <path d="m22 22-5-10-5 10" />
   <path d="M14 18h6" /></symbol>
 <symbol id="heart" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></symbol>
-<symbol id="yt" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor"/></symbol></svg>
+<symbol id="yt" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor"/></symbol><symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+<symbol id="pen-line" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.4 3.6a2.1 2.1 0 0 1 3 3L7.4 18.6a2 2 0 0 1-.9.5l-2.9.8.8-2.9a2 2 0 0 1 .5-.8z"/></symbol>
+<symbol id="ellipsis" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/><circle cx="5" cy="12" r="1.6"/></symbol>
+<symbol id="log-in" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/></symbol>
+</svg>
 <script>document.documentElement.classList.add('js')</script>
 <script src="config.js"></script>
 
@@ -726,11 +840,11 @@ a.tool.stu{text-decoration:none;color:inherit}
   <a class="brand" href="#home"><img src="logo.png" alt="Qurani Life Online Academy logo"><span>QURANI LIFE<br><small class="bsub">ONLINE ACADEMY</small></span></a>
   <nav class="nav" id="nav">
    <a href="#home" data-bn="হোম">Home</a><a href="#courses" data-bn="কোর্স">Courses</a><a href="#services" data-bn="সেবা">Services</a><a href="#admission" data-bn="ভর্তি">Admission</a><a href="#about" data-bn="আমাদের সম্পর্কে">About</a><a href="#principal" data-bn="পরিচালক">Principal</a><a href="#hadiya" data-bn="হাদিয়া">Hadiya</a><a href="#faq" data-bn="প্রশ্নোত্তর">FAQ</a><a href="#contact" data-bn="যোগাযোগ">Contact</a>
-  <a href="student.html" class="navstu" data-bn="স্টুডেন্ট লগইন">Student login</a></nav>
+  <a href="#login" class="navstu" data-bn="লগইন (অভিভাবক / শিক্ষক / অ্যাডমিন)">Login (parent / teacher / admin)</a><a href="#track" class="navstu" data-bn="আবেদনের অবস্থা দেখুন">Track application</a><a href="#" class="navstu navtheme" id="navTheme" data-bn="ডার্ক / লাইট মোড">Dark / light mode</a></nav>
   <button class="tool lang" id="langBtn" type="button" aria-label="Switch language: English / বাংলা" title="English / বাংলা"><svg class="i"><use href="#languages"/></svg><span class="lgo" data-l="en">EN</span><span class="lgsep"></span><span class="lgo" data-l="bn">বাং</span></button>
-  <a class="tool stu" href="student.html" title="Student login" aria-label="Student login"><svg class="i"><use href="#graduation-cap"/></svg></a>
+  <a class="tool login" href="#login" title="Login" aria-label="Login"><svg class="i"><use href="#log-in"/></svg><span data-bn="লগইন">Login</span></a>
   <button class="tool" id="themeBtn" type="button" aria-label="Dark mode"><svg class="i"><use href="#moon"/></svg></button>
-  <a class="btn b-gold b-sm" href="#admission" data-bn="ভর্তি হোন">Apply now</a>
+  <a class="btn b-gold b-sm happly" href="#admission" data-bn="ভর্তি হোন">Apply now</a>
   <button class="tool menu" id="menuBtn" aria-label="Menu" aria-expanded="false"><svg class="i"><use href="#menu"/></svg></button>
  </div></div>
  <div class="ticker" aria-hidden="true"><div class="track" id="ticker"></div></div>
@@ -779,6 +893,7 @@ a.tool.stu{text-decoration:none;color:inherit}
 <section class="band alt" id="courses"><div class="wrap">
  <div class="sh"><h2 data-bn="আলিফ থেকে তাফসীর, ধাপে ধাপে কুরআনের পথে">From Alif to Tafsir, one step at a time</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="যেখান থেকেই শুরু করুন, আমরা হাত ধরে এগিয়ে নেব। ফ্রি ট্রায়াল ক্লাসেই ঠিক হবে আপনার উপযুক্ত কোর্স।">Wherever you begin, we will walk beside you. The right course is chosen in your free trial class.</p></div>
  <div class="grid4" id="courseGrid"></div>
+ <p class="swipehint" id="cswipe" aria-hidden="true"></p>
  <p class="note" data-bn="ফি ও সময়সূচি জানতে WhatsApp করুন।">Message us on WhatsApp for fees and schedule.</p>
 </div></section>
 
@@ -827,6 +942,7 @@ a.tool.stu{text-decoration:none;color:inherit}
 <section class="band alt" id="admission"><div class="wrap">
  <div class="sh"><h2 data-bn="আজই শুরু হোক আপনার সন্তানের কুরআন-যাত্রা">Begin your child's Qur'an journey today</h2><div class="rule"><svg><use href="#star8"/></svg></div></div>
  <ol class="rules" id="rules"></ol>
+ <p class="trackline"><svg class="i"><use href="#search"/></svg><span data-bn="আগেই আবেদন করেছেন?">Already applied?</span> <a href="#track" data-bn="আবেদনের অবস্থা দেখুন">Check your application status</a></p>
  <div class="formbox rv" id="forms">
   <div class="tabs" role="tablist">
    <button class="tab" role="tab" data-t="trial" aria-selected="true" data-bn="ফ্রি ট্রায়াল">Free trial</button>
@@ -839,6 +955,7 @@ a.tool.stu{text-decoration:none;color:inherit}
    <div class="row"><label><span data-bn="শিক্ষার্থীর নাম">Student's name</span> <span class="req">*</span><input name="Student name" required></label><label><span data-bn="বয়স">Age</span> <span class="req">*</span><input name="Age" inputmode="numeric" required></label></div>
    <div class="row"><label><span data-bn="অভিভাবকের নাম">Guardian's name</span><input name="Guardian name"></label><label><span data-bn="বর্তমান দেশ">Country of residence</span> <span class="req">*</span><select name="Country" class="countrySel" required></select></label></div>
    <label><span data-bn="WhatsApp নম্বর">WhatsApp number</span> <span class="req">*</span><span class="hint" data-bn="কান্ট্রি কোড সহ">With country code</span><input name="WhatsApp" type="tel" inputmode="tel" required pattern="\+?[0-9 \-]{10,18}" class="phone"></label>
+   <label><span data-bn="ইমেইল (ঐচ্ছিক)">Email (optional)</span><span class="hint" data-bn="দিলে কনফার্মেশন ও আপডেট ইমেইলে পাবেন">We will send the confirmation and updates by email</span><input name="Email" type="email" inputmode="email" autocomplete="email" placeholder="name@gmail.com"></label>
    <fieldset><span class="lbl"><span data-bn="শিক্ষার্থী">Student</span> <span class="req">*</span></span><div class="radios"><label><input type="radio" name="Student type" value="Boy" required><span data-bn="ছেলে">Boy</span></label><label><input type="radio" name="Student type" value="Girl"><span data-bn="মেয়ে">Girl</span></label><label><input type="radio" name="Student type" value="Adult (male)"><span data-bn="বড় (পুরুষ)">Adult (male)</span></label><label><input type="radio" name="Student type" value="Adult (female)"><span data-bn="বড় (মহিলা)">Adult (female)</span></label></div></fieldset>
    <fieldset><span class="lbl"><span data-bn="ক্লাসের ধরন">Class type</span> <span class="req">*</span></span><div class="radios"><label><input type="radio" name="Class type" value="One-to-one" required><span data-bn="One-to-one (একক)">One-to-one</span></label><label><input type="radio" name="Class type" value="Batch"><span data-bn="ব্যাচ (ছোট গ্রুপ)">Batch (small group)</span></label></div></fieldset>
    <label class="batchpick" hidden><span data-bn="কোন ব্যাচে ভর্তি হতে চান?">Which batch would you like to join?</span><select name="Preferred batch"></select></label>
@@ -853,6 +970,7 @@ a.tool.stu{text-decoration:none;color:inherit}
    <label><span data-bn="পিতার নাম">Father's name</span> <span class="req">*</span><span class="hint" data-bn="পিতার জাতীয় পরিচয়পত্র অনুযায়ী।">As on official documents (NID/Passport).</span><input name="Father name" required></label>
    <div class="row"><label><span data-bn="জন্ম তারিখ">Date of birth</span> <span class="req">*</span><span class="hint" data-bn="ক্যালেন্ডার থেকে বেছে নিন">Pick from the calendar</span><input name="Date of birth" type="date" required></label><label><span data-bn="বর্তমান বসবাসের দেশ">Current country of residence</span> <span class="req">*</span><span class="hint" data-bn="যে দেশে এখন থাকেন">The country you live in now</span><select name="Country" class="countrySel" required></select></label></div>
    <label><span data-bn="শিক্ষার্থী/অভিভাবকের WhatsApp নম্বর">Student/Guardian WhatsApp number</span> <span class="req">*</span><span class="hint" data-bn="কান্ট্রি কোড সহ">With country code</span><input name="WhatsApp" type="tel" inputmode="tel" required pattern="\+?[0-9 \-]{10,18}" class="phone"></label>
+   <label><span data-bn="ইমেইল (ঐচ্ছিক)">Email (optional)</span><span class="hint" data-bn="দিলে কনফার্মেশন ও আপডেট ইমেইলে পাবেন">We will send the confirmation and updates by email</span><input name="Email" type="email" inputmode="email" autocomplete="email" placeholder="name@gmail.com"></label>
    <fieldset><span class="lbl"><span data-bn="ক্লাসের ধরন">Class type</span> <span class="req">*</span></span><div class="radios"><label><input type="radio" name="Class type" value="One-to-one" required><span data-bn="One-to-one (একক)">One-to-one</span></label><label><input type="radio" name="Class type" value="Batch"><span data-bn="ব্যাচ (ছোট গ্রুপ)">Batch (small group)</span></label></div></fieldset>
    <label class="batchpick" hidden><span data-bn="কোন ব্যাচে ভর্তি হতে চান?">Which batch would you like to join?</span><select name="Preferred batch"></select></label>
    <fieldset><span class="lbl"><span data-bn="কোর্স নির্বাচন">Course selection</span> <span class="req">*</span></span><div class="radios col admCourse"></div></fieldset>
@@ -875,6 +993,7 @@ a.tool.stu{text-decoration:none;color:inherit}
    <div class="row"><label><span data-bn="পূর্ণ নাম">Full name</span> <span class="req">*</span><input name="Name" required></label><label><span data-bn="পিতার নাম">Father's name</span> <span class="req">*</span><input name="Father name" required></label></div>
    <div class="row"><label><span data-bn="বর্তমান ঠিকানা">Present address</span> <span class="req">*</span><input name="Present address" required></label><label><span data-bn="স্থায়ী ঠিকানা">Permanent address</span> <span class="req">*</span><input name="Permanent address" required></label></div>
    <label><span data-bn="ফোন নম্বর (WhatsApp)">Phone number (WhatsApp)</span> <span class="req">*</span><span class="hint" data-bn="কান্ট্রি কোড সহ">With country code</span><input name="WhatsApp" type="tel" inputmode="tel" required pattern="\+?[0-9 \-]{10,18}" value="+880 "></label>
+   <label><span data-bn="ইমেইল (ঐচ্ছিক)">Email (optional)</span><span class="hint" data-bn="দিলে কনফার্মেশন ও আপডেট ইমেইলে পাবেন">We will send the confirmation and updates by email</span><input name="Email" type="email" inputmode="email" autocomplete="email" placeholder="name@gmail.com"></label>
    <fieldset><span class="lbl"><span data-bn="লিঙ্গ">Gender</span></span><div class="radios"><label><input type="radio" name="Gender" value="Male"><span data-bn="পুরুষ">Male</span></label><label><input type="radio" name="Gender" value="Female"><span data-bn="মহিলা">Female</span></label></div></fieldset>
    <fieldset><span class="lbl"><span data-bn="বৈবাহিক অবস্থা">Marital status</span> <span class="req">*</span></span><div class="radios"><label><input type="radio" name="Marital status" value="Married" required><span data-bn="বিবাহিত/বিবাহিতা">Married</span></label><label><input type="radio" name="Marital status" value="Unmarried"><span data-bn="অবিবাহিত/অবিবাহিতা">Unmarried</span></label></div></fieldset>
    <label><span data-bn="শিক্ষাগত যোগ্যতা">Educational qualification</span> <span class="req">*</span><span class="hint" data-bn="দ্বীনি শিক্ষাগত যোগ্যতা (নূরানী / হিফজ / কিরাত / দাওরা) / জেনারেল শিক্ষাগত যোগ্যতা (SSC / HSC / Honours / Masters)">Religious (Noorani / Hifz / Qirat / Dawrah) and general (SSC / HSC / Honours / Masters)</span><textarea name="Qualification" required></textarea></label>
@@ -979,18 +1098,16 @@ a.tool.stu{text-decoration:none;color:inherit}
  </div>
 </div></section>
 
-<section class="band" id="team"><div class="wrap">
+<section class="band" id="team" hidden><div class="wrap">
  <div class="sh"><h2 data-bn="যাঁদের হাতে আপনার সন্তানের কুরআন শিক্ষা">The hands that guide your child to the Qur'an</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="অভিজ্ঞ ও আন্তরিক শিক্ষক-শিক্ষিকাদের তত্ত্বাবধানে পাঠদান।">Classes are led by experienced and sincere teachers.</p></div>
  <div class="team" id="teamGrid"></div>
- <p class="note" data-bn="নমুনা কার্ড: শিক্ষকদের আসল নাম, ছবি ও পরিচয় শীঘ্রই বসানো হবে।">Sample cards: our teachers' real names, photos and details will be added soon.</p>
 </div></section>
 
 <section class="band alt" id="reviews"><div class="wrap">
  <div class="sh"><h2 data-bn="শিক্ষার্থী ও অভিভাবকদের হৃদয়ের কথা">From the hearts of our students and parents</h2><div class="rule"><svg><use href="#star8"/></svg></div><p data-bn="ছোটদের অভিভাবক আর নিজেরা কুরআন শিখছেন এমন বড় শিক্ষার্থী, সবার অভিজ্ঞতা এখানে।">Parents of our young learners and adults who are learning the Qur'an themselves share their experience here.</p></div>
  <div class="vrev"><div class="phonev sm"><video src="review1.mp4" poster="review1.jpg" controls playsinline preload="metadata"></video></div><div><span class="live" data-bn="শিক্ষার্থীর নিজের কণ্ঠে">In a student's own voice</span><h3 data-bn="আমাদের একজন প্রিয় বোনের অভিমত">A word from one of our dear sisters</h3><p data-bn="আমাদের একজন প্রিয় বোন, যিনি নিজেই Qurani Life-এ কুরআন শরীফ পড়ছেন, নিজের কণ্ঠে তাঁর অভিজ্ঞতা জানিয়েছেন। আলহামদুলিল্লাহ, আমাদের কাছে কুরআন শিখে তিনি সন্তুষ্ট। ভিডিওটি চালু করে শুনুন।">One of our dear sisters, who is herself learning the Qur'an at Qurani Life, shares her experience in her own voice. Alhamdulillah, she is happy with her Qur'an learning with us. Press play to listen.</p></div></div>
  <div class="revs" id="revGrid"></div>
- <p class="note" data-bn="নমুনা মতামত: শিক্ষার্থী ও অভিভাবকদের আসল মতামত পাওয়া মাত্র এখানে বসানো হবে।">Sample reviews: real feedback from our students and parents will replace these soon.</p>
- <div style="text-align:center;margin-top:14px"><a class="btn b-deep" href="https://wa.me/8801889012156?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20share%20my%20feedback%20about%20Qurani%20Life." data-bn="আপনার মতামত জানান">Share your feedback</a></div>
+ <div class="revacts"><button class="btn b-deep" type="button" id="writeRev"><svg class="i"><use href="#pen-line"/></svg><span data-bn="আপনার মতামত লিখুন">Write a review</span></button><a class="btn b-line" href="https://wa.me/8801889012156?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20share%20my%20feedback%20about%20Qurani%20Life." data-bn="ভয়েস / ভিডিও মতামত WhatsApp-এ পাঠান"><svg class="i"><use href="#mic"/></svg>Send a voice / video review on WhatsApp</a></div>
 </div></section>
 
 <section class="band" id="updates"><div class="wrap">
@@ -1025,14 +1142,16 @@ a.tool.stu{text-decoration:none;color:inherit}
 <footer><div class="wrap">
  <div><a class="brand" href="#home" style="color:#fff"><img src="logo.png" alt="Qurani Life Online Academy logo"><span>QURANI LIFE<br><small class="bsub">ONLINE ACADEMY</small></span></a><p style="margin-top:12px;max-width:36ch">Qur'an at Home, Imaan in Heart.<br>শুদ্ধ কোরআন, সুন্দর আদব, আলোকিত জীবন।</p></div>
  <div><h4 data-bn="দ্রুত লিংক">Quick links</h4><a href="#courses" data-bn="কোর্স">Courses</a><a href="#services" data-bn="সেবা">Services</a><a href="#admission" data-bn="ভর্তি">Admission</a><a href="#about" data-bn="আমাদের সম্পর্কে">About</a><a href="#faq" data-bn="প্রশ্নোত্তর">FAQ</a></div>
- <div><h4 data-bn="যোগাযোগ">Contact</h4><a href="https://wa.me/8801889012156">WhatsApp: +880 1889-012156</a><a href="https://wa.me/8801568065523" data-bn="পরিচালক: +880 1568-065523">Principal: +880 1568-065523</a><a href="#hadiya" data-bn="হাদিয়া প্রদান">Hadiya payment</a><a href="#teacher" data-bn="শিক্ষক নিয়োগ">Teach with us</a></div>
+ <div><h4 data-bn="যোগাযোগ">Contact</h4><a href="https://wa.me/8801889012156">WhatsApp: +880 1889-012156</a><a href="https://wa.me/8801568065523" data-bn="পরিচালক: +880 1568-065523">Principal: +880 1568-065523</a><a href="#hadiya" data-bn="হাদিয়া প্রদান">Hadiya payment</a><a href="#teacher" data-bn="শিক্ষক নিয়োগ">Teach with us</a><a href="#track" data-bn="আবেদনের অবস্থা দেখুন">Track application</a><a href="#login" data-bn="লগইন: অভিভাবক / শিক্ষক / স্টাফ">Login: parent / teacher / staff</a></div>
  <div><h4 data-bn="আমাদের সাথে থাকুন">Stay connected</h4><a href="https://www.facebook.com/quranilifeofficial">Facebook Page</a><a href="https://www.facebook.com/groups/2049154968444967">Facebook Group</a><a href="https://www.youtube.com/@quranilifeonlineacademy">YouTube</a><a href="https://www.youtube.com/@quranilifeonlineacademy/playlists" data-bn="ফ্রি ক্লাস প্লেলিস্ট">Free class playlists</a><a href="https://chat.whatsapp.com/FameXhW9YQdKW6o01FqUKS">WhatsApp Group</a></div>
 </div><div class="wrap copy"><span>© 2026 Qurani Life Online Academy</span><a href="#home" class="totop"><svg class="i"><use href="#arrow-up"/></svg><span data-bn="উপরে যান">Back to top</span></a></div></footer>
 
 <div class="fstack" aria-label="Social links"><a href="https://www.youtube.com/@quranilifeonlineacademy" style="background:#D93025" aria-label="YouTube" data-tip="YouTube · Qurani Life Online Academy"><svg class="i"><use href="#yt"/></svg></a><a href="https://www.facebook.com/groups/2049154968444967" style="background:#0A66C2" aria-label="Facebook group" data-tip="Facebook Group · Qurani Life"><svg class="i"><use href="#users-round"/></svg></a><a href="https://www.facebook.com/quranilifeofficial" style="background:#1877F2" aria-label="Facebook page" data-tip="Official Facebook Page"><svg class="i"><use href="#fb"/></svg></a></div>
+<button class="fmore" id="fmore" type="button" aria-label="More links" aria-expanded="false"><svg class="i"><use href="#ellipsis"/></svg></button>
 <a class="wa" href="https://wa.me/8801889012156" aria-label="WhatsApp" data-tip="WhatsApp · +880 1889-012156"><svg class="i"><use href="#wa"/></svg></a>
 <div class="sticky" id="sticky"><a class="btn b-gold b-sm" href="#admission" data-bn="ভর্তি হোন">Apply now</a><a class="btn b-line b-sm" href="https://wa.me/8801889012156" data-bn="WhatsApp-এ জানুন">Ask on WhatsApp</a><button class="x" id="stickyX" aria-label="Close"><svg class="i"><use href="#x"/></svg></button></div>
 <div class="modal" id="bmodal" hidden><div class="mbox cbox bbox" role="dialog" aria-labelledby="bmT"><button class="x" id="bmX" aria-label="Close"><svg class="i"><use href="#x"/></svg></button><div id="bmBody"></div></div></div>
+<div class="modal" id="gmodal" hidden><div class="mbox cbox bbox gbox" role="dialog" aria-modal="true"><button class="x" id="gmX" aria-label="Close"><svg class="i"><use href="#x"/></svg></button><div id="gmBody"></div></div></div>
 <div class="modal" id="cmodal" hidden><div class="mbox cbox" role="dialog" aria-labelledby="cmT"><button class="x" id="cmX" aria-label="Close"><svg class="i"><use href="#x"/></svg></button><div id="cmBody"></div></div></div>
 <div class="modal" id="modal" hidden><div class="mbox" role="dialog" aria-labelledby="mT"><button class="x" id="modalX" aria-label="Close"><svg class="i"><use href="#x"/></svg></button><h3 id="mT" data-bn="আপনি কোন দেশ থেকে দেখছেন?">Where are you watching from?</h3><p class="intro" data-bn="দেশ বেছে নিলে ক্লাসের সময় আপনার দেশের সময়ে দেখাবে।">Pick your country and class times will show in your local time.</p><select id="modalSel" class="countrySel" aria-label="Country"></select><button class="btn b-deep" id="modalOk" type="button">OK</button></div></div>
 
@@ -1099,7 +1218,7 @@ const REVIEWS=[
  {i:'K',n:{en:'Adult Tajweed student',bn:'তাজওয়িদ শিক্ষার্থী'},p:{en:'Chattogram',bn:'চট্টগ্রাম'},t:{en:'I had wanted to correct my recitation for years. One-to-one classes made it easy, and I learn at a pace that suits my work.',bn:'বহুদিন ধরে নিজের তিলাওয়াত শুদ্ধ করতে চাইছিলাম। One-to-one ক্লাসে খুব সহজ হয়েছে, কাজের ফাঁকে নিজের মতো করে শিখতে পারছি।'}}];
 const BANK=[[{en:'Bank name',bn:'ব্যাংকের নাম'},'Islami Bank Bangladesh PLC.'],[{en:'Account name',bn:'অ্যাকাউন্টের নাম'},'Md Asadul Islam'],[{en:'Account number',bn:'অ্যাকাউন্ট নম্বর'},'20503450202363014',1],[{en:'Branch',bn:'শাখা'},'Trishal Branch, Mymensingh-2220'],[{en:'Routing number',bn:'রাউটিং নম্বর'},'125612357',1],[{en:'District',bn:'জেলা'},'Mymensingh'],[{en:'SWIFT/BIC (from abroad)',bn:'SWIFT/BIC (বিদেশ থেকে)'},'IBBLBDDH',1]];
 let UPDATES=[{d:{en:'Sample',bn:'নমুনা'},t:{en:'Free trial class bookings are open',bn:'ফ্রি ট্রায়াল ক্লাস বুকিং চলছে'},p:{en:'Book a free trial class today.',bn:'আজই একটি ফ্রি ট্রায়াল ক্লাস বুক করুন।'},img:'update1.jpg'},{d:{en:'Sample',bn:'নমুনা'},t:{en:'Weekly Adab & Akhlaq class and seminar',bn:'সাপ্তাহিক আদব-আখলাক ক্লাস ও সেমিনার'},p:{en:'Once a week, for all students.',bn:'সপ্তাহে একদিন, সব শিক্ষার্থীর জন্য।'},img:'update2.jpg'},{d:{en:'Sample',bn:'নমুনা'},t:{en:'Admissions open for Tafsirul Qur\'an',bn:'তাফসীরুল কুরআন ক্লাসে ভর্তি চলছে'},p:{en:'Easy translation, Tafsir and life guidance.',bn:'সহজ তরজমা, তাফসীর ও জীবন নির্দেশনা।'},img:'update3.jpg'}];
-let FAQ=[[{en:'Can we take classes from abroad?',bn:'বিদেশ থেকে কি ক্লাস করা যাবে?'},{en:'Yes. Students join from any country; class time is matched to Bangladesh time.',bn:'হ্যাঁ। যেকোনো দেশ থেকে ক্লাস করা যায়, সময় বাংলাদেশ সময়ের সাথে মিলিয়ে নেওয়া হয়।'}],[{en:'How can I pay the hadiya from abroad?',bn:'বিদেশ থেকে হাদিয়া কীভাবে দেব?'},{en:'By bank transfer using SWIFT code IBBLBDDH, or through someone in Bangladesh by bKash, Nagad or Rocket. Then send a screenshot on WhatsApp.',bn:'SWIFT কোড IBBLBDDH দিয়ে ব্যাংক ট্রান্সফার করে, অথবা বাংলাদেশে থাকা কারো মাধ্যমে বিকাশ, নগদ বা রকেটে। তারপর WhatsApp-এ স্ক্রিনশট পাঠান।'}],[{en:'Is there a female teacher for girls?',bn:'মেয়েদের জন্য কি শিক্ষিকা আছেন?'},{en:'Yes. Boys and girls have separate teachers.',bn:'হ্যাঁ। ছেলে ও মেয়েদের জন্য পৃথক শিক্ষক রয়েছেন।'}],[{en:'Are the classes in groups?',bn:'ক্লাস কি দলে হয়?'},{en:'No. Every student gets a one-to-one live class.',bn:'না। প্রতিটি শিক্ষার্থীর জন্য one-to-one লাইভ ক্লাস।'}],[{en:'Can adults enroll?',bn:'বড়রা কি ভর্তি হতে পারবেন?'},{en:'Of course. Age is never a barrier to learning the Qur\'an.',bn:'অবশ্যই। কোরআন শেখার জন্য বয়স কোনো বাধা নয়।'}],[{en:'Are there any free lessons I can watch?',bn:'বিনামূল্যে দেখার মতো কোনো ক্লাস আছে কি?'},{en:'Yes. Our YouTube channel has step-by-step lessons, especially for adult learners and mothers and sisters.',bn:'হ্যাঁ। আমাদের YouTube চ্যানেলে ধাপে ধাপে ক্লাস আছে, বিশেষ করে বড়দের এবং মা-বোনদের জন্য।'}],[{en:'What is the fee?',bn:'ফি কত?'},{en:'Message us on WhatsApp for the fee details.',bn:'ফি জানতে WhatsApp করুন।'}]];
+let FAQ=[[{en:'Can we take classes from abroad?',bn:'বিদেশ থেকে কি ক্লাস করা যাবে?'},{en:'Yes. Students join from any country; class time is matched to Bangladesh time.',bn:'হ্যাঁ। যেকোনো দেশ থেকে ক্লাস করা যায়, সময় বাংলাদেশ সময়ের সাথে মিলিয়ে নেওয়া হয়।'}],[{en:'How can I pay the hadiya from abroad?',bn:'বিদেশ থেকে হাদিয়া কীভাবে দেব?'},{en:'By bank transfer using SWIFT code IBBLBDDH, or through someone in Bangladesh by bKash, Nagad or Rocket. Then send a screenshot on WhatsApp.',bn:'SWIFT কোড IBBLBDDH দিয়ে ব্যাংক ট্রান্সফার করে, অথবা বাংলাদেশে থাকা কারো মাধ্যমে বিকাশ, নগদ বা রকেটে। তারপর WhatsApp-এ স্ক্রিনশট পাঠান।'}],[{en:'Is there a female teacher for girls?',bn:'মেয়েদের জন্য কি শিক্ষিকা আছেন?'},{en:'Yes. Boys and girls have separate teachers.',bn:'হ্যাঁ। ছেলে ও মেয়েদের জন্য পৃথক শিক্ষক রয়েছেন।'}],[{en:'Are the classes in groups?',bn:'ক্লাস কি দলে হয়, নাকি একা?'},{en:'Both are available. In a one-to-one class one student learns with one teacher; in a batch, a small group of students at the same level learns together on a fixed schedule. Choose whichever suits you.',bn:'দুটোই আছে। One-to-one ক্লাসে একজন শিক্ষার্থী একজন শিক্ষকের সাথে পড়ে, আর ব্যাচে একই স্তরের কয়েকজন শিক্ষার্থী নির্দিষ্ট সময়ে একসাথে পড়ে। আপনার সুবিধামতো বেছে নিন।'}],[{en:'Can adults enroll?',bn:'বড়রা কি ভর্তি হতে পারবেন?'},{en:'Of course. Age is never a barrier to learning the Qur\'an.',bn:'অবশ্যই। কোরআন শেখার জন্য বয়স কোনো বাধা নয়।'}],[{en:'Are there any free lessons I can watch?',bn:'বিনামূল্যে দেখার মতো কোনো ক্লাস আছে কি?'},{en:'Yes. Our YouTube channel has step-by-step lessons, especially for adult learners and mothers and sisters.',bn:'হ্যাঁ। আমাদের YouTube চ্যানেলে ধাপে ধাপে ক্লাস আছে, বিশেষ করে বড়দের এবং মা-বোনদের জন্য।'}],[{en:'What is the fee?',bn:'ফি কত?'},{en:'Message us on WhatsApp for the fee details.',bn:'ফি জানতে WhatsApp করুন।'}]];
 const COUNTRIES=[['Bangladesh','বাংলাদেশ','+880','Asia/Dhaka','BD'],['Saudi Arabia','সৌদি আরব','+966','Asia/Riyadh','SA'],['United Arab Emirates','সংযুক্ত আরব আমিরাত','+971','Asia/Dubai','AE'],['Qatar','কাতার','+974','Asia/Qatar','QA'],['Kuwait','কুয়েত','+965','Asia/Kuwait','KW'],['Oman','ওমান','+968','Asia/Muscat','OM'],['Bahrain','বাহরাইন','+973','Asia/Bahrain','BH'],['Malaysia','মালয়েশিয়া','+60','Asia/Kuala_Lumpur','MY'],['Singapore','সিঙ্গাপুর','+65','Asia/Singapore','SG'],['Maldives','মালদ্বীপ','+960','Indian/Maldives','MV'],['Jordan','জর্ডান','+962','Asia/Amman','JO'],['Japan','জাপান','+81','Asia/Tokyo','JP'],['South Korea','দক্ষিণ কোরিয়া','+82','Asia/Seoul','KR'],['United Kingdom','যুক্তরাজ্য','+44','Europe/London','GB'],['Ireland','আয়ারল্যান্ড','+353','Europe/Dublin','IE'],['Italy','ইতালি','+39','Europe/Rome','IT'],['France','ফ্রান্স','+33','Europe/Paris','FR'],['Spain','স্পেন','+34','Europe/Madrid','ES'],['Portugal','পর্তুগাল','+351','Europe/Lisbon','PT'],['Germany','জার্মানি','+49','Europe/Berlin','DE'],['Greece','গ্রিস','+30','Europe/Athens','GR'],['Sweden','সুইডেন','+46','Europe/Stockholm','SE'],['United States (East)','যুক্তরাষ্ট্র (পূর্ব)','+1','America/New_York','US'],['United States (West)','যুক্তরাষ্ট্র (পশ্চিম)','+1','America/Los_Angeles','US'],['Canada (Toronto)','কানাডা (টরন্টো)','+1','America/Toronto','CA'],['Australia (Sydney)','অস্ট্রেলিয়া (সিডনি)','+61','Australia/Sydney','AU'],['New Zealand','নিউজিল্যান্ড','+64','Pacific/Auckland','NZ'],['South Africa','দক্ষিণ আফ্রিকা','+27','Africa/Johannesburg','ZA'],['Other','অন্য দেশ','+','','']];
 const cByName=n=>COUNTRIES.find(c=>c[0]===n);
 let detected='Asia/Dhaka';try{detected=Intl.DateTimeFormat().resolvedOptions().timeZone||detected}catch(e){}
@@ -1117,6 +1236,23 @@ const updTime=f=>{const t=f.querySelector('.ltime'),z=f.querySelector('.ftz'),o=
 const renderClocks=()=>{const zones=['Asia/Dhaka',...(detected!=='Asia/Dhaka'?[detected]:[]),...clockList.filter(z=>z!=='Asia/Dhaka'&&z!==detected)];const now=new Date(),bdOff=360;
  $('#clocks').innerHTML=zones.map(z=>{let t='--:--',day='';try{t=now.toLocaleTimeString('en-US',{timeZone:z,hour:'numeric',minute:'2-digit'});day=now.toLocaleDateString(LANG==='bn'?'bn-BD':'en-GB',{timeZone:z,weekday:'long'})}catch(e){}const diff=(offMin(z)-bdOff)/60;const rel=z==='Asia/Dhaka'?(LANG==='bn'?'বাংলাদেশের সময়':'Bangladesh time'):diff===0?(LANG==='bn'?'বাংলাদেশের সমান':'Same as Bangladesh'):(LANG==='bn'?`বাংলাদেশের চেয়ে ${Math.abs(diff)} ঘণ্টা ${diff<0?'পিছিয়ে':'এগিয়ে'}`:`${Math.abs(diff)} h ${diff<0?'behind':'ahead of'} Bangladesh`);const rm=clockList.includes(z)?`<button class="rm" data-rm="${esc(z)}" aria-label="Remove">${ic('x')}</button>`:'';return `<div class="clk${z==='Asia/Dhaka'?' bd':''}">${rm}<small>${esc(tzLabel(z))}${z===detected&&z!=='Asia/Dhaka'?(LANG==='bn'?' · আপনি':' · you'):''}</small><b>${esc(t)}</b><em>${esc(day)} · ${esc(rel)}</em></div>`}).join('')};
 
+let TEACHERS=[],REVS=[],REVAUTO=false;
+const FORL={boys:{en:'For boys',bn:'ছেলেদের জন্য'},girls:{en:'For girls & women',bn:'মেয়ে ও মহিলাদের জন্য'},adults:{en:'For adults',bn:'বড়দের জন্য'},all:{en:'For everyone',bn:'সবার জন্য'}};
+const GLYPH={'Noorani Qaida':'أ ب ت','Ampara':'عَمَّ','Nazera Quran':'اقْرَأْ','Tajweed':'تَجْوِيد','Hifzul Quran':'حِفْظ','Quran Recitation Correction':'تِلَاوَة','Tafsirul Quran Class':'تَفْسِير','Quran for Children':'نُور','Quran for Adults (Mothers & Sisters)':'عِلْم','Online Quran for Expatriates':'قُرْآن',_:'قُرْآن'};
+const bnNum=n=>LANG==='bn'?String(n).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]):String(n);
+const mediaUrl=(m,kind,w)=>{m=String(m||'').trim();if(!m)return '';if(/^https?:\/\//.test(m))return m;if(kind==='image')return `https://lh3.googleusercontent.com/d/${m}=w${w||1000}`;if(kind==='video')return `https://drive.google.com/file/d/${m}/preview`;return `https://drive.google.com/uc?export=download&id=${m}`};
+const embedUrl=u=>{u=String(u||'').trim();let m=u.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);if(m)return `https://www.youtube.com/embed/${m[1]}?autoplay=1&rel=0`;if(/facebook\.com|fb\.watch/.test(u))return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(u)}&show_text=false&autoplay=1`;m=u.match(/\/d\/([\w-]{20,})/);if(m)return `https://drive.google.com/file/d/${m[1]}/preview`;if(/^[\w-]{20,}$/.test(u))return `https://drive.google.com/file/d/${u}/preview`;return u};
+const revCard=r=>{const bn=LANG==='bn';const who=`<figcaption><span class="rav">${esc(String(r.name||'?').trim().slice(0,1))}</span><span><b>${esc(r.name)}</b><small>${esc([r.relation,r.course].filter(Boolean).join(' · '))}</small></span></figcaption>`;
+ const st=r.stars?`<div class="stars" aria-label="${r.stars}/5">${ic('star').repeat(r.stars)}</div>`:'';const tx=r.text?`<blockquote>${esc(r.text)}</blockquote>`:'';let media='',badge='';
+ if(r.type==='screenshot'&&r.media){badge=bn?'WhatsApp স্ক্রিনশট':'WhatsApp screenshot';media=`<button class="rshot" type="button" data-zoom="${esc(mediaUrl(r.media,'image',1600))}" aria-label="${esc(badge)}"><img src="${esc(mediaUrl(r.media,'image',700))}" alt="" loading="lazy"><span>${ic('search')}</span></button>`}
+ else if(r.type==='voice'&&(r.media||r.link)){badge=bn?'ভয়েস মতামত':'Voice review';media=`<div class="rvoice"><span class="mi">${ic('mic')}</span><audio controls preload="none" src="${esc(mediaUrl(r.media||r.link,'audio'))}"></audio></div>`}
+ else if(r.type==='video'&&(r.media||r.link)){badge=bn?'ভিডিও মতামত':'Video review';media=`<button class="rvid" type="button" data-embed="${esc(embedUrl(r.media||r.link))}">${ic('circle-play')}<span>${bn?'ভিডিও দেখুন':'Watch video'}</span></button>`}
+ else media='<svg class="i q"><use href="#quote"/></svg>';
+ return `<figure class="rv2 rv rt-${esc(r.type||'text')}">${badge?`<span class="rbadge">${esc(badge)}</span>`:''}${media}${st}${tx}${who}</figure>`};
+const THANKS={trial:{en:'Your free trial request has been received. Our representative will contact you on WhatsApp soon, in shaa Allah.',bn:'আপনার ফ্রি ট্রায়াল ক্লাসের আবেদন গ্রহণ করা হয়েছে। আমাদের প্রতিনিধি খুব শীঘ্রই WhatsApp-এ যোগাযোগ করবেন, ইনশাআল্লাহ।'},admission:{en:'Your admission application has been received. Our representative will contact you on WhatsApp soon, in shaa Allah.',bn:'আপনার ভর্তির আবেদন গ্রহণ করা হয়েছে। আমাদের প্রতিনিধি খুব শীঘ্রই WhatsApp-এ যোগাযোগ করবেন, ইনশাআল্লাহ।'},teacher:{en:'Your teacher application has been received. Our team will review it and contact you on WhatsApp, in shaa Allah.',bn:'আপনার শিক্ষক আবেদন গ্রহণ করা হয়েছে। আমাদের টিম যাচাই করে WhatsApp-এ যোগাযোগ করবে, ইনশাআল্লাহ।'}};
+const NEXT={trial:[{en:'Application received',bn:'আবেদন গ্রহণ করা হয়েছে'},{en:'Our representative contacts you on WhatsApp',bn:'প্রতিনিধি WhatsApp-এ যোগাযোগ করবেন'},{en:'Free trial class with a teacher',bn:'শিক্ষকের সাথে ফ্রি ট্রায়াল ক্লাস'},{en:'Admission, teacher and class time fixed',bn:'ভর্তি, শিক্ষক ও ক্লাসের সময় ঠিক'}],
+ admission:[{en:'Application received',bn:'আবেদন গ্রহণ করা হয়েছে'},{en:'Our representative contacts you on WhatsApp',bn:'প্রতিনিধি WhatsApp-এ যোগাযোগ করবেন'},{en:'Teacher and class time fixed',bn:'শিক্ষক ও ক্লাসের সময় ঠিক'},{en:'Pay the hadiya and regular classes begin',bn:'হাদিয়া পরিশোধ ও নিয়মিত ক্লাস শুরু'}],
+ teacher:[{en:'Application received',bn:'আবেদন গ্রহণ করা হয়েছে'},{en:'Our team reviews your details',bn:'টিম আপনার তথ্য যাচাই করবে'},{en:'If selected, we contact you on WhatsApp',bn:'নির্বাচিত হলে WhatsApp-এ যোগাযোগ'}]};
 const render=()=>{
  const tk=TICK.map(t=>`<span>${esc(L(t))}</span>`).join('');$('#ticker').innerHTML=tk+tk;
  $('#heroChips').innerHTML=COURSES.slice(0,7).map((c,k)=>`<button class="chip" type="button" data-detail="${k}"><i>${ic(c.icon)}</i>${esc(L(c.t))}</button>`).join('');
@@ -1124,7 +1260,8 @@ const render=()=>{
  $('#slides').innerHTML=SLIDES.map((s,k)=>`<div class="slide"><img src="${imgSrc(s.img)}" alt="" loading="lazy" style="object-position:${s.pos||'center'}"><div><span class="num">0${k+1} / 0${SLIDES.length}</span><h3>${esc(L(s.t))}</h3><p>${esc(L(s.p))}</p></div></div>`).join('');
  $('#dots').innerHTML=SLIDES.map((s,k)=>`<button aria-label="Slide ${k+1}" data-k="${k}"${k?'':' aria-current="true"'}></button>`).join('');
  const bn=LANG==='bn';
- $('#courseGrid').innerHTML=COURSES.map((c,i)=>`<article class="course cc2 rv" tabindex="0" data-i="${i}"><div class="chead"><span class="ic">${ic(c.icon||'book-open')}</span><span class="cn">${esc(c.n)}</span></div><span class="ctag">${esc(L(c.tag||{en:'',bn:''}))}</span><h3>${esc(L(c.t))}</h3><p>${esc(L(c.d))}</p><ul>${c.l.slice(0,3).map(x=>`<li>${esc(L(x))}</li>`).join('')}</ul><div class="acts"><button class="btn b-line b-sm" type="button" data-detail="${i}">${bn?'বিস্তারিত দেখুন':'View details'}</button><a class="btn b-deep b-sm" href="#apply" data-c="${esc(c.val)}">${bn?'ভর্তি হোন':'Enroll'}</a></div></article>`).join('')+`<article class="course week rv" tabindex="0"><div class="ph"><img src="weekly.jpg" alt="" loading="lazy"></div><span class="ic">${ic('heart-handshake')}</span><span class="ctag">${bn?'সব শিক্ষার্থীর জন্য · সপ্তাহে একদিন':'For all students · weekly'}</span><h3>${esc(L(WEEK.t))}</h3><p>${esc(L(WEEK.d))}</p><div class="acts"><a class="btn b-deep b-sm" href="#trial">${bn?'ফ্রি ট্রায়াল নিন':'Free trial'}</a></div></article>`;
+ $('#courseGrid').innerHTML=COURSES.map((c,i)=>`<article class="course cc3 rv" tabindex="0" data-i="${i}"><div class="cband"><span class="cglyph" aria-hidden="true">${esc(GLYPH[c.val]||GLYPH._)}</span><span class="clvl">${bn?'ধাপ':'Step'} ${esc(bnNum(c.n))}</span><span class="cico">${ic(c.icon||'book-open')}</span></div><div class="cbody"><span class="ctag">${esc(L(c.tag||{en:'',bn:''}))}</span><h3>${esc(L(c.t))}</h3><p>${esc(L(c.d))}</p><ul class="cl">${c.l.slice(0,3).map(x=>`<li>${ic('check')}<span>${esc(L(x))}</span></li>`).join('')}</ul><div class="acts"><button class="btn b-line b-sm" type="button" data-detail="${i}">${bn?'বিস্তারিত':'Details'}</button><a class="btn b-deep b-sm" href="#apply" data-c="${esc(c.val)}">${bn?'ভর্তি হোন':'Enroll'}</a></div></div></article>`).join('')+`<article class="course week rv" tabindex="0"><div class="ph"><img src="weekly.jpg" alt="" loading="lazy"></div><span class="ic">${ic('heart-handshake')}</span><span class="ctag">${bn?'সব শিক্ষার্থীর জন্য · সপ্তাহে একদিন':'For all students · weekly'}</span><h3>${esc(L(WEEK.t))}</h3><p>${esc(L(WEEK.d))}</p><div class="acts"><a class="btn b-deep b-sm" href="#trial">${bn?'ফ্রি ট্রায়াল নিন':'Free trial'}</a></div></article>`;
+ $('#cswipe').innerHTML=`${ic('chevron-left')}<span>${bn?'ডানে-বামে সোয়াইপ করে সব কোর্স দেখুন':'Swipe to see all courses'}</span>${ic('chevron-right')}`;
  $('#svcGrid').innerHTML=SVC.map(([i,t])=>`<div class="svc"><span class="ic">${ic(i)}</span>${esc(L(t))}</div>`).join('');
  $('#who').innerHTML=WHO.map((w,k)=>`<div tabindex="0" data-who="${k}"><span class="ic">${ic(w.i)}</span><span class="wt"><b>${esc(L(w.t))}</b><small>${esc(L(w.s))}</small><em>${bn?'বিস্তারিত দেখুন ›':'View details ›'}</em></span></div>`).join('');
  $('#slots').innerHTML=SLOTS.map(s=>`<button class="slot" type="button" data-slot="${esc(s.en)}" aria-pressed="${SLOT===s.en}">${esc(L(s))}</button>`).join('');
@@ -1132,8 +1269,8 @@ const render=()=>{
  $('#rules').innerHTML=RULES.map(r=>`<li>${esc(L(r))}</li>`).join('');
  $$('.guideList').forEach(u=>u.innerHTML=GUIDE.map(g=>u.classList.contains('checks')?`<li>${ic('check')}<span>${esc(L(g))}</span></li>`:`<li>${esc(L(g))}</li>`).join(''));
  $('#a3').innerHTML=ABOUT.map(([i,h,p])=>`<div><h3><span class="ic">${ic(i)}</span>${esc(L(h))}</h3><p>${esc(L(p))}</p></div>`).join('');
- $('#teamGrid').innerHTML=TEAM.map(m=>`<div class="tm"><span class="smp">${LANG==='bn'?'নমুনা':'Sample'}</span><div class="av"><span class="ini">${esc(L(m.i))}</span></div><h3>${esc(L(m.n))}</h3><p>${esc(L(m.r))}</p><span class="tg">${esc(L(m.g))}</span></div>`).join('');
- $('#revGrid').innerHTML=REVIEWS.map(r=>`<figure class="rv2"><span class="smp">${LANG==='bn'?'নমুনা':'Sample'}</span><svg class="i q"><use href="#quote"/></svg><div class="stars">${ic('star').repeat(5)}</div><blockquote>${esc(L(r.t))}</blockquote><figcaption><span class="rav">${esc(r.i)}</span><span><b>${esc(L(r.n))}</b><small>${esc(L(r.p))}</small></span></figcaption></figure>`).join('');
+ $('#team').hidden=!TEACHERS.length;$('#teamGrid').innerHTML=TEACHERS.map(m=>{const nm=bn?m.bn:m.en,sb=bn?m.sbn:m.sen;const ini=String(nm||'').replace(/^(hafez|hafiz|mawlana|maulana|qari|mufti|ustaz|ustazah|হাফেজ|মাওলানা|ক্বারী|মুফতি|উস্তায|উস্তাযা)\.?\s+/ig,'').trim().slice(0,1);return `<div class="tm rv">${m.photo?`<div class="av ph"><img src="${esc(mediaUrl(m.photo,'image',400))}" alt="" loading="lazy"></div>`:`<div class="av"><span class="ini">${esc(ini)}</span></div>`}<h3>${esc(nm)}</h3>${sb?`<p>${esc(sb)}</p>`:''}${m.for?`<span class="tg">${esc(FORL[m.for]?L(FORL[m.for]):m.for)}</span>`:''}</div>`}).join('');
+ $('#revGrid').innerHTML=REVS.map(revCard).join('');$('#revGrid').hidden=!REVS.length;
  $('#bankRows').innerHTML=BANK.map(([k,v,c])=>`<tr><td>${esc(L(k))}</td><td>${esc(v)}</td><td>${c?`<button class="cp" type="button" data-copy="${esc(v)}">${bn?'কপি':'Copy'}</button>`:''}</td></tr>`).join('');
  $('#board').innerHTML=UPDATES.map(u=>`<article class="course"><div class="ph"><img src="${esc(imgSrc(u.img))}" alt="" loading="lazy"></div><span style="font-size:13px;font-weight:800;color:var(--goldD)">${esc(L(u.d))}</span><h3>${esc(L(u.t))}</h3><p>${esc(L(u.p))}</p></article>`).join('');
  $('#faqList').innerHTML=FAQ.map(([q,a])=>`<details><summary>${esc(L(q))}</summary><p>${esc(L(a))}</p></details>`).join('');
@@ -1189,6 +1326,7 @@ function joinBatch(id){const b=BATCHES.find(x=>x.id===id);if(!b)return;const bn=
   <div class="row"><label><span>${bn?'শিক্ষার্থীর নাম':'Student name'}</span> <span class="req">*</span><input name="Student full name" required></label><label><span>${bn?'বয়স':'Age'}</span> <span class="req">*</span><input name="Age" inputmode="numeric" required></label></div>
   <div class="row"><label><span>${bn?'অভিভাবকের নাম':'Guardian name'}</span><input name="Guardian name"></label><label><span>${bn?'বর্তমান দেশ':'Country of residence'}</span> <span class="req">*</span><select name="Country" class="countrySel" required><option value="">${bn?'দেশ বেছে নিন':'Choose country'}</option>${opts}</select></label></div>
   <label><span>${bn?'WhatsApp নম্বর':'WhatsApp number'}</span> <span class="req">*</span><span class="hint">${bn?'কান্ট্রি কোড সহ':'With country code'}</span><input name="WhatsApp" type="tel" inputmode="tel" required pattern="\+?[0-9 \-]{10,18}" class="phone"></label>
+  <label><span>${bn?'ইমেইল (ঐচ্ছিক)':'Email (optional)'}</span><span class="hint">${bn?'দিলে কনফার্মেশন ইমেইলে পাবেন':'We will email you the confirmation'}</span><input name="Email" type="email" inputmode="email" autocomplete="email" placeholder="name@gmail.com"></label>
   <fieldset><span class="lbl"><span>${bn?'শিক্ষার্থী':'Student'}</span> <span class="req">*</span></span>${rd('Student type',[['Boy','Boy','ছেলে'],['Girl','Girl','মেয়ে'],['Adult (male)','Adult (male)','বড় (পুরুষ)'],['Adult (female)','Adult (female)','বড় (মহিলা)']])}</fieldset>
   <label><span>${bn?'কিছু জানাতে চাইলে':'Anything to tell us'}</span><span class="hint">${bn?'(ঐচ্ছিক)':'(Optional)'}</span><textarea name="Additional info" rows="2"></textarea></label>
   <p class="err" aria-live="polite"></p>
@@ -1200,16 +1338,16 @@ function joinBatch(id){const b=BATCHES.find(x=>x.id===id);if(!b)return;const bn=
   if(bad){err.textContent=bad.type==='tel'?(bn?'কান্ট্রি কোডসহ সঠিক WhatsApp নম্বর দিন।':'Please enter a valid WhatsApp number with country code.'):(bn?'তারকা (*) চিহ্নিত সব ঘর পূরণ করুন।':'Please fill in all fields marked *.');bad.focus();return}
   const P=formPairs(f);const g=k=>(P.find(x=>x[0]===k)||[])[1]||'';
   const pay=(bn?'আসসালামু আলাইকুম। আমি ব্যাচে ভর্তির আবেদন করেছি, এখন পেমেন্ট (হাদিয়া) করতে চাই।':'Assalamu Alaikum. I have applied to join a batch and would like to make the payment (hadiya).')+`\n\n${bn?'ব্যাচ':'Batch'}: ${b.name} (${b.id})\n${bn?'শিক্ষার্থী':'Student'}: ${g('Student full name')}\n${bn?'দেশ':'Country'}: ${g('Country')}\nWhatsApp: ${g('WhatsApp')}`;
-  const done=sent=>{$('#bmBody').innerHTML=`<div class="bdone"><div class="ok">${ic('check')}</div><h3 id="bmT">${bn?'জাযাকাল্লাহু খাইরান!':'Jazakallahu khairan!'}</h3>
+  const done=(sent,id,mailed)=>{if(id)store.set('ql-lastref',JSON.stringify({ref:id,phone:g('WhatsApp')}));$('#bmBody').innerHTML=`<div class="bdone"><div class="ok">${ic('check')}</div><h3 id="bmT">${bn?'জাযাকাল্লাহু খাইরান!':'Jazakallahu khairan!'}</h3>${id?`<div class="refbox"><small>${bn?'আপনার আবেদন নম্বর':'Your application number'}</small><b>${esc(id)}</b><button class="cp" type="button" data-copy="${esc(id)}">${bn?'কপি':'Copy'}</button></div>`:''}${mailed?`<p class="mailok">${ic('send')}${bn?'আপনার ইমেইলে কনফার্মেশন পাঠানো হয়েছে।':'A confirmation has been sent to your email.'}</p>`:''}
    <p>${sent?(bn?`<b>${esc(b.name)}</b> ব্যাচে আপনার আবেদন জমা হয়েছে।`:`Your application for <b>${esc(b.name)}</b> has been received.`):(bn?'নিচের বাটনে চাপ দিয়ে আবেদনটি WhatsApp-এ পাঠিয়ে দিন।':'Tap the button below to send your application on WhatsApp.')}</p>
    <div class="paynote"><b>${bn?'ভর্তি নিশ্চিত করতে পেমেন্ট করুন':'Confirm your seat with the payment'}</b><p>${bn?'ব্যাচে আসন নিশ্চিত করতে হাদিয়া (কোর্স ফি) পরিশোধ করতে হবে। নিচের বাটনে চাপ দিয়ে আমাদের অফিসিয়াল WhatsApp-এ মেসেজ দিন। আমাদের প্রতিনিধি ফি ও পেমেন্টের নিয়ম জানিয়ে দেবেন। পেমেন্টের পর স্ক্রিনশট বা ট্রানজেকশন আইডি WhatsApp-এ পাঠাবেন।':'Your seat is confirmed once the hadiya (course fee) is paid. Tap the button below to message our official WhatsApp. Our representative will tell you the fee and how to pay. After paying, please send the screenshot or transaction ID on WhatsApp.'}</p><p class="sm">${bn?'পেমেন্ট শুধু অফিসিয়াল নম্বর +8801889012156-এর মাধ্যমে করুন।':'Pay only through our official number +8801889012156.'}</p></div>
-   <a class="btn b-deep" href="https://wa.me/${WA}?text=${encodeURIComponent(pay)}" target="_blank" rel="noopener">${ic('wa')}${bn?'পেমেন্টের জন্য WhatsApp-এ মেসেজ দিন':'Message on WhatsApp to pay'}</a>
+   <a class="btn b-deep" href="https://wa.me/${WA}?text=${encodeURIComponent((id?(bn?'আবেদন নম্বর: ':'Application no: ')+id+'\n':'')+pay)}" target="_blank" rel="noopener">${ic('wa')}${bn?'পেমেন্টের জন্য WhatsApp-এ মেসেজ দিন':'Message on WhatsApp to pay'}</a>
    ${b.wa?`<a class="btn b-line" href="${esc(b.wa)}" target="_blank" rel="noopener">${bn?'ব্যাচের WhatsApp গ্রুপে যুক্ত হন':'Join the batch WhatsApp group'}</a>`:''}
    <a class="btn b-line" href="#hadiya" data-go="1">${bn?'হাদিয়া পরিশোধের মাধ্যম দেখুন':'See payment methods'}</a></div>`};
   if(!API){done(false);return}
   const btn=f.querySelector('button[type=submit]');btn.disabled=true;err.textContent=bn?'জমা হচ্ছে...':'Submitting...';
   const body=new URLSearchParams();for(const [k,v] of P)body.append(k,v);body.append('form','admission');body.append('Language',LANG);body.append('Sent via','Website (batch)');
-  fetch(API,{method:'POST',mode:'no-cors',body}).then(()=>done(true)).catch(()=>done(false))});
+  fetch(API,{method:'POST',body}).then(r=>r.json()).then(j=>done(true,j&&j.id,j&&j.mailed)).catch(()=>done(false))});
  setTimeout(()=>{const x=f.querySelector('input[name="Student full name"]');if(x)x.focus()},60)}
 $('#bmX').addEventListener('click',closeB);bm.addEventListener('click',e=>{if(e.target===bm)closeB()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!bm.hidden)closeB()});
@@ -1257,6 +1395,66 @@ $$('.tab').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.t)));
 const route=()=>{const h=location.hash.slice(1);const m={trial:'trial',apply:'admission',teacher:'teacher'}[h];if(m){showTab(m);$('#forms').scrollIntoView({behavior:'smooth',block:'start'})}};
 addEventListener('hashchange',route);
 
+/* login, track, reviews (generic modal) */
+const gm=$('#gmodal');const closeG=()=>{gm.hidden=true;$('#gmBody').innerHTML='';document.body.classList.remove('mopen')};
+const openG=(html,cls='')=>{$('#gmBody').innerHTML=html;gm.querySelector('.gbox').className='mbox cbox bbox gbox '+cls;gm.hidden=false;document.body.classList.add('mopen');setTimeout(()=>{const x=gm.querySelector('input:not([type=hidden]):not([type=radio]),a.lrole');(x||$('#gmX')).focus({preventScroll:true})},60)};
+$('#gmX').addEventListener('click',closeG);gm.addEventListener('click',e=>{if(e.target===gm)closeG()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!gm.hidden)closeG()});
+function openLogin(){const bn=LANG==='bn';const st=!!store.get('qlStuTok'),sf=!!store.get('qlTok');
+ const R=(href,cls,icn,t,d,on)=>`<a class="lrole ${cls}" href="${href}"><span class="li">${ic(icn)}</span><span class="lt"><b>${t}${on?`<em class="on">${bn?'লগইন করা আছে':'Signed in'}</em>`:''}</b><small>${d}</small></span>${ic('chevron-right','i go')}</a>`;
+ openG(`<span class="mkick">${ic('lock')}${bn?'নিরাপদ লগইন':'Secure sign in'}</span><h3>${bn?'আপনি কে?':'Who are you?'}</h3><p class="ld">${bn?'নিচ থেকে আপনার জন্য সঠিক অপশনটি বেছে নিন।':'Choose the option that is right for you.'}</p><div class="lgrid">
+ ${R('student.html','r1','users-round',bn?'অভিভাবক / শিক্ষার্থী':'Parent / student',bn?'প্রতিদিনের পড়া, উপস্থিতি, অগ্রগতি ও হাদিয়া দেখুন':'Daily lessons, attendance, progress and hadiya',st)}
+ ${R('admin.html','r2','book-open-check',bn?'শিক্ষক':'Teacher',bn?'আপনার ক্লাস ও শিক্ষার্থী, পড়ার আপডেট দিন':'Your classes and students, add lesson updates',sf)}
+ ${R('admin.html','r3','shield-check',bn?'অ্যাডমিন / স্টাফ':'Admin / staff',bn?'একাডেমি পরিচালনার ড্যাশবোর্ড':'The dashboard to run the academy',sf)}
+ </div><a class="ltrack" href="#track">${ic('search')}<span>${bn?'শুধু আবেদনের অবস্থা দেখতে চান? এখানে চাপুন':'Only want to check an application? Tap here'}</span></a><p class="lfoot">${bn?'লগইন আইডি ও পাসওয়ার্ড একাডেমি থেকে দেওয়া হয়। ভুলে গেলে WhatsApp করুন: ':'Your login ID and password come from the academy. Forgot them? WhatsApp '}<a href="https://wa.me/8801889012156">+880 1889-012156</a></p>`,'lbox')}
+function trackView(j,r){const bn=LANG==='bn';const S=j.status;const lvl={'নতুন':1,'যোগাযোগ করা হয়েছে':2,'ক্লাস নির্ধারিত':3,'ভর্তি হয়েছে':4}[S]||1;
+ const td=j.trialDate?` · ${bDate(j.trialDate)}${j.trialTime?', '+bTime({start:j.trialTime},'Asia/Dhaka')+(bn?' (বাংলাদেশ সময়)':' (Bangladesh time)'):''}`:'';
+ const steps=j.form==='teacher'?[[bn?'আবেদন গ্রহণ করা হয়েছে':'Application received',1],[bn?'টিম যোগাযোগ করেছে':'Our team contacted you',2],[bn?'সাক্ষাৎকার / ডেমো নির্ধারিত':'Interview / demo scheduled',3],[bn?'নির্বাচিত':'Selected',4]]
+  :[[bn?'আবেদন গ্রহণ করা হয়েছে':'Application received',1],[bn?'প্রতিনিধি যোগাযোগ করেছেন':'Our representative contacted you',2],[(bn?'ক্লাস নির্ধারিত':'Class scheduled')+td,3],[bn?'ভর্তি নিশ্চিত':'Admission confirmed',4],[(bn?'শিক্ষক নির্ধারিত':'Teacher assigned')+(j.teacher?': '+j.teacher:''),j.teacher?4:9]];
+ const dn=x=>x[1]<=lvl&&x[1]!==9;const cur=steps.findIndex(x=>!dn(x));
+ return `<div class="trk">${j.name?`<p class="hi">${bn?'আসসালামু আলাইকুম':'Assalamu Alaikum'}, <b>${esc(j.name)}</b></p>`:''}
+ ${S==='বাতিল'?`<p class="tcan">${bn?'এই আবেদনটি বন্ধ করা হয়েছে। বিস্তারিত জানতে WhatsApp করুন।':'This application has been closed. Please WhatsApp us for details.'}</p>`:`<ol class="tline">${steps.map((x,i)=>`<li class="${dn(x)?'dn':''}${i===cur?' cu':''}"><span>${dn(x)?ic('check'):i+1}</span><b>${esc(x[0])}</b>${i===cur?`<em>${bn?'এখন এই ধাপে':'Current step'}</em>`:''}</li>`).join('')}</ol>`}
+ ${j.sched?`<p class="sm"><b>${bn?'ক্লাসের সময়':'Class time'}:</b> ${esc(j.sched)}</p>`:''}
+ <div class="dacts">${j.studentId?`<a class="btn b-deep" href="student.html">${ic('users-round')}${bn?'অভিভাবক পোর্টালে যান':'Go to the parent portal'}</a>`:''}<a class="btn b-line" href="https://wa.me/8801889012156?text=${encodeURIComponent((bn?'আসসালামু আলাইকুম, আমার আবেদন নম্বর ':'Assalamu Alaikum, my application number is ')+r)}">${ic('wa')}${bn?'WhatsApp-এ জিজ্ঞেস করুন':'Ask on WhatsApp'}</a></div></div>`}
+function openTrack(pre={}){const bn=LANG==='bn';let last={};try{last=JSON.parse(store.get('ql-lastref')||'{}')}catch(e){}const ref=last.ref||'',ph=last.phone||'';
+ openG(`<span class="mkick">${ic('search')}${bn?'আবেদন ট্র্যাকার':'Application tracker'}</span><h3>${bn?'আবেদনের অবস্থা দেখুন':'Track your application'}</h3><p class="ld">${bn?'আবেদন জমার পর যে নম্বর পেয়েছেন (যেমন T-0012) আর যে WhatsApp নম্বর দিয়েছিলেন, তা লিখুন।':'Enter the number you got after applying (e.g. T-0012) and the WhatsApp number you used.'}</p>
+ <form class="bform" id="trkF" novalidate><div class="row"><label><span>${bn?'আবেদন নম্বর':'Application number'}</span><input name="ref" required value="${esc(ref)}" placeholder="T-0012" autocapitalize="characters" autocomplete="off"></label><label><span>${bn?'WhatsApp নম্বর':'WhatsApp number'}</span><input name="phone" type="tel" inputmode="tel" required value="${esc(ph)}" placeholder="+880 17..."></label></div><p class="err" aria-live="polite"></p><button class="btn b-deep" type="submit">${ic('search')}${bn?'অবস্থা দেখুন':'Check status'}</button></form><div id="trkR" aria-live="polite"></div>`,'tbox');
+ const f=$('#trkF');f.addEventListener('submit',async e=>{e.preventDefault();const err=f.querySelector('.err');const r=f.ref.value.trim().toUpperCase().replace(/\s/g,'').replace(/^([TAJ])-?(\d+)$/,'$1-$2');
+  if(!/^[TAJ]-\d{1,6}$/.test(r)||String(f.phone.value).replace(/\D/g,'').length<6){err.textContent=bn?'সঠিক আবেদন নম্বর (যেমন T-0012) ও WhatsApp নম্বর দিন।':'Please enter a valid application number (e.g. T-0012) and WhatsApp number.';return}
+  if(!API){err.textContent=bn?'এই মুহূর্তে দেখা যাচ্ছে না, WhatsApp করুন।':'Not available right now, please WhatsApp us.';return}
+  const btn=f.querySelector('button');btn.disabled=true;err.textContent=bn?'খোঁজা হচ্ছে...':'Checking...';$('#trkR').innerHTML='';
+  try{const j=await fetch(API,{method:'POST',body:new URLSearchParams({action:'track',ref:r,phone:f.phone.value})}).then(x=>x.json());btn.disabled=false;
+   if(!j.ok){err.textContent=j.error==='locked'?(bn?'অনেকবার চেষ্টা হয়েছে, ১৫ মিনিট পর আবার চেষ্টা করুন।':'Too many tries, please try again in 15 minutes.'):(bn?'এই আবেদন নম্বর ও WhatsApp নম্বর মিলিয়ে কোনো আবেদন পাওয়া যায়নি।':'No application found with this number and WhatsApp.');return}
+   err.textContent='';store.set('ql-lastref',JSON.stringify({ref:r,phone:f.phone.value}));$('#trkR').innerHTML=trackView(j,r)}catch(x){btn.disabled=false;err.textContent=bn?'সংযোগে সমস্যা, আবার চেষ্টা করুন।':'Connection problem, please try again.'}});
+ if(pre.auto&&ref&&ph)f.requestSubmit()}
+function openReview(){const bn=LANG==='bn';
+ openG(`<span class="mkick">${ic('star')}${bn?'আপনার অভিজ্ঞতা':'Your experience'}</span><h3>${bn?'আপনার মতামত লিখুন':'Write a review'}</h3><p class="ld">${bn?'আপনার অভিজ্ঞতা অন্য অভিভাবকদের সিদ্ধান্ত নিতে সাহায্য করবে।':'Your experience helps other parents decide.'}</p>
+ <form class="bform" id="revF" novalidate>
+ <fieldset class="starpick"><span class="lbl">${bn?'কত তারকা দেবেন?':'Your rating'}</span><div>${[5,4,3,2,1].map(n=>`<input type="radio" name="stars" id="st${n}" value="${n}"${n===5?' checked':''}><label for="st${n}" title="${n}/5">${ic('star')}</label>`).join('')}</div></fieldset>
+ <div class="row"><label><span>${bn?'আপনার নাম':'Your name'}</span> <span class="req">*</span><input name="name" required minlength="2" maxlength="60"></label><label><span>${bn?'আপনি':'You are'}</span><select name="relation">${(bn?['অভিভাবক','শিক্ষার্থী','প্রবাসী অভিভাবক']:['Parent','Student','Parent abroad']).map(x=>`<option>${x}</option>`).join('')}</select></label></div>
+ <label><span>${bn?'কোর্স (ঐচ্ছিক)':'Course (optional)'}</span><select name="course"><option value="">${bn?'বেছে নিন':'Choose'}</option>${COURSES.map(c=>`<option>${esc(L(c.t))}</option>`).join('')}</select></label>
+ <label><span>${bn?'আপনার মতামত':'Your review'}</span> <span class="req">*</span><textarea name="text" rows="4" required minlength="10" maxlength="1200" placeholder="${bn?'যেমন: আমার ছেলে এখন সুন্দর করে কুরআন পড়তে পারে...':'e.g. My son now reads the Qur\'an beautifully...'}"></textarea></label>
+ <label><span>${bn?'ইমেইল (ঐচ্ছিক, প্রকাশ হবে না)':'Email (optional, not shown)'}</span><input name="email" type="email" inputmode="email"></label>
+ <p class="err" aria-live="polite"></p><button class="btn b-deep" type="submit">${ic('send')}${bn?'মতামত পাঠান':'Send review'}</button>
+ <p class="sm">${REVAUTO?'':(bn?'মতামতটি যাচাইয়ের পর ওয়েবসাইটে প্রকাশ করা হবে। ':'Reviews appear on the website after a quick check. ')}${bn?'ভয়েস বা ভিডিও মতামত দিতে চাইলে ':'For a voice or video review, '}<a href="https://wa.me/8801889012156">${bn?'WhatsApp-এ পাঠান':'send it on WhatsApp'}</a></p></form>`,'rbox');
+ const f=$('#revF');f.addEventListener('submit',async e=>{e.preventDefault();const err=f.querySelector('.err');const bad=formBad(f);if(bad){err.textContent=bn?'নাম ও মতামত লিখুন (মতামত কমপক্ষে ১০ অক্ষর)।':'Please write your name and review (at least 10 characters).';bad.focus();return}
+  if(!API){err.textContent=bn?'এই মুহূর্তে পাঠানো যাচ্ছে না, WhatsApp-এ পাঠান।':'Not available right now, please send it on WhatsApp.';return}
+  const btn=f.querySelector('button[type=submit]');btn.disabled=true;err.textContent=bn?'পাঠানো হচ্ছে...':'Sending...';
+  try{const j=await fetch(API,{method:'POST',body:new URLSearchParams({action:'reviewSubmit',...Object.fromEntries(new FormData(f))})}).then(x=>x.json());if(!j.ok)throw 0;
+   $('#gmBody').innerHTML=`<div class="bdone"><div class="ok">${ic('check')}</div><h3>${bn?'জাযাকাল্লাহু খাইরান!':'Jazakallahu khairan!'}</h3><p>${j.published?(bn?'আপনার মতামত ওয়েবসাইটে প্রকাশিত হয়েছে।':'Your review is now on the website.'):(bn?'আপনার মতামত পেয়েছি। যাচাইয়ের পর ওয়েবসাইটে প্রকাশ করা হবে, ইনশাআল্লাহ।':'We received your review. It will appear on the website after a quick check, in shaa Allah.')}</p></div>`;
+   if(j.published)fetch(API).then(r=>r.json()).then(fromSheet).catch(()=>{})}
+  catch(x){btn.disabled=false;err.textContent=bn?'পাঠানো যায়নি, আবার চেষ্টা করুন বা WhatsApp-এ পাঠান।':'Could not send. Please try again or send it on WhatsApp.'}})}
+document.addEventListener('click',e=>{
+ if(e.target.closest('#navTheme')){e.preventDefault();$('#themeBtn').click();return}
+ if(e.target.closest('a[href="#login"]')){e.preventDefault();openLogin();return}
+ if(e.target.closest('a[href="#track"]')){e.preventDefault();openTrack({auto:1});return}
+ const z=e.target.closest('[data-zoom]');if(z){openG(`<img class="zimg" src="${esc(z.dataset.zoom)}" alt="">`,'zbox');return}
+ const v=e.target.closest('.rvid');if(v){const u=v.dataset.embed;v.outerHTML=`<div class="rframe${/youtube/.test(u)?' wide':''}"><iframe src="${esc(u)}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;return}
+ if(e.target.closest('#writeRev')){openReview();return}
+ const fm=e.target.closest('#fmore');if(fm){const o=$('.fstack').classList.toggle('open');fm.setAttribute('aria-expanded',o);fm.innerHTML=ic(o?'x':'ellipsis');return}
+ if(!e.target.closest('.fstack,#fmore')&&$('.fstack').classList.contains('open')){$('.fstack').classList.remove('open');$('#fmore').innerHTML=ic('ellipsis');$('#fmore').setAttribute('aria-expanded',false)}
+});
+setTimeout(()=>{if(location.hash==='#login')openLogin();if(location.hash==='#track')openTrack({auto:1})},400);
 /* submit */
 function formPairs(f){const m=new Map();for(const [k,v] of new FormData(f)){if(!String(v).trim())continue;m.set(k,m.has(k)?m.get(k)+', '+v:v)}return [...m]}
 function formBad(f){const b=[...f.elements].find(el=>el.willValidate&&!el.checkValidity());if(b)return b;for(const g of f.querySelectorAll('fieldset[data-req1]')){if(g.closest('[hidden]'))continue;if(!g.querySelector('input:checked'))return g.querySelector('input')}return null}
@@ -1268,17 +1466,31 @@ $$('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{
  err.textContent='';
  const lines=formPairs(f).map(([k,v])=>`${k}: ${v}`);
  const msg=`${f.dataset.title}\n\n${lines.join('\n')}`;const btn=f.querySelector('button[type=submit]');
- const show=sent=>{f.hidden=true;done.hidden=false;done.innerHTML=`<div class="ok">${ic('check')}</div><h3>${bn?'জাযাকাল্লাহু খাইরান!':'Jazakallahu khairan!'}</h3><p class="intro">${sent?(bn?'আপনার ফরম জমা হয়েছে। আমাদের প্রতিনিধি শীঘ্রই যোগাযোগ করবেন, ইংশা আল্লাহ।':'Your form has been submitted. Our representative will contact you soon, in shaa Allah.'):(bn?'নিচের বাটনে চাপ দিয়ে তথ্যটা WhatsApp-এ পাঠিয়ে দিন।':'Tap the button below to send your details on WhatsApp.')}</p><pre></pre><a class="btn b-deep" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}">${ic('wa')}${bn?'WhatsApp-এ পাঠান':'Send on WhatsApp'}</a>${(()=>{const pb=f.querySelector('select[name="Preferred batch"]');const ct=f.querySelector('input[name="Class type"]:checked');const bb=pb&&ct&&ct.value==='Batch'?BATCHES.find(x=>x.id===String(pb.value).split(' · ')[0]):null;return bb&&bb.wa?`<a class="btn b-line" href="${esc(bb.wa)}" target="_blank" rel="noopener">${bn?'ব্যাচের WhatsApp গ্রুপে যুক্ত হন':'Join the batch WhatsApp group'}</a>`:''})()}<a class="btn b-line" href="https://chat.whatsapp.com/FameXhW9YQdKW6o01FqUKS">${bn?'WhatsApp Group-এ যুক্ত হন':'Join our WhatsApp Group'}</a><button class="btn b-line" type="button" id="again">${bn?'আবার পূরণ করুন':'Fill again'}</button>`;done.querySelector('pre').textContent=msg;done.querySelector('#again').addEventListener('click',()=>{f.reset();btn.disabled=false;showTab(f.dataset.form);updTime(f)})};
+ const show=(sent,id,mailed)=>{f.hidden=true;done.hidden=false;const fm=f.dataset.form;const wmsg=(id?(bn?'আবেদন নম্বর: ':'Application no: ')+id+'\n':'')+msg;
+  if(id)store.set('ql-lastref',JSON.stringify({ref:id,phone:(f.querySelector('[name=WhatsApp]')||{}).value||''}));
+  const steps=NEXT[fm]||NEXT.trial;
+  done.innerHTML=`<div class="ok">${ic('check')}</div><h3>${bn?'জাযাকাল্লাহু খাইরান!':'Jazakallahu khairan!'}</h3><p class="intro">${sent?esc(L(THANKS[fm]||THANKS.trial)):(bn?'নিচের বাটনে চাপ দিয়ে তথ্যটা WhatsApp-এ পাঠিয়ে দিন।':'Tap the button below to send your details on WhatsApp.')}</p>
+  ${id?`<div class="refbox"><small>${bn?'আপনার আবেদন নম্বর':'Your application number'}</small><b>${esc(id)}</b><button class="cp" type="button" data-copy="${esc(id)}">${bn?'কপি':'Copy'}</button></div><p class="sm">${bn?'নম্বরটি লিখে রাখুন। এটি দিয়ে যেকোনো সময় আবেদনের অবস্থা দেখতে পারবেন।':'Keep this number. You can use it to check your application status any time.'}</p>`:''}
+  ${mailed?`<p class="mailok">${ic('send')}${bn?'আপনার ইমেইলে কনফার্মেশন পাঠানো হয়েছে।':'A confirmation has been sent to your email.'}</p>`:''}
+  ${sent?`<div class="nexts"><b>${bn?'এরপর কী হবে':'What happens next'}</b><ol class="tline">${steps.map((x,k)=>`<li class="${k?'':'dn'}${k===1?' cu':''}"><span>${k?k+1:ic('check')}</span><b>${esc(L(x))}</b></li>`).join('')}</ol></div>`:''}
+  <div class="dacts"><a class="btn b-deep" href="https://wa.me/${WA}?text=${encodeURIComponent(wmsg)}">${ic('wa')}${sent?(bn?'WhatsApp-এ জানিয়ে দিন':'Let us know on WhatsApp'):(bn?'WhatsApp-এ পাঠান':'Send on WhatsApp')}</a>
+  ${id?`<a class="btn b-line" href="#track">${ic('search')}${bn?'আবেদনের অবস্থা দেখুন':'Track application'}</a>`:''}
+  ${(()=>{const pb=f.querySelector('select[name="Preferred batch"]');const ct=f.querySelector('input[name="Class type"]:checked');const bb=pb&&ct&&ct.value==='Batch'?BATCHES.find(x=>x.id===String(pb.value).split(' · ')[0]):null;return bb&&bb.wa?`<a class="btn b-line" href="${esc(bb.wa)}" target="_blank" rel="noopener">${bn?'ব্যাচের WhatsApp গ্রুপে যুক্ত হন':'Join the batch WhatsApp group'}</a>`:''})()}
+  ${fm!=='teacher'?`<a class="btn b-line" href="https://chat.whatsapp.com/FameXhW9YQdKW6o01FqUKS">${bn?'WhatsApp Group-এ যুক্ত হন':'Join our WhatsApp Group'}</a>`:''}
+  <button class="btn b-line" type="button" id="again">${bn?'আবার পূরণ করুন':'Fill again'}</button></div>
+  <details class="sent"><summary>${bn?'যে তথ্য পাঠিয়েছেন':'What you sent'}</summary><pre></pre></details>`;
+  done.querySelector('pre').textContent=msg;done.querySelector('#again').addEventListener('click',()=>{f.reset();btn.disabled=false;showTab(f.dataset.form);updTime(f)});done.scrollIntoView({behavior:'smooth',block:'start'})};
  if(!API){show(false);return}
  btn.disabled=true;err.textContent=bn?'জমা হচ্ছে...':'Submitting...';
  const body=new URLSearchParams();for(const [k,v] of formPairs(f))body.append(k,v);body.append('form',f.dataset.form);body.append('Language',LANG);
- fetch(API,{method:'POST',mode:'no-cors',body}).then(()=>{err.textContent='';show(true)}).catch(()=>{err.textContent='';show(false)});
+ fetch(API,{method:'POST',body}).then(r=>r.json()).then(j=>{err.textContent='';show(true,j&&j.id,j&&j.mailed)}).catch(()=>{err.textContent='';show(false)});
 }));
 
 /* sheet content */
 const fromSheet=d=>{const two=(o,k)=>({en:o[k+' (English)']||'',bn:o[k+' (Bangla)']||o[k+' (English)']||''});
  if(d.courses&&d.courses.length)COURSES=d.courses.map((o,i)=>{const pe=String(o['Points (English)']||'').split(',').map(x=>x.trim()).filter(Boolean),pb=String(o['Points (Bangla)']||'').split(',').map(x=>x.trim()).filter(Boolean);return{n:o.Step||String(i+1),val:o['Form value']||o['Title (English)'],icon:['book-open','book-open-check','scroll-text'][i%3],t:two(o,'Title'),d:two(o,'Description'),l:pe.map((x,j)=>({en:x,bn:pb[j]||x})),img:o.Image}});
  if(d.batches)BATCHES=d.batches;fillBatchSel();
+ if(d.reviews)REVS=d.reviews;if(d.teachers)TEACHERS=d.teachers;REVAUTO=!!d.reviewAuto;
  if(d.ticker&&d.ticker.length)TICK=d.ticker.map(t=>({en:t.en||t.bn,bn:t.bn||t.en}));
  if(d.updates&&d.updates.length)UPDATES=d.updates.map(o=>({d:{en:o.Date||'',bn:o.Date||''},t:two(o,'Title'),p:two(o,'Text'),img:o.Image}));
  if(d.faq&&d.faq.length)FAQ=d.faq.map(o=>[two(o,'Question'),two(o,'Answer')]);render();io()};
@@ -1286,8 +1498,8 @@ if(API)fetch(API).then(r=>r.json()).then(fromSheet).catch(()=>{});
 
 /* menu, sticky, modal, reveal */
 const mb=$('#menuBtn'),nv=$('#nav');mb.addEventListener('click',()=>{const o=nv.classList.toggle('open');mb.setAttribute('aria-expanded',o)});nv.addEventListener('click',e=>{if(e.target.tagName==='A'){nv.classList.remove('open');mb.setAttribute('aria-expanded',false)}});
-$('#stickyX').addEventListener('click',()=>{$('#sticky').hidden=true;$('.wa').style.bottom='16px';store.set('ql-sticky','0')});
-if(store.get('ql-sticky')==='0'){$('#sticky').hidden=true;$('.wa').style.bottom='16px'}
+$('#stickyX').addEventListener('click',()=>{$('#sticky').hidden=true;document.documentElement.classList.add('nosticky');store.set('ql-sticky','0')});
+if(store.get('ql-sticky')==='0'){$('#sticky').hidden=true;document.documentElement.classList.add('nosticky')}
 const modal=$('#modal');const closeM=()=>{modal.hidden=true;store.set('ql-country','skip')};
 $('#modalX').addEventListener('click',closeM);modal.addEventListener('click',e=>{if(e.target===modal)closeM()});
 $('#modalOk').addEventListener('click',()=>{const n=$('#modalSel').value;if(n){store.set('ql-country',n);const c=cByName(n);if(c&&c[3]&&c[3]!==detected&&c[3]!=='Asia/Dhaka'&&!clockList.includes(c[3])){clockList.unshift(c[3]);store.set('ql-clocks',clockList.join('|'))}$$('form[data-form] .countrySel').forEach(s=>{s.value=n;applyCountry(s.form,n)});renderClocks()}modal.hidden=true});
